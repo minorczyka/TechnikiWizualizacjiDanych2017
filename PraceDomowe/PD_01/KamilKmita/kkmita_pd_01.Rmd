@@ -1,0 +1,125 @@
+---
+title: "Praca Domowa 01"
+author: "Kamil Kmita"
+date: "7 października 2017"
+output: html_document
+---
+
+#Artykuł
+
+Artykuł, do którego przygotowałem wizualizacje, to komentarz Marcina Wrońskiego dotyczący optymistycznych głosów łączących wzrost gospodarczy w Unii Europejskiej z poprawą sytuacji ekonomicznej obywateli EU (http://krytykapolityczna.pl/gospodarka/europa-potrzebuje-podwyzki/). Autor pozostaje sceptyczny wobec takiego twierdzenia i punktuje w artykule różne symptomy tego, że wzrost PKB nie przekłada się na wzrost dobrobytu obywateli.
+
+Wroński nie przedstawia żadnych grafik, wobec tego postanowiłem zwizualizować poniższy fragment artykułu dotyczący relacji pomiędzy wzrostem PKB oraz płac realnych w ujęciu realnym. 
+
+
+_Od 2013 roku faktycznie możemy mówić o wzroście PKB Unii Europejskiej, a od 2014 roku o wzroście PKB strefy euro. Jego tempo pozostawia jednak wiele do życzenia. Dopiero w 2015 roku realna wartość PKB strefy euro odzyskała poziom sprzed kryzysu. Produkt Krajowy Brutto Portugalii, Finlandii, Włoch i Grecji wciąż jest poniżej stanu sprzed kryzysu. Teoretycznie w roku 2016 PKB po raz pierwszy wzrosło we wszystkich krajach Unii Europejskiej, jednakże w przypadku Grecji z dynamiką wynoszącą… 0,00%, trafniej byłoby raczej mówić, że po prostu nie spadło kolejny rok z rzędu._
+
+_Rachityczny wzrost europejskiego PKB nie przekłada się na wzrost płac realnych. W dziesięciu państwach Unii Europejskiej realna wartość wynagrodzeń wciąż jest niższa niż w roku 2009. Najwyraźniejsze różnice są w Grecji (spadek o 23%), na Cyprze (spadek o 13%), w Portugalii (-8,6%), Chorwacji (-5,8%) i Hiszpanii (-5,5%). Pozostałe państwa, w których zarabia się mniej niż dekadę temu, to: Austria, Finlandia, Belgia, Wielka Brytania i Włochy._
+
+#Źródło danych
+
+Informacje o płacach pobrałem z tabeli [Gross Average Monthly Wages by Country and Year](http://w3.unece.org/PXWeb2015/pxweb/en/STAT/STAT__20-ME__3-MELF/60_en_MECCWagesY_r.px/?rxid=b5436f97-1001-4287-896f-f10ed2d4970a) ze strony UNECE -stamtąd ściągnąłem także indeksator inflacji [Price Indices](http://w3.unece.org/PXWeb2015/pxweb/en/STAT/STAT__20-ME__4-MEPI/0_en_MECCPriceInterestY_r.px/?rxid=fca01382-d0a8-465f-932f-f65345bd058a).
+
+Informacje o PKB w ujęciu nominalnym uzyskałem ze strony Eurostat - aby dysponować danymi w ujęciu realnym, użyłem przeważyłem dane indeksatorem inflacji z UNECE.
+
+Ponadto, użyłem danych o odsetku osób pracujących, ale pozostających w zagrożeniu ubóstwem (at-risk-of-poverty). Są to dane Eurostatu, a osoba zagrożona ubóstwem to taka, której zarobki nie przekraczają 60% mediany zarobków w danym kraju. Pogrupowałem państwa według kwartyli na 4 grupy 'workpoverty'.
+
+#Wizualizacje
+
+**Wroński w artykule mówi o relacjach rozważanych wielkości pomiędzy rokiem 2009 oraz 2016, wobec tego poniższe wizualizacje pokazują procentową zmianę PKB oraz przeciętnych płac w ujęciu realnym pomiędzy rokiem 2009 oraz 2016.**
+
+
+##PKB ~ płace
+```{r, echo=F, message=FALSE}
+library("ggplot2")
+library("ggrepel")
+library(dplyr)
+
+europe <- read.csv(file = "https://raw.githubusercontent.com/kkmita/WizualizacjaDanych/master/PD_01/europe.csv",
+                      header=TRUE, sep=",", stringsAsFactors = FALSE)
+
+europe$cat_pov <- factor(europe$cat_pov, levels = c("najlepiej", "dobrze",
+                                                    "gorzej", "najgorzej"))
+europe$cat_geo <- as.factor(europe$cat_geo)
+attach(europe)
+```
+
+Poniższy wykres pokazuje, że możemy podejrzewać istnienie liniowej zależności między przyrostem PKB w ujęciu realnym a przyrostem płac. Teza autora o tym, że _Rachityczny wzrost europejskiego PKB nie przekłada się na wzrost płac realnych_ zdaje się nie mieć potwierdzenia w danych. Te państwa, w których -przeciętnie- zarabia się mniej niż przed kryzysem gospodarczym to również pańśtwa, które zanotowały realny spadek wytwarzanego PKB.
+
+Liniowa zależność zdaje się być zaburzona jedynie przez kilka państw Europy Zachodniej (obserwacje odstające: Ireland, Luxembourg, United Kingdom) oraz Bułgarię - obserwację wpływową.
+
+```{r, echo=F, message=F}
+
+ggplot(europe, aes(x=diff_rwage, y=diff_gdp, color=cat_geo, label=name)) +
+  geom_point(size=2) +
+  geom_text_repel(data=filter(europe, name %in% c("Ireland", "Luxembourg",
+              "United Kingdom", "Bulgaria", "Greece"))) +
+  scale_x_continuous(limits = c(-35, 50), breaks = seq(-30, 50, 10),
+                     labels=paste(seq(-30,50,10), "%", sep="")) +
+  scale_y_continuous(limits = c(-35, 50), breaks = seq(-30, 50, 10),
+                     labels=paste(seq(-30,50,10), "%", sep="")) +
+  labs(colour="part of Europe", x="Zmiana % : płaca realna", y="Zmiana % : PKB",
+       title = "Zależność między przyrostem PKB oraz płac w ujęciu realnym",
+       subtitle = "pomiędzy 2009 a 20016") +
+  geom_vline(color="black", alpha=0.4, xintercept=0) +
+  geom_hline(color="black", alpha=0.4, yintercept=0)
+```
+
+##PKB~płace w podziale na regiony geograficzne
+
+Na poniższym wykresie rozbiłem populację państw UE na subpopulacje ze względu na region geograficzny. Dzięki temu wyraźnie widać, że zarówno wśród państw Wschodu jak i Południa obserwujemy silną liniową zależność (z obserwacją odstającą w subpopulacji państw Południa), natomiast efekt liniowości w całej populacji zaburzony był poprzez państwa Zachodu: te w większości zanotowały znacznie silniejszy przyrost PKB niż płac, co może charakteryzować pewne nasycenie dobrobytu wśród obywateli państw wysoko rozwiniętych.
+
+```{r, echo=F, message=F, warning=F}
+ggplot(europe, aes(x=diff_rwage, y=diff_gdp, label=name)) +
+  scale_x_continuous(limits = c(-50, 50), breaks = seq(-25, 25, 25),
+                     labels=paste(seq(-25,25,25), "%", sep="")) +
+  scale_y_continuous(limits = c(-50, 50), breaks = seq(-25, 50, 25),
+                     labels=paste(seq(-25,50,25), "%", sep="")) +
+  geom_vline(color="black", alpha=0.4, xintercept=0) +
+  geom_hline(color="black", alpha=0.4, yintercept=0) +
+  labs(x="Zmiana % : płaca realna", y="Zmiana % : PKB", title="Zależność PKB ~ przyrostu płac w ujęciu realnym",
+        subtitle="rozbicie ze wzgl. na położenie geograficzne", caption="na czerwono wyróżniono państwa z analizowanej grupy") +
+  stat_ellipse(color=alpha("black",0.3)) +
+  geom_point(data=europe[,-c(7)], size=1, color="black", alpha=0.7) +
+  geom_point(size=1.5, color="red") +
+  facet_wrap(~cat_geo)
+```
+
+##płace~grupa 'workpoverty'
+
+Warto zobaczyć, czy informacja o odsetku osób pracujących zagrożonych ubóstwem (dane na 2015 rok) wnosi jakąś wartość dodaną do analiz.
+
+Poniższy wykres pokazuje, że - przeciętnie rzecz biorąc - płace realne rosły silniej wraz z przynależnością pańśtwa do coraz gorszej grupy 'workpoverty' - jest to wniosek obowiązujący dla 3 pierwszych grup. Trend rosnący zostaje przełamany dla 4 grupy, 'najuboższej'. Naniesienie punktów na boxploty pokazuje jednak, że jedynym słusznym wnioskiem jest informacja o tym, że wraz ze wzrostem osób zagrożonych ubóstwem mimo pracy zwiększa się wariancja rozkładu zmian płac realnych. Pokazuje to pewną stabilność wśród rozwiniętych gospodarczo społeczeństw i 'huśtawkę' sytuacji wśród tych, spora część osób jest wciąż zagrożona ubóstwem.
+
+```{r, echo=F, message=F, warning=F}
+ggplot(europe, aes(x=cat_pov, y=diff_rwage)) + 
+  geom_boxplot(aes(x=cat_pov, y=diff_rwage), alpha=0.1, outlier.alpha=0) +
+  geom_jitter(aes(x=cat_pov, y=diff_rwage, color=cat_geo), width=0.2, size=2) +
+  geom_text_repel(aes(label=name, color=cat_geo), data=filter(europe, 
+                                      name %in% c("Romania", "Greece", "Luxembourg", "Bulgaria")
+                                    )) +
+labs(x="grupa kwartylowa wg. at-risk of poverty", y="Zmiana % : płaca realna", 
+     title="Rozkład zmian % płac realnych wg. grup kwartylowych at-risk of poverty")
+```
+
+
+##płace~grupa 'workpoverty' oraz rejon geograficzny
+
+Do ciekawych wniosków prowadzi także wykres, który ukazuje omówioną przed chwilą relację w podziale na rejon geograficzny Europy.
+
+* na Wschodzie sytuacja jest korzystna - wraz ze wzrostem 'zubożenia' wśród pracujących, zwiększał się przyrost płac
+* na Zachodzie sytuacja jest stabilna, bez trendu - niezależnie od poziomu 'workpoverty', przyrost płac pozostawał podobny
+* najbardziej zróżnicowane jest Południe. Dodatni przyrost to państwa, w których relatywnie mniej osób jest zagrożonych ubóstwem. Ujemny przyrost płac zanotowały państwa, gdzie już i tak poziom zubożenia jest wysoki.
+
+```{r, echo=F, message=F, warning=F}
+ggplot(europe, aes(x=cat_pov, y=diff_gdp, label=name)) +
+  geom_boxplot(aes(x=cat_pov, y=diff_rwage), alpha=0.1, outlier.alpha=0) +
+  geom_jitter(aes(x=cat_pov, y=diff_rwage, color=cat_geo), width=0.2, size=2) +
+  geom_text(data=filter(europe, name %in% c("Slovakia", "Czech Republic",
+                                                "Finland", "Sweden", "Croatia")),
+                  aes(label=name, color=cat_geo)) +
+  labs(x="grupa kwartylowa wg. at-risk of poverty", y="Zmiana % : płaca realna", 
+       title="Rozkład zmian % płac realnych wg. grup kwartylowych at-risk of poverty",
+       subtitle="ze wzgl. na położenie geograficzne") +
+  facet_wrap(~cat_geo)
+```
