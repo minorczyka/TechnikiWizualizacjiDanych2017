@@ -84,6 +84,8 @@ Prezentacje można przygotować w 2-3 osobowych zespołach. Należy wybrać jede
 
 # Prace Domowe:
 
+[Lista zgłoszonych prac](https://docs.google.com/spreadsheets/d/1uN-aWYQNTzlGemBVOwhkPRrnH85xewBacJ-fzEr9Ghk/edit?usp=sharing)
+
 Prace domowe należy zgłaszać przez GitHub. Można zgłosić tylko jedną prace domową w tygodniu, w przedziale od zajęć do zajęć. Prace należy wgrywać do katalogu PraceDomowe/TydzienXX. W tym katalogu można umieścić plik lub katalog o nazwie zawierającej nazwisko autora pracy domowej.
 
 Wszystkie prace domowe mają jeden temat:
