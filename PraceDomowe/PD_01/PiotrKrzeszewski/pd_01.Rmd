@@ -1,0 +1,60 @@
+---
+title: "(PD01) BoxOffice_08.10.2017"
+author: "Piotr Krzeszewski"
+date: "October 9, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(knitr)
+library(kableExtra)
+library(ggplot2)
+library(ggthemes)
+```
+
+# Dane
+
+Przedstawione dane pochodza z serwisu BoxOfficeMojo - http://www.boxofficemojo.com/weekend/chart/?view
+
+Z dostepnych danych zostalo wybranych 10 pierwszych pozycji oraz interesujace mnie dane. Zostaly równiez zamienione wytwórnie filmowe na glówne marki (nawet jesli film byl wyswietlany pod inna marka). Te dane zarzerpnieto z https://en.wikipedia.org/wiki/Major_film_studio#Current 
+
+Wszystkie kwoty podano w dolarach.
+
+```{r data, echo=FALSE}
+movies <- read.csv("boxoffice.csv", header=TRUE, stringsAsFactors = FALSE)
+kable(movies)
+```
+
+# Porównanie filmów
+
+```{r basic, echo = FALSE, warning=FALSE, fig.align="center"}
+ggplot(movies, aes(x=Rank, y=Gross, fill=Studio)) +
+  geom_bar(stat="identity") +
+  scale_x_reverse(breaks=seq(10, 1, -1), labels=movies$Movie[seq(10,1,-1)]) +
+  scale_y_continuous(labels=scales::comma) +
+  theme(axis.text.x = element_text(angle=45)) +
+  coord_flip(expand = TRUE)
+```
+
+# Wyniki wzgledem wytwórni
+
+Porównanie wyników wytwórni filmowych z uwzglednieniem najlepszych dziesieciu filmów ostatniego tygodnia.
+
+```{r basic2, echo = FALSE, warning=FALSE, fig.align="center"}
+studios <- unique(movies$Studio)
+studios[c(3,4)] <- studios[c(4,3)]
+
+for(i in 1:(length(studios))) {
+  movies[movies$Studio == studios[i],"studioNo"] <- i
+}
+
+
+ggplot(movies, aes(x=studioNo, y=Gross, fill=Movie)) +
+  geom_bar(stat="identity") +
+  scale_x_continuous(breaks=1:5, labels=studios) +
+  scale_y_continuous(labels=scales::comma) +
+  labs(x="Studio",y="Total Gross") 
+
+```
+
