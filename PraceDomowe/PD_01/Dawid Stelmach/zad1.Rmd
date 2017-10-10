@@ -1,0 +1,79 @@
+---
+title: "Techniki wizualizacji danych - zadanie domowe 1"
+author: "Dawid Stelmach"
+date: "10 paŸdziernika 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(tidyr)
+library(dplyr)
+```
+
+## Wybory w Nowej Zelandii
+
+Ostatnio pomaga³em za³atwiæ formalnoœci mojej przyjació³ki w zwi¹zku z wyjazdem do Australii i to natchnê³o mnie do poszukania informacji na temat tamtego rejonu. Pad³o na artyku³ na temat wyborów w Nowej Zelandii:
+
+- “http://www.newshub.co.nz/home/election/2017/09/nz-elections-2017-live-results.html”
+
+Nie uda³o mi siê scrapowaæ strony ze wzglêdu na interaktywnoœæ danych, wiêc z pomoc¹ przysz³y ctrl+c, ctrl+v oraz delikatne przekszta³cenia, aby kolejnoœæ danych na wykresach by³a odpowiednia.
+
+```{r cars}
+seats_in_parliament <- data.frame(rbind(c("NAT", 56, 60),
+                                        c("LAB", 46, 32),
+                                        c("NZF", 9, 11),
+                                        c("GP", 8, 14),
+                                        c("ACT", 1, 1)), stringsAsFactors = FALSE)
+colnames(seats_in_parliament) <- c("party",	"2017",	"2014")
+seats_in_parliament[,2:3] <- sapply(2:3, function(i) as.numeric(seats_in_parliament[,i]))
+seats_in_parliament$party <- factor(seats_in_parliament$party, levels = seats_in_parliament$party)
+
+party_vote_comparison <- data.frame(rbind(c("NAT", 242857, 90159, 76557, 909218),
+                                          c("LAB", 179515, 100998, 72948, 776669),
+                                          c("NZF", 26700, 11168, 9477, 127543),
+                                          c("GP", 34900, 28705, 15068, 160006),
+                                          c("ACT", 4072, 0, 793, 28439),
+                                          c("TOP", 10300, 9979, 5745, 52961),
+                                          c("MAOR", 0, 1192, 0, 29388)
+                                          ), stringsAsFactors = FALSE
+                                    )
+colnames(party_vote_comparison) <- c("party", "Auckland", "Wellington", "Christchurch", "others")
+party_vote_comparison[,2:5] <- sapply(2:5, function(i) as.numeric(party_vote_comparison[,i]))
+party_vote_comparison$party <- factor(party_vote_comparison$party, levels = party_vote_comparison$party)
+party_vote_comparison[1:6,"others"] <- party_vote_comparison[1:6,"others"] - party_vote_comparison[1:6,"Wellington"] - party_vote_comparison[1:6,"Christchurch"]
+```
+
+Tabele w tym momencie wygl¹daj¹ nastêpuj¹co:
+
+```{r cities, echo=FALSE}
+party_vote_comparison
+```
+
+```{r seats, echo=FALSE}
+seats_in_parliament
+```
+
+Teraz trzeba to wszystko przekszta³ciæ do formatu, który bêdzie ³atwy do zrozumienia przez ``ggplot2``. W tym celu zastosowa³em pakiet ``tidyr``. Zdecydowa³em siê na zobrazowanie dwóch tabel.
+
+```{r plot_1}
+other_long <- party_vote_comparison[,c("party", "others")]
+colnames(other_long) <- c("party", "votes")
+party_vote_comparison$others = 0
+city_vote_long <- gather(party_vote_comparison, city, votes, Auckland:others)
+city_vote_long$city <- factor(city_vote_long$city, levels = c("Auckland", "Wellington", "Christchurch", "others"))
+
+ggplot() +
+  geom_bar(data = other_long, aes(x = party, y = votes), stat = "identity", fill = "purple", alpha = 0.7) +
+  geom_bar(data = city_vote_long, aes(x = party, y = votes, fill = city), stat = "identity", position = "dodge") +
+  ggtitle("Number of votes by party at 3 bigest cities and the rest of New Zealand")
+```
+
+```{r plot_2}
+seats_long <- gather(seats_in_parliament, year, seats, `2017`:`2014`)
+
+ggplot(seats_long, aes(x = party, y = seats, fill = year)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  ggtitle("Number of seats by political party in years 2014, 2017")
+```
