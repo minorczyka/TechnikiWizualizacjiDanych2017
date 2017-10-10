@@ -1,7 +1,7 @@
 ---
 title: "Techniki wizualizacji danych - zadanie domowe 1"
 author: "Dawid Stelmach"
-date: "10 paŸdziernika 2017"
+date: "10 paÅºdziernika 2017"
 output: html_document
 ---
 
@@ -14,11 +14,11 @@ library(dplyr)
 
 ## Wybory w Nowej Zelandii
 
-Ostatnio pomaga³em za³atwiæ formalnoœci mojej przyjació³ki w zwi¹zku z wyjazdem do Australii i to natchnê³o mnie do poszukania informacji na temat tamtego rejonu. Pad³o na artyku³ na temat wyborów w Nowej Zelandii:
+Ostatnio pomagaÅ‚em zaÅ‚atwiÄ‡ formalnoÅ›ci mojej przyjaciÃ³Å‚ki w zwiÄ…zku z wyjazdem do Australii i to natchnÄ™Å‚o mnie do poszukania informacji na temat tamtego rejonu. PadÅ‚o na artykuÅ‚ na temat wyborÃ³w w Nowej Zelandii:
 
-- “http://www.newshub.co.nz/home/election/2017/09/nz-elections-2017-live-results.html”
+- â€œhttp://www.newshub.co.nz/home/election/2017/09/nz-elections-2017-live-results.htmlâ€
 
-Nie uda³o mi siê scrapowaæ strony ze wzglêdu na interaktywnoœæ danych, wiêc z pomoc¹ przysz³y ctrl+c, ctrl+v oraz delikatne przekszta³cenia, aby kolejnoœæ danych na wykresach by³a odpowiednia.
+Nie udaÅ‚o mi siÄ™ scrapowaÄ‡ strony ze wzglÄ™du na interaktywnoÅ›Ä‡ danych, wiÄ™c z pomocÄ… przyszÅ‚y ctrl+c, ctrl+v oraz delikatne przeksztaÅ‚cenia, aby kolejnoÅ›Ä‡ danych na wykresach byÅ‚a odpowiednia.
 
 ```{r cars}
 seats_in_parliament <- data.frame(rbind(c("NAT", 56, 60),
@@ -45,7 +45,7 @@ party_vote_comparison$party <- factor(party_vote_comparison$party, levels = part
 party_vote_comparison[1:6,"others"] <- party_vote_comparison[1:6,"others"] - party_vote_comparison[1:6,"Wellington"] - party_vote_comparison[1:6,"Christchurch"]
 ```
 
-Tabele w tym momencie wygl¹daj¹ nastêpuj¹co:
+Tabele w tym momencie wyglÄ…dajÄ… nastÄ™pujÄ…co:
 
 ```{r cities, echo=FALSE}
 party_vote_comparison
@@ -55,7 +55,7 @@ party_vote_comparison
 seats_in_parliament
 ```
 
-Teraz trzeba to wszystko przekszta³ciæ do formatu, który bêdzie ³atwy do zrozumienia przez ``ggplot2``. W tym celu zastosowa³em pakiet ``tidyr``. Zdecydowa³em siê na zobrazowanie dwóch tabel.
+Teraz trzeba to wszystko przeksztaÅ‚ciÄ‡ do formatu, ktÃ³ry bÄ™dzie Å‚atwy do zrozumienia przez ``ggplot2``. W tym celu zastosowaÅ‚em pakiet ``tidyr``. ZdecydowaÅ‚em siÄ™ na zobrazowanie dwÃ³ch tabel.
 
 ```{r plot_1}
 other_long <- party_vote_comparison[,c("party", "others")]
