@@ -1,0 +1,129 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE, warning=FALSE, message=FALSE, echo=FALSE, results='hide'}
+library("ggplot2")
+library(directlabels)
+```
+
+##[Techniki Wizualizacji Danych] Praca domowa 1 
+####Mateusz Mechelewski 262760
+
+Do analizy wybrane zostały statystyki przedstawiające liczbę wydanych po raz pierwszy dokumentów prawa jazdy w poszczególnych województwach w 2016 roku. Artykuł dotyczący tych statystyk przedstawiony został na stronie [Centralnej Ewidencji Pojazdów i Kierowców](http://www.cepik.gov.pl/documents/19372/19477/Pojazdy+wg+wojew%C3%B3dztw+z+grudniem+2016/c5771bd3-4f24-4d90-8797-eed815d1fe8e). Dane dotyczące 2016 roku dostępne są na łamach serwisu [DanePubliczne.gov.pl](https://danepubliczne.gov.pl/dataset/prawa-jazdy-wydane-w-2016-r).
+
+###Zależność liczby wydanych praw jazdy od miesiąca roku
+
+Na poniższym wykresie przedstawiona została zależność liczby wydanych praw jazdy w zależności od poszczególnych miesięcy roku. Dzięki wizualizacji tych danych można spróbować znaleźć korelację pomiędzy miesiącami, czy porą roku a liczbą wydanych dokumentów.
+
+```{r echo=FALSE, fig.align='center', fig.width = 10}
+data <- read.csv("data.csv", sep="|", check.names=FALSE, stringsAsFactors=FALSE)
+colnames(data)[1] <- "Wojewodztwo"
+
+data <- data[
+              data$Wojewodztwo == "Mazowieckie" |
+              data$Wojewodztwo == "Warminsko-mazurskie" |
+              data$Wojewodztwo == "Opolskie" |
+              data$Wojewodztwo == "Slaskie" |
+              data$Wojewodztwo == "Wielkopolskie" |
+              data$Wojewodztwo == "DolnoÅ›lÄ…skie" |
+              data$Wojewodztwo == "Podkarpackie"
+          ,]
+
+df <- data.frame(wojewodztwo=character(0), czas=character(0), wartosc=numeric(0), stringsAsFactors=FALSE)
+count <- 1
+for(i in 1:nrow(data))
+{
+  for(j in 2:ncol(data))
+  {
+    df[count,] <- c(data$Wojewodztwo[i], colnames(data)[j], data[i,j])
+    count <- count+1
+  }
+}
+df$wartosc <- as.numeric(df$wartosc)
+
+ggplot(data = df, aes(x=czas, y=wartosc, group=wojewodztwo, colour=wojewodztwo)) +
+  geom_line() +
+  geom_point() +
+  geom_dl(aes(label = wojewodztwo), method = list(dl.combine("last.points"), cex = 0.8, hjust=0.8, vjust=-0.7)) +
+  theme(legend.position="none") +
+  ggtitle("Liczba wydanych po raz pierwszy praw jazdy w 2016 roku w podziale na województwa") +
+  xlab("Miesiąc roku") +
+  ylab("Liczba wydanych dokumentów")
+```
+
+\break
+
+Ta sama zależność przedstawiona została również na mapie ciepła, pozwalającej na łatwe zestawienie wartości dla poszczgólnych miesięcy oraz województw.
+
+```{r echo=FALSE, fig.align='center', fig.width = 10}
+data <- read.csv("data.csv", sep="|", check.names=FALSE, stringsAsFactors=FALSE)
+colnames(data)[1] <- "Wojewodztwo"
+
+library(plyr)
+library(plyr)
+
+df <- data.frame(wojewodztwo=character(0), czas=character(0), wartosc=numeric(0), stringsAsFactors=FALSE)
+count <- 1
+for(i in 1:nrow(data))
+{
+  for(j in 2:ncol(data))
+  {
+    df[count,] <- c(data$Wojewodztwo[i], colnames(data)[j], data[i,j])
+    count <- count+1
+  }
+}
+df$wartosc <- as.numeric(df$wartosc)
+
+ggplot(data = df, aes(x=czas, y=wojewodztwo))  +
+  geom_tile(aes(fill = wartosc),colour = "white") + 
+  geom_text(aes(label = round_any(wartosc, 100)/1000)) +
+  scale_fill_gradient(low = "lightyellow", high = "red") +
+  theme(legend.position="none") +
+  ggtitle("Liczba wydanych po raz pierwszy praw jazdy w 2016 roku w podziale na województwa w tysiącach") +
+  xlab("Liczba wydanych dokumentów") +
+  ylab("Województwo")
+
+```
+
+###Zależność pomiędzy poszczególnymi województwami
+
+Kolejną graficzną prezentacją danych jest wykres pudełkowy, pokazujący rozkład liczby wydanych praw jazdy w miesiącach roku dla wybranych województw. Można zauważyć, że liczba wydawanych dokumentów jest zdecydowanie większa dla województwa mazowieckiego w porównaniu do województwa opolskiego. Różnica ta wynika najprawdopodobniej z wielkości województw i liczby jej mieszkańców, jednak stanowi podstawę do dalszej analizy.
+
+```{r echo=FALSE, fig.align='center', fig.width = 10}
+data <- read.csv("data.csv", sep="|", check.names=FALSE, stringsAsFactors=FALSE)
+colnames(data)[1] <- "Wojewodztwo"
+
+data <- data[
+    data$Wojewodztwo == "Warminsko-mazurskie" |
+    data$Wojewodztwo == "Opolskie" |
+    data$Wojewodztwo == "Slaskie" |
+    data$Wojewodztwo == "Wielkopolskie" |
+    data$Wojewodztwo == "DolnoÅ›lÄ…skie" |
+    data$Wojewodztwo == "Mazowieckie" |
+    data$Wojewodztwo == "Podkarpackie"
+            ,]
+
+
+df <- data.frame(wojewodztwo=character(0), czas=character(0), wartosc=numeric(0), stringsAsFactors=FALSE)
+count <- 1
+for(i in 1:nrow(data))
+{
+  for(j in 2:ncol(data))
+  {
+    df[count,] <- c(data$Wojewodztwo[i], colnames(data)[j], data[i,j])
+    count <- count+1
+  }
+}
+df$wartosc <- as.numeric(df$wartosc)
+
+ggplot(data = df, aes(x=reorder(wojewodztwo, wartosc, FUN=mean), y=wartosc)) +
+  geom_boxplot() +
+  geom_jitter(width = 0.2) +
+  stat_boxplot(geom='errorbar',coef=10) +
+  ggtitle("Liczba wydanych po raz pierwszy praw jazdy w 2016 roku w podziale na województwa") +
+  xlab("Województwo") +
+  ylab("Liczba wydanych dokumentów")
+```
