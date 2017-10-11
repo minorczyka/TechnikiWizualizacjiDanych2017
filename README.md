@@ -14,7 +14,7 @@ Prace domowe należy zgłaszać przez GitHub. [Instrukcja jak korzystać](http:/
 
 Blok 1 - Grafika statyczna
 
-* [1] W: [Historia grafiki statystycznej](http://biecek.pl/Eseje/indexHistoria.html); L: [ggplot2 - pierwsza krew](https://pbiecek.gitbooks.io/przewodnik/content/Wizualizacja/jak_tworzyc_wykresy_ggplot2.html)
+* [1] W: [Historia grafiki statystycznej](http://biecek.pl/Eseje/indexHistoria.html); L: [ggplot2 - pierwsza krew](https://pbiecek.gitbooks.io/przewodnik/content/Wizualizacja/jak_tworzyc_wykresy_ggplot2.html), [Lab 2](Materialy/lab2.md)
 * [2] W: [Gramatyka grafiki](http://biecek.pl/Eseje/indexGramatyka.html), [Standardy w komunikacji](http://www.ibcs-a.org/); L: [ggplot2 - skale, statystyki, koordynaty](https://pbiecek.gitbooks.io/przewodnik/content/Wizualizacja/jak_tworzyc_wykresy_ggplot2.html).
 * [3] W: [Percepcja obrazu](http://biecek.pl/Eseje/indexObraz.html); L: Prezentacja projektu 1/1;
 * [4] W: [Nie rób tego w domu](http://biecek.pl/Eseje/indexPomylka.html); L: [Pracujemy z danymi z NSP 2011](http://stat.gov.pl/spisy-powszechne/nsp-2011/nsp-2011-wyniki/)
@@ -83,6 +83,8 @@ Prezentacje można przygotować w 2-3 osobowych zespołach. Należy wybrać jede
 
 
 # Prace Domowe:
+
+[Lista zgłoszonych prac](https://docs.google.com/spreadsheets/d/1uN-aWYQNTzlGemBVOwhkPRrnH85xewBacJ-fzEr9Ghk/edit?usp=sharing)
 
 Prace domowe należy zgłaszać przez GitHub. Można zgłosić tylko jedną prace domową w tygodniu, w przedziale od zajęć do zajęć. Prace należy wgrywać do katalogu PraceDomowe/TydzienXX. W tym katalogu można umieścić plik lub katalog o nazwie zawierającej nazwisko autora pracy domowej.
 

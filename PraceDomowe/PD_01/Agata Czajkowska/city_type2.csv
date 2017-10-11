@@ -1,0 +1,16 @@
+P³eæ;Typ;Opis;Procent
+Kobieta;1;wieœ;42
+Mê¿czyzna;1;wieœ;48
+Kobieta;2;miasto < 20 thousand;13
+Mê¿czyzna;2;miasto < 20 thousand;11
+Kobieta;3;miasto <20,100) tys;20
+Mê¿czyzna;3;miasto <20,100) tys;24
+Kobieta;4;miasto <100,500) tys;16
+Mê¿czyzna;4;miasto <100,500) tys;10
+Kobieta;5;miasto >500 tys;9
+Mê¿czyzna;5;miasto >500 tys;7
+Ogó³em;1;wieœ;46
+Ogó³em;2;miasto < 20 thousand;12
+Ogó³em;3;miasto <20,100) tys;22
+Ogó³em;4;miasto <100,500) tys;12
+Ogó³em;5;miasto >500 tys;8

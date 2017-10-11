@@ -1,0 +1,146 @@
+---
+title: "Praca domowa"
+author: "Jakub Bondyra"
+date: "8 paüdziernika 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##WstÍp
+Obiektem mojego zainteresowania by≥y dane dotyczπce Korei PÛ≥nocnej.
+Na odpowiednich wizualizacjach chcÍ pokazaÊ burzliwe wydarzenia dotyczπce tego kraju na przestrzeni ostatnich kilku lat - od 2013 roku do chwili obecnej.
+
+Najtrudniejszπ czÍúciπ zadania by≥o zdecydowanie pozyskanie danych. Korea PÛ≥nocna jest krajem bardzo zamkniÍtym, co powoduje, øe nie jest dostÍpnych zbyt wiele ürÛde≥ danych dotyczπcych interesujπcych mnie zagadnieÒ.
+
+Wszelkie wykorzystane ürÛd≥a zostajπ podane na koÒcu tego dokumentu. Ukrywam ponadto kod s≥uøπcy do wygenerowania wykresÛw - jest on oczywiúcie dostÍpny w ürÛd≥owym pliku .Rmd.
+
+```{r, include=FALSE}
+library(dplyr)
+library(ggplot2)
+aid= read.csv2("aid.txt",sep=",",header=TRUE)
+aid$value = as.numeric(as.character(aid$value))
+
+atomic = read.csv2("atomic.txt",sep=",",header=TRUE)
+events = read.csv2("events.txt",sep=",",header=TRUE)
+
+disasters=read.csv2("disasters.txt",sep=",",header=TRUE)
+
+weather = read.csv2("weather.txt",sep=",",header=TRUE)
+weather$rain = as.numeric(as.character(weather$rain))
+
+articles = read.csv2("articles.txt",sep=",",header=TRUE)
+  
+food = read.csv2("food.txt",sep=",",header=TRUE)
+
+default_labels = c("01/2013","01/2014","01/2015","01/2016","01/2017")
+default_breaks = c(24157,24169,24181,24193,24205)
+```
+
+### Incydenty militarne i wydüwiÍk w mediach
+
+Poniøej przedstawiam wykres liczby artyku≥Ûw dotyczπcych Korei PÛ≥nocnej w okreúlonym miesiπcu, ktÛre ukaza≥y siÍ w portalu gazety New York Times na przestrzeni ostatnich kilku lat. Nie trzeba siÍ zbytnio domyúlaÊ, o czym pisano w takich artyku≥ach - dlatego dodatkowo nanoszÍ na wykres incydenty militarne i prÛby atomowe, ktÛre odbywa≥y siÍ w danych miesiπcach.
+
+```{r, echo=FALSE}
+events$yref = dplyr::inner_join(events, articles, by="id_plot")$count
+atomic$yref = dplyr::inner_join(atomic, articles, by="id_plot")$count
+
+ggplot(data=articles,aes(id_plot,count)) +
+scale_x_continuous(breaks = default_breaks,
+                  labels=default_labels)+
+geom_line(col="red") +
+geom_point(data = atomic, aes(id_plot, yref, size=power))+
+guides(size=guide_legend(title="Nuclear explosions' strengths (in kT)"))+
+geom_point(data = events, aes(id_plot, yref, col=type, size=20)) +
+guides(col=guide_legend(title="Other incidents"))+
+xlab("Month")+ylab("NY Times articles about DPRK count")+
+labs(title="DPRK military incidents & media turmoil")
+```
+
+### Incydenty militarne i pomoc humanitarna
+
+Bardzo prawdopodobne jest, øe sporo z incydentÛw prowokowanych przez KoreÍ ma wp≥yw na pomoc humanitarnπ, ktÛrπ dostarczajπ kraje zewnÍtrzne. W tym celu pokazujÍ poniøej wartoúci pomocy humanitarnej udzielonej Korei PÛ≥nocnej przez resztÍ úwiata wraz z incydentami przedstawianymi na poprzednim wykresie.
+
+```{r, echo=FALSE}
+events$yref2 = dplyr::inner_join(events, aid, by="id_plot")$value
+atomic$yref2 = dplyr::inner_join(atomic, aid, by="id_plot")$value
+
+ggplot(data=aid,aes(id_plot,value)) +
+scale_x_continuous(breaks = default_breaks,
+                  labels=default_labels)+
+ylim(c(0,70))+
+geom_line(col="red") +
+geom_point(data = atomic, aes(id_plot, yref2, size=power))+
+guides(size=guide_legend(title="Nuclear explosions' strengths (in kT)"))+
+geom_point(data = events, aes(id_plot, yref2, col=type, size=20)) +
+guides(col=guide_legend(title="Other incidents"))+
+xlab("Month")+ylab("Humanitarian aid (in milion USD)")+
+labs(title="DPRK military incidents & humanitarian aid")
+```
+
+WartoúÊ pomocy udzielonej w 2017 roku nie jest pe≥na. Nie zanosi siÍ jednak na to, øe wzroúnie ona znaczπco.
+
+### Opady deszczu i klÍski øywio≥owe
+
+Przedstawiam rÛwnieø wykres kompletnie apolityczny - pokazujπcy rozk≥ad opadÛw atmosferycznych w stolicy Korei PÛ≥nocnej wraz z informacjami o katastrofalnych suszach i powodziach, ktÛre nawiedzi≥y ten kraj.
+
+```{r, echo=FALSE}
+disasters$yref2 = dplyr::inner_join(disasters, weather, by="id_plot")$rain+0.2 #offset
+
+ggplot(data=weather,aes(id_plot,rain)) +
+scale_x_continuous(breaks = default_breaks,
+                  labels=default_labels)+
+geom_bar(stat="identity", fill="blue") +
+geom_point(data = disasters, aes(id_plot, yref2, col=type),size=4) +
+guides(col=guide_legend(title="Disaster types"))+
+xlab("Month")+ylab("Rain amount (mm)")+
+labs(title="DPRK natural disasters & rainfall in Pyongyang")
+```
+
+###Produkcja ryøu i klÍski øywio≥owe
+
+Poniøej przedstawiam rÛwnieø wykres pokazujπcy produkcjÍ ryøu w Korei PÛ≥nocnej w zaleønoúci od klÍsk øywio≥owych na przestrzeni ostatnich kilku lat.
+
+```{r, echo=FALSE}
+disasters$yref = dplyr::inner_join(disasters, food, by="id_plot")$harvest
+
+ggplot(data=food,aes(id_plot,harvest)) +
+scale_x_continuous(breaks = default_breaks,
+                  labels=default_labels)+
+geom_line() +
+geom_point(data = disasters, aes(id_plot, yref, col=type),size=4) +
+guides(col=guide_legend(title="Disaster types"))+
+xlab("Month")+ylab("Rice harvest (thousand tonnes)")+
+labs(title="DPRK natural disasters & rice harvest values")
+```
+
+### èrÛd≥a danych
+Artyku≥y dotyczπce Korei PÛ≥nocnej:
+
+*www.nytimes.com/topic/destination/north-korea*
+
+Dane iloúciowe dotyczπce upraw:
+
+*www.fas.usda.gov*
+
+PrÛby atomowe i incydenty militarne w Korei:
+
+*www.en.wikipedia.org/wiki/List_of_nuclear_weapons_tests_of_North_Korea*
+
+*www.en.wikipedia.org/wiki/North_Korea%E2%80%93South_Korea_relations*
+
+Powodzie i susze w Korei PÛ≥nocnej:
+
+*www.reliefweb.int/country/prk*
+
+Klimat Pyongyangu:
+
+*www.worldweatheronline.com/pyongyang-weather-averages/kp.aspx*
+
+Pomoc humanitarna:
+
+*www.northkoreaintheworld.org/humanitarian/humanitarian-aid*
+
+*www.nytimes.com/topic/destination/north-korea*
