@@ -1,0 +1,61 @@
+---
+title: "Starbucks Summary"
+author: "Anna Niønik"
+date: "9 paüdziernika 2017"
+output:
+  word_document: default
+  html_document: default
+---
+
+```{r load_packages, include=FALSE, message=FALSE, warning=FALSE, error=FALSE, echo=FALSE}
+library(ggplot2)
+library(dplyr)
+library(ggthemes)
+library(cowplot)
+```
+
+```{r setup, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(echo = TRUE)
+source("Zadanie_Domowe_Nr_1.R")
+
+drinks_expanded <- as.data.frame(read.csv("starbucks_drinkMenu_expanded.csv", header = TRUE, fileEncoding = "UTF-8"))
+
+drinks_nutrition <- as.data.frame(read.csv("starbucks-menu-nutrition-drinks.csv", header = TRUE, fileEncoding = "UTF-8"))
+
+```
+
+### Analiza danych pochodzπcych z sieci kawiarni Starbucks
+
+Poniøszy raport przedstawia analizÍ danych dla sieci kawiarni Starbucks. Do analizy wykorzystano informacje pochodzπce z trzech ürÛde≥:  
+
+
+* dane dotyczπce napojÛw sprzedawanych w kawiarniach: 
+```{r echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, dependson=drinks_expanded}
+colnames(drinks_expanded)
+```
+
+* dane dotyczπce wartoúci odøywczych zawartych w napojach sprzedawanych w kawiarniach: 
+```{r echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, dependson=drinks_nutrition}
+colnames(drinks_nutrition)
+```
+
+
+Warto przyjrzeÊ siÍ wstÍpnej analizie zawartoúci kofeiny, t≥uszczÛw i cukrÛw w w przypadku rÛønych rodzajÛw kaw:
+
+```{r echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, dependson=drinks_expanded}
+drawCoffeesNutritionValues(drinks_expanded)
+```
+
+Dodano takøe wykres przedstawiajπcy wartoúci odøywcze, kalorie oraz zawartoúÊ witaminy A w rÛønych rodzajach napojÛw, w zaleønoúci od sposobu ich podawania:
+
+```{r echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, dependson=drinks_expanded}
+drawNutritionCoffees(drinks_expanded)
+```
+
+
+Na wykresie predstawiono takøe analizÍ zaleønoúci pomiÍdzy zawartoúciπ cukru a kalorii w kawie:
+
+```{r echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, dependson=drinks_expanded}
+drawCaloriesVSSugars(drinks_expanded)
+```
