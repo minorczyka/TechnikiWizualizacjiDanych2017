@@ -52,7 +52,6 @@ Do zaliczenia potrzebnych jest 200 punktów, im więcej punktów tym wyższa oce
 # Projekty
 
 Projekty można realizować w zespołach 2-3 osobowych. 
-Dane do projektu, tematyka szczegółowa i realizacja jest zupełnie dowolna. 
 
 Każdy projekt należy realizować w innym zespole. Nie można na dwch projektach robić ten sam temat.
 
@@ -64,7 +63,7 @@ W projekcie oceniane będą trzy aspekty, każde w skali 0-30 pkt, plus 0-10 pkt
 
 Propozycje projektów:
 
-
+[Projekt 1](https://github.com/pbiecek/TechnikiWizualizacjiDanych2017/blob/master/Projekt_1/README.md)
 
 
 # Prezentacje studentów
