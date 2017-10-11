@@ -1,0 +1,51 @@
+---
+title: "MotoGP 2017"
+author: "Kamil Romaszko"
+date: "8 października 2017"
+header-includes:
+  - \usepackage{hyperref}
+output: 
+  - pdf_document
+---
+
+```{r setup, include=FALSE}
+library(ggplot2)
+library(ggrepel)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Klasyfikacja MotoGP 2017
+MotoGP jest motocyklowym odpowienikiem Formuły 1. Wykres przedstawia klasyfikację generalną MotoGP w bierzącym roku (stan na 8 października 2017). Krzywe odzwierciedlają sumaryczną liczbę punktów zdobytych przez poszczególnych zawodników po zakończeniu każdego z wyścigów. Kolory krzywych oznaczają producentów motocykli. Na osi X oznaczone są kolejne starty, natomiast oś Y opisuje sumaryczną liczbę punktów po każdym z nich. Punkty przyznawane są za zajęte miejsce (kolejno 25, 20, 16, 13, 11, 10, 9, ..., 0). Nie zdobycie punktów może też oznaczać, że zawodnik nie ukończył wyścigu (w wyniku wypadku lub usterki motocykla) lub do niego nie przystąpił. 
+
+Wykres pokazuje dynamiczny przebieg zawodów. Liczne wypadki i usterki powodują nagłe zmiany w klasyfikacji generalnej. Jak widać do końca pozostały jeszcze 4 wyścigi, więc ostateczna klasyfikacja może ulec zmianie.
+
+```{r pressure, echo=FALSE, fig.height = 8, fig.width = 10, fig.align = "center"}
+classification <- read.csv("classification.csv", header = TRUE, row.names = NULL, sep= " ", stringsAsFactors=FALSE)
+
+classification[classification == '-'] = 0
+classification[classification == 'n'] = NA
+
+race_results <- sapply(classification[,seq(7,ncol(classification))], as.numeric)
+
+race_results_cumsum <- t(apply(race_results, 1, cumsum))
+
+rownames(race_results_cumsum) <- 1:nrow(race_results_cumsum)
+tranformed_results <- as.data.frame.table(race_results_cumsum)
+colnames(tranformed_results ) <- c("Pos", "Event", "Points")
+
+riders <-  read.csv("riders.csv", header = TRUE, row.names = NULL, sep= ",", stringsAsFactors=FALSE)
+
+merged <- merge(tranformed_results,riders,by="Pos")
+merged <- cbind(data.frame(Pos=as.numeric(merged$Pos)), merged[,-1])
+
+ggplot(data=merged,aes(Event, Points, color=Bike, group=Rider)) + 
+  geom_line(na.rm=TRUE, size = 0.75) +
+  geom_point(na.rm=TRUE, size = 1.5) + 
+  geom_label_repel(data=subset(merged, (Event=='ARA' & Pos <= 10)), size = 3.5, aes(label = paste(Rider, "(", Points, ")")), nudge_x = 2, show.legend = FALSE, segment.alpha=0.4) +
+  geom_text_repel(data=subset(merged, (Event=='ARA' & Pos > 10)), size = 2, aes(label = paste(Rider, "(", Points, ")")), nudge_x = 1.5, show.legend = FALSE, segment.alpha=0.4) +
+  labs(title = "MotoGP 2017 Classification Over Time") 
+
+```
+
+Dane zostały pobrane z oficjalnej strony MotoGP: \href{http://www.motogp.com/en/Results+Statistics/2017/QAT/MotoGP/RAC/World+Standing}{link}
