@@ -2,6 +2,9 @@
 
 Projekty można realizować w zespołach 2-3 osobowych. 
 
+Wynikiem projektu jest skrypt R/Rmd generujący jednostronicową wizualizację poniższych danych.
+Każdy zespół przed prezentacją swojego rozwiązania umieszcza na GitHubie zarówno skpryt jak i wynikową wizualizację (w formacie png lub pdf) w podkatalogu katalogu `Projekt_1`. Proszę NIE używać polskich liter w nazwach plików i katalogów.
+
 W projekcie oceniane będą trzy aspekty, każde w skali 0-30 pkt, plus 0-10 pkt uwzględniających nieprzewidziane czynniki, które warto punktować:
 
 * Poprawność prezentacji. Jeżeli prezentacja jest nieestetyczna, nieczytelna lub przekłamująca dane to źle, jeżeli jest estetyczna, czytelna i pozwala na szybkie odczytanie informacji to dobrze.
