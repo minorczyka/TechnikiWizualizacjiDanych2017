@@ -1,0 +1,33 @@
+---
+title: "Praca domowa 1"
+author: Artur Minorczyk
+output:
+  html_document: default
+  html_notebook: default
+---
+
+```{r, include=FALSE}
+library(dplyr)
+library(ggplot2)
+require(reshape2)
+library(plyr)
+```
+
+Wykorzystane przeze mnie dane pochodzą z artykułu http://www.wirtualnemedia.pl/artykul/polsat-liderem-po-trzech-kwartalach-tvp2-wyprzedzila-tvp1-w-16-49-mecz-polska-rumunia-ratingowym-hitem i dotyczą popularności stacji telewizyjnych. W artykule popularność poszczególnych stacji przedstawiona została w tabeli z podziałem na oglądalność w pierwszych trzech kwartałach 2016 roku oraz pierwszych trzech kwartałach 2017 roku.
+
+```{r}
+df <- read.csv("stacje.csv")
+df$stacja <- factor(df$stacja, levels = df$stacja)
+
+df_m <- melt(df[c("stacja", "shr_2016", "shr_2017")])
+df_m$variable <- revalue(df_m$variable, c("shr_2016"="2016", "shr_2017"="2017"))
+```
+
+```{r}
+ggplot(df_m, aes(stacja, value, fill = variable)) +
+  geom_bar(stat = "identity", position=position_dodge()) +
+  labs(x = "Stacja", y = "Średni dobowy udział w %", fill = "Cylinders", title = "Najpopularniejsze stacje telewizyjne w trzech pierwszych kwartałach roku") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+Na podstawie przygotowanego przeze mnie wykresu zdecydowanie prościej rozeznać się w danych niż na podstawie tabeli z artykułu. Jeden rzut oka wystarcza, aby stwierdzić, że czteroma najpopularniejszymi stacjami są Polsat, TVP1, TVN i TVP2. Oprócz tego widać, że wszystkie te stacje straciły znacząco na popularności, natomiast trzy następne (TVN24, TV4 i TVP INFO) zdecydowanie zyskały.

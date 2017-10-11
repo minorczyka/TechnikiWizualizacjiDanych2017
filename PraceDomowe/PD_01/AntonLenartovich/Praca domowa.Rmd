@@ -1,0 +1,34 @@
+---
+title: 'Praca domowa #1'
+author: "Anton Lenartovich"
+date: "October 8, 2017"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+source("./PD.R")
+```
+
+Jako artykuł źródłowy został wybrany artykuł przedstawiający dane zarobków obywateli Stanów Zjednoczonych. Artykuł jest dostępny pod linkiem [**Income Increased**](http://flowingdata.com/2016/09/21/increased-income-across-all-groups). W nim są przedstawiane i porównywane zarobki z 2014 oraz 2015 roku. 
+
+Dane do analizy zostały pobrane ze strony [**IPUSM USA**](https://usa.ipums.org/usa).
+
+```{r echo=FALSE, fig.width=10, fig.height=4}
+plot <- analiza1()
+plot
+```
+
+$Współczynnik  dobrobytu = 2$ oznacza, że dochód rodziny jest dwukrotnie większy od płacy minimalnej w kraju / stanie. Powyższy rysunek przedstawia dochody grup rodzin o różnym poziomie dobrobytu.
+
+
+Na następnym rysunku chciałem pokazać zmianę zaróbków per osoba dla różnych grup rodzin. Jak widać z rysunku największy progres miała grupa rodzin, żyjącyh poniżej granicy ubóstwa (przyrost wyniósł ok. 6.5%). Ze względów na to, że ta grupa zarabia mniej niż 1% wszystkich pieniędzy, różnica ta prawie nie jest odczuwalna z perspektywy innych grup.
+
+```{r echo=FALSE, fig.width=10, warning=FALSE}
+  plot <- analiza2()
+  plot
+```
+
+

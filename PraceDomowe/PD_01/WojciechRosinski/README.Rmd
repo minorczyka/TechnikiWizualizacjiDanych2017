@@ -1,0 +1,102 @@
+---
+title: "Tydzien 01 - Mass Shootings"
+author: "Wojciech Rosinski"
+date: "2017-10-07"
+output: github_document
+---
+
+### Mass Shootings in USA
+
+* Artykuł oryginalny: http://flowingdata.com/2017/10/06/in-2017-no-more-than-five-days-without-a-mass-shooting/
+* Dane: http://www.gunviolencearchive.org/reports/mass-shooting 
+
+```{r}
+library(tidyverse)
+
+sh <- read.csv('shootings_years.csv')
+to_keep <- names(sh)[1:length(names(sh))-1]
+sh <- sh[to_keep]
+print(dim(sh))
+print(head(sh))
+
+
+sh <- sh[nrow(sh):1, ]
+sh$KilledCumSum <- cumsum(sh$X..Killed)
+sh$InjuredCumSum <- cumsum(sh$X..Injured)
+
+
+```
+
+
+Zobaczmy, jak ilość rannych oraz zabitych zmienia się w funkcji ilości strzelanin.
+
+
+```{r}
+shoot_state <- sh %>% group_by(State) %>% 
+    summarise(
+        State.Shootings = n(),
+        State.Killed = sum(X..Killed),
+        State.Injured = sum(X..Injured)) %>%
+    arrange(State.Killed) %>%
+    top_n(10, State.Killed)
+
+shoot_city <- sh %>% group_by(City.Or.County) %>% 
+    summarise(
+        City.Shootings = n(),
+        City.Killed = sum(X..Killed),
+        City.Injured = sum(X..Injured)) %>%
+    arrange(City.Killed) %>%
+    top_n(10, City.Killed)
+
+
+gg_city_injured <- ggplot(shoot_city, aes(x = reorder(City.Shootings, City.Injured, sum), 
+                                  y = City.Injured, color = City.Or.County)) +
+    geom_point() +
+    xlab('Number of shootings') +
+    ylab('People injured') +
+    ggtitle('Injured vs number of shootings')
+
+gg_city_killed <- ggplot(shoot_city, aes(x = reorder(City.Shootings, City.Killed, sum), 
+                                  y = City.Killed, color = City.Or.County)) +
+    geom_point() +
+    xlab('Number of shootings') +
+    ylab('People killed') +
+    ggtitle('Killed vs number of shootings')
+```
+
+
+```{r}
+plot(gg_city_injured)
+```
+
+```{r}
+plot(gg_city_killed)
+```
+
+
+Na pierwszym miejscu znajduje się Las Vegas, mimo, że miały miejsce tam tylko dwie strzelaniny, zaś w Chicago, gdzie miały miejsce aż 42, sumarycznie zginęło oraz zostały rannych znacznie mniej osób.
+
+Aby zobrazować, jak znaczącym zdarzeniem była strzelanina w Las Vegas 1 października 2017, zastosowany został wykres cumulative sum.
+W zestawie danych zapisanych jest 500 zdarzeń, posegregowanych malejąco po dacie. Zdarzenie w Las Vegas jest na 4. miejscu. Do wykresu cumulative sum musimy odwrócić uporządkowanie, aby uzyskać porządek rosnący, wtedy strzelanina z 1 października będzie na 496. pozycji - na wykresie widzimy nagły skok funkcji przy tym argumencie, niewidoczny w odniesieniu do jakiejkolwiek innej strzelaniny, co podkreśla znaczenie tego zdarzenia.
+
+
+```{r}
+icm <- ggplot(sh, aes(x = 1:500, y = InjuredCumSum)) +
+    geom_line() +
+    xlab('Index') +
+    ylab('Injured Cumulative Sum') +
+    ggtitle('Cumulative Sum of people injured in mass shootings') +
+    scale_x_continuous(breaks = c(0, 100, 200, 300, 400, 496))
+
+
+kcm <- ggplot(sh, aes(x = 1:500, y = KilledCumSum)) +
+    geom_line() +
+    xlab('Index') +
+    ylab('Killed Cumulative Sum') +
+    ggtitle('Cumulative Sum of people killed in mass shootings') +
+    scale_x_continuous(breaks = c(0, 100, 200, 300, 400, 496))
+
+plot(icm)
+plot(kcm)
+```
+
