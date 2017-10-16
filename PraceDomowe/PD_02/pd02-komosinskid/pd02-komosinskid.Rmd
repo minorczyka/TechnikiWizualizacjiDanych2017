@@ -1,0 +1,46 @@
+---
+title: "PD02"
+author: "Dariusz Komosinski"
+date: "15 października 2017"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Ceny wynajmu mieszkan w Polsce bankier.pl
+
+W tej pracy domowej zająłem się cenami wynajmu przedstawionymi na stronie bankier.pl. <https://www.bankier.pl/wiadomosc/Ceny-ofertowe-wynajmu-mieszkan-pazdziernik-2017-Raport-Bankier-pl-7548395.html>.
+
+![Wizualizacja z serwisu bankier.pl](D:/MATEMATYKA/MAGISTERKA/SMAD/Techniki wizualizacji danych/pd02/zle.png)
+
+Przedstawiona wizualizacja pozostawia wiele do życzenia. Po pierwsze długość pasków nie odpowiada wartościom liczbowym. Np. w Łodzi cena za 0-38 mkw wynosi 1088 zł, a za 60-90 mkw 2187 zł. Długość paska powinna być zatem 2 razy większa. Niestety tak nie jest. Ponadto ciężko porównać w którym mieście płaci się najwięcej, a w którym najmniej. Nie pomagają w tym przekłamane paski, ciężko szybko znaleźć te miasta bazując tylko na liczbach.
+
+```{r cars, echo=T, message=F}
+library(ggplot2)
+```
+
+## Moja propozycja
+
+Moim zdaniem znacznie lepiej wyglądałby zwykły wykres słupkowy. Jedyną jego wadą w tym przypadku jest fakt, że nie pokazuje on, gdzie leżą dane miasta na mapie. Założyłem zatem, że odbiorcą mojego wykresu jest osoba o wykształceniu co najmniej podstawowym.
+
+```{r pressure, echo=T}
+setwd("D:/MATEMATYKA/MAGISTERKA/SMAD/Techniki wizualizacji danych/pd02")
+db<-read.csv2("pd02-ceny mieszkan.csv")
+
+ggplot(db, aes(x = reorder(miasto, -srednia.cena), y = srednia.cena, label=srednia.cena)) +
+  geom_bar(aes(fill=metraz.mkw.), stat = 'identity', position=position_dodge()) +
+  geom_text(aes(group=metraz.mkw.), position = position_dodge(0.9), vjust=2.2, size=1.5) +
+  scale_fill_brewer(palette=3) +
+  theme_minimal() +
+  geom_point(stat = "summary", fun.y="mean")+
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))+
+  labs(x="miasto",
+       title="Ceny wynajmu mieszkan w Polsce w zł - pazdziernik 2017",
+       subtitle="Miasta uporzadkowano wzgledem sredniej ceny zaznaczonej kropka")
+
+```
+
+Z tego wykresu szybko możemy zlokalizować najtańsze i najdroższe miastio. Słupki oddają wartości liczbowe. Dodatkowo mamy również informację o ogólnej średniej zaznaczonej kropką.
+
