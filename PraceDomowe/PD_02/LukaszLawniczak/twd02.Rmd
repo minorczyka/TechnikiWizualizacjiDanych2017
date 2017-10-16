@@ -1,0 +1,40 @@
+---
+title: "Techniki wizualizacji danych 02"
+author: "Łukasz Ławniczak"
+date: "14 października 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(ggplot2)
+library(reshape2)
+```
+
+Dane pochodzą z artykułu http://pclab.pl/news75749.html opisującego zmianę sprzedaży na rynku komputerów osobistych w 3. kwartale 2017 roku w porównaniu do roku poprzedniego. Zostały one zebrane przez firmę analityczną Gartner (https://www.gartner.com/newsroom/id/3814066).
+
+```{r}
+df <- read.csv2("twd02data.csv")
+df1 <- df[c("Company", "X3Q16Shipments", "X3Q17Shipments")]
+df1$Company <- factor(df1$Company, levels=df1$Company)
+```
+
+Dane dotyczą sprzedaży komputerów osobistych i laptopów z pominięciem tabletów i Chromebooków.
+
+```{r}
+ggplot(df1, aes(x=Company)) +
+  geom_bar(aes(y=ifelse(X3Q17Shipments > X3Q16Shipments, 
+                        X3Q17Shipments, 0)/1000),
+           stat="identity", fill="green3") +
+  geom_bar(aes(y=ifelse(X3Q16Shipments > X3Q17Shipments,
+                        X3Q16Shipments, 0)/1000), 
+           stat="identity", fill="red2") +
+  geom_bar(aes(y=ifelse(X3Q17Shipments > X3Q16Shipments,
+                        X3Q16Shipments, X3Q17Shipments)/1000),
+           stat="identity", fill="grey45") +
+  labs(title="HP liderem rynku PC", 
+       y="Zmiana sprzedaży 3Q16-3Q17 (mln)", x="Firma") +
+  theme_classic()
+```
+
+Kolorem szarym zaznaczono mniejszą spośród wartości sprzedaży w 3Q16 i 3Q17. Zmianę 3Q16-3Q17 przedstawiono na zielono (wrost) lub czerwono (spadek).
+Z wykresu można odczytać, że HP zwiększyło sprzedaż pomimo spadków u wszystkich konkurentów, co sprawiło, że firma stała się liderem rynku. Można również poróWnać spadki wśród różnych firm.

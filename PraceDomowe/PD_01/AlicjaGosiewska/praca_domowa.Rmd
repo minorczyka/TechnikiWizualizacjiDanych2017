@@ -1,0 +1,42 @@
+---
+title: "Techniki Wizualizacji - Praca domowa 1"
+author: "Alicja Gosiewska"
+date: "10 października 2017"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+Artykuł, na podstawie którego wykonałam pracę domową zawiera tabele prezentujące rankingi stron internetowych. Rankingi stworzone zostały na podstawie liczby internautów odwiedzających dane strony. 
+
+https://interaktywnie.com/badania-i-megapanel/oto-kto-rzadzil-polskim-internetem-we-wrzesniu-pbi-gemius-256234
+
+W artykule znajdują się między innymi zestawienia w rozbiciu na komputery osobiste i laptopy oraz na urządzenia mobilne. Na tych zestawieniach będę bazować.
+
+
+
+```{r, message= FALSE, warning = FALSE}
+library(ggplot2)
+require(scales)
+```
+
+```{r}
+load("kto_rzadzi_internetem.rda")
+```
+
+```{r, fig.height = 6}
+ggplot(kto_rzadzi, aes(x = wydawca, y = internauci, fill = urzadzenie, width=.65)) + 
+  geom_col(position = position_dodge())+
+  theme_bw() + 
+  scale_y_continuous(labels = comma)+
+  xlab("Strona www")+
+  ylab("Liczba internautów") +
+  scale_fill_discrete(name="Urządzenie", labels=c("urządzenie mobilne", "komputer osobisty lub laptop")) + 
+  theme(legend.position="top") + 
+  coord_flip()
+```
+
+Dzięki takiemu graficznemu przedstawieniu danych łatwo można zauważyć, że w przypadku stron *youtube.com* oraz *facebook.com* różnice między słupkami odpowiadającymi komputerom oraz urządzeniom mobilnym są wyjątkowo duże, w porównaniu do różnic dla pozostałych stron www.
+Wydaje się zatem, że z *youtube.com* oraz *facebook.com* ludzie zdecydowanie chętniej korzystają przy pomocy komputerów oraz laptopów niż urządzeń mobilnych.
+
+Na podstawie samych tabel znajdujących się w artykule dużo trudniej jest dojrzeć tę zależność.
