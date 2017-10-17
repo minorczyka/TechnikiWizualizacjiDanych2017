@@ -1,0 +1,115 @@
+---
+title: "Rozmieszczenie restauracji sieci Burger King w Stanach Zjednoczonych"
+author: "Anna Niżnik"
+date: "17 października 2017"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r load_packages, include=FALSE, message=FALSE, warning=FALSE, error=FALSE, echo=FALSE}
+library(ggplot2)
+library(dplyr)
+library(ggthemes)
+library(readr)
+library(igraph)
+library(ggraph)
+library(rworldmap)
+library(dplyr)
+library(corrplot)
+library(maps)
+```
+
+```{r setup, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(echo = TRUE)
+
+burger_king_locations <- as.data.frame(read.csv("Burger_King_Locations.csv", header = TRUE, fileEncoding = "UTF-8"))
+```
+
+
+
+### Analiza danych dotyczących lokalizacji restauracji sieci Burger King na terenie USA
+
+Dane zostały pobrane ze strony:
+https://opendata.socrata.com/Fun/Burger-King-Locations/muaj-7cn2.
+
+Zbiór składa się z **6873  wierszy** i **4 kolumn**. 
+
+Kolumny zawierają informacje odnośnie współrzędnych geograficznych oraz miast, w których są zlokalizowane restauracje. Oto nazwy kolumn ramki danych:
+
+
+```{r echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+colnames(burger_king_locations)
+```
+
+
+
+Dane w zbiorze dotyczą lokalizacji sieci restauracji na całym świecie. 
+
+W celu efektywniejszej analizy, przefiltrowano je do terenu Stanów Zjednoczonych.
+
+Dla otrzymanych danych, obliczono częstość występowania restauracji Burger King w danym mieście. 
+Następnie dla tak określonej częstości dopasowano rozmiar zaznaczenia obszaru. 
+
+Im więcej lakalizacji w danym mieście, tym większy obszar na mapie zajmuje. 
+Oprócz częstości występowania, na wykresie mozna także zobaczyć, w których rejonach USA znajduje się więcej lokalizacji lokali tej marki.
+
+\
+ 
+\
+```{r echo=FALSE, warning=FALSE, error=FALSE, message=FALSE, fig.height=4}
+world_map <- map_data("usa")
+
+p <- ggplot(legend=FALSE) +
+geom_polygon( data=world_map, aes(map_id=region,x=long, y=lat,group=group)) +
+theme(panel.background = element_blank()) +
+theme(panel.grid.major = element_blank()) +
+theme(panel.grid.minor = element_blank()) +
+theme(axis.text.x = element_blank(),axis.text.y = element_blank()) +
+theme(axis.ticks = element_blank()) +
+xlab("") + ylab("")
+
+colnames(burger_king_locations) <- c("lat", "long", "Name", "Location")
+
+ repeat_towns <- data.frame(table(burger_king_locations$Name))
+ repeat_towns <- repeat_towns[-1,order(colnames(repeat_towns))]
+ burger_king_locations_distinct <- burger_king_locations %>% distinct(Name)
+ burger_king_locations_distinct <- as.vector(burger_king_locations_distinct[ order(burger_king_locations_distinct$Name),])
+ burger_king_locations_distinct <- burger_king_locations_distinct[3:length(burger_king_locations_distinct)]
+burger_king_freq_towns <- data.frame(city=burger_king_locations_distinct, frequency = repeat_towns$Freq[-2]) 
+
+frequency_vector <- burger_king_freq_towns$frequency/7
+frequency_vector[frequency_vector <= 1] <- 1
+burger_king_freq_towns$size <- frequency_vector
+
+burger_king_not_duplicated <- burger_king_locations[!duplicated(burger_king_locations$Name),]
+burger_king_not_duplicated <- burger_king_not_duplicated[order(burger_king_not_duplicated$Name),]
+burger_king_not_duplicated <- burger_king_not_duplicated[3:nrow(burger_king_not_duplicated),]
+
+burger_king_not_duplicated$size <- as.integer(burger_king_freq_towns$size)
+
+burger_king_not_duplicated$frequency <- burger_king_freq_towns$size
+burger_king_not_duplicated <- cbind(burger_king_not_duplicated, burger_king_freq_towns$size)
+burger_king_not_duplicated <- data.frame(na.omit(burger_king_not_duplicated))
+
+
+p <- p + geom_point(data=burger_king_not_duplicated,alpha=1/7, aes(y=long, x=lat, colour=frequency), size=burger_king_not_duplicated$frequency)+
+   scale_colour_gradient(low = "#449a2c", high = "#ffb457",
+   space = "Lab", na.value = "grey50", guide = "colourbar", name='Natężenie',labels = (0.25*0:4))+
+   ggtitle('Rozmieszczenie restauracji sieci Burger King w USA') + 
+   theme(plot.title = element_text(hjust = 0.5))+
+   theme(panel.background = element_rect(fill = "#eaeefe", colour = "#eaeefe"))+
+   coord_cartesian(xlim = c(-130, -60), ylim = c(25,50))+
+   theme(legend.background = element_rect(size=0.5))
+p
+```
+
+
+
+
+
+
+
+
+
