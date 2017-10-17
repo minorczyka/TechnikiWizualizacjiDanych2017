@@ -1,0 +1,45 @@
+---
+title: "Praca domowa 1"
+author: "£ukasz £awniczak"
+date: "10 paŸdziernika 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(ggplot2)
+library(reshape2)
+Sys.setlocale(category="LC_ALL", locale="Polish")
+```
+
+## ród³o danych
+
+Dane zosta³y zaczerpniête z artyku³u http://www.bankier.pl/wiadomosc/Ranking-aplikacji-bankowosci-mobilnej-pazdziernik-2017-7547578.html i dotycz¹ jakoœci aplikacji mobilnych ró¿nych bankóW. Testowane by³y nastêpuj¹ce w³asnoœci:
+
+* dostêpnoœæ na ró¿nych systemach operacyjnych
+* wybór metod logowania
+* funkcje aplikacji dostêpne przed zalogowaniem
+* obs³uga innych rachunków ni¿ ROR
+* dostêpne typy powiadomieñ push
+* dostêpne opcje zarz¹dzania kartami p³atniczymi
+* dostêpne opcje p³atnoœci mobilnych
+* us³ugi dodatkowe
+* dostêpne funkcje kontaktu z bankiem
+
+## Graficzna reprezentacja
+
+```{r}
+df <- read.csv2("twd_pd01.csv", fileEncoding="Windows-1250", stringsAsFactors=FALSE)
+df.max <- c(3, 6, 9, 5, 3, 6, 7, 7, 4)
+names(df)[3:11] <- c("dostêpnoœæ", "metody logowania",
+                     "f. przed logowaniem", 
+                     "obs. innych rachunków",
+                     "powiadomienia push", "karty p³atnicze",
+                     "p³atnoœci mobilne", "us³ugi dodatkowe",
+                     "kontakt z bankiem")
+dfm <- melt(df[,-2], id="Bank")
+ggplot(dfm, aes(x=Bank, y=value, fill=variable)) +
+  geom_bar(stat="identity") +
+  labs(y = "Liczba punktów", title="Aplikacje bankowoœci mobilnej")
+```
+
+W celu poprawienia czytelnoœci wykresu u¿yto skrótów nazw banków.
