@@ -1,0 +1,36 @@
+---
+title: "Praca domowa nr 2"
+author: "Karolina Marcinkowska"
+date: "17 paŸdziernika 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = TRUE,
+	message = FALSE,
+	warning = FALSE
+)
+library(ggplot2)
+library(reshape2)
+```
+
+Dane pochodz¹ z artyku³u https://www.money.pl/gospodarka/wiadomosci/artykul/540-mld-zl-podatek-cit-540-ministerstwo,62,0,2369598.html zawieraj¹cego dane o dochodach przedsiêbiorstw, które dzia³aj¹ w Polsce, ale siedziba lub zarz¹d ulokowane s¹ w innym unijnym pañstwie w latach 2005 - 2015, przez co do bud¿etu naszego Pañstwa wp³ynê³o znacznie mniej œrodków pochodz¹cych z podatków. Na wykresie zosta³y przedstawione pañstwa, których œredni dochód z tych 10 lat wynosi minimum 1 miliard z³otych.
+
+```{r,echo=FALSE}
+dane <- read.csv2("C:/Users/Karola/Desktop/podatki.csv",header=TRUE)
+df <- dane[-nrow(dane),]
+df$srednia <- round(apply(df[,-1],MARGIN=1,mean),2)
+df$Kraj <- reorder(df$Kraj,-df$srednia,mean)
+df <- df[which(df$srednia>=1),]
+dfm <- melt(df, id="Kraj")
+
+ggplot(dfm,aes(x=variable,y=value,fill=Kraj))+
+  geom_bar(stat="identity")+
+  labs(y="Mld z³",title="Najwiêksze zyski Holandii i Niemiec z polskich przedsiêbiorstw w latach 2005-2015")+
+  facet_wrap(~Kraj,ncol=3)+
+  theme_grey(base_size=9)+
+  theme(axis.text.x = element_text(hjust=1, angle=45))
+```
+
+Jak widaæ, Holandia oraz Niemcy najbardziej korzystaj¹ na polskich przepisach. Dalej jest Francja, Wielka Brytania i Luksemburg. Co ciekawe, kraje uwa¿ane za podatkowe raje, czyli Cypr czy Malta znalaz³y siê pod koniec naszego zestawienia lub w ogóle w nim nie wyst¹pi³y.
