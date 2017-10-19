@@ -1,0 +1,23 @@
+---
+title: "Praca domowa 3 - Techniki Wizualizacji"
+author: "Alicja Gosiewska"
+date: "19 października 2017"
+output: html_document
+---
+
+Grafika, którą znalazłam pochodzi z artykułu: [Alkohol zniknie z okien wystawowych sklepów](http://biznes.interia.pl/wiadomosci/news/alkohol-zniknie-z-okien-wystawowych-sklepow,2541430,4199). 
+
+W lipcu tego roku Naczelny Sąd Administracyjny stwierdził, że eksponowanie w witrynie sklepowej znaków towarowych napojów alkoholowych stanowi niedozwoloną reklamę tych produktów.
+
+![](alkohol.jpg)
+
+Na pierwszy rzut oka wydaje się, że butelki reprezentują liczbę punktów sprzedaży napojów alkoholowych w wybranych województwach. Jednak liczby wynikające z danych nie odpowiadają ani wysokościom, ani polom butelek. 
+Stosunek wysokości pierwszej butelki do drugiej to `1.66`, stosunek ich pól to `2.88`, a według podanych danych powinien wynosić: `1.94`.
+Za wysokość butelki przyjęłam odległość pomiędzy najniższym a najwyższym punktem obszaru.
+
+Dodatkowo, etykietki na butelkach powinny przedstawiać liczbę sklepów, w których sprzedaje się alkohol.
+Stosunek wysokości pierwszej etykietki do drugiej to `2.03`, stosunek ich pól to `3.92`, a według podanych danych powinien wynosić: `2.2`.
+Wysokość etykietki liczyłam od najniższego do najwyższego punktu obszaru.
+
+Co więcej, różne wielkości etykiet na butelkach sugerują, że być może stosunek wysokości lub pól etykietek i butelek odpowiada liczbom z danych. Jednak znów stosunki te nie pokrywają się z danymi.
+Stosunek wysokości pierwszej butelki do jej etykietki wynosi: `1.87`, stosunek ich pól to: `1.79`. Z danych wynika, że powinien być równy:`1.45`.
