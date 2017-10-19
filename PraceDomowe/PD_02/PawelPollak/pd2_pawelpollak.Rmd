@@ -1,0 +1,62 @@
+---
+title: "Praca domowa nr 2"
+author: "Paweł Pollak"
+date: "17 października 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Dane
+
+W weekend na stronie [Nauka w Polsce PAP](http://naukawpolsce.pap.pl/aktualnosci/news,460093,naukowcy-zbadali-kogo-i-jak-zabijaja-wulkany.html) pojawił się artykuł dotyczący analizy ofiar związanych z erupcjami wulkanów.
+Oryginalny opis badań znajduje się w [tym miejscu](https://appliedvolc.springeropen.com/articles/10.1186/s13617-017-0067-4).
+
+Badania uwzględniały m.in. odległość zdarzenia od wulkanu czy zawód ofiar. 
+
+Niestety w artykule brakuje wizualizacji danych, podane są jedynie opisy i liczby. Wykresy obecne są w oryginalnej analizie, jednak nie oddają wszystkich zależności pomiędzy zebranymi danymi.
+
+# Wizualizacja
+
+## Liczba ofiar w zależności od profesji
+
+W celu łatwiejszego zobaczenia różnic pomiędzy zawodami pomocny może być zwykły wykres kołowy.
+
+```{r}
+data <- data.frame(
+  Grupa = c("Turyści", "Naukowcy", "Górnicy", "Media", "Służby ratunkowe"), 
+  Zdarzenia = c(113, 22, 6, 6, 5), 
+  Ofiary = c(561, 67, 108, 30, 57))
+
+library(ggplot2)
+bp<- ggplot(data, aes(x="", y=Ofiary, fill=Grupa))+
+geom_bar(width = 1, stat = "identity")
+pie <- bp + coord_polar("y", start=0) + scale_fill_brewer(palette="Accent") + labs(title = "Liczba ofiar w zależności od grupy", x = "", y = "Liczba ofiar")
+
+pie
+```
+
+## Liczba ofiar i zdarzeń w zależności od odległości
+W analizie obecna była tabla przedstawiająca sumaryczną liczbę ofiar i incydentów w podziale na odległość od wulkanu. Jednak z samych liczb trudno było zauważyć, że większa liczba incydentów nie oznacza większej liczby ofiar.
+
+
+```{r}
+library(ggplot2)
+data <- data.frame(Nazwy = c("Mniej niż 5km", "Pomiędzy 5-10km", "Więcej niż 10 km"), 
+                   Zdarzenia = c(149, 110, 154), 
+                   Ofiary = c(6268, 61842, 119717)/1000)
+
+library(reshape2)
+data_long <- melt(data[c("Nazwy", "Zdarzenia", "Ofiary")], id.vars = c("Nazwy"))
+colnames(data_long)[2] <- "Dane"
+colnames(data_long)[2] <- "Dane"
+g <- ggplot(data=data_long,aes(x=Nazwy, y=value, fill=Dane, color=Dane, alpha=Dane)) +
+  geom_bar(stat="identity", position ="identity") +
+  labs(title = "Porównanie liczby ofiar (w tys.) i wypadków \n w zależności od odległości od wulkanu", x = "Odległość", y = "Liczba ofiar (w tys.) i liczba zdarzeń") +
+  scale_colour_manual(values=c("red", "lightblue")) +
+  scale_fill_manual(values=c("pink", "lightblue"))# +
+  #scale_alpha_manual(values=c(.9, .3))
+g
+```

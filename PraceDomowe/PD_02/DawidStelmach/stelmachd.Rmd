@@ -1,0 +1,67 @@
+---
+title: "Techniki wizualizacji danych - tydzień 2"
+author: "Dawid Stelmach"
+date: "15 października 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(out.width='950px')
+library(tidyr)
+library(dplyr)
+library(ggplot2)
+options(warn = -1)
+```
+
+**Artykuł** - http://www.wirtualnemedia.pl/artykul/najbardziej-wartosciowe-krajowe-marki-na-swiecie-polska-w-dol-na-23-miejsce
+
+**Źródło danych** - http://brandfinance.com/images/upload/bf_nation_brands_2017.pdf
+
+Dane dotyczą wartości tzw. "Marki narodowej". W dzisiejszych czasach wszystko włącznie z Państwem jest towarem na sprzedaż.
+
+Wykres został przedstawiony w skali logarytmicznej ze względu na ogromne różnice pomiędzy poszczególnymi krajami. Dzięki temu wykres zachował poprawną kompozycję, jednak trzeba się skupić na poprawnej interpretacji wyników, gdyż proporcje są zaburzone.
+
+```{r data, include=FALSE}
+countries <- read.csv("countries.csv", sep = " ")
+plot_data1 <- countries[,c("Nation", "Nation_Brand_Value_2017", "Nation_Brand_Value_2016", "Change", "Continent")] %>%
+  rename(`2017` = Nation_Brand_Value_2017, `2016` = Nation_Brand_Value_2016)
+tidy_plot_data1 <- gather(plot_data1, Year, Value, `2017`:`2016`)
+
+label_data_2017 <- tidy_plot_data1 %>%
+  filter(Year == "2017") %>%
+  group_by(Continent) %>%
+  arrange(Value) %>%
+  filter(Value %in% range(Value))
+
+label_data_2016 <- tidy_plot_data1 %>%
+  filter(Year == "2016") %>%
+  group_by(Continent) %>%
+  arrange(Value) %>%
+  filter(Value %in% range(Value)) %>%
+  rbind(label_data_2017) %>%
+  distinct(Continent, Value, .keep_all = TRUE)
+
+label_data <- tidy_plot_data1 %>%
+  group_by(Continent) %>%
+  filter(Nation == "Poland") %>%
+  rbind(label_data_2016)
+```
+
+```{r plot, echo=FALSE}
+ggplot() +
+  geom_boxplot(data = tidy_plot_data1, aes(Continent, Value, fill = Year)) +
+  geom_point(data = tidy_plot_data1, aes(Continent, Value, group = Year, color = Change), position = position_jitterdodge(dodge.width = 0.8, jitter.width = 0.35), size = 2) +
+  geom_rug(data = tidy_plot_data1[(tidy_plot_data1$Year == "2016"),], mapping = aes(x = Continent, y = Value), sides = "l", position = position_dodge(width = 1.5), color = "#1b9e77") +
+  geom_rug(data = tidy_plot_data1[(tidy_plot_data1$Year == "2017"),], mapping = aes(x = Continent, y = Value), sides = "r", position = position_dodge(width = 1.5), color = "#d95f02") +
+  geom_text(data = label_data, aes(x = Continent, y = Value, label = Nation, group = Year), size = 3, position = position_dodge(0.8)) +
+  scale_y_log10(breaks = c(10, 25, 50, 100, 250, 500, 1000, 2500, 5000, 10000, 20000)) +
+  scale_fill_brewer(type = "qual", palette = 2) +
+  scale_color_gradient2(low = "#f7fbff", mid = "#deebf7", high = "#08519c", midpoint = 0, guide = guide_colorbar(title = "Change[%]")) +
+  ggtitle('China - fastest growing Nation Brands Value of the "great three"') +
+  ylab("National Brand Value [log10 scale]")
+```
+
+Jak widać, Nation Brand Value Chin z roku na rok rośnie bardzo szybko pomimo jej wysokiej wartości, czego nie można powiedzieć o USA. Pomimo że USA dzierży pierwsze miejsce, to połowa krajów Ameryki północnej jest na poziomie zbliżonym do Afryki. Ponadto wszystkie kraje wykazują niski wzrost wartości. Wyraźny wzrost europejskich krajów z "końca stawki" jednak przy tak niskich liczbach nawet najmniejszy wzrost skutkuje wysokim procentem. Poza tym Ameryka południowa notuje stosunkowo równy przyrost. Poza tym nie ma zauważalnych zależności procentowego wzrostu wartości Marki narodowej w porównaniu z pozycją kraju w rankingu.
+
+W przypadku tak rozrzuconych danych średnia byłaby kiepskim estymatorem.
