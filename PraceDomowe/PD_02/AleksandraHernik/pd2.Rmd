@@ -1,0 +1,26 @@
+---
+title: "Superkomputery"
+author: "Aleksandra Hernik"
+date: "17 października 2017"
+output: html_document
+---
+
+Wykorzystane dane pochodzą z najnowszego rankingu TOP 500, w którym prezentowane są najszybsze komputery na świecie (źródło: https://www.top500.org/lists/2017/06/). Dla każdej z uwzględnionych maszyn można w nich znaleźć zestaw informacji takich jak nazwa, kraj, w którym się znjduje, wyniki w benchmarkach, modele użytych procesorów i wiele innych.
+Na wykresie przedstawiono 15 najlepszych maszyn, posortowanych zgodnie z miejscami w rankingu.
+
+```{r echo=FALSE}
+suppressWarnings(suppressMessages(library(ggplot2)))
+data = read.csv("TOP500_201706.csv", header = TRUE)
+n = 15
+data = head(data, n)
+ggplot(data, aes(x=Rank, y=Total.Cores)) + 
+  geom_bar(aes(fill=Power.Effeciency..GFlops.Watts.), stat='identity') +
+  scale_x_continuous(breaks=1:n, labels=data[,"Name"]) +
+  scale_fill_continuous(low="red", high="green") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle=90)) +
+  ggtitle("Najpotężniejsze komputery świata") +
+  labs(y="Liczba rdzeni", fill="Wydajność energetyczna (GFlops/Watt)", x="")
+```
+
+Można zauważyć, że maszyna z pierwszego miejsca zostawia pozostałe daleko w tyle pod względem liczby rdzeni, ale dalej w rankingu liczba rdzeni wydaje się nie mieć wyraźnego wpływu na miejsce w rankingu. Kolejna obserwacja jest taka, że najlepsze komputery są często bardziej ekologiczne od tych gorszych.

@@ -1,0 +1,80 @@
+---
+title: "Praca domowa #2"
+author: "Anton Lenartovich"
+date: "October 16, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Źródłem danych posłużył artykuł o dochodach najpupalniejszych brandów świata. Artykuł można znaleźć na oficjalnym portalu [Forbes](https://www.forbes.com/sites/kurtbadenhausen/2017/05/23/apple-heads-the-worlds-most-valuable-brands-of-2017-at-170-billion/#15a4970e384b). Dane są udostępnione publicznie i znajdują się pod tym [linkiem](https://www.forbes.com/powerful-brands/list/#tab:rank).
+
+
+Artykuł przedstawia 10 najlepiej sprzedających się brandów w 2017 roku. Moim zadaniem było porównanie dochodów dla 100 najlepszych firm, grupując te firmy według branż, do których należą. Jako  wynik powstał wykres przedstawiający różnicę dochodów dla konkretnych branż pomiędzy 2016 i 2017 rokiem. 
+
+
+```{r echo=FALSE, fig.align='center', warning=FALSE, message=FALSE}
+library(jsonlite)
+library(ggplot2)
+library(dplyr)
+dane17 <- fromJSON("https://www.forbes.com/ajax/list/data?year=2017&uri=powerful-brands&type=organization")
+dane17 <- dane17[c("position", "rank", "name", "industry","revenue", "oneYearValueChange", "brandValue", "advertising" )]
+dane17$revenue <- dane17$revenue / 1000
+dane17$brandValue <- dane17$brandValue / 1000
+dane17$advertising <- dane17$advertising / 1000
+
+dane16 <- fromJSON("https://www.forbes.com/ajax/list/data?year=2016&uri=powerful-brands&type=organization")
+dane16 <- dane16[c("position", "rank", "name", "industry","revenue", "oneYearValueChange", "brandValue", "advertising" )]
+dane16$revenue <- dane16$revenue / 1000
+dane16$brandValue <- dane16$brandValue / 1000
+dane16$advertising <- dane16$advertising / 1000
+
+dane16 <- as.data.frame(dane16 %>% group_by(industry) %>% summarize(count = n(), suma = sum(revenue)))
+dane17 <- as.data.frame(dane17 %>% group_by(industry) %>% summarize(count = n(), suma = sum(revenue)))
+
+
+size = 10
+
+dane16 <- head(dane16[order(-dane16$suma),], size)
+dane17 <- dane17[dane17$industry %in% dane16$industry, ]
+
+dane16 <- dane16[order(dane16$industry), ]
+dane17 <- dane17[order(dane17$industry), ]
+
+dane <- rbind(dane16, dane17)
+dane$year <- c(rep(2016, size), rep(2017, size))
+dane$year <- as.factor(dane$year)
+dane$procent <- c(dane16$suma / (dane16$suma + dane17$suma), dane17$suma / (dane16$suma + dane17$suma))
+dane$procent <- round(dane$procent * 100,0)
+
+
+ggplot(data=dane) +
+  geom_bar(data=dane, aes(y=procent, x=industry, fill=factor(year, levels=c("2017", "2016"))), stat="identity") +
+  geom_text(data=dane, aes(x=industry, y=procent, label = paste0(" ($", round(suma / 1000, 2), "T)")),
+            position = position_stack(vjust=0.75), size=3) + 
+  geom_text(data=dane, aes(x=industry, y=procent, label = paste0(procent,"%")), 
+            position = position_stack(vjust=0.5)) + 
+  ggtitle("Różnica dochodu dla branż w 2016/2017") +
+  scale_y_continuous(labels = scales::dollar_format(suffix = "%", prefix = ""),
+                     breaks=seq(0, 100, 25)) +
+  xlab("") + ylab("") +
+  theme(axis.line = element_line(size=1, colour="black"),
+        plot.title = element_text(size=14),
+        axis.text.x = element_text(colour = "black", size=10, hjust=0.8, vjust=1),
+        axis.text.y = element_text(colour = "black", size=10),
+        legend.title = element_blank(),
+        panel.background = element_blank(),
+        legend.position="bottom") +
+  coord_flip()
+
+```
+
+
+
+
+
+
+
+

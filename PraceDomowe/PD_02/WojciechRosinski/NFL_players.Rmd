@@ -1,0 +1,36 @@
+---
+title: "Opposition to firing kneeling NFL players"
+output:
+  html_document:
+    df_print: paged
+---
+
+Dane pochodzą z artykułu [Americans disagree with Trump on kneeling football players](https://today.yougov.com/news/2017/10/09/americans-disagree-trump-kneeling-football-players/).
+
+Wykres dotyczy opinii obywateli USA na temat protestu graczy NFL, którzy w trakcie hymnu USA uklęknęli. 
+Spotkało się to z ostrą krytyką ze strony prezydenta Trumpa, który stwierdził, że gracze ci powinni zostać wyrzuceni z drużyn.
+
+Na wykresie zobrazowano poglądy dwóch grup ludzi - fanów NFL oraz obywateli nie deklarujących się jako fani tego sportu.
+Zapytano, czy gracze powinni zostać wyrzuceni.
+Pierwotnie wykres przedstawiony został jako wykres kołowy, który nie jest optymalną formą prezentacji danych.
+
+
+```{r}
+library(tidyverse)
+library(reshape2)
+
+total <- c(30, 53, 17)
+nfl_fans <- c(28, 58, 14)
+
+df = data.frame(total=total, 
+                nfl_fans=nfl_fans)
+
+df <- t(df)
+colnames(df) <- c('Fire', 'Not Fire', 'Not sure')
+
+
+melted_df <- melt(df)
+colnames(melted_df) <- c('Group', 'Opinion', 'Percent.of.votes')
+
+ggplot(melted_df, aes(x = Opinion, y = Percent.of.votes, fill = Opinion)) + geom_col() + facet_grid(~ Group)
+```
