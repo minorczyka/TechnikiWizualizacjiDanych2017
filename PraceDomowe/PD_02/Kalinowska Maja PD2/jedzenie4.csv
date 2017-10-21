@@ -1,0 +1,61 @@
+rodzaj;rok;wartosc;spadki
+pieczywo;rok 2012;0,5;
+wêdliny;rok 2012;0,33;
+warzywa;rok 2012;0,33;
+owoce;rok 2012;0,26;
+ziemniaki ;rok 2012;0,29;
+jogórty;rok 2012;0,14;
+dania gotowe;rok 2012;0,12;
+miêso;rok 2012;0,05;
+ser;rok 2012;0,11;
+mleko;rok 2012;0,04;
+ryby;rok 2012;0,01;
+jaja;rok 2012;0,01;
+pieczywo;rok 2013;0,39;-0,22
+wêdliny;rok 2013;0,47;0,42
+warzywa;rok 2013;0,35;0,06
+owoce;rok 2013;0,23;-0,12
+ziemniaki ;rok 2013;0,21;-0,28
+jogórty;rok 2013;0,22;0,57
+dania gotowe;rok 2013;0,12;0,00
+miêso;rok 2013;0,08;0,60
+ser;rok 2013;0,09;-0,18
+mleko;rok 2013;0,09;1,25
+ryby;rok 2013;0,03;2,00
+jaja;rok 2013;0,02;1,00
+pieczywo;rok 2014;0,62;0,59
+wêdliny;rok 2014;0,47;0,00
+warzywa;rok 2014;0,35;0,00
+owoce;rok 2014;0,47;1,04
+ziemniaki ;rok 2014;0,21;0,00
+jogórty;rok 2014;0,24;0,09
+dania gotowe;rok 2014;0,06;-0,50
+miêso;rok 2014;0,1;0,25
+ser;rok 2014;0,16;0,78
+mleko;rok 2014;0,09;0,00
+ryby;rok 2014;0,07;1,33
+jaja;rok 2014;0,04;1,00
+pieczywo;rok 2016;0,36;-0,42
+wêdliny;rok 2016;0,43;-0,09
+warzywa;rok 2016;0,32;-0,09
+owoce;rok 2016;0,27;-0,43
+ziemniaki ;rok 2016;0,2;-0,05
+jogórty;rok 2016;0,23;-0,04
+dania gotowe;rok 2016;0,08;0,33
+miêso;rok 2016;0,17;0,70
+ser;rok 2016;0,12;-0,25
+mleko;rok 2016;0,13;0,44
+ryby;rok 2016;0,08;0,14
+jaja;rok 2016;0,04;0,00
+pieczywo;rok 2017;0,51;0,42
+wêdliny;rok 2017;0,49;0,14
+warzywa;rok 2017;0,33;0,03
+owoce;rok 2017;0,32;0,19
+ziemniaki ;rok 2017;0,17;-0,15
+jogórty;rok 2017;0,16;-0,30
+dania gotowe;rok 2017;0,14;0,75
+miêso;rok 2017;0,11;-0,35
+ser;rok 2017;0,11;-0,08
+mleko;rok 2017;0,08;-0,38
+ryby;rok 2017;0,04;-0,50
+jaja;rok 2017;0,02;-0,50
