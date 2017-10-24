@@ -1,0 +1,43 @@
+---
+title: "Demografia na infografikach"
+author: "Maja Kalinowska"
+date: "17 października 2017"
+output:
+  word_document: default
+  pdf_document: default
+  html_document: default
+---
+```{r setup, include=FALSE, warning=FALSE, message=FALSE, echo=FALSE, results='hide'}
+ ```
+
+ 
+Minony rok obfitował w rozważania na temat możliwych skutków na dzietność w Polsce wprowadzonego programu 500+. Dlatego wiele artykółów zawierało dane demograficzne. Jeden z nich zawiera taką oto infografikę;
+
+<br />
+ 
+ <center>
+ ![Wykres](wykres_demo.jpg)
+ </center>
+  
+  <br />
+  
+  
+Omówmy zatem kolejne składowe tej grafiki zaczynając od elementów najbardziej widocznych(lewa strona) przechodząc do tych zajmujących mniej miejsca (prawa strona grafiki)
+  <br />
+  <br />
+
+1.Na początek naszą uwagę przykuwa ułożone w półkole prostokąty na których znajduje się współczynnik dzietności wraz z rokiem w którym został odnotowany.Współczynnik dzietności to liczba dzieci przypadających na jeną kobietę w okresie rozrodczym (15-49).
+Po przyjżeniu się liczbom widzimy, iż rosnąone do 2009 roku a następnie spadają bez wyjątkóW. Ułożone zostały tak jakbyśmy obserowali je na wykresie punktowym, jednak niestety najwyższa wartość wcale nie jest w najwyższym punkcie półkola, zaś krańcowe punkty (2005 z współczynnikiem na poziomie 1,24 i 2015 z 1,29) znajdują się na jednakowej wysokości czemu stanowczo zaprzeczają liczby. Najwyższe współczynniki zostały zaznaczone największą powierzchnią prostokątów. Jednak różnica ta jest praktycznie nie widoczna gołym okiem.
+<br />
+<br />
+
+2. W kolejnej części jest przedstawiona liczba urodzonych dzieci żywych. Odwzorowanie tej wartości przypadło na manipulowanie wielkością postaci matki z dzieckiem przypożądkowanej do danego roku.
+Stosunek wysokości matki reprezentującej największą liczbę urodzeń do matki reprezentującej mninimalną wartość na przestrzeni tych lat to "1,8" a stosunek pół wynosi "3,15" gy w rzeczywistości stosunek liczb (największej i najmniejsze) daje nam wartość "1.14".Warto także wspomnieć o liczbie zaznaczonej nad najświeższymi danymi, która została pogrubiona powiększona oraz wyróżniona kolorem, co może dawać złudzne wrażenie, że największa liczba urodzonych dzieci przypada na ubiegły rok.
+<br />
+  <br />
+
+3-5. Dalej znajdują się trzy podobne wykresy (oczywiście odnoszące się do innych danych), których oś y nie zaczyna sie w 0 zaś w liczbie która jest zalewie odrobinę mniejsza od najmniejszej wartości w ubiegłych latach. Takie przedstawienie danych wywołuje wrażenie bardzo dużej zmienności, gdy w rzeczwistościnie jest ona aż taka jaskrawa.
+<br />
+  <br />
+
+  Jest jeszcze jeden niuans powiązany z danymi. Chcąc oceniać efektywność zmian w polityce pronatalnej z roku 2016 raczej wiele nam nie powiedzą dane do roku 2015, jak również dane z roku 2016. Na ocenę długookresowego wpływu przyjdzie nam jeszcze trochę poczekać. 
