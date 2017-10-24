@@ -1,0 +1,39 @@
+---
+title: "Praca domowa 2"
+author: "Karol Prusinowski"
+date: "17 października 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library("ggplot2")
+library("reshape")
+toys <- read.table("zabawki.csv", check.names=FALSE)
+```
+
+# Dane
+
+Na stronie Wirtualne Media pojawił się artykuł dotyczący tego kto ma decydujący głos przy wyborze produktów w rodzinie. Zawierał on także dane dotyczące tego co ma największy wpływ przy zakupie zabawek przez różnych członków rodziny. Artykuł można znaleźć [tutaj](http://www.wirtualnemedia.pl/artykul/zakupy-decyzje-zakupowe-najczesciej-podejmuja-matki-wazne-opinie-dzieci).
+
+# Wizualizacja różnic między różnymi członkami rodziny
+
+Poniższy wykres przedstawia na co zwracają uwagę poszczególni członkowie rodziny (matki, ojcowie oraz dzieci) oraz pokazują różnice w konkretnych cechach.
+
+```{r}
+melted <- melt(toys, id="osoba")
+melted$value <- melted$value/100
+melted$osoba <- factor(melted$osoba, c("matki", "ojcowie", "dzieci"))
+melted <- melted[order(melted$value, decreasing = TRUE), ]
+ggplot(melted, aes(x=variable, y = value, fill = osoba)) +
+    geom_bar(stat = "identity", position = "dodge") +
+    theme(axis.text.x = element_text(angle = 90, vjust=0.3,hjust=0.95)) +
+    theme(legend.position=c(0.94, 0.85), legend.title = element_blank()) +
+    theme(plot.title = element_text(hjust = 0.5)) +
+    scale_y_continuous(labels = scales::percent) +
+    xlab("") +
+    ylab("Wybrało jako ważne") +
+    ggtitle("Cechy ważne przy wyborze gier i zabawek")
+
+```
+
