@@ -8,6 +8,8 @@ output: html_document
 
 ### Posiadanie piłki przez Manchester United pod okiem Mourinho
 
+[Dane - BBC](http://www.bbc.com/sport/football/41624340)
+
 Wykres kołowy przedstawia procent posiadania piłki przez Manchester United w rozgrywkach Premier League.
 Porównane są dwie grupy: 'big six' - najlepsze zespołom ligi angielskiej: Arsenal, Chelsea, Liverpool, Manchester City, Tottenham oraz reszta.
 
