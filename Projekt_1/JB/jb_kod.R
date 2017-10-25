@@ -27,8 +27,8 @@ dl$moonset = unlist(lapply(dl$astronomy,function(x){x[4]}))
 
 #merge dfs
 
-dw$city = "Suwa≈Çki"
-dl$city = "S≈Çubice"
+dw$city = "Suwa≥ki"
+dl$city = "S≥ubice"
 
 cols = c('date','city','maxtempC','mintempC','totalSnow_cm','sunHour','sunrise','sunset','moonrise','moonset')
 
@@ -114,7 +114,7 @@ g3 = ggplot(df,aes(x=date,y=totalSnow_cm,fill=city)) +
   scale_x_datetime(breaks=df$date,labels=datelabs)+
   scale_y_continuous(lim=c(rmin,rmax),expand=c(0,0))+
   scale_fill_manual(values=c("red","blue"))+
-  ggtitle("Rainy stuff") + xlab("Date") + ylab("Rainfall/snowfall (cm)")+
+  ggtitle("Rain forecast") + xlab("Date") + ylab("Rainfall/snowfall (cm)")+
   guides(fill=guide_legend(title="City"))+
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
