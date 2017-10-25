@@ -1,0 +1,41 @@
+---
+title: "Praca domowa 2"
+author: Artur Minorczyk
+output:
+  html_document: default
+  html_notebook: default
+---
+
+```{r, include=FALSE}
+library(dplyr)
+library(ggplot2)
+require(reshape2)
+library(plyr)
+```
+
+Wykorzystane przeze mnie dane pochodzą z Rankingu Dzielnic Otodom, którego autorem jest serwis z ogłoszeniami nieruchomości Otodom (https://s3-eu-west-1.amazonaws.com/landingi-editor-uploads/Wtc0cc7t/OTODOM_Ranking_Krakow_20170915_web.pdf). W badaniu przeprowadzonym na przełomie września i października 2016 Otodom wspólnie z OLX i pod nadzorem agencji badawczej PBS, zapytał ponad 140 000 Polek i Polaków o ocenę różnych aspektów życia w miejscu ich zamieszkania.
+
+```{r}
+df <- read.csv("dzielnice.csv")
+df_scale <- data.frame(dzielnica = df$dzielnica, df[-1] %>% apply(2, function(x) (x - min(x)) / diff(range(x))))
+df_m <- melt(df_scale) %>%
+  arrange(variable, dzielnica) %>% 
+  mutate(variable = recode(variable, 
+                           czysta.okolica = "czysta okolica",
+                           zadbana.okolica = "zadbana okolica",
+                           łatwy.dojazd = "łatwy dojazd",
+                           czas.wolny = "czas wolny",
+                           wygodne.zakupy = "wygodne zakupy",
+                           godne.polecenia = "godne polecenia"))
+```
+
+W rankingu przestawione są wyniki dla każdej z dzielnic w poszczególnych kategoriach oraz ogólne podsumowanie, w którym dla każdej kategorii przedstawiono trzy najlepsze dzielnice. Brakuje jednak zbiorczego podsumowania, w którym można dla konkretnej dzielnicy określić, w których kategoriach wypadła słabo, a w których dobrze. Umożliwia to natomiast stworzony przeze mnie wykres, dodatkowo łatwo zauważyć, że szczególnie korzystanie w rankingu wypadły dzielnice takie jak Zwierzyniec, Czyżyny czy Bronowice, natomiast wyjątkowo słabo Swoszowice i Nowa Huta.
+
+```{r}
+ggplot(df_m, aes(variable, dzielnica)) +
+  geom_tile(aes(fill = value)) +
+  scale_fill_gradient2(low = "red", mid = "yellow", high = "green4", 
+                       midpoint = 0.5, breaks=c(0, 1), labels=c("najgorszy", "najlepszy")) +
+  labs(x = "Kategoria", y = "Nazwa dzielnicy", fill = "Wynik", title = "Ranking dzielnic Krakowa") +
+  theme(axis.text.x = element_text(angle = 315, hjust = 0))
+```
