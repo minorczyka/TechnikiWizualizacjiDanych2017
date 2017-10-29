@@ -1,0 +1,23 @@
+---
+title: "Techniki wizualizacji danych - tydzień 3"
+author: "Dawid Stelmach"
+date: "20 października 2017"
+output: html_document
+---
+
+
+Jako że temat lekarzy i służby zdrowia jest aktualnie bardzo gorący, udało mi się znaleźć obszerną infografikę z tego tygodnia związaną ze służbą zdrowia.
+
+ - http://www.medonet.pl/zdrowie,beda-pieniadze-na-sluzbe-zdrowia,artykul,1723937.html
+ 
+ Jest ona bardzo obszerna, dlatego nie zamieszczam jej wewnątrz raportu. Jest dołączona osobno w folderze.
+
+Moje uwagi:
+
+- "Nakłady publiczne na służbę zdrowia w państwach OECD" - kółka, które są umieszczone pod wykresem słupkowym, pokazują rosnące nakłady w kolejnych latach. Szkoda tylko, że dopiero po dłuższym przyglądaniu się można zauważyć, że to nie są "zwykłe kółka" użyte do otulenia liczb, lecz subtelny wykres, z którego nie da się odczytać proporcji ani trendu.
+
+- "Minimalne wynagrodzenia w służbie zdrowia" - ponownie wykresy kołowe... Nie sposób z nich odczytać proporcji zarobków a co dopiero wzrostu, jaki nastąpi. Ot takie, bezużyteczne towarzystwo dla liczb, które gdyby były przedstawione w tabeli nie wnosiłyby dużo mniej informacji, a przynajmniej dałoby się je łatwiej objąć wzrokiem. Ponadto nie wiemy, czy patrzeć na pola, czy promienie?
+
+- "Minimalne wynagrodzenie w służbie zdrowia" DWA — po pierwsze jest pomylony tytuł, drugi raz to samo co w poprzednim punkcie co już na wstępie wprowadza pewne zamieszanie. Gdy nie przeczyta się opisu nad wykresem dokładnie, w pierwszej chwili można stwierdzić, że w latach 2006-2009 oraz 2011-2014 wszyscy lekarze byli poniżej 35 roku życia. Okazuje się jednak, że białe słupki pełnią funkcję wypełniacza osi czasu co niestety skutkuje duża odległością słupków, które rzeczywiście niosą w sobie jakieś informacje i nie jest możliwe ich wygodne porównanie. Bez linijki przyłożonej do monitora będzie ciężko.
+
+- "Pensje lekarzy rezydentów w Polsce" DWA — kolejny raz ten sam tytuł... Ponadto wykres kołowy, który pokazuje podział badań laboratoryjnych ma jeden mały szkopuł (nie licząc oczywiście tego, że jest kołowy) Jakiego państwa dotyczy? A może całej Europy? Tego się niestety nie dowiemy.
