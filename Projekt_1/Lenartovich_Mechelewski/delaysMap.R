@@ -20,10 +20,10 @@ getDelaysMap <- function(data) {
   minimalDelay <- data[data$delay>100&data$delay<=200,]
   bigDelay <- data[data$delay>200,]
   
-  leaflet() %>% addTiles() %>%
-    addAwesomeMarkers(~lon, ~lat, icon=getDelaysMarkers(withoutDelay), popup = ~as.character(delay), label = ~as.character(line), data=withoutDelay, group="<=100s") %>%
-    addAwesomeMarkers(~lon, ~lat, icon=getDelaysMarkers(minimalDelay), popup = ~as.character(delay), label = ~as.character(line), data=minimalDelay, group="<=200s") %>%
-    addAwesomeMarkers(~lon, ~lat, icon=getDelaysMarkers(bigDelay), popup = ~as.character(delay), label = ~as.character(line), data=bigDelay, group=">200s") %>%
+  leaflet() %>% addTiles() %>% addProviderTiles("Esri.WorldGrayCanvas") %>%
+    addCircles(~lon, ~lat, color="green", popup = ~as.character(paste("Opoznienie: ", delay, "s", sep="")), label = ~as.character(line), data=withoutDelay, group="<=100s", fillOpacity=0.8, radius=15) %>%
+    addCircles(~lon, ~lat, color="orange", popup = ~as.character(paste("Opoznienie: ", delay, "s", sep="")), label = ~as.character(line), data=minimalDelay, group="<=200s", fillOpacity=0.8, radius=15) %>%
+    addCircles(~lon, ~lat, color="red", popup = ~as.character(paste("Opoznienie: ", delay, "s", sep="")), label = ~as.character(line), data=bigDelay, group=">200s", fillOpacity=0.8, radius=15) %>%
     addLayersControl(
       overlayGroups = c("<=100s", "<=200s", ">200s"),
       options = layersControlOptions(collapsed = FALSE)

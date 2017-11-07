@@ -21,10 +21,10 @@ getSpeedsMap <- function(data) {
   normalTrams <- data[data$speed>5&data$speed<=10,]
   speedTrams <- data[data$speed>10,]
   
-  leaflet() %>% addTiles() %>%
-    addAwesomeMarkers(~lon, ~lat, icon=getMarkers(slowTrams), popup = ~as.character(speed), label = ~as.character(line), data=slowTrams, group="<=5m/s") %>%
-    addAwesomeMarkers(~lon, ~lat, icon=getMarkers(normalTrams), popup = ~as.character(speed), label = ~as.character(line), data=normalTrams, group="<=10m/s") %>%
-    addAwesomeMarkers(~lon, ~lat, icon=getMarkers(speedTrams), popup = ~as.character(speed), label = ~as.character(line), data=speedTrams, group=">10m/s") %>%
+  leaflet() %>% addTiles() %>% addProviderTiles("Esri.WorldGrayCanvas") %>%
+    addCircles(~lon, ~lat, color="red", popup = ~as.character(paste("Predkosc: ", speed, sep="")), label = ~as.character(line), data=slowTrams, group="<=5m/s", fillOpacity=0.8, radius=15) %>%
+    addCircles(~lon, ~lat, color="orange", popup = ~as.character(paste("Predkosc: ", speed, sep="")), label = ~as.character(line), data=normalTrams, group="<=10m/s", fillOpacity=0.8, radius=15) %>%
+    addCircles(~lon, ~lat, color="green", popup = ~as.character(paste("Predkosc: ", speed, sep="")), label = ~as.character(line), data=speedTrams, group=">10m/s", fillOpacity=0.8, radius=15) %>%
     addLayersControl(
       overlayGroups = c("<=5m/s", "<=10m/s", ">10m/s"),
       options = layersControlOptions(collapsed = FALSE)

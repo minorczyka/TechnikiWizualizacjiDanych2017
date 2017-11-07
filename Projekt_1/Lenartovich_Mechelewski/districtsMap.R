@@ -23,9 +23,9 @@ getDistrictsMap <- function(data) {
   pal <- colorNumeric("Blues", domain=0:max(districtsValues))
   
   leaflet(districts) %>%
-    addTiles() %>%
+    addTiles() %>% addProviderTiles("Esri.WorldGrayCanvas") %>%
     addPolygons(stroke = TRUE, smoothFactor = 0.3, fillOpacity = 0.4, fillColor = ~pal(districtsValues), weight=2, color="black",
-                label = ~paste0(districts$nazwa_dzielnicy, " ", "Liczba tramwajów", ": ", districtsValues)) %>%
+                label = ~paste0(districts$nazwa_dzielnicy, " ", "Liczba tramwajow", ": ", districtsValues)) %>%
     addLegend(pal = pal, values = ~districtsValues, opacity = 1.0, title="") %>%
     addFullscreenControl("bottomright")
 }
