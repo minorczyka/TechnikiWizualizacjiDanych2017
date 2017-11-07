@@ -52,18 +52,12 @@ Do zaliczenia potrzebnych jest 200 punktów, im więcej punktów tym wyższa oce
 # Projekty
 
 Projekty można realizować w zespołach 2-3 osobowych. 
-
-Każdy projekt należy realizować w innym zespole. Nie można na dwch projektach robić ten sam temat.
-
-W projekcie oceniane będą trzy aspekty, każde w skali 0-30 pkt, plus 0-10 pkt uwzględniających nieprzewidziane czynniki, które warto punktować:
-
-* Poprawność prezentacji. Jeżeli prezentacja jest nieestetyczna, nieczytelna lub przekłamująca dane to źle, jeżeli jest estetyczna, czytelna i pozwala na szybkie odczytanie informacji to dobrze.
-* Złożoność danych. Jeżeli zaprezentowana jest jedna tabela liczb którą można pobrać z wikipedii w 5 minut to źle, jeżeli przedstawiono złożone powiązane z sobą dane, tworzone złożoną i uzupełniającą się historię to dobrze.
-* Innowacyjność. Jeżeli zaprezentowano dane za pomocą standardowych narzędzi bez wnikania w specyfikę prezentowanej historii to źle, jeżeli  zaprezentowane dane w sposób pomysłowy, odsłaniający ciekawe aspekty tych danych, sposób nieoczywisty to dobrze.
-
+Każdy projekt należy realizować w innym zespole. 
 Propozycje projektów:
 
 [Projekt 1](https://github.com/pbiecek/TechnikiWizualizacjiDanych2017/blob/master/Projekt_1/README.md)
+
+[Projekt 2](https://github.com/pbiecek/TechnikiWizualizacjiDanych2017/blob/master/Projekt_2/README.md)
 
 
 # Prezentacje studentów
