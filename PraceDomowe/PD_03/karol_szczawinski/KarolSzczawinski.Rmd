@@ -1,0 +1,25 @@
+---
+title: "PD3"
+author: "Karol Szczawiński"
+date: "22 października 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Błędna długość paska
+
+W artykule zamieszczonym na stronie 
+https://www.tvn24.pl/magazyn-tvn24/w-glowach-im-sie-poprzewracalo-zapomnieli-ze-tu-polska,122,2200
+ przedstawiono wykres pokazujący jaki procent PKB jest przeznaczany na ochronę zdrowia w różnych państwach. Poniżej znajduje się omawiany wykres.
+
+
+![](./wykres.png)
+
+Według danych liczbowych Polska (4.8%) wydaje prawie 2 razy mniej PKB niż Niemcy (8.7%) na ochronę zdrowia. Jednak gdy porównamy długości słupków to otrzymujemy inną zależność (rysunek poniżej).  
+
+![](./wykres2.png)
+
+Wykres jest błędny, ponieważ długość słupka dla Niemiec jest około 3 razy dłuższa a według danych liczbowych różnica wynosi tylko 1.8125. 
