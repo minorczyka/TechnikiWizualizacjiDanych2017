@@ -1,0 +1,94 @@
+Nazwa,Klucz,Grupa
+P+R Al. Krakowska,4015-P+R Al.Krakowska,Grójecka
+Instytut Lotnictwa,4014-Instytut Lotnictwa,Grójecka
+Lipowczana,4013-Lipowczana,Grójecka
+Krakowiaków,4012-Krakowiaków,Grójecka
+Hynka,4011-Hynka,Grójecka
+Włochy-Ratusz,4010-Włochy-Ratusz,Grójecka
+PKP Rakowiec,4008-PKP Rakowiec,Grójecka
+Korotyńskiego,4007-Korotyńskiego,Grójecka
+Dickensa,4006-Dickensa,Grójecka
+Hale Banacha,4137-Hale Banacha,Grójecka
+Bitwy Warszawskiej,4005-Bitwy Warszawskiej 1920 r.,Grójecka
+Och Teatr,4004-Och-Teatr,Grójecka
+Wawelska,4121-Wawelska,Grójecka
+Pl. Narutowicza,4003-pl.Narutowicza,Grójecka
+Ochota-Ratusz,4002-Ochota-Ratusz,Grójecka
+Pl.Zawiszy,4001-pl.Zawiszy,Grójecka
+Pl.Starynkiewicza,4052-pl.Starynkiewcza,Grójecka
+Dw.Centralny,7002-Dw.Centralny,Grójecka
+Centrum,7013-Centrum,Grójecka
+Raszyńska,4028-Raszyńska,Grójecka
+NIK,4153-NIK,Grójecka
+Nowowiejska,7090-Nowowiejska,Grójecka
+Pl.Politechniki,7005-pl.Politechniki,Grójecka
+Metro Politechnika,7006-Metro Politechnika,Grójecka
+Rondo Zesłańców Syb.,4045-rondo Zesłańców Syberyjskich,Al. Jerozolimskie
+Armatnia,5097-Armatnia,Al. Jerozolimskie
+Parafialna,5096-Parafialna,Al. Jerozolimskie
+PKP Kasprzaka,5043-PKP Kasprzaka,Al. Jerozolimskie
+Szpital Wolski,5042-Szpital Wolski,Al. Jerozolimskie
+Rondo Daszyńskiego,5040-rondo Daszyńskiego,Al. Jerozolimskie
+Norblin,5039-Norblin,Al. Jerozolimskie
+Rondo ONZ,7088-rondo ONZ,Al. Jerozolimskie
+Metro Świętokrzyska,7014-Metro Świętokrzyska,Al. Jerozolimskie
+Nowe Włochy,4224-Nowe Włochy,Al. Jerozolimskie
+Szuberta,4223-Szuberta,Al. Jerozolimskie
+Rybnicka,4222-Rybnicka,Al. Jerozolimskie
+PKP Włochy,4214-PKP Włochy,Al. Jerozolimskie
+Sympatyczna,4225-Sympatyczna,Al. Jerozolimskie
+Płużańska,4103-Płużańska,Al. Jerozolimskie
+Techników,4102-Techników,Al. Jerozolimskie
+Mikołajska,4101-Mikołajska,Al. Jerozolimskie
+Popularna,4048-Popularna,Al. Jerozolimskie
+PKP WKD Al. Jerozolimskie,4047-PKP WKD Al.Jerozolimskie,Al. Jerozolimskie
+Śmigłowca,4046-Śmigłowca,Al. Jerozolimskie
+Berestecka,4051-Berestecka,Al. Jerozolimskie
+Dw. Zachodni,4044-Dw.Zachodni,Al. Jerozolimskie
+Grzymały-Sokołowskiego,4043-Grzymały-Sokołowskiego,Al. Jerozolimskie
+Białobrzeska,4042-Białobrzeska,Al. Jerozolimskie
+Niemcewicza,4140-Niemcewicza,Al. Jerozolimskie
+Pl.Zawiszy,4001-pl.Zawiszy,Al. Jerozolimskie
+Pl.Starynkiewicza,4052-pl.Starynkiewcza,Al. Jerozolimskie
+Dw.Centralny,7002-Dw.Centralny,Al. Jerozolimskie
+Centrum,7013-Centrum,Al. Jerozolimskie
+Lotnisko Chopina,4201-Lotnisko Chopina-Przyloty,Żwirki i Wigury
+Terminal Autokarowy,4202-Terminal Autokarowy,Żwirki i Wigury
+Bennetta,4203-Bennetta,Żwirki i Wigury
+Ośrodek Wojskowy,4039-Ośrodek Wojskowy,Żwirki i Wigury
+17 Stycznia,4038-17 Stycznia,Żwirki i Wigury
+Sasanki,4037-Sasanki,Żwirki i Wigury
+Lezajska,4036-Leżajska,Żwirki i Wigury
+Novotel,4035-Novotel,Żwirki i Wigury
+Baleya,4034-Baleya,Żwirki i Wigury
+Rakowiec,4033-Rakowiec,Żwirki i Wigury
+Pruszkowska,4032-Pruszkowska,Żwirki i Wigury
+Uniwersytet Medyczny,4031-Uniwersytet Medyczny,Żwirki i Wigury
+Banacha Szpital,4030-Banacha-Szpital,Żwirki i Wigury
+Pomnik Lotnika,4029-Pomnik Lotnika,Żwirki i Wigury
+Raszyńska,4028-Raszyńska,Żwirki i Wigury
+Pl.Zawiszy,4001-pl.Zawiszy,Żwirki i Wigury
+Pl.Starynkiewicza,4052-pl.Starynkiewcza,Żwirki i Wigury
+Dw.Centralny,7002-Dw.Centralny,Żwirki i Wigury
+Centrum,7013-Centrum,Żwirki i Wigury
+Dickensa,4006-Dickensa,Żwirki i Wigury
+Skorochd-Majewskiego,4107-Skorochód-Majewskiego,Żwirki i Wigury
+Siemieńskiego,4109-Siemieńskiego,Żwirki i Wigury
+Mołdawska,4112-Mołdawska,Żwirki i Wigury
+Jasielska,4111-Jasielska,Żwirki i Wigury
+Rzymowskiego,3243-Rzymowskiego,Żwirki i Wigury
+Postępu,3250-Postępu,Żwirki i Wigury
+PKP Służewiec,3254-PKP Służewiec,Żwirki i Wigury
+Sasanki,4037-Sasanki,Żwirki i Wigury
+Ryżowa,4092-Ryżowa,do metra
+Zajezdnia Kleszczowa,4090-Zajezdnia Kleszczowa,do metra
+Łopuszańska,4049-Łopuszańska,do metra
+WKD Raków,4089-WKD Raków,do metra
+Hynka,4011-Hynka,do metra
+Sasanki,4037-Sasanki,do metra
+PKP Służewiec,3254-PKP Służewiec,do metra
+Postępu,3250-Postępu,do metra
+Rzymowskiego,3243-Rzymowskiego,do metra
+Bełdan,3248-Bełdan,do metra
+AL. Lotników,3011-al.Lotników,do metra
+Metro Służew,3279-Metro Służew,do metra
