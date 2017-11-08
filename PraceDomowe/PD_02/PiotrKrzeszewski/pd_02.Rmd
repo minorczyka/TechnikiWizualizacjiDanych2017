@@ -1,0 +1,52 @@
+---
+title: "pd_02"
+author: "Piotr Krzeszewski"
+date: "October 15, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(knitr)
+library(kableExtra)
+library(ggplot2)
+library(ggthemes)
+library(dplyr)
+```
+
+# Bitcoin mining - strony internetowe
+
+Kilka tygodni temu pojawiły się pierwsze doniesienia o stronach internetowych, które wykorzystują JavaScript, żeby generować kryptowaluty (w szczególności Bitcoin) dla właściciela strony przez wykorzystywanie mocy procesora użytkownika.
+
+Jednym z największych zamieszanych w ten proceder portali był thepiratebay, który ogłosił, że była to część testów mających na celu ograniczenie reklam. Omawiany kod został usunięty, ale później go przywrócono.
+
+Wg danych zaczerpniętych z https://blog.adguard.com/en/crypto-mining-fever/ ta metoda nie zapewnia dużego dochodu, ale bardzo szybko zdobywa na popularności - szczególnie na portalach związanych z nielegalnym udostępnianiem plików oraz materiałami pornograficznymi.
+
+```{r bitcoin, echo = FALSE, warning=FALSE}
+miners <- read.csv("miners.csv", header = TRUE)
+miners <- miners[1:210, 1:10]
+
+
+cCount <- miners %>% group_by(Top.Country) %>% count()
+cCount <- cCount[order(cCount$n, decreasing = TRUE),]
+cCount_other <- sum(cCount[5:nrow(cCount),2])
+cCount <- cCount[1:4,]
+levels(cCount$Top.Country)[1] <- "Other"
+cCount <- rbind(cCount, c(Top.Country="Other"))
+cCount[5,2] <- cCount_other
+new_levels <- c("United States", "India", "Russian Federation", "Brazil", "Other")[5:1]
+cCount[,1] <- factor(cCount$Top.Country, levels = new_levels)
+
+cCount[,2] <- cCount$n / sum(cCount$n)
+
+
+ggplot(cCount, aes(x=1, y=n, fill=Top.Country)) +
+  geom_bar(stat = "identity") +
+  scale_fill_brewer("Country", type="qual", palette=3) +
+  coord_polar("y") +
+  ggtitle("Countries with most bitcoin generating websites") +
+  labs(x=NULL, y=NULL) +
+  scale_x_discrete() + 
+  geom_text(aes(x=1.2, y = n/2 + c(0, cumsum(n)[-length(n)]), 
+                            label = paste0(round(n*100, digits=2), "%")), size=5)
+```

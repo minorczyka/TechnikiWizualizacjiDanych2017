@@ -27,7 +27,9 @@ drinks_nutrition <- as.data.frame(read.csv("starbucks-menu-nutrition-drinks.csv"
 
 ### Analiza danych pochodz¹cych z sieci kawiarni Starbucks
 
-Poni¿szy raport przedstawia analizê danych dla sieci kawiarni Starbucks. Do analizy wykorzystano informacje pochodz¹ce z trzech Ÿróde³:  
+Poni¿szy raport przedstawia analizê danych dla sieci kawiarni Starbucks.
+Dane zosta³y pobrane ze strony:
+https://www.kaggle.com/starbucks/starbucks-menu/discussion. Do analizy wykorzystano informacje pochodz¹ce z dwóch Ÿróde³:  
 
 
 * dane dotycz¹ce napojów sprzedawanych w kawiarniach: 
