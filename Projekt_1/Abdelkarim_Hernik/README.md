@@ -1,6 +1,6 @@
-#Projekt 1
+# Projekt 1
 
-###Ahmed Abdelkarim, Aleksandra Hernik
+### Ahmed Abdelkarim, Aleksandra Hernik
 
 Skrypt trams.R należy wywołać podając do niego parametry stop - wyróżnioną stację, line - interesującą nas linię, oraz direction - interesujący nas kierunek tramwaju.
 Przykładowe wywołanie:
