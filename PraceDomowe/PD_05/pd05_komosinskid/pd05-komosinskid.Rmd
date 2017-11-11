@@ -1,0 +1,58 @@
+---
+title: "PD05"
+author: "Dariusz Komosinski"
+date: "11 listopada 2017"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Ile pić płynów?
+
+W tej pracy domowej zająłem się artykułem z 9 listopada 2017 o odwodnieniu organizmu ze strony domzdrowia.pl. <http://www.domzdrowia.pl/artykul/odwodnienie-organizmu-jak-rozpoznac-jak-przeciwdzialac-1627>.
+
+Pierwsze, co się rzuca w oczy, to fakt, że artykuł jest bardzo długi. Gdy go zobaczyłem, to nawet nie chciało mi się całego czytać. Ponadto w artykule występują jakieś liczby. Widnieje też jedna, mało atrakcyjna pseudo-tabelka. Aby zachęcić odbiorcę do przebrnięcia przez tekst, można pokusić się o jakiekolwiek wykresy. Liczby przedstawione w artykule nie są zbytnio skomplikowane, aczkolwiek dodanie rysunku uprzyjemniłoby przekaz i zachęciło potencjalnego czytelnika.
+
+## Moja propozycja
+
+```{r cars, echo=T, message=F}
+library(ggplot2)
+```
+Opis zapotrzebowania na wodę dla osoby starszej jest zawiły: *100 ml/kg masy ciała na pierwsze 10 kg aktualnej masy ciała + 50 ml/kg masy ciała na kolejne 10 kg masy ciała + 15 ml/kg masy ciała na pozostałe kilogramy masy ciała = odpowiednia ilość płynów*. Lepiej ująć to na wykresie. Ponadto możemy zawrzeć przedziały ufności dla osoby dorosłej wspomniane w zdaniu: *Można również uwzględnić swoją masę ciała i na każdy 1 kg wypijać 25–35 ml wody*
+
+```{r}
+masa <- seq(from=40, to=150, by=5)
+woda.dorosly <- masa*30 #ml +/- 5ml
+woda.stary <- 100*10 + 50*10 + (masa-20)*15
+t1 <- data.frame(masa, woda.dorosly, woda.stary)
+
+ggplot(t1, aes(x=masa)) +
+  geom_ribbon(aes(ymin=woda.dorosly-5*masa, ymax=woda.dorosly+5*masa), fill="lightblue")+
+  geom_line(aes(y=woda.dorosly, col="osoba dorosła"))+
+  geom_line(aes(y=woda.stary, col="osoba starsza"))+
+  xlab("masa [kg]")+
+  ylab("zalecana dzienna ilość płynów [ml]")+
+  ggtitle("Zapotrzebowanie na płyny dla osoby dorosłej i starszej")+
+  scale_colour_manual("", values=c("darkblue", "darkred"))
+  
+```
+
+Aby dopełnić rysunkowy opis zapotrzebowania płynów ze względu na wiek przedstawimy jeszcze owy dla dzieci. Tutaj nie rozróżniamy go ze względu na masę, ale na płeć: *Przy stosowaniu norm ogólnych zaleca się 1300 ml w wieku od 1 do 3 lat bez względu na płeć. Wśród dzieci pomiędzy 9 a 13 rokiem życia norma spożycia płynów u chłopców wynosi 2100 ml, u dziewcząt 1900 ml. Natomiast pomiędzy 16 a 18 rokiem życia wartości te wynoszą odpowiednio 3300 ml oraz 2300 ml.* Stosowny będzie tu zatem wykres słupkowy.
+
+```{r}
+płeć <- rep(c("chłopiec", "dziewczynka"), 3)
+wiek <- factor(rep(c("1-3", "9-13", "16-18"), each=2), ordered=TRUE, levels = c("1-3", "9-13", "16-18"))
+woda <- c(1300, 1300, 2100, 1900, 3300, 2300)
+t2 <- data.frame(płeć, wiek, woda)
+
+ggplot(t2, aes(x=wiek, fill=płeć, y=woda))+
+  geom_bar(position="dodge", stat="identity")+
+  ylab("zalecana dzienna ilość płynów [ml]")+
+  xlab("przedział wiekowy [lata]")+
+  ggtitle("Zapotrzebowanie na płyny dla dzieci")
+```
+Tak przygotowane wykresy wystarczy wpleść w artykuł i już przyjemniej się czyta.
+
+
