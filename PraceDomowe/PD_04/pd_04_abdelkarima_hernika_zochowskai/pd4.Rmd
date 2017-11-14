@@ -1,0 +1,263 @@
+---
+title: "Praca domowa 4"
+author: "Ahmed Abdelkarim, Aleksandra Hernik, Iwona Żochowska"
+date: "7 listopada 2017"
+output: html_document
+---
+# Wstęp
+
+Celem naszego badania było poznanie odbioru różnych rodzajów wykresów. W tym celu przedstawiliśmy wybrane dane na trzy różne sposoby. Do eksperymentu wykorzystaliśmy dane z [narodowego spisu powszechnego z 2011 roku](https://pl.wikipedia.org/wiki/Narodowy_Spis_Powszechny_2011), przedstawiające deklaracje członków mniejszości narodowych na temat ich przynależności narodowej - jedyna oznacza, że dana osoba identyfikuje się tylko jako członek mniejszości, pierwsza - dana osoba identyfikuje się przede wszystkim jako członek tej mniejszości, druga - dana osoba identyfikuje się przede wszystkim z inną narodowością (prawie zawsze z Polską).
+
+# Wykresy
+
+Stworzyliśmy 3 wykresy, przedstawiające powyższe dane. Wykres treemap przedstawia bezwzględne wartości za pomocą pól, wykres heatmap przedstawia tylko względne wartości - za pomocą koloru, a wykres klockowy przedstawia bezwzględne wartości z niedużą dokładnością za pomocą symboli.
+
+```{r echo=FALSE}
+library(ggplot2)
+data = read.csv("data.txt", header = T, sep = ";")
+data$Zadeklarowana.jako.pierwsza = data$Zadeklarowana.jako.pierwsza - data$W.tym.zadeklarowana.jako.jedyna
+data.trimmed = data[,c(1, 4, 3, 5)]
+data.trimmed = na.omit(data.trimmed)
+n = nrow(data.trimmed)
+names(data.trimmed) = c("Grupa", "Jedyna", "Pierwsza (z dwóch)", "Druga")
+data.trimmed[,1] = as.character(data.trimmed[,1])
+data.trimmed[6,1] = "Inni"
+
+for (i in 2:4) {
+	data.trimmed[6,i] = sum(data.trimmed[6:n,i])
+}
+data.trimmed = data.trimmed[1:6,]
+n = nrow(data.trimmed)
+
+Grupa = character(3*n)
+Ktore = character(3*n)
+Wartosc = numeric(3*n)
+Suma = numeric(3*n)
+
+for (i in 1:n) {
+	for (j in 3:1) {
+		Grupa[3*i + 1 - j] = data.trimmed[i,1]
+		Ktore[3*i + 1 - j] = names(data.trimmed)[j + 1]
+		Wartosc[3*i + 1 - j] = data.trimmed[i, j + 1]
+		Suma[3*i + 1 - j] = sum(data.trimmed[i, c(2, 3, 4)])
+	}	
+}
+
+
+data.flattened = data.frame(Grupa, Ktore, Wartosc)
+
+Grupa = factor(Grupa, levels = c("Ślązacy", "Kaszubi", "Niemcy", "Ukraińcy", "Białorusini", "Inni"))
+Ktore = factor(Ktore, c("Jedyna", "Pierwsza (z dwóch)", "Druga"))
+
+data.flattened = data.frame(Grupa, Narodowość = Ktore, Wartosc, Suma, Procent = Wartosc/Suma * 100)
+```
+
+### Treemap
+
+```{r echo=FALSE}
+library(treemapify)
+
+cols = c("Brown", "Orange", "Red", "Purple", "Blue", "Green")
+colvals = character(3*n)
+for (i in 1:n) {
+	for (j in 1:3) {
+		colvals[3*i + j - 3] = colorRampPalette(c(cols[i], "Black"))(7)[j + 1] 
+	}
+}
+ggplot(data.flattened, aes(area = Wartosc, fill = I(colvals), label = Narodowość, subgroup = Grupa)) +
+	geom_treemap() +
+	geom_treemap_subgroup_border() +
+	geom_treemap_subgroup_text(place = "centre", grow = T, alpha = 0.5, colour =
+														 	"black", fontface = "italic", min.size = 0) +
+	geom_treemap_text(colour = "white", place = "topleft", reflow = T)
+
+```
+
+### Heatmap
+
+```{r echo=FALSE}
+suppressWarnings(library(ggplot2))
+ggplot(data.flattened, aes(x=Grupa, y=Narodowość, fill=Procent)) + 
+  geom_raster()  + 
+  scale_fill_gradientn(colours=c("red", "yellow", "green"))
+
+n = nrow(data.trimmed)
+Grupa = character(3*n)
+Ktore = character(3*n)
+Wartosc = numeric(3*n)
+```
+
+### Blocks
+
+```{r, echo=FALSE}
+library(waffle)
+suppressMessages(library(extrafont))
+library(emojifont)
+
+# od pierwszej - jedyna
+slazacy <- c(`Jedyna`= 376, `Pierwsza z dwóch`= 436-376, `Druga`= 411)
+kaszubi <- c(`Jedyna`= 16, `Pierwsza z dwóch`= 18-16, `Druga`= 215,`dummy`= 436+411-18-215 )
+niemcy <- c(`Jedyna`= 45, `Pierwsza z dwóch`= 74-45, `Druga`= 73,`dummy`= 436+411-74-73)
+ukraincy <- c(`Jedyna`= 28, `Pierwsza z dwóch`= 38-28, `Druga`= 13,`dummy`= 436+411-38-13)
+bialorusini <- c(`Jedyna`= 30, `Pierwsza z dwóch`= 36-30, `Druga`= 10,`dummy`= 436+411-36-10)
+romowie <- c(`Jedyna`= 37, `Pierwsza z dwóch`= 51-37, `Druga`= 67,`dummy`= 436+411-51-67)
+
+
+
+
+
+ wSlazacy <- waffle(slazacy/10, rows=4, size=1, colors=c("#969696", "#1879bf", "coral"), 
+       title="Ślązacy", 
+       xlab="Jeden kwadracik : 10 tys")
+
+ wKaszubi <- waffle(kaszubi/10, rows=4, size=1, colors=c("#969696", "#1879bf", "coral", "white"), 
+                   title="Kaszubi")
+
+ wNiemcy <- waffle(niemcy/10, rows=4, size=1, colors=c("#969696", "#1879bf", "coral", "white"), 
+                    title="Niemcy")
+ 
+ wUkraincy <- waffle(ukraincy/10, rows=4, size=1, colors=c("#969696", "#1879bf", "coral", "white"), 
+                   title="Ukraincy")
+ 
+ wBialorusini <- waffle(bialorusini/10, rows=4, size=1, colors=c("#969696", "#1879bf", "coral", "white"), 
+                   title="Bialorusini")
+ 
+ wRomowie <- waffle(romowie/10, rows=4,  size=1, colors=c("#969696", "#1879bf", "coral", "white"), 
+                   title="Pozostałe")
+ 
+iron(wSlazacy,wKaszubi,wNiemcy,wUkraincy,wBialorusini,wRomowie)
+```
+
+
+# Ankieta
+
+Dla każdego wykresu stworzyliśmy ankietę, zawierającą następujące pytania:
+
+1. Jakie pierwsze wnioski nasuwają ci się na podstawie tego wykresu?
+2. Na ile ten wykres jest czytelny i rzetelnie przedstawia informacje?
+3. Jaka część Niemców (w %) identyfikuje się tylko jako Niemcy? (31)
+4. Jaka część Kaszubów (w %) identyfikuje się na drugim miejscu jako Kaszubi? (92)
+5. Jaka część Białorusinów (w %) identyfikuje się jako Białorusini jako pierwsza lub jedyna narodowość? (78)
+6. Członkowie której mniejszości najczęściej identyfikują się tylko jedną narodowością? (Białorusini)
+7. Członkowie której mniejszości najczęściej identyfikują się dwiema narodowościami? (Kaszubi)
+
+Każdą z trzech ankiet wysłaliśmy różnym grupom tak, aby nikt nie widział więcej niż jednego wykresu, przedstawiającego te dane. Otrzymaliśmy odpowiednio 11, 12 i 11 odpowiedzi dla ankiet z kolejnymi wykresami.
+
+# Pierwsze wrażenia (pytanie 1)
+
+Powszechny były problemy ze zrozumieniem jakie dane przedstawia wykres. Może to wynikać z niejasnego opisu danych, ale być może dałoby się lepiej wyjaśnić sens danych na samych wykresach.
+
+### Treemap
+
+* Dla większości (8/11 osób) najbardziej rzucającą się w oczy informacją jest duża liczba Ślązaków w Polsce.
+* Dwa komentarze dotyczyły nieczytelności.
+* Jeden wniosek dotyczył Kaszubów.
+* Tylko jeden wniosek ogólny, nie dotyczący konkretnej narodowości: "są różne mniejszości narodowe, około polowa z nich identyfikuje sie z dwoma narodami".
+
+### Heatmap
+
+* Wnioski były bardziej zróżnicowane.
+* Połowa wniosków skupiała się na konkretnej narodowości, głównie Kaszubach, Białorusinach lub obu.
+* 3/12 komentarzy krytykowało wykres za nieczytelność, w tym jeden za dobór kolorów.
+
+### Blocks
+
+* 8/11 komentarzy wspomina o Ślązakach.
+* Jeden nieprawdziwy wniosek: "Największa mniejszość to kaszubi".
+* 3 inne wnioski: jeden dotyczący Kaszubów ("Kaszubi są Polakami"), jeden Ukraińców i Białorusinów ("W przypadku Ukraińców i Białorusinów jest to większość.") i jeden ogólny ("Ludzie albo identyfikują się tylko jako mniejszość, albo są przede wszystkim Polakami.").
+* 2 komentarze sugerujące problemy z odczytaniem czegokolwiek z wykresu.
+
+### Wnioski
+* Rozmiar i liczba ikon to najbardziej rzucająca się w oczy cecha.
+
+# Ocena czytelności wykresu (pytanie 2)
+
+```{r echo=FALSE}
+q3 <- function(x) {
+  a <- quantile(x, c(0.25,0.5,0.75))
+  names(a) <- c("ymin", "y", "ymax")
+  a
+}
+treemap = c(3, 3, 4, 2, 1, 1, 2, 3, 4, 2, 1)
+heatmap = c(3, 3, 2, 4, 2, 3, 2, 2, 1, 2, 2, 2)
+blocks = c(5, 3, 4, 3, 2, 3, 4, 5, 4, 4, 3)
+type = factor(c(rep("treemap", times=length(treemap)), rep("heatmap", length(heatmap)), rep("blocks", length(blocks))), levels=c("treemap", "heatmap", "blocks"))
+results = data.frame(type, score=c(treemap, heatmap, blocks))
+#barplot(c(mean(treemap), mean(heatmap), mean(blocks)))
+ggplot(results, aes(x=type, y=score)) +
+  geom_bar(aes(type, score, fill=type), 
+            position = "dodge", stat = "summary", fun.y = "mean") +
+  geom_jitter(position=position_jitter(width = .1, height = 0)) +
+  ggtitle("Wykres średnich ocen z zaznaczonymi poszczególnymi ocenami") +
+  guides(fill=FALSE)
+```
+
+Widać, że wykres klockowy jest zdecydowanym zwycięzcą w ocenie czytelności.
+
+# Poprawność odpowiedzi
+
+### Odczytywanie wartości procentowych (pytania 3-5)
+
+```{r, echo=FALSE}
+treemap_res3 = c(35, 30, 30, 14, 22, 25, 30, 30, 30, 30, 30)
+heatmap_res3 = c(25, 35, 25, 35, 35, 25, 27, 25, 30, 30, 25, 40)
+blocks_res3 = c(30, 30, 31, 30, 50, 31, 35, 30, 32.5, 30.7, 30)
+actual3 = 31
+
+treemap_res4 = c(90, 90, 95, 20, 90, 8, 10, 90, 91, 90, 90)
+heatmap_res4 = c(75, 75, 75, 80, 70, 85, 100, 100, 75, 90, 90, 90)
+blocks_res4 = c(95, 94, 95, 99, 5, 95.5, 90, 4.5, 47.6, 95.54, 95.5)
+actual4 = 92
+
+treemap_res5 = c(75, 63, 78, 6, 80, 75, 80, 80, 78, 75, 80)
+heatmap_res5 = c(80, 70, 75, 85, 80, 75, 85, 80, 75, 80, 75, 85)
+blocks_res5 = c(75, 25, 75, 75, 75, 80, 75, 75, 75, 75, 75)
+actual5 = 78
+
+type = factor(c(rep("treemap", 3*length(treemap)), rep("heatmap", 3*length(heatmap)), rep("blocks", 3*length(blocks))), levels=c("treemap", "heatmap", "blocks"))
+err = abs(c(treemap_res3-actual3, treemap_res4-actual4, treemap_res5-actual5,
+         heatmap_res3-actual3, heatmap_res4-actual4, heatmap_res5-actual5,
+         blocks_res3-actual3, blocks_res4-actual4, blocks_res5-actual5))
+results = data.frame(type, err)
+ggplot(results) +
+  geom_bar(aes(type, err, fill=type), 
+            position = "dodge", stat = "summary", fun.y = "mean") +
+  ggtitle("Wykres średnich z wartości bezwzględnych błędów") +
+  guides(fill=FALSE)
+```
+
+Heatmapa okazała się najlepsza w tej kategorii, ze średnią wartością bezwzględną błędu dwa razy mniejszą, niż w przypadku pozostałych wykresów. 
+
+### Wskazanie lidera w danej kategorii (pytania 6-7)
+
+Błąd w odpowiedzi zmierzony został przez odległość wskazanej narodowości od lidera w rankingu danej kategorii - w szczególności wynosił 0 w przypadku poprawnego wskazania i 5 w przypadku odpowiedzi najdalszej od prawdy.
+
+```{r, echo=FALSE}
+treemap_err6 = c(0, 0, 0, 0, 5, 0, 0, 2, 0, 2, 0)
+heatmap_err6 = c(0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0)
+blocks_err6 = c(0, 0, 0, 2, 5, 0, 0, 0, 0, 0, 0)
+treemap_err7 = c(0, 0, 0, 0, 3, 0, 0, 3, 0, 0, 0)
+heatmap_err7 = c(0, 0, 0, 0, 1, 0, 3, 0, 0, 1, 0, 0)
+blocks_err7 = c(0, 0, 0, 1, 3, 0, 0, 0, 3, 0, 0)
+type = factor(c(rep("treemap", 2*length(treemap)), rep("heatmap", 2*length(heatmap)), rep("blocks", 2*length(blocks))), levels=c("treemap", "heatmap", "blocks"))
+#err = factor(c(sort(c(treemap_err6, treemap_err7)), sort(c(heatmap_err6, heatmap_err7)), sort(c(blocks_err6, blocks_err7))), levels=c(0,1,2,3,4,5))
+err = c(sort(c(treemap_err6, treemap_err7)), sort(c(heatmap_err6, heatmap_err7)), sort(c(blocks_err6, blocks_err7)))
+results = data.frame(type, err)
+suppressMessages(library(dplyr))
+agg_results = as.data.frame(results %>% group_by(type, err) %>% count())
+agg_results$err = factor(agg_results$err, levels = 5:0)
+library(scales)
+ggplot(agg_results,aes(x = type, y = n, fill=err)) + 
+    geom_bar(position = "fill", stat = "identity") +
+    scale_y_continuous(labels = percent_format()) +
+    scale_fill_manual(values=c("Red3", "Red", "Orange", "Yellow", "Green"))
+```
+
+Również przy wskazywaniu lidera heatmapa okazała się najlepsza, choć tutaj przewaga poprawnych odpowiedzi nie jest duża.
+
+# Wnioski
+* Sposób prezentacji tych samych danych drastycznie zmienił pierwsze wnioski nasuwające się po zobaczeniu wykresu.
+* Deklarowana czytelność wykresu nie musi się wiązać z umiejętnością odczytania danych z wykresu.
+* W przypadku wykorzystywania nietypowych rodzajów wykresów należy przyłożyć szczególną wagę do dokładnego opisu - odpowiedniego tytułu, legendy, nazw zmiennych itd.
+* Jeżeli zależy nam na zwróceniu uwagi na konkretną cechę danych, może być warto ograniczyć wykres do pokazywania tej cechy. W tym przypadku zawarcie informacji o liczności poszczególnych narodowości odwróciło uwagę odbiorców od drugiego przedstawionego parametru - uznawania danej narodowości za pierwszą, drugą lub jedyną. Być może ułatwiło to też odczyt wartości, przedstawionych na wykresie.
+* Wykres klockowy ze względu na swoją specyfikę zaokrąglał dane, co znacząco ograniczało możliwą dokładność odpowiedzi na pytania.
