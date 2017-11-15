@@ -1,0 +1,41 @@
+h1 {
+	text-align: center;
+	font-size: 30px;
+}
+
+h4 {
+	visibility: hidden;
+}
+
+.flex-container {
+	display: flex;
+}
+
+.right-panel {
+	display: flex;
+	flex-direction: column;
+	flex-basis: 250px;
+	flex-grow: 1;
+}
+
+#mapplot {
+	flex-grow: 1;
+	flex-basis: content;
+}
+
+#histogram {
+	flex-grow: 1;
+}
+
+#table {
+	flex-grow: 1;
+}
+
+#mean {
+	flex-grow: 1;
+}
+
+#time { 
+	text-align: center;
+	font-weight: bold;
+}
