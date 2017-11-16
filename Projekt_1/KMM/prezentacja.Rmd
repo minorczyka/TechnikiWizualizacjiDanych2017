@@ -1,0 +1,306 @@
+---
+title: "Techniki Wizualizacji Danych - Projekt 1"
+author: "Magda Tatarynowicz, Karol Szczawiński, Mateusz Urbański"
+date: "`r format(Sys.time(), '%d %B, %Y %H:%M:%S')`"
+output: pdf_document
+classoption: landscape
+geometry: "left=0.5cm,right=0.5cm,top=0.5cm,bottom=0cm"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library("rvest")
+library("httr")
+library("jsonlite")
+library("dplyr")
+library("gridExtra")
+library("raster")
+library("rgdal")
+library("ggplot2")
+library("scales")
+library("lubridate")
+```
+
+
+```{r pressure, echo=FALSE, warning=FALSE, message=FALSE,include=FALSE}
+
+#setwd("C:/Users/Administrator/Documents/proj1/proj1")
+pdf.options(encoding = 'ISOLatin2')
+
+districtNames <- c("Białołęka", "Mokotów", "Bielany", 
+                   "Ochota", "Praga-Południe", "Bemowo",
+                   "Rembertów", "Targówek", "Wawer",
+                   "Ursynów", "Śródmieście", "Wesoła",
+                   "Ursus", "Praga-Północ", "Wola",
+                   "Wilanów", "Włochy", "Żoliborz")
+
+# gęstość zaludnienia dzielnic w os / km^2
+districtPeopleDensity <- c(1493, 6180, 4080,
+                     8671, 7967, 4774,
+                     1234, 5106, 915,
+                     3389, 7713, 1049,
+                     6035, 5891, 7189,
+                     836, 1395, 5792)
+
+shapefile <- readOGR("./warszawa/warszawa2.shp", 'warszawa2')
+
+polygons <- fortify(shapefile) 
+polygons$id <- as.numeric(polygons$id)
+
+polygonsArea <- area(shapefile)/100 #KM^2
+
+downloadLinesData <- function(minuteRange=30) {
+  linie2 <- "102,103,104,105,107,108,109,110,111,112,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,131,132,133,134,135,136,138,139,140,141,142,143,145,146,147,148,149,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,201,202,203,204,205,206,207,208,209,211,212,213,214,217,218,219,221,222,225,227,240,245,256,262,300,303,304,305,306,311,314,317,318,320,323,326,331,332,334,338,340,345,365,379,397,401,402,409,411,412,414,500,501,502,503,504,507,509,511,512,514,516,517,518,519,520,521,522,523,525,527,700,701,702,703,704,705,706,707,708,709,710,711,712,713,714,715,716,717,719,720,721,722,723,724,725,727,728,729,730,731,733,734,735,736,737,738,739,741,742,743"
+  token2 <- "35dbb2ebd27b23cfbec359dbd560adf2d4a5b27b"
+  
+  res <- GET(url = paste0("https://vavel.mini.pw.edu.pl/api/vehicles/v1/full?line=",linie2),
+             add_headers(Authorization = paste("Token", token2)))
+  
+  
+  parsedRes <- jsonlite::fromJSON(as.character(res))
+  
+  currentTime <- Sys.time()
+  minTime <- Sys.time() + minutes(-minuteRange)
+  
+  data <- data.frame(
+    type = floor(as.numeric(parsedRes$line)/100),
+    delay = parsedRes$delay,
+    lon = parsedRes$lon, 
+    lat = parsedRes$lat,
+    speed = parsedRes$speed,
+    time = strptime(parsedRes$time, "%Y-%m-%dT%H:%M:%SZ"))  %>% 
+    filter(time >= minTime & time <= currentTime) %>%
+    dplyr::select(type, delay, lon, lat, speed)
+
+  # brzydki hack na przekazanie statusu autobusu (czy jedzie czy stoi) 
+  # niestety po dołączeniu go do zbioru data inne zmienne w magiczny sposób stawały się factorami
+  # i to psuło resztę funkcji
+  statusData <<- parsedRes$status
+  
+  return(data)
+}
+
+countVehiclesInDistricts <- function() {
+  res <- unlist(apply(linesData, 1, function(row){
+    for(i in 0:17){
+      if(point.in.polygon(row[4],row[3],polygons[polygons$id == i,2], polygons[polygons$id == i,1] )){
+        return(i)
+      }
+    }
+  }))
+  
+  sums <- as.vector(table(res))
+}
+
+
+
+linesData <- downloadLinesData()
+vehicleCounts <- countVehiclesInDistricts()
+vehicleDensities <- vehicleCounts/polygonsArea
+vehicleDensitiesPer10000Km <- vehicleCounts/ (polygonsArea / 10000) # to jest teraz w km^2
+names(vehicleDensitiesPer10000Km) <- districtNames
+
+generateDelayPerVehicleGroupPlot <- function(){
+  df <- data.frame(type = linesData$type,delay = linesData$delay)
+  df2 <- df[df$delay > 0 & df$delay < 600,] 
+  groups <- c(0,1,2, 3, 4, 5, 6, 7, 8)
+  types <- unique(df2$type)
+  df4 <- data.frame(type = as.factor(rep(types,each = length(groups) - 1)), var = as.factor(rep(groups[-1], length(types))) , sum = rep(0,length(types) * length(groups[-1]) ))
+  
+  
+  for(i in types){
+    group <- nrow(df2[df2$type == i,] )
+    for(j in 0:(max(groups)-1)){
+      records <- df2[df2$type == i & df2$delay >= (j * 60) & df2$delay < ( (j + 1)*60), 2]
+      df4[df4$type == i & df4$var == (j + 1),3] = length(records)/group * 100
+    }
+  }
+  
+  df4 <- replace(df4, is.na(df4), 0)
+  head(df4)
+  
+  
+  ggplot(df4, aes( x = var, y =  type)) + 
+    geom_tile(aes( fill = sum)) +
+    scale_fill_gradientn(colours=c( "#ffffbf", "#ff0000")) +
+    labs(x = "Opóźnienie", y =" Typ linii", fill  = "Procent", title = "Opóźnienie w grupach autobusów") +
+    theme( plot.title = element_text(hjust = 0.5))
+
+}
+
+
+findContainingPolygon <- function(x, y, polygons) {
+  for(i in 0:17){
+    if(point.in.polygon(x,y,polygons[polygons$id == i,2], polygons[polygons$id == i,1] )){
+      return(i)
+    }
+  }
+  return(-1)
+}
+
+ 
+generateMapOfVehicleCounts <- function(){
+  
+  library(rgdal)
+  library(ggplot2)
+  
+  centroids.df <- as.data.frame(coordinates(shapefile))
+  
+  for(i in 1:length(vehicleCounts)){
+    polygons[polygons$id == (i - 1),8] =  vehicleCounts[i];
+    polygons[polygons$id == (i - 1),9] =  centroids.df[i,1];
+    polygons[polygons$id == (i - 1),10] =  centroids.df[i,2];
+  }
+  
+  ggplot(polygons, aes(x = long, y = lat, fill = V8, group = group )) +
+    geom_polygon(colour = "#abcdef") +
+    coord_equal() +
+    scale_fill_gradient( low = "#ffeda0",high =  "#f03b20", space = "Lab", name="") +
+    #geom_text(aes(label = id, x = V9, y = V10)) +
+    labs(x = "", y = "", title = "Liczba autobusów w dzielnicach", legend = "") + theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+                                              axis.line=element_blank(),axis.text = element_blank(),
+                                              plot.title = element_text(hjust = 0.5),plot.margin=unit(c(-1,0,-1,0), "pt"),
+                                              panel.grid.minor = element_blank())
+}
+
+generateMapOfVehicleSpeed <- function(){
+  
+  library(rgdal)
+  library(ggplot2)
+  
+  #speedInDistrictsTable <- data.frame(t(apply(linesData[linesData$status != "STOPPED",], 1, function(row){
+  speedInDistrictsTable <- data.frame(t(apply(linesData[statusData != "STOPPED",], 1, function(row){
+    polyNo <- findContainingPolygon(row['lat'],row['lon'], polygons)
+    c(row['speed'], district=polyNo)
+  })))
+  
+  speedInDistricts <- speedInDistrictsTable %>% group_by(district) %>%
+    summarise(avgSpeed = mean(speed, na.rm = TRUE))
+  centroids.df <- as.data.frame(coordinates(shapefile))
+  
+  for(i in 1:length(vehicleCounts)){
+    polygons[polygons$id == (i - 1),8] =  (speedInDistricts %>% filter(district==(i-1)))$avgSpeed;
+    polygons[polygons$id == (i - 1),9] =  centroids.df[i,1];
+    polygons[polygons$id == (i - 1),10] =  centroids.df[i,2];
+  }
+  
+  ggplot(polygons, aes(x = long, y = lat, fill = V8, group = group )) +
+    geom_polygon(colour = "#abcdef") +
+    coord_equal() +
+    scale_fill_gradient( low = "#E6FFBF",high =  "#5AB953", space = "Lab", name="") +
+    #geom_text(aes(label = id, x = V9, y = V10)) +
+    labs(x = "", y = "", title = "Średnie prędkości autobusów", legend = "", fill="km / h") + theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+                                              axis.line=element_blank(),axis.text = element_blank(),
+                                              plot.title = element_text(hjust = 0.5),plot.margin=unit(c(-1,0,-1,0), "pt"),
+                                              panel.grid.minor = element_blank())
+}
+
+generateMapOfDelays <- function(){
+  
+  library(rgdal)
+  library(ggplot2)
+
+  parsedRes <- downloadLinesData()
+  #polygons <- readWarsawDistrictPolygons()
+  
+  
+  delaysInDistrictsTable <- data.frame(t(apply(linesData, 1, function(row){
+    polyNo <- findContainingPolygon(row['lat'],row['lon'], polygons)
+    c(delay=as.numeric(row['delay']), district=polyNo)
+  })))
+  
+  delaysInDistricts <- delaysInDistrictsTable %>% group_by(district) %>%
+    summarise(avgDelay = mean(delay)/60)
+  centroids.df <- as.data.frame(coordinates(shapefile))
+  
+  for(i in 1:18){
+    delay <- (delaysInDistricts %>% filter(district==(i-1)))$avgDelay
+    
+    if(delay > 1000) {
+      delay <- 0 # one district has >2000
+    }
+    
+    polygons[polygons$id == (i - 1),8] =  delay;
+    polygons[polygons$id == (i - 1),9] =  centroids.df[i,1];
+    polygons[polygons$id == (i - 1),10] =  centroids.df[i,2];
+  }
+  
+  gradient = scale_fill_gradient( low = "#ffffff",high =  "#f03b20", space = "Lab", name="")
+  if(min(delaysInDistricts[,2]) < 0){
+    gradient = scale_fill_gradient2(low = "#115588", mid = "#ffffff",high =  "#f03b20",
+                                    midpoint = 0,
+                                    space = "Lab", name="")
+  }
+  
+  ggplot(polygons, aes(x = long, y = lat, fill = V8, group = group )) +
+    geom_polygon(colour = "#abcdef") +
+    coord_equal() +
+    gradient +
+    #geom_text(aes(label = id, x = V9, y = V10)) +
+    labs(x = "", y = "", title = "Średnie opóźnienia autobusów", legend = "") + theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+                                                                                                      axis.line=element_blank(),axis.text = element_blank(),
+                                                                                                      plot.title = element_text(hjust = 0.5),
+                                                                                                      panel.grid.minor = element_blank())
+}
+
+generatePlotOfDensity <- function() {
+  df <- data.frame(density=vehicleDensitiesPer10000Km, count=vehicleCounts, district=districtNames, peopleDensity = districtPeopleDensity)
+  ggplot(df, aes(reorder(district, peopleDensity))) + geom_bar(aes(weight=density), fill = "#f03b20") + coord_flip() + labs(y="Gęstość (autobusy/km^2)", x="", title = "Zagęszczenie autobusów") +theme(axis.line=element_blank(),
+                                                                                                                                                                          plot.title = element_text(hjust = 0.5))
+}
+
+
+convertDelayToText <- function(delay_data) {
+  ifelse(delay_data < -90, -2, 
+         ifelse(delay_data < -30, -1, 
+                ifelse(delay_data < 30, 0, 
+                       ifelse(delay_data < 90, 1, 
+                              ifelse(delay_data < 150, 2, 
+                                     ifelse(delay_data < 210, 3, 
+                                            ifelse(delay_data < 270, 4, 
+                                                   ifelse(delay_data < 330, 5, 
+                                                          ifelse(delay_data < 390, 6,
+                                                                 7)))))))))
+}
+
+districtOf <- function(lats, lons) {
+  
+  districts <- rep("Nieznany", times=length(lats))
+  
+  for(i in 1:length(lats)) {
+    districtNo <- 1 + findContainingPolygon(lats[i],lons[i], polygons)
+    if(districtNo > 0) {
+      districts[i] <- districtNames[districtNo]
+    }
+  }
+  
+  districts
+}
+
+generatePlotOfDelaysPerDistict <- function() {
+  
+  delaysPerDistrict <- linesData %>%  mutate(district = districtOf(lat,lon)) %>% 
+    mutate(delay_rounded = as.character(convertDelayToText(delay))) %>% 
+    group_by(district, delay_rounded) %>% 
+    summarise(vehicle_count = n()) %>%
+    arrange(desc(as.numeric(delay_rounded)))
+  
+  ggplot(data = delaysPerDistrict, aes(x = district, y = vehicle_count, fill = delay_rounded)) + 
+    geom_bar(stat = "identity") +
+    labs(x = "Dzielnica", y="Ilość autobusów", fill="Opóźnienie (min)", title = "Rozkład opóźnionych autobusów w dzielnicach") +
+    scale_fill_manual(values = c("-1" = "#0088AC", "-2" = "#0076CD", "0" = "#06D51B", "1" = "#AFE94D", "2" = "#E9EE48", "3" = "#F0CB00", "4" = "#F08904", "5" = "#F03A15", "6" = "#CD220F", "7" = "#910D01")) +
+    coord_flip()
+}
+
+plot1 <- generateMapOfDelays()
+#plot2 <- generateMapOfVehicleCounts()
+plot2 <- generateMapOfVehicleSpeed()
+plot3 <- generatePlotOfDelaysPerDistict()
+plot4 <- generatePlotOfDensity()
+```
+
+```{r echo=FALSE, fig.align="center", fig.width=10, fig.height=7 }
+grid.arrange(plot1, plot2, plot3, plot4, nrow=2, ncol=2)
+```
+
+
