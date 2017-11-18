@@ -1,0 +1,41 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+load("votes.rda")
+votes
+```
+
+```{r}
+table(votes$nr_meeting)
+
+surnames <- unique(votes$surname_name)
+sum(substr(surnames, nchar(surnames), nchar(surnames)) == "a")
+mean(substr(surnames, nchar(surnames), nchar(surnames)) == "a")
+
+surnames[substr(surnames, nchar(surnames), nchar(surnames)) == "a"]
+
+magic_votes <- votes %>% group_by(id_voting) %>% 
+  summarise(za = mean(vote == "Za"), przeciw = mean(vote == "Przeciw")) %>%
+  mutate(suma = za + przeciw, roznica = abs(za - przeciw), magic = suma / roznica) %>% 
+  arrange(desc(magic)) %>%
+  left_join(votes %>% select(c(id_voting, topic_voting)) %>% distinct(), by = "id_voting")
+
+very_magic_votes <- magic_votes %>% head(n = 30)
+very_magic_votes
+```
+
+```{r}
+best <- votes %>% filter(id_voting == magic_votes[1,]$id_voting)
+
+best$vote <- reorder(best$vote, best$vote, function(x) -length(x))
+
+plot <- ggplot(best, aes(vote)) +
+  geom_bar(aes(fill = club)) +
+  ggtitle("Najbardziej kontrowersyjna ustawa według indeksu (MaGiC)", subtitle = str_wrap(best[1, "topic_voting"])) +
+  labs(x = NULL, y = "Liczba głosów")
+
+ggsave()
+```
