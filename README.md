@@ -22,7 +22,7 @@ Blok 1 - Grafika statyczna
 
 Blok 2 - Grafika interaktywna / internetowa
 
-* [6] W: [Skale kolorów](http://biecek.pl/Eseje/indexKolory.html); L: [rCharts](http://pbiecek.github.io/Przewodnik/Wizualizacja/jak_tworzyc_interaktywne_wykresy.html), [2](https://github.com/pbiecek/TechnikiWizualizacjiDanych/tree/master/MINI_MIMUW_2014/materialy_z_wykladow_i_lab/plotly), [eurostat](https://github.com/rOpenGov/eurostat/blob/master/vignettes/2015-RJournal/lahti-huovari-kainu-biecek.md)
+* [6] W: [Skale kolorów](http://biecek.pl/Eseje/indexKolory.html); L: [rCharts](http://pbiecek.github.io/Przewodnik/Wizualizacja/jak_tworzyc_interaktywne_wykresy.html), [2](https://rawgit.com/pbiecek/TechnikiWizualizacjiDanych/master/MINI_MIMUW_2014/materialy_z_wykladow_i_lab/plotly/knitr_plotly.html), [eurostat](https://journal.r-project.org/archive/2017/RJ-2017-019/index.html)
 * [7] W: [Skale pomiarowe](http://biecek.pl/Eseje/indexKuchnia.html); L: [Wladcy Polski](https://pl.wikipedia.org/wiki/W%C5%82adcy_Polski), [Tutorial D3](http://vadim.ogievetsky.com/IntroD3/#1), [JS fiddle](https://jsfiddle.net/), [Time line](https://github.com/jiahuang/d3-timeline)
 * [8] W: Prezentacja projektu 2/1; L: [d31](https://raw.githubusercontent.com/pbiecek/TechnikiWizualizacjiDanych/master/MINI_2016/Zajecia/pisa.html), [d32](https://raw.githubusercontent.com/pbiecek/TechnikiWizualizacjiDanych/master/MINI_2016/Zajecia/timelines.html)
 * [9] W: Prezentacje studentów (tematy poniżej); L: Tableau, 
