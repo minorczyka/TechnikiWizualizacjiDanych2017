@@ -1,0 +1,61 @@
+---
+title: "Praca domowa #5"
+author: "Anton Lenartovich"
+date: "November 14, 2017"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+Sys.setlocale("LC_ALL", "polish")
+```
+
+W tym tygodniu spróbowałem porównać dane filmów z 2017 roku, a mianowicie, czy budżet filmu ma wpływ na ocenę końcową. Dane o budżecie oraz zarobkach pochodzą ze strony [boxofficemojo](http://www.boxofficemojo.com/yearly/chart/?yr=2017). Dane o rankingu filmu są udostępnione na popularnym portalu [imdb](www.imdb.com). Na rysunku umieściłem wybrane 20 filmów z początku listy, która jest dostępna pod linkiem wyżej. 
+
+Z takiego  wykresu można zaobserwować trzy podstawowe grupy filmów: 
+
+1. filmy o małym budżecie (5 - 50 mln $)
+2. filmy o średnim budżecie (75 - 125 mln $)
+3. filmy o dużym budżecie (150 - 220 mln $)
+
+I chociaż najliczniejszą grupą jest grupa #3 (grupa o dużym budżecie), bardzo cieszy mnie fakt, że filmy ze skromniejszymi funduszami potrafią rywalizować o uwagę i sympatię potencjalnego widza.
+
+```{r echo=FALSE, fig.align='center', cache=TRUE, fig.height=6, fig.width=10}
+
+
+library(ggExtra)
+library(scales)
+library(ggthemes)
+library(ggplot2)
+library(png)
+library(grid)
+
+films <- read.csv("films2.csv")[-1]
+films$ratio <- films$gross/ (films$budget)
+
+
+q <- ggplot(films, aes(x=budget, y= rate, label=title)) +
+      geom_point() 
+
+for(i in 1:nrow(films)){
+  imagePath <- paste0("./CuttedImages/", films$path[i])
+  img <- readPNG(imagePath)
+  g <- rasterGrob(img, interpolate=TRUE)
+  xmin = films$budget[i] - 40
+  xmax = films$budget[i] + 40
+  ymin = films$rate[i] - 0.5
+  ymax = films$rate[i] + 0.5
+  q = q + annotation_custom(g, xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax)
+  
+}
+maxBudget <- max(films$budget) + 20
+maxRate <- 10
+q + ylim(0, maxRate) + xlab("Budżet") + ylab("Ranking") + 
+  theme_get() +
+  scale_x_continuous(limits = c(-5, maxBudget), labels=function(x){ paste0(x, "mln $") }) + 
+  theme(axis.line = element_line(size=1, colour="black")) +
+  ggtitle("Zależność pomiędzy budżetem a rankingiem filmu")
+```
+
