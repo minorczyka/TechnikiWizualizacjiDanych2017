@@ -1,0 +1,122 @@
+---
+title: "Techniki wizualizacji danych - zadanie domowe 5"
+author: "Dawid Stelmach"
+date: "12 listopada 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(out.width='950px')
+library(tidyverse)
+
+```
+
+```{r data, include=FALSE}
+app_order <- c("mBank",
+               "PKO BP",
+               "ING Bank",
+               "Pekao",
+               "BZ WBK",
+               "Millennium",
+               "Alior Bank",
+               "eurobank",
+               "Raiffeisen Polbank",
+               "TMUB",
+               "Credit Agricole",
+               "Citi Handlowy",
+               "BGŻ BNP Paribas",
+               "Plus Bank")
+
+all_order <- c("PKO BP",
+               "Bank Pekao",
+               "mBank",
+               "ING Bank Śląski",
+               "BZ WBK",
+               "Bank Millennium",
+               "Alior Bank",
+               "Eurobank",
+               "Citi Handlowy",
+               "Raiffeisen Polbank",
+               "TMUB",
+               "Credit Agricole",
+               "BGŻ BNP Paribas",
+               "Plus Bank")
+
+app_banks <- tibble(bank = app_order,
+                    aplikacje = c(1058011,
+                                  1029135,
+                                  754199,
+                                  653000,
+                                  647030,
+                                  419000,
+                                  164458,
+                                  88644,
+                                  77019,
+                                  71534,
+                                  65506,
+                                  61613,
+                                  62100,
+                                  21935))
+all_banks <- tibble(bank = all_order,
+                    wszyscy = c(2057862,
+                                1679852,
+                                1524425,
+                                1347677,
+                                1115574,
+                                652000,
+                                174208,
+                                132198,
+                                114927,
+                                77019,
+                                71534,
+                                65506,
+                                62100,
+                                36994))
+
+mobile_banks <- app_banks %>%
+  inner_join(all_banks) %>%
+  mutate(bank = factor(bank, levels = app_order))
+
+mobile_banks_plot <- mobile_banks %>%
+  mutate(wszyscy = wszyscy/1000000, aplikacje = aplikacje/1000000) %>%
+  mutate(inne = wszyscy - aplikacje, stosunek = aplikacje/wszyscy) %>%
+  select(-wszyscy) %>%
+  gather(`dostep mobilny`, `liczba użytkownikow`, aplikacje:inne)
+
+
+bank_plot <- ggplot(mobile_banks_plot, aes(x = bank)) +
+  geom_bar(aes(y = `liczba użytkownikow`, fill = `dostep mobilny`), stat = "identity") +
+  geom_line(aes(y=stosunek, group=1), size = 1.5, color = "gray") +
+  geom_point(aes(y=stosunek, color = "1 = 100%"), size = 3) +
+  scale_color_manual(name = paste("Stosunek użytkowników", "aplikacji do pozostałych", sep = "\n"), values = c("black")) +
+  ylab("liczba użytkownikow [mln]") +
+  theme(axis.text.x=element_text(angle=30, hjust=1)) +
+  ggtitle('Czy największe banki mają "najgorsze" aplikacje mobline?')
+```
+
+Źródło danych:
+
+- https://www.bankier.pl/wiadomosc/Juz-2-mln-klientow-porzucilo-bankowosc-internetowa-na-rzecz-mobilnej-7554978.html
+
+Dane, które zdecydowałem się opracować, dotyczą liczby użytkowników mobilnych w bankach będących na polskim rynku. Użytkownicy zostali oni podzieleni na dwie grupy:
+
+- ''aplikacje'' - użytkownicy, którzy korzystają z aplikacji mobilnych
+- ''inne'' - użytkownicy korzystający z innego sposobu dostępu do usług bankowych niż dedykowane aplikacje banku.
+
+Ponadto został obliczony procentowy udział użytkowników korzystających z aplikacji z podziałem na bank.
+
+```{r pressure, echo=FALSE}
+bank_plot
+```
+
+Wyraźnie widać podział na dwie (i pół) grupy:
+
+- banki, które mają blisko 100% pokrycia aplikacją
+- banki, które mają ok 50% pokrycia użytkowników przez aplikację
+- mBank, który ma nieco ponad 70% pokrycia
+
+Jak widać, banki ze środka stawki mają, najwyższy wskaźnik użytkowników korzystających z aplikacji. Może być to spowodowane tych, że ich aplikacje są istotnie najlepsze i osoby wybrały te banki właśnie ze względu na aplikacje mobilne.
+Już na pierwszy rzut oka widać, największe banki mają znacznie mniejszy udział użytkowników aplikacji. Należy pamiętać, że bierzemy pod uwagę tylko klientów mobilnych, a nie wszystkich klientów banków dlatego ta sytuacja nie ma związku z faktem, że popularne banki mają większą liczbę użytkowników niekorzystających z dobrodziejstw mobilnych technologii.
+
+mBank jest jedynym z trzech wielkich banków, które wyłamały się ponad próg ~50%.

@@ -18,13 +18,13 @@ Blok 1 - Grafika statyczna
 * [2] W: [Gramatyka grafiki](http://biecek.pl/Eseje/indexGramatyka.html), [Standardy w komunikacji](http://www.ibcs-a.org/); L: [ggplot2 - skale, statystyki, koordynaty](https://pbiecek.gitbooks.io/przewodnik/content/Wizualizacja/jak_tworzyc_wykresy_ggplot2.html), [Lab 2](Materialy/lab2.md).
 * [3] W: [Nie rób tego w domu](http://biecek.pl/Eseje/indexPomylka.html); L: [Pracujemy z danymi z NSP 2011](http://stat.gov.pl/spisy-powszechne/nsp-2011/nsp-2011-wyniki/)
 * [4] W: [Percepcja obrazu](http://biecek.pl/Eseje/indexObraz.html); L: Prezentacja projektu 1/1;
-* [5] W: Prezentacja projektu 1/2; L: BrainStorming
+* [5] W: Prezentacja projektu 1/2; L: BrainStorming [dane](https://www.dropbox.com/s/fuo4mveq499mzep/votes.rda)
 
 Blok 2 - Grafika interaktywna / internetowa
 
-* [6] W: [Skale kolorów](http://biecek.pl/Eseje/indexKolory.html); L: [rCharts](http://pbiecek.github.io/Przewodnik/Wizualizacja/jak_tworzyc_interaktywne_wykresy.html), [2](https://github.com/pbiecek/TechnikiWizualizacjiDanych/tree/master/MINI_MIMUW_2014/materialy_z_wykladow_i_lab/plotly), [shiny](http://pbiecek.github.io/Przewodnik/Programowanie/jak_tworzyc_aplikajce.html), [eurostat](https://github.com/rOpenGov/eurostat/blob/master/vignettes/2015-RJournal/lahti-huovari-kainu-biecek.md)
+* [6] W: [Skale kolorów](http://biecek.pl/Eseje/indexKolory.html); L: [rCharts](http://pbiecek.github.io/Przewodnik/Wizualizacja/jak_tworzyc_interaktywne_wykresy.html), [2](https://rawgit.com/pbiecek/TechnikiWizualizacjiDanych/master/MINI_MIMUW_2014/materialy_z_wykladow_i_lab/plotly/knitr_plotly.html), [eurostat](https://journal.r-project.org/archive/2017/RJ-2017-019/index.html)
 * [7] W: [Skale pomiarowe](http://biecek.pl/Eseje/indexKuchnia.html); L: [Wladcy Polski](https://pl.wikipedia.org/wiki/W%C5%82adcy_Polski), [Tutorial D3](http://vadim.ogievetsky.com/IntroD3/#1), [JS fiddle](https://jsfiddle.net/), [Time line](https://github.com/jiahuang/d3-timeline)
-* [8] W: Prezentacja projektu 2/1; L: [d31](https://raw.githubusercontent.com/pbiecek/TechnikiWizualizacjiDanych/master/MINI_2016/Zajecia/pisa.html), [d32](https://raw.githubusercontent.com/pbiecek/TechnikiWizualizacjiDanych/master/MINI_2016/Zajecia/timelines.html)
+* [8] W: Prezentacja projektu 2/1; L: [shiny](http://pbiecek.github.io/Przewodnik/Programowanie/jak_tworzyc_aplikajce.html)
 * [9] W: Prezentacje studentów (tematy poniżej); L: Tableau, 
 * [10] W: Prezentacja projektu 2/2; L: [RBokeh](http://hafen.github.io/rbokeh/#preview) / [ggiraph](https://github.com/davidgohel/ggiraph), [vegalite1](https://github.com/hrbrmstr/vegalite), [vegalite2](https://idl.cs.washington.edu/files/2017-VegaLite-InfoVis.pdf), [googleVis](http://www.magesblog.com/2016/09/googlevis-061-on-cran.html), choinki: [1](http://simplystatistics.org/wp-content/uploads/2012/12/xmas.png), [2](http://smarterpoland.pl/wp-content/uploads/2015/12/cars-1015x1024.png), [3](http://smarterpoland.pl/wp-content/uploads/2015/12/ctree-1024x957.png), [4](http://smarterpoland.pl/wp-content/uploads/2014/12/Screen-Shot-2014-12-19-at-23.28.01-300x283.png)
 
@@ -52,18 +52,12 @@ Do zaliczenia potrzebnych jest 200 punktów, im więcej punktów tym wyższa oce
 # Projekty
 
 Projekty można realizować w zespołach 2-3 osobowych. 
-
-Każdy projekt należy realizować w innym zespole. Nie można na dwch projektach robić ten sam temat.
-
-W projekcie oceniane będą trzy aspekty, każde w skali 0-30 pkt, plus 0-10 pkt uwzględniających nieprzewidziane czynniki, które warto punktować:
-
-* Poprawność prezentacji. Jeżeli prezentacja jest nieestetyczna, nieczytelna lub przekłamująca dane to źle, jeżeli jest estetyczna, czytelna i pozwala na szybkie odczytanie informacji to dobrze.
-* Złożoność danych. Jeżeli zaprezentowana jest jedna tabela liczb którą można pobrać z wikipedii w 5 minut to źle, jeżeli przedstawiono złożone powiązane z sobą dane, tworzone złożoną i uzupełniającą się historię to dobrze.
-* Innowacyjność. Jeżeli zaprezentowano dane za pomocą standardowych narzędzi bez wnikania w specyfikę prezentowanej historii to źle, jeżeli  zaprezentowane dane w sposób pomysłowy, odsłaniający ciekawe aspekty tych danych, sposób nieoczywisty to dobrze.
-
+Każdy projekt należy realizować w innym zespole. 
 Propozycje projektów:
 
 [Projekt 1](https://github.com/pbiecek/TechnikiWizualizacjiDanych2017/blob/master/Projekt_1/README.md)
+
+[Projekt 2](https://github.com/pbiecek/TechnikiWizualizacjiDanych2017/blob/master/Projekt_2/README.md)
 
 
 # Prezentacje studentów

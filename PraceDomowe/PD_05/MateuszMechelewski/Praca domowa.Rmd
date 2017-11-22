@@ -1,0 +1,69 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE, warning=FALSE, message=FALSE, echo=FALSE, results='hide'}
+library(ggplot2)
+library(grid)
+library(dplyr)
+library(lubridate)
+require(gridExtra)
+library(scales)
+```
+
+##[Techniki Wizualizacji Danych] Praca domowa 5
+####Mateusz Mechelewski 262760
+
+Jako przykład błędnie wykonanego wykresu wybrana została jedna z infografik zamieszczonych w raporcie Krajowego Rejestru Długów odnośnie _Zadłużenia mieszkańców wsi_. Wykres przedstawiony został poniżej i jest dostępny na trzeciej stronie opracowania dostępnego w [raporcie KRD](https://krd.pl/Centrum-prasowe/Raporty/2017/Zadluzenie-mieszkancow-wsi).
+
+<br />
+
+<center>
+![Wykres](zlywykres.png)
+</center>
+
+Wykres miał na celu pokazanie zmian na przestrzeni lat sumarycznej kwoty zadłużenia oraz liczby dłużników, mieszkających na wsi. Wykres stał się jednak bardzo prowokacyjny i miał wyraźnie na celu podkreślenie tempa wzrostu kwoty zadłużenia. 
+
+Podczas projektowania wykresu popełnione zostały następujące błędy:
+
+1. Tempo zmian sumarycznej kwoty zadłużenia jest różne od tempa zmian liczby dłużników.
+
+2. Liczba monet na grafice nie odpowiada rzeczywistej skali kwoty zadłużenia.
+
+Poniżej znajduje się propozycja poprawionego wykresu. Pomimo mniejszej atrakcyjności wizualnej, odzwierciedla on rzeczywiste dane.
+
+```{r echo=FALSE, fig.align='center', fig.width=9}
+mydata <-data.frame(years = c("2015", "2016", "2017"), 
+                    Sums = c(2949317633.36, 5180550816.37, 6137565155.25),
+                    Labels = c("2 949 317 633.36 PLN", "5 180 550 816.37 PLN", "6 137 565 155.25 PLN"))
+
+mydata2 <-data.frame(years = c("2015", "2016", "2017"), 
+                    Counts = c(356543,403964,412341),
+                    Labels = c("356 543", "403 964", "412 341"))
+
+p1 <- ggplot(mydata2, aes(years, Counts, label=Labels)) +
+  geom_bar(stat="identity", fill="#a6bddb") +
+  labs(title = "Liczba dłużników",
+       x = "", y = "") +
+  theme_bw() +
+  theme(axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank()) +
+  geom_text(size = 3, position = position_stack(vjust = 1.05)) + 
+  scale_y_continuous(limits=c(0,700000),oob = rescale_none)
+
+
+p2 <- ggplot(mydata, aes(years, Sums, label=Labels)) +
+  geom_bar(stat="identity", fill="#2b8cbe") +
+  labs(title = "Kwota zadłużenia",
+       x = "", y = "") +
+  theme_bw() +
+  theme(axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank()) +
+  geom_text(size = 3, position = position_stack(vjust = 1.05))
+
+grid.arrange(p1, p2, nrow=1, ncol=2, top=textGrob("Zadłużenie mieszkańców wsi w latach 2015-2017", gp=gpar(fontsize=15,font=2)))
+```

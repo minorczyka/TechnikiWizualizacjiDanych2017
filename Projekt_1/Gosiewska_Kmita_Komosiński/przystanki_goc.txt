@@ -1,0 +1,39 @@
+Nazwa,Klucz,Grupa
+Bora-Komorowskiego,2146-Bora-Komorowskiego,goclaw
+Abrahama,2145-Abrahama,goclaw
+Wał Gocławski,2144-Wał Gocławski,goclaw
+Afrykańska,2143-Afrykańska,goclaw
+Saska,2097-Saska,goclaw
+Stacja Krwiodawstwa,2140-Stacja Krwiodawstwa,goclaw
+Walecznych,2139-Walecznych,goclaw
+Adampolska,2138-Adampolska,goclaw
+Rondo Waszyngtona,2131-rondo Waszyngtona,goclaw
+Most Poniatowskiego,7003-most Poniatowskiego,goclaw
+PKP Powiśle,7068-PKP Powiśle,goclaw
+Muzeum Narodowe,7041-Muzeum Narodowe,goclaw
+Zajezdnia Ostrobramska,2104-Zajezdnia Ostrobramska,praga
+CH Promenada,2103-CH Promenada,praga
+Zamieniecka,2102-Zamieniecka,praga
+Przyczółek Grochowski,2101-Poligonowa,praga
+Kanał Gocławski,2099-Kanał Gocławski,praga
+Międzynarodowa,2098-Międzynarodowa,praga
+Saska,2097-Saska,praga
+Wał Miedzeszyński,2096-Wał Miedzeszyński,praga
+Torwar,7076-Torwar,praga
+Rozbrat,7071-Rozbrat,praga
+Pl. na Rozdrożu,7037-pl.Na Rozdrożu,praga
+Wiatraczna,2008-Wiatraczna,tram
+Grenadierów,2134-Grenadierów,tram
+Kinowa,2133-Kinowa,tram
+Berezyńska,2251-Berezyńska,tram
+Rondo Waszyngtona,2131-rondo Waszyngtona,tram
+Most Poniatowskiego,7003-most Poniatowskiego,tram
+PKP Powiśle,7068-PKP Powiśle,tram
+Muzeum Narodowe,7041-Muzeum Narodowe,tram
+Bora-Komorowskiego,2146-Bora-Komorowskiego,metro
+Abrahama,2145-Abrahama,metro
+Wał Gocławski,2144-Wał Gocławski,metro
+Afrykańska,2143-Afrykańska,metro
+Saska,2097-Saska,metro
+Wał Miedzeszyński,2096-Wał Miedzeszyński,metro
+Kryniczna,2155-Kryniczna,metro

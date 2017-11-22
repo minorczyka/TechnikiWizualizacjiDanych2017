@@ -1,0 +1,222 @@
+---
+title: "Komunikacja miejska w okolicy `r stopCode <- '7002-Dw.Centralny'; substr(stopCode, 6, nchar(stopCode))`"
+author: "Ł. Ławniczak, P. Krzeszewski, A. Minorczyk"
+date: "November 4, 2017"
+output: 
+  html_document:
+      #theme: null
+      highlight: null
+      css: styles.css
+---
+
+```{r, include=FALSE, warning=FALSE, message=FALSE}
+'7002-Dw.Centralny'
+'7013-Centrum'
+```
+
+```{r setup, include=FALSE, warning=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(rvest)
+library(httr)
+library(jsonlite)
+library(ggplot2)
+library(dplyr)
+library(ggmap)
+library(knitr)
+library(kableExtra)
+library(formattable)
+
+genTime = Sys.time()
+```
+
+```{r functions, echo=FALSE, warning=FALSE, message=FALSE}
+
+filterStop <- function(df, stop) {
+  df %>% filter(delayAtStop == stop | nearestStop == stop | previousStop == stop | nextStop == stop)
+}
+
+stopNames <- function(df) {
+  fullNames <- c(df$delayAtStop, df$nearestStop, df$previousStop, df$nextStop) %>% unique()
+  fullNames <- fullNames[fullNames != ""]
+  shortNames <- sapply(fullNames, function(s) substr(s, 6, nchar(s)))
+  ord <- order(shortNames)
+  fullNames[ord]
+}
+# stopNames(df1)
+
+boundingBox <- function(df) {
+  if (nrow(df) == 0) {
+    return (c("left" = 20.5, "right" = 21.5,
+    "top" = 53.0, "bottom" = 52.0))
+  }
+  
+  left <- min(df2$lon, df2$arrowLon)
+  right <- max(df2$lon, df2$arrowLon)
+  bottom <- min(df2$lat, df2$arrowLat)
+  top <- max(df2$lat, df2$arrowLat)
+  dx <- right - left + 0.02
+  dy <- top - bottom + 0.02
+  c("left" = left - 0.1 * dx, "right" = right + 0.1 * dx,
+    "top" = top + 0.1 * dy, "bottom" = bottom - 0.1 * dy)
+}
+
+arrowEnds <- function(df, length) {
+  normalizeVector <- function(x) x / sqrt(sum(x^2))
+  if (nrow(df) < 1) { 
+    return(data.frame(df, arrowLon = numeric(), arrowLat = numeric()))
+  }
+  
+  ends <- apply(df, 1, function(x) {
+    start <- as.numeric(x[c("lon", "lat")])
+    end <- as.numeric(x[c("nextStopLon", "nextStopLat")])
+    dir <- normalizeVector(end - start)
+    start + length * dir
+  })
+  data.frame(df, arrowLon = ends[1,], arrowLat = ends[2,])
+}
+```
+
+```{r data, echo=FALSE, warning=FALSE, message=FALSE, cache=FALSE}
+
+linie <- paste(c(102:262), collapse=",")
+token2 <- "35dbb2ebd27b23cfbec359dbd560adf2d4a5b27b"
+
+now <- Sys.time()
+res <- GET(url = paste0("https://vavel.mini.pw.edu.pl/api/vehicles/v1/full/?line=", linie),
+           add_headers(Authorization = paste("Token", token2)))
+df <- jsonlite::fromJSON(as.character(res))
+df$time <- as.POSIXct(strptime(df$time, format="%Y-%m-%dT%H:%M:%SZ"))
+df$previousStopLeaveTime <- as.POSIXct(strptime(df$previousStopLeaveTime, format="%Y-%m-%dT%H:%M:%SZ"))
+df$previousStopArrivalTime <- as.POSIXct(strptime(df$previousStopArrivalTime, format="%Y-%m-%dT%H:%M:%SZ"))
+df$plannedLeaveTime <- as.POSIXct(strptime(df$plannedLeaveTime, format="%Y-%m-%dT%H:%M:%SZ"))
+
+df1 <- df %>% filter(difftime(time, now, units="mins") > -5,
+                     difftime(time, now, unit="mins") < 1,
+                     delay < 1800)
+df1 <- na.omit(df1)
+df1$brigade <- as.numeric(df1$brigade)
+
+df2 <- filterStop(df1, stopCode)
+
+df3 <- arrowEnds(df2, 0.0008)
+bounds <- boundingBox(df3)
+map <- get_map(location=bounds, maptype="roadmap", source="google", color="bw")
+```
+
+<div class="flex-container">
+
+<div id="mapplot">
+
+```{r map, echo=FALSE, warning=FALSE, message=FALSE}
+ggmap(map) +
+  geom_segment(data=df3, aes(xend=arrowLon, yend=arrowLat, color = delay / 60), size = 1, arrow = arrow(length = unit(0.02, "npc"))) +
+  geom_point(data=df3, aes(color = delay / 60), size = 9) +
+  geom_text(data=df3, aes(label = line), color = "white") +
+  scale_color_gradient2(low = "green4", mid = "yellow3", high = "red2", midpoint = 10) +
+  labs(x = "Długość geograficzna", y = "Szerokość geograficzna", color = "Opóźnienie") +
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank(),
+        axis.title.y=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank()) 
+  #theme(legend.position=c(1, 0.9))
+```
+
+</div>
+
+<div class="right-panel">
+
+<div id="time">
+
+Aktualizacja: `r as.character(genTime)`
+
+</div>
+
+<div id="histogram">
+
+```{r hist, echo=FALSE, warning=FALSE, message=FALSE}
+if (nrow(df3) > 0) {
+  dist_av <- ceiling(floor((max(df3$delay) - min(df3$delay)) / 60) / 3) * 60
+  
+  ggplot(data=df3, aes(x=delay)) +
+    geom_histogram(binwidth = dist_av, fill="#66A7A7") +
+    labs(y = "Liczba pojazdów", x = NULL, title = "Opóźnienia w okolicy") +
+    scale_color_gradient2(low = "green4", mid = "yellow3", high = "red2", midpoint = 10) +
+    scale_x_continuous(
+      breaks = function(x) return(seq(floor(x[1] / dist_av) * dist_av, x[2], dist_av)),
+      labels = function(x) return(paste0(as.character(x/60), "-", as.character(x/60 + dist_av/60), " min"))) +
+    geom_vline(xintercept=mean(df3$delay), size=2, color="blue") +
+    annotate("text", x=mean(df3$delay)+(max(df3$delay)-mean(df3$delay))/5, y=2, label=paste(round(mean(df3$delay/60)), "min", round(mean(df3$delay)) %% 60, "s"), color="red", size=8) +
+    theme_gray(base_size = 22)
+} else {
+  print("Brak danych")
+}
+```
+
+</div>
+
+<div id="mean">
+
+```{r hist2, echo=FALSE, warning=FALSE, message=FALSE}
+if (nrow(df3) > 0) {
+ggplot(data=df3, aes(x=speed)) +
+  geom_histogram(binwidth = 1, fill="#8FBC8F") +
+  labs(y = "Liczba pojazdów", x = NULL, title = "Prędkość pojazdów w okolicy") +
+  scale_fill_gradient2(low = "green4", mid = "yellow3", high = "red2", midpoint = 10) +
+  scale_x_continuous(
+    labels = function(x) return(paste0(as.character(x), " km/h"))) +
+  theme_gray(base_size = 22)+
+  geom_vline(xintercept=mean(df3$speed), size=2, color="blue") +
+  annotate("text", x=mean(df3$speed)+(max(df3$speed)-mean(df3$speed))/5, y=2, label=paste(round(mean(df3$speed), 2), "km/h"), color="red", size=8)
+} else {
+  print("Brak danych")
+}
+```
+
+</div>
+
+</div>
+
+</div>
+
+<div class="flex-container">
+
+<div id="table">
+
+```{r tableData, echo=FALSE, warning=FALSE, message=FALSE}
+
+if (nrow(df3) > 0) {
+  # colnames(df3)
+  df3table <- df3
+  df3table <- df3table[, c("line", "time", "status", "delay", "previousStop","nextStop", "speed")]
+  
+  df3table$previousStop <- substring(df3table$previousStop, 6)
+  df3table$nextStop <- substring(df3table$nextStop, 6)
+  df3table$delay_m <- paste0(ifelse(df3table$delay < 0, "-", ""), 
+                             ifelse(abs(df3table$delay) >= 60, paste0(as.character(floor(abs(df3table$delay) / 60)), "min "), ""),
+                             as.character(abs(df3table$delay) %% 60), "s")
+  
+  df3table$time_t <- substring(as.character(df3table$time), 12)
+  
+  df3table <- df3table[, c("line", "time_t", "delay", "delay_m", "previousStop", "nextStop", "speed")]
+}
+```
+
+```{r table, echo=FALSE, warning=FALSE, message=FALSE}
+if (nrow(df3) > 0) {
+
+  df3table %>% arrange(line) %>%
+    mutate(
+      delay = NULL,
+      delay_m = ifelse(delay > 120,
+                    cell_spec(delay_m, "html", color = "red", bold = T),
+                    cell_spec(delay_m, "html", color = "green", italic = T)),
+      speed = color_tile("white", "orange")(speed)
+    ) %>%
+    select(line, everything()) %>%
+    kable("html", escape = F, align ='llrllr', col.names=c("Line", "Czas", "Opóźnienie", "Poprzedni przystanek", "Następny przystanek", "Prędkość")) %>%
+    kable_styling("hover", full_width = T) %>%
+    column_spec(5, width = "3cm")
+}
+```
+
+</div>
+
+</div>
