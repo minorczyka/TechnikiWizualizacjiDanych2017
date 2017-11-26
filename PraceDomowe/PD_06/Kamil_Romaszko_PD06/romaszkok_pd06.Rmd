@@ -1,0 +1,117 @@
+---
+title: "Paleta Color Brewer"
+author: "Kamil Romaszko"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE, echo=FALSE}
+options( warn = -1 )
+library(ggplot2)
+library(plotly)
+library(RColorBrewer)
+library(gridExtra)
+```
+
+Przegląd kolorów w palecie Color Brewer. http://colorbrewer2.org
+
+
+```{r echo=FALSE}
+color_palette <- data.frame(name=character(), x=numeric(), y=numeric(), red=numeric(), green=numeric(), blue=numeric(), color=character(), category=character(), colorblind=logical())
+
+for(i in 1:nrow(brewer.pal.info)) {
+pal.info <- brewer.pal.info[i,]
+
+name <- row.names(pal.info)[1]
+count <- brewer.pal.info[i,1]
+category <- brewer.pal.info[i,2]
+cat_x = sum(brewer.pal.info[1:i,2] == category)
+sel_color <- brewer.pal(count, name)
+  for(j in 1:count) { 
+    
+    color_palette <- rbind(color_palette, data.frame(name=name, x=i, cat_x= cat_x, y=j, t(col2rgb(sel_color[j])), color=as.character(sel_color[j]), pal.info))
+  }
+
+}
+```
+
+
+
+```{r echo=FALSE}
+div <- ggplot() + 
+  geom_rect(subset(color_palette,category=="div"), mapping=aes(x=name, xmin=cat_x-0.5, xmax=cat_x+0.5, ymin=y, ymax=y+1, fill=color))+ 
+  scale_color_identity() +
+ scale_size_identity() +
+  scale_fill_identity() +
+  scale_y_continuous(limits = c(1,12), expand = c(0, 0)) +
+  ggtitle("Diverging") +
+  theme(legend.position = "none",
+        axis.text.y=element_blank(),
+         axis.title.y=element_blank(),
+         axis.ticks.y=element_blank(),
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        panel.grid.minor.y = element_blank(),
+        panel.grid.major.y = element_blank(),
+        axis.text.x = element_text(angle = 90, hjust = 1)) 
+
+qual <- ggplot() + 
+  geom_rect(subset(color_palette,category=="qual"), mapping=aes(x=name, xmin=cat_x-0.5, xmax=cat_x+0.5, ymin=y, ymax=y+1, fill=color))+ 
+  scale_color_identity() +
+ scale_size_identity() +
+  scale_fill_identity() +
+  scale_y_continuous(limits = c(1,13), expand = c(0, 0)) +
+  ggtitle("Qualitative") +
+  theme(legend.position = "none",
+        axis.text.y=element_blank(),
+         axis.title.y=element_blank(),
+         axis.ticks.y=element_blank(),
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        panel.grid.minor.y = element_blank(),
+        panel.grid.major.y = element_blank(),
+        axis.text.x = element_text(angle = 90, hjust = 1)) 
+
+seq <- ggplot() + 
+  geom_rect(subset(color_palette,category=="seq"), mapping=aes(x=name, xmin=cat_x-0.5, xmax=cat_x+0.5, ymin=y, ymax=y+1, fill=color))+ 
+  scale_color_identity() +
+ scale_size_identity() +
+  scale_fill_identity() +
+  scale_y_continuous(limits = c(1,10), expand = c(0, 0)) +
+  ggtitle("Sequential") +
+  theme(legend.position = "none",
+        axis.text.y=element_blank(),
+         axis.title.y=element_blank(),
+         axis.ticks.y=element_blank(),
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        panel.grid.minor.y = element_blank(),
+        panel.grid.major.y = element_blank(),
+        panel.grid = element_blank(), 
+        panel.border = element_blank(),
+        axis.text.x = element_text(angle = 90, hjust = 1)) 
+
+```
+
+```{r echo=FALSE}
+div_count <- sum(brewer.pal.info$category=="div")
+seq_count <- sum(brewer.pal.info$category=="seq")
+qual_count <- sum(brewer.pal.info$category=="qual")
+cell_width=50
+ggplotly(seq, width = 50*seq_count)
+pltly_div <- ggplotly(div, width = 50*div_count)
+pltly_qual <- ggplotly(qual, width = 50*qual_count, autoscale=TRUE)
+```
+
+```{r echo=FALSE, fig.show='hold', out.extra='style="float:left"'}
+
+pltly_div
+```
+
+```{r echo=FALSE, fig.show='hold', out.extra='style="float:left"'}
+pltly_qual
+
+```
+
+
