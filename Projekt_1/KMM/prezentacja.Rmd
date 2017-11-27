@@ -245,7 +245,7 @@ generateMapOfDelays <- function(){
 
 generatePlotOfDensity <- function() {
   df <- data.frame(density=vehicleDensitiesPer10000Km, count=vehicleCounts, district=districtNames, peopleDensity = districtPeopleDensity)
-  ggplot(df, aes(reorder(district, peopleDensity))) + geom_bar(aes(weight=density), fill = "#f03b20") + coord_flip() + labs(y="Gęstość (autobusy/km^2)", x="", title = "Zagęszczenie autobusów") +theme(axis.line=element_blank(),
+  ggplot(df, aes(reorder(district, peopleDensity))) + geom_bar(aes(weight=density), fill = "#f03b20") + coord_flip() + labs(y="Gęstość (autobusy/km^2)", x="", title = "Zagęszczenie autobusów \n (dzielnice posortowane \n od najgęściej zaludnionej)") +theme(axis.line=element_blank(),
                                                                                                                                                                           plot.title = element_text(hjust = 0.5))
 }
 
