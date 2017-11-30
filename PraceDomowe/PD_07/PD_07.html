@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+<h1>Najważniejsze seriale listopada 2017</h1>
+<h3>TWD - 07</h3>
+
+<p>Poniższy dokument prezentuje subiektywny wybór najważniejszych seriali zaprezentowanych w listopadzie na ekranach telewizyjnych całego świata. Za seriale z tego okresu uznano te, których data pierwszej premiery miała miejsce w listopadzie 2017r.</p>
+
+<p>Seriale są opisywane przez oceny (w skali 0-100) z najważniejszych serwisów o tematyce filmowo-telewizyjnej. Za takie serwisy uznałem <strong>RottenTomatoes</strong>, <strong>Metacritic</strong>, <strong>IMDb</strong> oraz <strong>Trakt.tv</strong>. Dane zaczerpnąłem ze stron tych serwisów w dniu 30 XI 2017.</p>
+
+<p>Prezentacja wykorzystuje możliwości <em>D3.js</em> i pozwala na wykonanie podstawowych animacji. Przyciski pozwalają na wybranie preferowanego sortowania programów.</p>
+
+<h4>Posortuj seriale według oceny:</h4>
+<button type="button" onclick="sortAverage()">Średnia ocena</button>
+<button type="button" onclick="sortRT()">RottenTomatoes</button>
+<button type="button" onclick="sortMetacritic()">Metacritic</button>
+<button type="button" onclick="sortIMDb()">IMDb</button>
+<button type="button" onclick="sortTrakt()">Trakt</button>
+<div class="output">
+<svg width=650 height=1000>
+  <g class="title">
+    <text/>
+  </g>
+  <g class="posters"></g>
+  <g class="names"></g>
+  <g class="premieres"></g>
+  <g class="pts"></g>
+  <g class="ptstxt"></g>
+</svg>
+</div>
+
+<h3>Źródła danych:</h3>
+
+<i class="fa fa-star"> </i> <a href="https://trakt.tv">Trakt.tv</a><br/>
+<i class="fa fa-star"> </i> <a href="https://imdb.com">IMDB.com</a><br/>
+<i class="fa fa-star"> </i> <a href="https://rottentomatoes.com">RottenTomatoes.com</a><br/>
+<i class="fa fa-star"> </i> <a href="https://metacritic.com">Metacritic.com</a>
