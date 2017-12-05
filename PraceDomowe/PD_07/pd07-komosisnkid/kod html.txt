@@ -1,0 +1,28 @@
+<h1> Praca domowa 7 </h1>
+<h2>Dariusz Komosiñski</h2>
+
+W tym tygodniu zaj¹³em siê sprawdzeniem jakie kraje w Europie s¹ najbogatsze oraz jak na ich tle wypada Polska. Swoj¹ wizualizacjê opar³em na
+<a href = "https://www.money.pl/gospodarka/unia-europejska/wiadomosci/artykul/polska-bogata-europa,176,0,2392496.html">artykule</a> z serwisu money.pl.
+<br>
+<br>
+<center>
+  <font size="6">Indeks europejskiej si³y nabywczej*</font>
+</center>
+
+
+<div class="output">
+  <svg>
+    <g class="linie">
+      <rect x="150" y="100" width="60" height="200">
+        
+      </rect>
+    </g>
+    <g class="imiona">
+      
+    </g>
+    <g class="wartosci">
+      
+    </g>
+  </svg>
+</div>
+*indeks na mieszkañca: œrednia europejska = 100
