@@ -174,5 +174,6 @@ jsonlite::write_json(list(nodes=id, links=links), "../interactions/data.json")
 ```{r}
 data %>% filter(start != 0) %>%
   group_by(scene) %>% 
-  summarise(max(end) - min(start))
+  summarise(start=min(start), end=max(end)) %>%
+  arrange(start)
 ```
