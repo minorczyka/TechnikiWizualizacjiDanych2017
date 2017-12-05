@@ -1,0 +1,78 @@
+---
+title: "Praca domowa 5"
+author: "Jakub Bondyra"
+date: "November 19, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+W ostatnim czasie na portalu angielskojęzycznego, mongolskiego czasopisma *UB Post* pojawił się artykuł dotyczący stanu powietrza w Mongolii (artykuł dostępny pod adresem http://theubpost.mn/2017/10/18/air-quality-labeled-unhealthy-at-tolgoit-mnb-and-amgalan/).
+
+W artykule pojawiła się tabela z wynikami pomiarów stężenia szkodliwych substancji w stacjach pomiarowych, rozmieszczonych głównie w obrębie miasta Ułan Bator - mogolskiej stolicy. Punkty pomiarowe w stolicy można opisać następująco:
+
+- MNB - punkt ulokowany w okolicy wieży telewizyjnej w ścisłym centrum miasta,
+- Amgalan - punkt we skrajnie wschodniej części miasta,
+- Nisekh - punkt znajdujący się bezpośrednio przy lotnisku na północno-zachodnim krańcu miasta,
+- Tolgoit - punkt na zachodnim krańcu miasta.
+
+Dodatkowo, w danych pojawia się nazwa jeszcze jednej stacji - Bayankhoshuu. Nazwa tej stacji oznacza prawdopodobnie port znajdujący się w dalekiej, zachodniej części kraju. Nie jestem tego jednakże pewien, co jest dość fascynujące - naprawdę ciężko znaleźć sensowne informacje na temat tego kraju.
+
+W celu ułatwienia interpretacji wyników, poniżej zamieszczam mapę Ułan Bator z zaznaczonymi stacjami pomiarowymi.
+
+```{r, echo=FALSE, message=FALSE}
+
+library(ggmap)
+
+map = get_googlemap(center = c(106.917610, 47.918805), zoom=12, style = 'feature:all|element:labels|visibility:off')
+ggmap(map) +
+    geom_text(aes(x=106.83,y=47.92,label="Tolgoit"),size=4)+
+    geom_text(aes(x=106.83,y=47.87,label="Nisekh"),size=4)+
+    geom_text(aes(x=106.89,y=47.93,label="MNB"),size=4)+
+    geom_text(aes(x=107.00,y=47.90,label="Amgalan"),size=4)+
+    theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank(),
+        axis.title.y=element_blank(),
+       axis.text.y=element_blank(),
+        axis.ticks.y=element_blank())
+
+```
+
+Tabela jest wypełniona suchymi wartościami, zatem uznałem, że dobrze byłoby zwizualizować w przystępny sposób te wartości za pomocą prostego wykresu. Zastosowany jest w nim stosunek wartości stężenia substancji w danym miejscu do normy stężenia przyjętej w Mongolii - zatem jest to taka wartość procentowa, do której przywykliśmy czytając informacje w Polsce.
+
+Nie widzę sensu uwzględniania w wizualizacji poziomów wszystkich wymienianych substancji, dlatego też uwzględniam cztery najważniejsze - $PM_{2.5}$, $PM_{10}$, $SO_2$ i $NO_2$. Szarym kolorem oznaczane są wartości brakujące.
+
+
+```{r, message=FALSE}
+library(ggplot2)
+a = read.table("mongolia.txt",header=T,sep="\t")
+norms = c(100,50,50,50)
+
+library(reshape2)
+
+a2 = a
+a2$Location = factor(a$Location,levels = a$Location[c(5,3,2,1,4)])
+a2$PM10 = a2$PM10
+a2$PM25 = a2$PM25*2
+a2$SO2 = a2$SO2*2
+a2$NO2 = a2$NO2*2
+am = melt(a2)
+
+ggplot(data=am, aes(variable, Location)) + geom_tile(aes(fill=value)) +
+  scale_fill_distiller(palette="RdYlBu",direction=-1,name="% of upper acceptable limit",
+                       breaks=c(50,100,150,200),lim=c(0,200))+
+  scale_x_discrete(expand=c(0,0))+
+  scale_y_discrete(expand=c(0,0))+
+  ggtitle("Average air pollution in Ulaanbataar (14-15 October 2017)")+
+  xlab("") + ylab("")+
+      theme(legend.title = element_text(size=13),
+        legend.text=element_text(size=10),
+        plot.title = element_text(size=14,face="bold"),
+        axis.text.x=element_text(size=12, face="bold"),
+        axis.ticks.x=element_blank(),
+       axis.text.y=element_text(size=12, face="bold"),
+        axis.ticks.y=element_blank())
+```

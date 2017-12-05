@@ -56,6 +56,7 @@ Każdy projekt należy realizować w innym zespole.
 Propozycje projektów:
 
 [Projekt 1](https://github.com/pbiecek/TechnikiWizualizacjiDanych2017/blob/master/Projekt_1/README.md)
+[Punktacja projekt 1](https://docs.google.com/spreadsheets/d/1_6Z8uYRdm0cd29V0kvymWmfQmUN_4tAcb-anye-YYg4/edit?usp=sharing)
 
 [Projekt 2](https://github.com/pbiecek/TechnikiWizualizacjiDanych2017/blob/master/Projekt_2/README.md)
 
