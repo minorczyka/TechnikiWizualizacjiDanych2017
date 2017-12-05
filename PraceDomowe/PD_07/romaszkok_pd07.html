@@ -1,0 +1,217 @@
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  
+
+  
+  
+  
+
+  
+
+  <script type="text/javascript" src="//d3js.org/d3.v3.js"></script>
+
+  
+
+  
+
+  
+
+  
+    <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+  
+
+  
+
+  <style type="text/css">
+    .bar {
+  fill: gray;
+}
+
+.axis text {
+  font: 12px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+  </style>
+
+  <title></title>
+
+  
+    
+
+
+
+
+<script type="text/javascript">//<![CDATA[
+window.onload=function(){
+var zatrudnienie = [{
+  "rok": "2007",
+  "zatrudnionych": 181
+}, {
+  "rok": "2008",
+  "zatrudnionych": 182
+}, {
+  "rok": "2009",
+  "zatrudnionych": 183
+}, {
+  "rok": "2010",
+  "zatrudnionych": 173
+}, {
+  "rok": "2011",
+  "zatrudnionych": 172
+}, {
+  "rok": "2012",
+  "zatrudnionych": 174
+}, {
+  "rok": "2013",
+  "zatrudnionych": 168
+}, {
+  "rok": "2014",
+  "zatrudnionych": 160
+}, {
+  "rok": "2015",
+  "zatrudnionych": 148
+}, {
+  "rok": "2016",
+  "zatrudnionych": 138
+}];
+
+var margin = {
+    top: 40,
+    right: 30,
+    bottom: 40,
+    left: 50
+  },
+  width = 960 - margin.left - margin.right,
+  height = 500 - margin.top - margin.bottom;
+
+var width = 960,
+  height = 500;
+
+var y = d3.scale.linear()
+  .range([height, 0]);
+
+var x = d3.scale.ordinal()
+  .rangeRoundBands([0, width], .1);
+
+var data = zatrudnienie;
+
+var yAxis = d3.svg.axis()
+  .scale(y)
+  .orient("left");
+
+var xAxis = d3.svg.axis()
+  .scale(x)
+  .orient("bottom");
+
+y.domain([0, d3.max(data, function(d) {
+  return d.zatrudnionych;
+})]);
+x.domain(data.map(function(d) {
+  return d.rok;
+}));
+
+var barWidth = width / 5;
+
+var chart = d3.select(".chart")
+  .attr("width", width + margin.left + margin.right)
+  .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+
+
+chart.append("g")
+  .attr("class", "x axis")
+  .attr("transform", "translate(0," + height + ")")
+  .call(xAxis)
+    .append("text")
+    .attr("x", width/2)
+    .attr("y", 20)
+    .attr("dy", ".90em")
+    .style("text-anchor", "end")
+    .text("Rok");
+chart.append("g")
+  .attr("class", "y axis")
+  .call(yAxis)
+    .append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("x", -height/2 + 50)
+    .attr("y", -50)
+    .attr("dy", ".90em")
+    .style("text-anchor", "end")
+    .text("Zatrudnionych [tys]");
+
+chart.selectAll(".bar")
+  .data(data)
+  .enter().append("rect")
+  .attr("class", "bar")
+  .attr("x", function(d) {
+    return x(d.rok);
+  })
+  .attr("y", function(d) {
+    return y(d.zatrudnionych);
+  })
+  .attr("height", function(d) {
+    return height - y(d.zatrudnionych);
+  })
+  .attr("width", x.rangeBand());
+  
+ chart.append("text")
+        .attr("x", (width / 2))             
+        .attr("y", 0 - (margin.top / 2))
+        .attr("text-anchor", "middle")  
+        .style("font-size", "16px") 
+        .style("text-decoration", "underline")  
+        .text("Liczba zatrudnionych górników");
+
+}//]]> 
+
+</script>
+
+  
+</head>
+
+<body>
+  <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<div>
+Kamil Romaszko - praca domowa nr 7
+</div>
+<svg class="chart" width="1040" height="580"><g transform="translate(50,40)"><g class="x axis" transform="translate(0,500)"><g class="tick" transform="translate(53,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">2007</text></g><g class="tick" transform="translate(148,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">2008</text></g><g class="tick" transform="translate(243,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">2009</text></g><g class="tick" transform="translate(338,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">2010</text></g><g class="tick" transform="translate(433,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">2011</text></g><g class="tick" transform="translate(528,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">2012</text></g><g class="tick" transform="translate(623,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">2013</text></g><g class="tick" transform="translate(718,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">2014</text></g><g class="tick" transform="translate(813,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">2015</text></g><g class="tick" transform="translate(908,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">2016</text></g><path class="domain" d="M0,6V0H960V6"></path><text x="480" y="20" dy=".90em" style="text-anchor: end;">Rok</text></g><g class="y axis"><g class="tick" transform="translate(0,500)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">0</text></g><g class="tick" transform="translate(0,445.3551912568306)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">20</text></g><g class="tick" transform="translate(0,390.7103825136612)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">40</text></g><g class="tick" transform="translate(0,336.0655737704918)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">60</text></g><g class="tick" transform="translate(0,281.4207650273224)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">80</text></g><g class="tick" transform="translate(0,226.77595628415298)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">100</text></g><g class="tick" transform="translate(0,172.13114754098362)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">120</text></g><g class="tick" transform="translate(0,117.48633879781423)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">140</text></g><g class="tick" transform="translate(0,62.84153005464482)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">160</text></g><g class="tick" transform="translate(0,8.196721311475418)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">180</text></g><path class="domain" d="M-6,0H0V500H-6"></path><text transform="rotate(-90)" x="-200" y="-50" dy=".90em" style="text-anchor: end;">Zatrudnionych [tys]</text></g><rect class="bar" x="10" y="5.464480874316946" height="494.53551912568304" width="86"></rect><rect class="bar" x="105" y="2.732240437158473" height="497.26775956284155" width="86"></rect><rect class="bar" x="200" y="0" height="500" width="86"></rect><rect class="bar" x="295" y="27.322404371584675" height="472.6775956284153" width="86"></rect><rect class="bar" x="390" y="30.05464480874315" height="469.94535519125685" width="86"></rect><rect class="bar" x="485" y="24.590163934426258" height="475.40983606557376" width="86"></rect><rect class="bar" x="580" y="40.98360655737704" height="459.016393442623" width="86"></rect><rect class="bar" x="675" y="62.84153005464482" height="437.1584699453552" width="86"></rect><rect class="bar" x="770" y="95.62841530054644" height="404.3715846994536" width="86"></rect><rect class="bar" x="865" y="122.95081967213117" height="377.04918032786884" width="86"></rect><text x="480" y="-20" text-anchor="middle" style="font-size: 16px; text-decoration: underline;">Liczba zatrudnionych górników</text></g></svg>
+
+<div>
+Dane ze strony GUSu: <a href="http://stat.gov.pl/infografiki-widzety/infografiki/infografika-gornictwo-4-grudnia-barborka,21,3.html">link</a>
+</div>
+
+  
+  <script>
+  // tell the embed parent frame the height of the content
+  if (window.parent && window.parent.parent){
+    window.parent.parent.postMessage(["resultsFrame", {
+      height: document.body.getBoundingClientRect().height,
+      slug: "2Lt2srnz"
+    }], "*")
+  }
+</script>
+
+
+
+
+
+</body></html>

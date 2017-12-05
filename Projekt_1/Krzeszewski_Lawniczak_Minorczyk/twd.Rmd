@@ -133,13 +133,15 @@ Aktualizacja: `r as.character(genTime)`
 
 ```{r hist, echo=FALSE, warning=FALSE, message=FALSE}
 if (nrow(df3) > 0) {
+  dist_av <- ceiling(floor((max(df3$delay) - min(df3$delay)) / 60) / 3) * 60
+  
   ggplot(data=df3, aes(x=delay)) +
-    geom_histogram(binwidth = 120, fill="#66A7A7") +
+    geom_histogram(binwidth = dist_av, fill="#66A7A7") +
     labs(y = "Liczba pojazdów", x = NULL, title = "Opóźnienia w okolicy") +
     scale_color_gradient2(low = "green4", mid = "yellow3", high = "red2", midpoint = 10) +
     scale_x_continuous(
-      breaks = function(x) return(seq(floor(x[1] / 120) * 120, x[2], 120)),
-      labels = function(x) return(paste0(as.character(x/60), "-", as.character(x/60 + 2), " min"))) +
+      breaks = function(x) return(seq(floor(x[1] / dist_av) * dist_av, x[2], dist_av)),
+      labels = function(x) return(paste0(as.character(x/60), "-", as.character(x/60 + dist_av/60), " min"))) +
     geom_vline(xintercept=mean(df3$delay), size=2, color="blue") +
     annotate("text", x=mean(df3$delay)+(max(df3$delay)-mean(df3$delay))/5, y=2, label=paste(round(mean(df3$delay/60)), "min", round(mean(df3$delay)) %% 60, "s"), color="red", size=8) +
     theme_gray(base_size = 22)

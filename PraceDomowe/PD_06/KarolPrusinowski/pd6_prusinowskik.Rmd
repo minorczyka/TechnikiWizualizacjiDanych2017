@@ -1,0 +1,46 @@
+---
+title: "PD6 - Mapa kolorów"
+author: "Karol Prusinowski"
+date: "28 listopada 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(plotly)
+library(ggplot2)
+```
+
+## Wstęp
+
+Przedstawiona została paleta kolorów `colors` z języka R. Każdy kolor został opisany za pomocą modelu HSV, a następnie przyporządkowane mu zostały współrzędnie zgodnie z poszczególnymi wartościami w tym modelu. Na osi poziomej zmienia się odcień koloru, natomiast oś pionowa jest kombinacją jasności i nasycenia. Dodatkowo, wszystkie odcenie szarości, oraz kolory bliskie szarości (przyjęte zostało, że szare kolory to takie dla których nasycenie jest mniejsze niż 0.07) zostały posortowane po jasności i wyświetlone na dole mapy.
+
+## Mapa kolorów
+
+```{r map, echo=FALSE}
+data <- NULL
+for (c in colors()) {
+  rgb <- col2rgb(c)
+  hsvScale <- rgb2hsv(rgb)
+  h1 <- hsvScale[1]
+  h2 <- hsvScale[2]
+  h3 <- hsvScale[3]
+  isGray <- h2 < 0.07
+  data <- rbind(data, data.frame(x = ifelse(!isGray, h1, h3) ,
+                                 y = ifelse(!isGray, 5*h3 + h2, 1.5),
+                                 col = c))
+}
+
+
+g <- ggplot(data, aes(x = x, y = y, text = data$col)) + 
+  geom_point(color=data$col, size = 3, shape=15) + 
+  theme(axis.line=element_blank(),axis.text.x=element_blank(),
+          axis.text.y=element_blank(), axis.ticks=element_blank(),
+          axis.title.x=element_blank(), axis.title.y=element_blank(),
+          panel.border=element_blank(), panel.grid.major=element_blank(),
+          panel.grid.minor=element_blank(), plot.background=element_blank()) + 
+  ggtitle("R Colors")
+ggplotly(g, tooltip="text")    
+```
+
+

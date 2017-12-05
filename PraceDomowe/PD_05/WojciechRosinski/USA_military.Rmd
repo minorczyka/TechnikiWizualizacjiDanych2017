@@ -1,0 +1,68 @@
+---
+title: "Programy militarne USA"
+author: "Wojciech Rosinski"
+date: "14 listopada 2017"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Źródło danych: [Wikipedia](https://en.wikipedia.org/wiki/Military_budget_of_the_United_States), inspirowane [reddit](https://www.reddit.com/r/dataisbeautiful/comments/7d01ug/military_spending_per_of_countries_annual_budget/).
+
+## Dane
+Stany Zjednoczone są jedną z potęg militarnych, wiodącą w rozwiązaniach innowacyjnych stosowanych w tej dziedzinie.
+Znalazłem dane, które przedstawiają wydatki na różnego rodzaju programy militarne w 2011 roku.
+Na podstawie nazw określiłem, czy jest to sprzęt do użytku lądowego, powietrznego, czy wodnego.
+Dodatkowo stworzyłem grupę, która zawiera w sobie programy modernizacyjne lub wymiany, a nie jest związana z rozwojem technologii mogącej służyć w określonym środowisku.
+
+Aby móc stwierdzić, na jakiego rodzaju technologie przeznaczne zostały największe kwoty, pogrupowałem dane po środowisku, w którym technologia może zostać wykorzystana.
+
+```{r pressure, echo=FALSE, include=FALSE}
+library(tidyverse)
+
+df <- read.csv('projects.csv', header = T)
+colnames(df) <- c('Program', '2011.Budget.Request', 'Change.2010.to.2011', 'Group')
+
+df2 <- group_by(df, Group)
+df3 <- summarize(df2, sum=sum(`2011.Budget.Request`))
+
+g <- ggplot(df, aes(x=reorder(Program, `2011.Budget.Request`), y=`2011.Budget.Request`)) +
+  geom_col(aes(fill=Group)) +
+  coord_flip() +
+  scale_fill_brewer(palette = 'Set1') +
+  xlab('Program') +
+  ylab('Budget Request in 2011 [Billions $]')
+
+g2 <- ggplot(df3, aes(x=reorder(Group, sum), y=sum)) +
+  geom_col(aes(fill=Group)) +
+  coord_flip() +
+  scale_fill_brewer(palette = 'Set1') +
+  xlab('Group') +
+  ylab('Money Requested [Billions $]')
+
+```
+
+```{r}
+g
+```
+
+
+## Wnioski
+
+Dwa programy były szczególnie kosztowne - był to rozwój myśliwców F-35 oraz systemów obrony rakietowej Aegis, THAAD oraz PAC-3.
+Każdy z nich był około dwukrotnie droższy od programu rozwoju łodzi podwodnych klasy Virginia, który znalazł się na 3. miejscu.
+Najwięcej inwestycji zostało dokonanych w obszarze rozwiązań powietrznych, zaś tylko jedna inwestycja dotyczyła rozwiązań lądowych,
+były to właśnie systemy obrony rakietowej.
+
+
+```{r}
+g2
+```
+
+Wysokość budżetu przeznaczonego na inwestycje powietrzne przekracza ponad dwukrotnie każdą z kolejnych grup, wynosząc 22.5 mld dolarów.
+Na inne grupy przeznaczonych zostało około 10 mld dolarów.
+Widzimy więc, że USA zdecydowało się postawić na rozwój technologii powietrznych.

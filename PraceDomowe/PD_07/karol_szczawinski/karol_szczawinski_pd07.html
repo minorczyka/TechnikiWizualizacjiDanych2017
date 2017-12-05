@@ -1,0 +1,202 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>D3</title>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <style type="text/css">
+        svg {
+            width: 900px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Karol Szczawiński</h2>
+    <h3>Praca domowa 7 <br/> 04.12.2017</h3>
+
+    <p>
+        W pracy wykorzystano dane dotyczące rankingu 20 najlepiej sprzedających się płyt w historii
+         (<a href="https://www.onet.pl/?utm_source=muzyka_viasg&utm_medium=nitro&utm_campaign=allonet_nitro_new&srcc=ust&pid=51018cbf-4cda-4c18-b7e8-b30c21636036&sid=f1a609cc-0836-4085-8168-69347a32285c&utm_v=2"
+            target="#">źródło<a/>).
+            <br/>
+            Cały zbiór przedstawiony jest w formie prezentacji. Brakuje jednak końcowego porównania, 
+            które pozwoli zobaczyć różnicę w liczbie sprzedanych albumów.
+            <br />
+             W tym celu stworzono wykres, który to ułatwi (w nazwach u góry jest autor a poniżej album).
+        </p>
+        <div id="buttons" style="margin:5px">
+            Liczba widzianych rekordów (najlepiej sprzedanych): 
+            <input type="numeric" value="10" max="20" min="0" id="n"/> <button onclick="changeData()">Zmień</button>
+                  </div>
+    <div id="graph">
+            <svg  id="svg">         
+            <rect width="300" height="100"  />
+           <g id="authors"/>
+           <g id="albums"/>
+        </svg>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+
+
+    var names = [
+        "Celine Dion", "Let's Talk About Love",
+        "The Beatles", "1",
+        "Adele", "21",
+        "The Beatles", "Sgt. Pepper's Lonely Hearts Club Band",
+        "Dirty Dancing", "Ścieżka dźwiękowa do filmu",
+        "Eagles", "Hotel California",
+        "Michael Jackson", "Dangerous",
+        "Celine Dion", "Falling Into You",
+        "Alanis Morissette", "Jagged Little Pill",
+        "Michael Jackson", "Bad",
+        "Led Zeppelin", "Led Zeppelin IV",
+        "Shania Twain", "Come On Cover",
+        "Fleetwood Mac", "Rumours",
+        "Bee Gees i inni", "Saturday Night Fever",
+        "Eagles", "The Greatest Hits (1971-1975)",
+        "Meat Loaf", "Bat Out From Hell",
+        "Whitney Houston i inni", "The Bodyguard",
+        "Pink Floyd", "The Dark Side of the Moon",
+        "AC/DC", "Back In Black",
+        "Michael Jackson", "Thriller",
+    ].reverse();
+
+    authorsData = [];
+    albumsData = [];
+
+    for(i = 0; i < names.length / 2;i++){
+        albumsData.push(names[i * 2]);
+        authorsData.push(names[i * 2 + 1]);
+    }
+
+    var values = [31, 31, 31, 32, 32, 32, 32, 32, 33, 35, 37, 39, 40, 40, 42,
+     43, 44, 45, 50, 66].reverse();
+
+    var dataSource = [];
+
+    function changeData() {
+
+        var value = document.getElementById("n").value;
+        if (value > 0 && value < 21) {
+            dataSource = [];
+
+            for (i = 0; i < value; i++) {
+                dataSource.push(values[i]);
+            }
+            updateChart();
+        }
+
+    }
+
+    for (i = 0; i < 10; i++) {
+        dataSource.push(values[i]);
+    }
+
+    var svg = d3.select('#graph svg');
+    var authors = d3.select('#graph svg #authors');
+    var albums = d3.select('#graph svg #albums');
+
+    var width = 700, height = 500;
+    var xscale = d3.scaleLinear()
+        .domain([0,70])
+        .range([0, width - 100]);
+
+
+
+    var x_axis = d3.axisBottom()
+        .scale(xscale);
+    updateChart(10);
+
+    function updateChart(n) {
+
+        if(n !== undefined){
+            document.getElementById("n").value = 10;
+        }
+        var bars = svg.selectAll('rect').data(dataSource);
+        bars.transition().duration(1000)
+            .attr("x", 250)
+            .attr("y", function (d, i) { return i * 55 })
+            .attr("width", function (d, i) { return xscale(d); })
+            .attr("height", 50)
+            .style("fill", "#31a354");
+
+        bars.enter().append("rect")
+            .transition().duration(1000)
+            .attr("x", 250)
+            .attr("y", function (d, i) { return i * 55 })
+            .attr("width", function (d, i) { return xscale(d); })
+            .attr("height", 50)
+            .style("fill", "#31a354");
+
+        bars.exit().transition().duration(1000)
+            .attr('width', 0)
+            .remove();
+
+
+        var text = authors.selectAll("text").data(dataSource);
+        text.attr("x", function (d, i) { return 5; })
+            .attr("y", function (d, i) { return i * 55 + 20 })
+            .text(function (d, i) { return authorsData[i]; })
+            .attr("font-family", "sans-serif")
+            .attr("font-size", "12px")
+            .attr("fill", "#8856a7");
+
+        text.enter().append("text")
+            .transition().duration(1500)
+            .attr("x", function (d, i) { return 5; })
+            .attr("y", function (d, i) { return i * 55 + 20 })
+            .text(function (d, i) { return authorsData[i]; })
+            .attr("font-family", "sans-serif")
+            .attr("font-size", "12px")
+            .attr("fill", "#8856a7");
+
+        text.exit().transition().duration(1500)
+            .attr("fill", "white")
+            .remove();
+
+
+        var text2 = albums.selectAll("text").data(dataSource);
+        text2.attr("x", function (d, i) { return 5; })
+            .attr("y", function (d, i) { return i * 55 + 40 })
+            .text(function (d, i) { return albumsData[i]; })
+            .attr("font-family", "sans-serif")
+            .attr("font-size", "12px")
+            .attr("fill", "#8856a7");
+
+        text2.enter().append("text")
+            .transition().duration(1500)
+            .attr("x", function (d, i) { return 5; })
+            .attr("y", function (d, i) { return i * 55 + 40 })
+            .text(function (d, i) { return albumsData[i]; })
+            .attr("font-family", "sans-serif")
+            .attr("font-size", "12px")
+            .attr("fill", "#8856a7");
+
+        text2.exit().transition().duration(1500)
+            .attr("fill", "white")
+            .remove();
+
+        var xAxisTranslate = dataSource.length * 55;
+
+        var element = document.getElementById('svg');
+        element.setAttribute("height", xAxisTranslate + 25);
+
+        var axis = document.getElementById("axis");
+        if (axis != null) {
+            axis.parentElement.removeChild(axis);
+        }
+
+        svg.append("g")
+            .transition().duration(1500)
+            .attr("transform", "translate(250, " + xAxisTranslate + ")")
+            .call(x_axis)
+            .attr("id", "axis");
+    }
+
+
+
+</script>
