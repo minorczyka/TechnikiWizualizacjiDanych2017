@@ -1,0 +1,114 @@
+---
+title: "Techniki Wizualizacji Danych - Praca Domowa 06"
+author: "Agata Czajkowska & Piotr Krzeszewski"
+date: "November 28, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(rgdal)     # R wrapper around GDAL/OGR
+library(ggplot2)   # for general plotting
+library(ggmap)    # for fortifying shapefiles
+library(ggimage)
+library(wesanderson)
+library(ggpubr)
+
+```
+
+
+### Dobór palety
+
+Poniżej przedstawiono zestawienie przykładowych skal kolorów z palet $Brewer$ i $Wes Anderson$ dostępnych w pakietach `RColorBrewer` (`RCB`) i `wesanderson` (`WA`).
+
+Wybrane skale kolorów to: 
+
+- `Dark2` (`RCB`),
+- `Paired` (`RCB`),
+- `Set2` (`RCB`),
+- `Moonrise3` (`WA`),
+- `FantasticFox` (`WA`),
+- `Moonrise2` (`WA`).
+
+Wybrane skale kolorów zobrazowano na mapie Warszawy z podziałem na dzielnice. Wybrany obszar nie jest ważny, ale taka metodologia porównania kolorów pozwala na sprawdzenie, jak dana paleta ze sobą się komponuje. Dodatkowo kolory wylistowano w postaci legendy przy każdej mapie. 
+
+Kolory dzielnicom zostały przyporządkowane w sposób losowy.
+
+```{r, echo=FALSE, warning=FALSE, fig.align='center', fig.height=6, fig.width=9, message=FALSE}
+
+getShapeFile<-function()
+{
+  shapefile <- readOGR("shapefile", layer="dzielnice-wgs84",verbose=FALSE)
+  shapefile_df <- fortify(shapefile)
+  shapefile_df
+}
+
+plotting_data<-getShapeFile()
+plotting_data$random<-runif(nrow(plotting_data),0,10)
+
+color_map_with_rcb <- function(a_colnum, a_palette) {
+  return(ggplot() +
+    geom_polygon(data = plotting_data, 
+                 aes(x = long, y = lat, group = group,fill=as.factor(as.numeric(group)%%a_colnum)),
+                 alpha=0.6,
+                 color = 'black', size = .5)+
+    scale_fill_brewer(palette=a_palette)+
+    labs(fill="",title=paste(a_palette, "(RCB)"), x=NULL, y=NULL) + 
+    scale_x_continuous(labels=NULL, breaks=NULL) + 
+    scale_y_continuous(labels=NULL, breaks=NULL) + 
+    theme(legend.key.height = unit(x = 5, units="mm"), legend.text = element_text(size = 0)))
+}
+
+color_map_with_wa <- function(a_colnum, a_palette) {
+  return(ggplot() +
+    geom_polygon(data = plotting_data, 
+                 aes(x = long, y = lat, group = group,fill=as.factor(as.numeric(group)%%a_colnum)),
+                 alpha=0.6,
+                 color = 'black', size = .5)+
+    scale_fill_manual(values=wes_palette(n=a_colnum, name=a_palette))+
+    labs(fill="",title=paste(a_palette, "(WA)"), x=NULL, y=NULL) + 
+    scale_x_continuous(labels=NULL, breaks=NULL) + 
+    scale_y_continuous(labels=NULL, breaks=NULL) + 
+    theme(legend.key.height = unit(x = 5, units="mm"), legend.text = element_text(size = 0)))
+}
+
+pl_dark2 <- color_map_with_rcb(8, "Dark2")
+pl_paired <- color_map_with_rcb(12, "Paired")
+pl_set2 <- color_map_with_rcb(8, "Set2")
+
+pl_moonrise3 <- color_map_with_wa(5, "Moonrise3")
+pl_fantasticFox <- color_map_with_wa(5,"FantasticFox")
+pl_moonrise2 <- color_map_with_wa(4, "Moonrise2")
+
+ggarrange(pl_dark2, pl_paired, pl_set2,pl_moonrise3,pl_fantasticFox,pl_moonrise2, ncol = 3, nrow = 2)
+```
+
+### Liczba kolorów
+
+Warto też zwrócić uwagę jak zmienia i ożywia się mapa wraz ze wzrostem używanej liczby kolorów. Poniżej zastosowano paletę `Set3` z pakietu `RColorBrewer` oraz rosnącą liczbę kolorów wykorzystanych na mapie.
+
+
+```{r colnums, echo=FALSE, warning=FALSE, fig.align='center', fig.height=6, fig.width=9, message=FALSE}
+
+color_map_with_set3 <- function(a_colnum) {
+  return(ggplot() +
+    geom_polygon(data = plotting_data, 
+                 aes(x = long, y = lat, group = group,fill=as.factor(as.numeric(group)%%a_colnum)),
+                 alpha=0.6,
+                 color = 'black', size = .5)+
+    scale_fill_brewer(palette="Set3")+
+    labs(fill="",title=paste("Liczba kolorów:", a_colnum), x=NULL, y=NULL) + 
+    scale_x_continuous(labels=NULL, breaks=NULL) + 
+    scale_y_continuous(labels=NULL, breaks=NULL) + 
+    theme(legend.key.height = unit(x = 5, units="mm"), legend.text = element_text(size = 0)))
+}
+
+set3_1 <- color_map_with_set3(3)
+set3_2 <- color_map_with_set3(4)
+set3_3 <- color_map_with_set3(5)
+set3_4 <- color_map_with_set3(7)
+set3_5 <- color_map_with_set3(9)
+set3_6 <- color_map_with_set3(12)
+
+ggarrange(set3_1, set3_2, set3_3, set3_4, set3_5, set3_6, ncol = 3, nrow = 2)
+```
