@@ -1,0 +1,91 @@
+---
+title: "Zadanie domowe nr 6"
+author: "Anna Niżnik"
+date: "28 listopada 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+Sys.setenv(JAVA_HOME='C:\\Program Files\\Java\\jre1.8.0_151')
+library(rJava)
+library(colortools)
+library(plot3D)
+library(grDevices)
+```
+
+```{r plots, fig.align='center', echo=FALSE, warning=FALSE, error=FALSE, fig.width=7, message=FALSE, results='hide'}
+
+par (mfrow = c(1, 3))
+n <- length(grDevices::colors())*100
+nColors <- length(grDevices::colors())
+colorsNames <- rainbow(nColors, s = 1, v = 1, start = 0, end = max(1, n - 1)/n, alpha = 1)
+
+x <- (runif(n, -5, 5))
+y <- (runif(n, -5, 5))
+z <- sort(runif(n, -5, 5))
+
+colors <- vector()
+colorNumber <- 1
+for(i in 1:n)
+{
+  if(i %% 100 == 1 & i != 1)
+  {
+    colorNumber <- colorNumber + 1
+  }
+  colors[i] <- colorsNames[colorNumber]
+}
+
+data <- cbind.data.frame(x, y, z, colors)
+
+scatter3D(data$x, data$y, data$z, bty = "g", col = as.character(data$colors)) +
+  title("Wykres 657 kolorów")
+
+###############################################################################
+colorsNames <- cm.colors(nColors, alpha = 1)
+colors <- vector()
+colorNumber <- 1
+for(i in 1:n)
+{
+  if(i %% 100 == 1 & i != 1)
+  {
+    colorNumber <- colorNumber + 1
+  }
+  colors[i] <- colorsNames[colorNumber]
+}
+
+data <- cbind.data.frame(x, y, z, colors)
+
+scatter3D(data$x, data$y, data$z, bty = "g", col = as.character(data$colors)) +
+  title("Kolory o barwach zimnych")
+
+##############################################################################
+colorsNames <- heat.colors(nColors, alpha = 1)
+colors <- vector()
+colorNumber <- 1
+for(i in 1:n)
+{
+  if(i %% 100 == 1 & i != 1)
+  {
+    colorNumber <- colorNumber + 1
+  }
+  colors[i] <- colorsNames[colorNumber]
+}
+
+data <- cbind.data.frame(x, y, z, colors)
+
+scatter3D(data$x, data$y, data$z, bty = "g", col = as.character(data$colors)) +
+  title("Kolory o barwach ciepłych")
+
+
+```
+
+Na powyższych wykresach przedstawiono reprezentację skali kolorów w postaci trójwymiarowej kostki.
+W kostce losowane są punkty z przedziału [-5,5], a następnie warstwowo dobierane są kolory dla odpowiednich współrzędnych.
+Skorzystano z trzech wariantów kolorów:
+
+
+* palety 657 kolorów (dostępnej w bilbiotece "grDevices")
+
+* tylko barw zimnych
+
+* tylko barw ciepłych

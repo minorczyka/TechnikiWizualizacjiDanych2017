@@ -1,0 +1,169 @@
+---
+title: "Komunikacja miejska"
+geometry: margin=1cm
+date: "`r format(Sys.time(), '%H:%M %d %B, %Y')`"
+header-includes:
+   - \usepackage{fancyhdr}
+output: 
+  pdf_document:
+    dev: cairo_pdf
+---
+
+```{r setup, include=FALSE}
+# Autorzy: Paweł Pollak, Karol Prusinowski, Kamil Romaszko
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, include = FALSE)
+```
+
+```{r echo=FALSE}
+library("rvest")
+library("httr")
+library("jsonlite")
+library(dplyr)
+library(ggplot2)
+library(ggmap)
+library(rgdal)
+library(rgeos)
+library(ggrepel)
+library(maptools)
+library(gridExtra)
+```
+
+```{r}
+
+lines <- paste(readLines("line_numbers.txt"), collapse=",")
+night_lines <- paste(readLines("night_line_numbers.txt"), collapse=",")
+
+get_data <- function(url, lines) {
+  token2 <- "35dbb2ebd27b23cfbec359dbd560adf2d4a5b27b"
+  res <- GET(url = paste0(url, lines),
+           add_headers(Authorization = paste("Token", token2)), encoding = "UTF-8")
+  jsonlite::fromJSON(as.character(res))
+}
+
+get_data_short <- function(lines) {
+  get_data("https://vavel.mini.pw.edu.pl/api/vehicles/v1/short?line=", lines)
+}
+
+get_data_full <- function(lines) {
+  get_data("https://vavel.mini.pw.edu.pl/api/vehicles/v1/full?line=", lines)
+}
+
+data.short <- rbind(get_data_short(lines), get_data_short(night_lines))
+data <- rbind(get_data_full(lines), get_data_full(night_lines))
+```
+
+```{r}
+now <- Sys.time()
+
+cleared_data_with_unsafe <- data %>% mutate(time_diff = now - strptime(time, format='%Y-%m-%dT%H:%M:%SZ')) %>% filter(
+  time_diff < 3600 & time_diff > 0 & 
+    onWayToDepot == FALSE  & delay < 1000)
+
+cleared_data <- cleared_data_with_unsafe %>% filter(timetableStatus == "SAFE")
+
+delayed <- cleared_data %>% filter(overlapsWithNextBrigadeStopLineBrigade == FALSE) %>% mutate(delay = ifelse(delay < 0, 0, delay)) %>% group_by(line) %>% summarise(avg = mean(delay)) %>% arrange(-avg) %>% mutate(is_tram = ifelse(as.numeric(line) < 100, 1, 0)) %>% mutate(is_tram = ifelse(is.na(is_tram), 0, is_tram))
+
+by_type_count <- cleared_data_with_unsafe %>% group_by(line) %>% summarise(number = n()) %>% mutate(is_tram = ifelse(as.numeric(line) < 100, 1, 0)) %>% mutate(is_tram = ifelse(is.na(is_tram), 0, is_tram)) %>% group_by(is_tram) %>% summarise(number = sum(number)) 
+  
+  
+by_type <- delayed %>% group_by(is_tram) %>% summarise(avg = mean(avg)) 
+by_type$count <- by_type_count$number
+by_type$is_tram <-  c("Autobus", "Tramwaj")
+```
+
+
+# Korki według linii i liczba dostępnych pojazdów
+
+```{r, include=TRUE, fig.height=2, fig.width=3.8}
+par(mfrow = c(2,2))
+
+g <- ggplot(delayed[1:8,], aes(x = reorder(line, -avg), y = avg, fill=factor(is_tram, levels=c(0, 1), labels=c("Autobus", "Tramwaj")))) +
+  geom_bar(stat="identity") +
+  labs(x = "Linia", y = "Średnie opóźnienie(s)", title = "Które linie warto omijać?", fill="")+
+  theme(legend.title=element_blank()) + 
+  scale_fill_manual("legend", values = c("Autobus" = "#3182bd", "Tramwaj" = "#a1d99b"))
+g
+
+g1 <- ggplot(by_type, aes(x = is_tram, y = avg, fill=is_tram)) +
+  geom_bar(stat="identity") +
+  coord_flip() + 
+  labs(x = "", y = "Średnie opóźnienie(s)", title = "Które pojazdy dłużej stoją w korkach?", fill="") + theme(legend.position="none",axis.title.y=element_blank()) + scale_fill_manual("legend", values = c("Autobus" = "#3182bd", "Tramwaj" = "#a1d99b"))
+
+g2 <- ggplot(by_type, aes(x = is_tram, y = count, fill=is_tram)) +
+  geom_bar(stat="identity") +
+  coord_flip() +
+  labs(x = "", y = "Liczba", title = "Których pojazdów jest więcej?", fill="") + theme(legend.position="none",axis.title.y=element_blank()) + scale_fill_manual("legend", values = c("Autobus" = "#3182bd", "Tramwaj" = "#a1d99b"))
+grid.arrange(g2, g1)
+```
+
+```{r, cache=TRUE}
+warsaw.map <- readOGR(dsn="warsaw", "warsaw_poland_osm_admin",  use_iconv = TRUE,  encoding = "UTF-8")
+veh <- cleared_data %>% filter(overlapsWithNextBrigadeStopLineBrigade == FALSE) %>% filter(line>=100)
+
+distr <- c("Bemowo", "Białołęka", "Bielany", "Mokotów", 
+           "Ochota", "Praga-Południe", "Praga-Północ", 
+           "Rembertów", "Śródmieście", "Targówek", 
+           "Ursus", "Ursynów", "Wawer", "Wesoła", 
+           "Wilanów", "Włochy", "Wola", "Żoliborz")
+map <-  warsaw.map[warsaw.map$name %in% distr , ]
+map <- map[map$admin_leve == 9,]
+
+coords <- data.frame(x = veh$lon, y = veh$lat)
+map.veh<- SpatialPointsDataFrame(coords, data.frame(veh$line, veh.delay = veh$delay), proj4string = CRS(proj4string(map)), match.ID=TRUE)
+int <- gIntersects(map.veh, map, byid = T)
+clipped <- apply(!int, MARGIN = 2, all)
+
+map.warsawVeh <- map.veh[which(!clipped), ]
+map.warsawVeh <- map.warsawVeh[map.warsawVeh$veh.delay<6000,]
+
+map.aggr <- aggregate(x = map.warsawVeh, by = map, FUN = mean)
+
+map.aggr$veh.line[is.na(map.aggr$veh.line)] = 0
+
+map@data$veh <- map.aggr@data$veh.line
+map@data$delay <- map.aggr@data$veh.delay
+
+map.gg <- fortify(map, region="name")
+
+
+map.gg <- merge(map.gg, map@data, by.x="id", by.y="name", sort=FALSE)
+
+map.plot <- ggplot() +
+       geom_polygon(data = map.gg, aes(long, lat, group = group, fill = delay)) 
+
+cnames <- aggregate(cbind(long, lat) ~ id, data=map.gg, 
+                    FUN=function(x)mean(range(x)))
+cnames[cnames$id=="Praga-Południe",]$lat = cnames[cnames$id=="Praga-Południe",]$lat  + 0.005
+cnames[cnames$id=="Praga-Północ",]$lat = cnames[cnames$id=="Praga-Północ",]$lat  - 0.005
+cnames[cnames$id=="Włochy",]$long = cnames[cnames$id=="Włochy",]$long  + 0.005
+
+map.google <- get_googlemap(center = c(lon = median(data$lon), lat = median(data$lat)), zoom = 10,  maptype ="terrain",
+                 style = c('feature:administrative|element:labels|visibility:off',
+                           'feature:landscape|element:labels|visibility:off'))
+```
+
+# Korki w różnych dzielnicach Warszawy
+
+
+```{r, include=TRUE, message=FALSE, warning = FALSE, fig.align="center", fig.height = 6, fig.width = 7}
+g <- ggmap(map.google, "normal") + geom_polygon(data = map.gg, aes(long, lat, group = group, fill = delay), col="#2c7fb8", alpha = 0.9) +
+geom_text(aes(x = long, y = lat, label = id),
+                  data = cnames,
+                   alpha = 1,
+                    size=3,
+                   color = "#021f38")+
+    scale_fill_gradient(low='#ffffff', high='#e6550d')+
+    scale_x_continuous(limits = c(20.8, 21.3)) +
+    scale_y_continuous(limits = c(52.09, 52.37)) + 
+  labs(fill="Śr. opóźnienie (s)")+
+  theme(
+      legend.position="bottom",
+        axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank(),
+        axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())
+g
+```
+

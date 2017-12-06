@@ -1,0 +1,25 @@
+---
+title: "Praca domowa nr 3"
+author: "Karolina Marcinkowska"
+date: "21 paŸdziernika 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+Wykres pochodzi z artyku³u dotycz¹cego przyczyn wystêpowania smogu w Wadowicach (link: http://www.burmistrzklinowski.pl/2017/01/o-przyczynach-smogu/). 
+
+Na pierwszy rzut oka widaæ dwie cechy, utrudniaj¹ce interpretacjê wykresu:
+
+* dodanie trzeciego wymiaru - zdecydowanie pogarsza czytelnoœæ
+* skala na osi Y - ³atwiej interpretowaæ nam mniejsze liczby - wyra¿enie  wysokoœci wydatków w milionach z³otych powinno za³atwiæ sprawê.
+
+Ponadto, zauwa¿my, ze trzeci s³upek jest wielokrotnie wy¿szy, poniewa¿ obejmuje okres dwóch kolejnych lat, co dodatkowo zaburza nasz¹ interpretacjê.
+
+![](C:/Users/Karola/Documents/smog.png)
+
+
+

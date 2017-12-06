@@ -1,0 +1,27 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE, warning=FALSE, message=FALSE, echo=FALSE, results='hide'}
+library("ggplot2")
+```
+
+##[Techniki Wizualizacji Danych] Praca domowa 2 
+####Mateusz Mechelewski 262760
+
+Do analizy wybrane zostały statystyki przedstawiające stosunek powodów odmów wjazdu cudzoziemcom na granicy zewnętrznej Unii Europejskiej w 2016 roku. Artykuł dotyczący tych statystyk przedstawiony został na stronie [Komendy Głównej Straży Granicznej](http://strazgraniczna.pl/download/1/12549/Biuletyn2016r.pdf). Dane dotyczące 2016 roku dostępne są na łamach serwisu [DanePubliczne.gov.pl](https://danepubliczne.gov.pl/dataset/dane-statystyczne-dotyczace-odmow-wjazdu-cudzoziemcom-na-terytorium-rp/resource/30b18805-fd49-4040-a29e-f5e59fd48941).
+
+<br />
+
+```{r echo=FALSE, fig.align='center', fig.width = 9}
+data <- read.csv("dane_obrobione2.csv", sep=";", check.names=FALSE, stringsAsFactors=TRUE)
+
+ggplot(data, aes(Obywatelstwo, ProcentOdrzucen, fill=PowodOdrzucenia)) +
+  geom_bar(stat = "identity", position="stack") +
+  geom_text(aes(y = ProcentOdrzucen,label=ifelse(ProcentOdrzucen>0.05, paste(round(ProcentOdrzucen*100,0),"%",sep=""), "")), size = 3, position=position_stack(vjust=0.5)) +
+  labs(x="", y = "", title = "Rozkład powodów odmowy wjazdu cudzoziemcom", subtitle="na granicy zewnętrznej UE w roku 2016") +
+  scale_y_continuous(labels = scales::percent) +
+  scale_fill_manual("Powód odmowy",values=c("#ffffcc","#a1dab4", "#41b6c4", "#225ea8"))
+```
