@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script type="text/javascript" src="d3.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="Polllution%20by%20agosiewska_files/result-light.css">
+
+  <style type="text/css">
+    svg{
+		width: 1000px;
+		height: 1000px;
+		margin: 50px;
+	}
+	div{
+		background-color: white;  
+	}
+	button{
+		font-size: 24px;
+	}
+  </style>
+
+  <title>Polllution by agosiewska</title>
+
+  
+    
+
+
+
+
+
+
+  
+</head>
+
+<body>
+<h1> Praca domowa 7 </h1>
+<h2>Alicja Gosiewska</h2>
+
+W tym tygodniu zwizualizowałam dane dotyczące zanieczyszczenia powietrza na świecie. Dane pochodzą ze <a href = "https://www.stateofglobalair.org/">State of Global Air 2017</a>.</br>
+
+Poniższy interaktywny wykres pokazuje, jak na przestrzeni lat 1990-2015 w poszczególnych krajach zmieniało się zanieczyszczenie oraz liczba śmierci z spowodowana
+ zanieczyszczonym powietrzem.
+
+</br>
+
+  <div class="output">
+<h2>Air pollution in the world</h2>
+<div>
+ <button id="demo">Run</button>
+</div>
+
+  <svg>
+    <filter id="poland" x="0%" y="0%" width="100%" height="100%">
+      <feImage xlink:href="img/poland.png"></feImage>
+    </filter>
+    <filter id="china" x="0%" y="0%" width="100%" height="100%">
+      <feImage xlink:href="img/china.png"></feImage>
+    </filter>
+    <filter id="france" x="0%" y="0%" width="100%" height="100%">
+      <feImage xlink:href="img/france.png"></feImage>
+    </filter>
+	<filter id="italy" x="0%" y="0%" width="100%" height="100%">
+      <feImage xlink:href="img/italy.png"></feImage>
+    </filter>
+	<filter id="india" x="0%" y="0%" width="100%" height="100%">
+      <feImage xlink:href="img/india.png"></feImage>
+    </filter>
+	<filter id="japan" x="0%" y="0%" width="100%" height="100%">
+      <feImage xlink:href="img/japan.png"></feImage>
+    </filter>
+	<filter id="mongolia" x="0%" y="0%" width="100%" height="100%">
+      <feImage xlink:href="img/mongolia.png"></feImage>
+    </filter>
+    <g class="linie">
+	<circle cx="307" cy="176" r="20" filter="url(#poland)"></circle>
+	<circle cx="328" cy="67" r="20" filter="url(#china)"></circle>
+	<circle cx="78" cy="423" r="20" filter="url(#france)"></circle>
+	<circle cx="114" cy="394" r="20" filter="url(#italy)"></circle>
+	<circle cx="407" cy="17" r="20" filter="url(#india)"></circle>
+	<circle cx="71" cy="420" r="20" filter="url(#japan)"></circle>
+	<circle cx="107" cy="238" r="20" filter="url(#mongolia)"></circle>
+	<text x=200px y=30px font-size="35">Year 1990</text>
+	</g>
+        <g class="osie">
+       <rect x="50" y="0" height="500" width="2"></rect>
+       <rect x="50" y="498" height="2" width="500"></rect>
+    </g>
+	<g>
+		<text x=150px y=540px>Ambient particulate matter pollution PM2.5 [µg/m3]</text>
+		<text x=50px y=520px>10</text>
+		<text x=540px y=520px>80</text>
+		<text x=150px y=240px transform="rotate(-90 185 410)">Age-standardized Deaths/100,000 Attributable to PM2.5</text>
+		<text x=30px y=500px>0</text>
+		<text x=20px y=15px>170</text>
+	</g>
+  </svg>
+</div>
+  
+<script type="text/javascript">
+document.getElementById("demo").onclick = function() {
+
+var year1990 = [
+{"pollution":46, "deaths":110, "name": "poland"},
+{"pollution":49, "deaths":147, "name": "china"},
+{"pollution":14, "deaths":26, "name": "france"},
+{"pollution":19, "deaths":36, "name": "italy"},
+{"pollution":60, "deaths":164, "name": "india"},
+{"pollution":13, "deaths":27, "name": "japan"},
+{"pollution":18, "deaths":89, "name": "mongolia"}]
+var year1995 = [
+{"pollution":33, "deaths":90, "name": "poland"},
+{"pollution":50, "deaths":137, "name": "china"},
+{"pollution":13, "deaths":23, "name": "france"},
+{"pollution":17, "deaths":30, "name": "italy"},
+{"pollution":61, "deaths":161, "name": "india"},
+{"pollution":13, "deaths":23, "name": "japan"},
+{"pollution":16, "deaths":95, "name": "mongolia"}]
+var year2000 = [
+{"pollution":26, "deaths":70, "name": "poland"},
+{"pollution":52, "deaths":128, "name": "china"},
+{"pollution":13, "deaths":21, "name": "france"},
+{"pollution":15, "deaths":26, "name": "italy"},
+{"pollution":61, "deaths":155, "name": "india"},
+{"pollution":12, "deaths":20, "name": "japan"},
+{"pollution":19, "deaths":106, "name": "mongolia"}]
+var year2005 = [
+{"pollution":25, "deaths":58, "name": "poland"},
+{"pollution":57, "deaths":121, "name": "china"},
+{"pollution":12, "deaths":17, "name": "france"},
+{"pollution":14, "deaths":21, "name": "italy"},
+{"pollution":66, "deaths":143, "name": "india"},
+{"pollution":13, "deaths":19, "name": "japan"},
+{"pollution":18, "deaths":100, "name": "mongolia"}]
+var year2010 = [
+{"pollution":27, "deaths":54, "name": "poland"},
+{"pollution":58, "deaths":99, "name": "china"},
+{"pollution":12, "deaths":15, "name": "france"},
+{"pollution":15, "deaths":19, "name": "italy"},
+{"pollution":65, "deaths":135, "name": "india"},
+{"pollution":12, "deaths":17, "name": "japan"},
+{"pollution":20, "deaths":91, "name": "mongolia"}]
+var year2015 = [
+{"pollution":24, "deaths":45, "name": "poland"},
+{"pollution":58, "deaths":85, "name": "china"},
+{"pollution":12, "deaths":15, "name": "france"},
+{"pollution":20, "deaths":22, "name": "italy"},
+{"pollution":74, "deaths":134, "name": "india"},
+{"pollution":13, "deaths":17, "name": "japan"},
+{"pollution":24, "deaths":90, "name": "mongolia"}]
+
+
+var images = [{"id": 'url(#poland)'},{"id": 'url(#china)'},{"id": 'url(#france)'}]
+var changeScalePollution = d3.scale.linear()
+	.domain([10, 80])
+  .range([50, 550])
+var changeScaleDeaths = d3.scale.linear()
+	.domain([0, 170])
+  .range([500, 0])
+
+
+var svg = d3.select("g.linie")
+var circles = svg.selectAll("circle")
+	.data(year1990)
+var myText = svg.select('text')
+    .attr('x', 200)
+    .attr('y', 30)
+		.text("Year 1990")
+		
+var dTime = 600
+myText.transition()
+	.delay(dTime).text("Year 1991")
+myText.transition()
+	.delay(2*dTime).text("Year 1992")
+myText.transition()
+	.delay(3*dTime).text("Year 1993")
+myText.transition()
+	.delay(4*dTime).text("Year 1994")
+myText.transition()
+	.delay(5*dTime).text("Year 1995")
+myText.transition()
+	.delay(6*dTime).text("Year 1996")
+myText.transition()
+	.delay(7*dTime).text("Year 1997")
+myText.transition()
+	.delay(8*dTime).text("Year 1998")
+myText.transition()
+	.delay(9*dTime).text("Year 1999")
+myText.transition()
+	.delay(10*dTime).text("Year 2000")
+myText.transition()
+	.delay(11*dTime).text("Year 2001")
+myText.transition()
+	.delay(12*dTime).text("Year 2002")
+myText.transition()
+	.delay(13*dTime).text("Year 2003")
+myText.transition()
+	.delay(14*dTime).text("Year 2004")
+myText.transition()
+	.delay(15*dTime).text("Year 2005")
+myText.transition()
+	.delay(16*dTime).text("Year 2006")
+myText.transition()
+	.delay(17*dTime).text("Year 2007")
+myText.transition()
+	.delay(18*dTime).text("Year 2008")
+myText.transition()
+	.delay(19*dTime).text("Year 2009")
+myText.transition()
+	.delay(20*dTime).text("Year 2010")
+myText.transition()
+	.delay(21*dTime).text("Year 2011")
+myText.transition()
+	.delay(22*dTime).text("Year 2012")
+myText.transition()
+	.delay(23*dTime).text("Year 2013")
+myText.transition()
+	.delay(24*dTime).text("Year 2014")
+myText.transition()
+	.delay(25*dTime).text("Year 2015")
+
+		
+circles.enter().append("circle")
+  .attr("cx", function(d,i) {return changeScalePollution(d.pollution)})
+  .attr("cy", function(d,i) {return changeScaleDeaths(d.deaths)})
+  .attr("r", 20)
+  .attr('filter',function(d,i){return images[i].id})
+
+circles.data(year1995)
+circles.transition().ease("linear") 
+	.duration(3000)
+  .attr("cx", function(d,i) {return changeScalePollution(d.pollution)})
+  .attr("cy", function(d,i) {return changeScaleDeaths(d.deaths)})
+  .attr("r", 20)
+
+circles.data(year2000)
+circles.transition().ease("linear") 
+	.duration(3000).delay(3000)
+  .attr("cx", function(d,i) {return changeScalePollution(d.pollution)})
+  .attr("cy", function(d,i) {return changeScaleDeaths(d.deaths)})
+  .attr("r", 20)
+  
+  circles.data(year2005)
+circles.transition().ease("linear") 
+	.duration(3000).delay(6000)
+  .attr("cx", function(d,i) {return changeScalePollution(d.pollution)})
+  .attr("cy", function(d,i) {return changeScaleDeaths(d.deaths)})
+  .attr("r", 20)
+
+  circles.data(year2010)
+circles.transition().ease("linear") 
+	.duration(3000).delay(9000)
+  .attr("cx", function(d,i) {return changeScalePollution(d.pollution)})
+  .attr("cy", function(d,i) {return changeScaleDeaths(d.deaths)})
+  .attr("r", 20)
+ 
+
+  circles.data(year2015)
+	circles.transition().ease("linear") 
+		.duration(3000).delay(12000)
+	  .attr("cx", function(d,i) {return changeScalePollution(d.pollution)})
+  	.attr("cy", function(d,i) {return changeScaleDeaths(d.deaths)})
+  	.attr("r", 20)
+ 
+}
+
+</script>
+
+</body></html>
