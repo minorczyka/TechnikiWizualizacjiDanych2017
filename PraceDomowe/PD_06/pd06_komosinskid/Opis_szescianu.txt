@@ -1,0 +1,7 @@
+Moj¹ propozycj¹ na wizualizacjê kolorów jest szeœcian RGB.
+
+Na osiach XYZ zaznaczono kolejne wartoœci sk³adowych RGB w zakresie od 0 do 255.
+
+Interaktywna grafika wykorzystuj¹ca pakiet plotly pozwala na obrót szeœcianiu oraz przybli¿anie w celu znalezienia interesuj¹cego nas koloru.
+
+Po najechaniu na punkt, widzimy ile wynosz¹ sk³adowe RGB, a tak¿e kod HEX.

@@ -1,0 +1,368 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>TWD</title>
+    <style>
+        body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, figure, form, fieldset, input, p, blockquote, th, td, legend {
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            font-size: 3.0em;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            text-transform: uppercase;
+        }
+
+        p {
+            line-height: 1.4em;
+            margin-bottom: 1.0em;
+        }
+
+        a {
+            color: #821122;
+        }
+
+        #content {
+            width: 925px;
+            margin: 0 auto;
+        }
+
+        #filters {
+            font-family: Arial,sans-serif;
+            margin-bottom: 20px;
+        }
+
+            #filters a {
+                color: #000;
+                font-size: 12px;
+                padding: 5px;
+                background: #e2e2e2;
+                cursor: pointer;
+                margin-right: 3px;
+            }
+
+                #filters a:last-child {
+                    margin-right: 0;
+                }
+
+                #filters a.SAS {
+                    background: #00BBD6;
+                    color: #fff;
+                }
+
+                #filters a.MEA {
+                    background: #82A5C0;
+                    color: #fff;
+                }
+
+                #filters a.EAS {
+                    background: #6E9E75;
+                    color: #fff;
+                }
+
+                #filters a.NAC {
+                    background: #be1932;
+                    color: #fff;
+                }
+
+                #filters a.ECS {
+                    background: #ed7c31;
+                    color: #fff;
+                }
+
+        #vis {
+            min-height: 550px;
+        }
+
+        #blurb {
+            height: 60px;
+            border-top: 1px solid #e2e2e2;
+            padding-top: 20px;
+        }
+
+        path {
+            stroke: #e2e2e2;
+            stroke-width: 0.9;
+            fill: none;
+        }
+
+            path.current, path.highlight.current {
+                stroke: #000;
+                stroke-width: 1.7;
+            }
+
+        .SAS.highlight {
+            stroke: #00BBD6;
+        }
+
+        .ECS.highlight {
+            stroke: #ed7c31;
+        }
+
+        .MEA.highlight {
+            stroke: #82A5C0;
+        }
+
+        .EAS.highlight {
+            stroke: #6E9E75;
+        }
+
+        .NAC.highlight {
+            stroke: #be1932;
+        }
+
+        .highlight {
+            stroke-width: 1px;
+        }
+
+        line {
+            stroke: black;
+        }
+
+        text {
+            font-family: Helvetica,Arial,sans-serif;
+            font-size: 11px;
+        }
+
+        .axis {
+            stroke-width: 0.8;
+            stroke: #000;
+        }
+
+        .xTicks, .yTicks {
+            stroke-width: 0.6;
+            stroke: #000;
+        }
+
+        #cite {
+            font-size: 0.8em;
+            text-align: right;
+            margin-top: 10px;
+            padding-bottom: 20px;
+        }
+
+            #cite a {
+                background: #e2e2e2;
+                text-decoration: none;
+                color: #821122;
+            }
+    </style>
+    <script type="text/javascript" src="http://media.flowingdata.com/js/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="http://media.flowingdata.com/js/d3.js?1.29.1"></script>
+    <script type="text/javascript" src="http://media.flowingdata.com/js/d3.time.js?1.29.1"></script>
+    <script type="text/javascript" src="http://media.flowingdata.com/js/d3.csv.js?1.29.1"></script>
+</head>
+<body>
+    <div id="main-wrapper">
+        <div id="content">
+            <h1>Liczba wydanych praw jazdy w 2016 roku</h1>
+            <h4>
+                Techniki wizualizacji danych - Praca domowa 7
+                <br />
+                Mateusz Mechelewski
+            </h4>
+            <br />
+            <br />
+            <p align="justify">
+                Do analizy wybrane zostały statystyki zaprezentowane w pierwszej pracy domowej.
+                Przedstawiają one liczbę wydanych po raz pierwszy dokumentów prawa jazdy w poszczególnych województwach w 2016 roku.
+                Artykuł dotyczący tych statystyk przedstawiony został na stronie Centralnej Ewidencji Pojazdów i Kierowców.
+                <br /><br />
+                Na poniższym wykresie przedstawiona liczba wydanych praw jazdy w poszczególnych miesiącach roku dla wybranych województw.
+            </p>
+
+            <div id="filters">
+                Wybierz część Polski:
+                <a id="EAS">zachód</a>
+                <a id="SAS">wschód</a>
+                <a id="MEA">część centralna</a>
+                <a id="ECS">południe</a>
+                <a id="NAC">północ</a>
+            </div>
+            <div id="blurb">
+                <div id="default-blurb">
+                    <h2>Polska</h2>
+                    <p>Średnia wydawana liczba praw jazdy w miesiącu to 2632.</p>
+                </div>
+                <div id="blurb-content"></div>
+            </div>
+            <div id="vis"></div>
+            <div id="cite">Źródło: DanePubliczne.gov.pl</div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var regions = {
+            "EAS": "zachód",
+            "SAS": "wschód",
+            "MEA": "część centralna",
+            "ECS": "południe",
+            "NAC": "północ"
+        },
+            w = 925,
+            h = 550,
+            margin = 30,
+            startYear = 1,
+            endYear = 13,
+            startAge = 500,
+            endAge = 5500,
+            y = d3.scale.linear().domain([endAge, startAge]).range([0 + margin, h - margin]),
+            x = d3.scale.linear().domain([startYear, endYear]).range([margin, w]),
+            years = d3.range(startYear, endYear);
+        var vis = d3.select("#vis").append("svg:svg").attr("width", w).attr("height", h).append("svg:g");
+        var line = d3.svg.line().x(function (d, i) {
+            return x(d.x);
+        }).y(function (d) {
+            return y(d.y);
+        });
+        var countries_regions = {};
+
+        var crcsv = "CountryCode,RegionCode\n" +
+            "A,EAS\n" +
+            "B,NAC\n" +
+            "C,SAS\n" +
+            "D,EAS\n" +
+            "E,MEA\n" +
+            "F,ECS\n" +
+            "G,ECS\n" +
+            "H,ECS\n" +
+            "I,SAS\n" +
+            "J,SAS\n" +
+            "K,NAC\n" +
+            "L,ECS\n" +
+            "M,MEA\n" +
+            "N,NAC\n" +
+            "O,EAS\n" +
+            "P,NAC";
+
+        var regions = d3.csv.parseRows(crcsv);
+        for (i = 1; i < regions.length; i++) {
+            countries_regions[regions[i][0]] = regions[i][1];
+        }
+
+        var startEnd = {}, countryCodes = {};
+
+        var valuescsv = "Województwo,CountryCode,01,02,03,04,05,06,07,08,09,10,11,12\nDolnośląskie,A,2667,2605,2717,2739,2519,2585,2312,2693,2500,2679,2605,2778\nKujawsko-pomorskie,B,2026,2126,2066,2144,2017,2111,2085,2086,2055,2264,2339,2552\nLubelskie,C,2210,2257,2278,2119,1948,2136,2296,2486,2548,2634,2420,2692\nLubuskie,D,855,1074,1128,1019,762,1098,994,1086,1027,1009,1177,1117\nLódzkie,E,2344,2242,2449,2118,1909,2149,1980,2340,2485,2591,2683,2711\nMalopolskie,F,3490,4029,4003,3717,3347,3652,3306,3314,3727,3682,3714,3896\nMazowieckie,G,4866,4676,5036,4742,4384,5358,4820,5028,5185,5809,5397,5954\nOpolskie,H,1040,1028,1018,972,886,873,780,867,954,985,968,1063\nPodkarpackie,I,2546,2478,2515,2471,2281,2278,2025,2213,2565,2462,2483,2865\nPodlaskie,J,1139,1020,1041,954,929,1086,1185,1278,1347,1100,1111,1307\nPomorskie,K,2105,2142,2340,2277,1768,2213,1852,1867,2156,2406,2289,2497\nSlaskie,L,3558,3950,4350,4278,3688,4056,3752,4024,4244,4444,4218,4467\nSwietokrzyskie,M,1373,1358,1424,1343,1309,1270,1326,1462,1572,1672,1435,1766\nWarminsko-mazurskie,N,1368,1333,1546,1423,1219,1468,1355,1607,1586,1537,1443,1671\nWielkopolskie,O,3244,3312,3377,3221,2905,3211,3249,3328,3656,3389,3696,3766\nZachodniopomorskie,P,1395,1462,1689,1564,1327,1749,1484,1478,1620,1528,1539,1708";
+
+        var countries = d3.csv.parseRows(valuescsv);
+        for (i = 1; i < countries.length; i++) {
+            var values = countries[i].slice(2, countries[i.length - 1]);
+            var currData = [];
+            countryCodes[countries[i][1]] = countries[i][0];
+            var started = false;
+            for (j = 0; j < values.length; j++) {
+                if (values[j] != '') {
+                    currData.push({
+                        x: years[j],
+                        y: values[j]
+                    });
+                    if (!started) {
+                        startEnd[countries[i][1]] = {
+                            'startYear': years[j],
+                            'startVal': values[j],
+                            'vals': values
+                        };
+                        started = true;
+                    } else if (j == values.length - 1) {
+                        startEnd[countries[i][1]]['endYear'] = years[j];
+                        startEnd[countries[i][1]]['endVal'] = values[j];
+                    }
+                }
+            }
+            vis.append("svg:path").data([currData]).attr("country", countries[i][1]).attr("class", countries_regions[countries[i][1]]).attr("d", line).on("mouseover", onmouseover).on("mouseout", onmouseout);
+        }
+
+        vis.append("svg:line").attr("x1", x(startYear)).attr("y1", y(startAge)).attr("x2", x(endYear)).attr("y2", y(startAge)).attr("class", "axis");
+        vis.append("svg:line").attr("x1", x(startYear)).attr("y1", y(startAge)).attr("x2", x(startYear))
+            .attr("y2", y(endAge)).attr("class", "axis");
+
+        vis.selectAll(".xLabel").data(x.ticks(10)).enter().append("svg:text").attr("class", "xLabel").text(function (a) {
+            if (a == 1) return "styczeń";
+            if (a == 2) return "luty";
+            if (a == 3) return "marzec";
+            if (a == 4) return "kwiecień";
+            if (a == 5) return "maj";
+            if (a == 6) return "czerwiec";
+            if (a == 7) return "lipiec";
+            if (a == 8) return "sierpień";
+            if (a == 9) return "wrzesień";
+            if (a == 10) return "październik";
+            if (a == 11) return "listopad";
+            if (a == 12) return "grudzień";
+            return "";
+        }).attr(
+            "x",
+            function (d) {
+                return x(d);
+            }).attr("y", h - 10).attr("text-anchor", "middle");
+        vis.selectAll(".yLabel").data(y.ticks(4)).enter().append("svg:text").attr("class", "yLabel").text(String)
+            .attr("x", 0).attr("y",
+            function (d) {
+                return y(d);
+            }).attr("text-anchor", "right").attr("dy", 3);
+        vis.selectAll(".xTicks").data(x.ticks(5)).enter().append("svg:line").attr("class", "xTicks").attr("x1",
+            function (d) {
+                return x(d);
+            }).attr("y1", y(startAge)).attr("x2",
+            function (d) {
+                return x(d);
+            }).attr("y2", y(startAge) + 7);
+
+        function onclick() {
+            var currClass = d3.select(this).attr("class");
+            if (d3.select(this).classed('selected')) {
+                d3.select(this).attr("class", currClass.substring(0, currClass.length - 9));
+            } else {
+                d3.select(this).classed('selected', true);
+            }
+        }
+
+        function onmouseover() {
+            var currClass = d3.select(this).attr("class");
+            d3.select(this).attr("class", currClass + " current");
+            var countryCode = $(this).attr("country");
+            var countryVals = startEnd[countryCode];
+            var blurb = '<h2>' + countryCodes[countryCode] + '</h2>';
+            blurb += "<p>Średnia wydawana liczba praw jazdy w miesiącu to " + Math.round(getMean(countryVals['vals'])) + ".</p>";
+            $("#default-blurb").hide();
+            $("#blurb-content").html(blurb);
+        }
+
+        function onmouseout() {
+            var currClass = d3.select(this).attr("class");
+            var prevClass = currClass.substring(0, currClass.length - 8);
+            d3.select(this).attr("class", prevClass);
+            $("#default-blurb").show();
+            $("#blurb-content").html('');
+        }
+
+        function showRegion(regionCode) {
+            var countries = d3.selectAll("path." + regionCode);
+            if (countries.classed('highlight')) {
+                countries.attr("class", regionCode);
+            } else {
+                countries.classed('highlight', true);
+            }
+        }
+
+        function getMean(values) {
+            var total = 0;
+            for (var i = 0; i < values.length; i++) {
+                total += parseInt(values[i]);
+            }
+            return total / values.length;
+        }
+
+        $(document).ready(function () {
+            $('#filters a').click(function () {
+                var countryId = $(this).attr("id");
+                $(this).toggleClass(countryId);
+                showRegion(countryId);
+            });
+        });
+    </script>
+</body>
+</html>
