@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="https://cdn.rawgit.com/novus/nvd3/v1.8.1/build/nv.d3.css">
+
+<script src="https://code.jquery.com/jquery-1.8.2.min.js" type="text/javascript"></script>
+<script src="https://d3js.org/d3.v3.min.js" type="text/javascript"></script>
+<script src="https://cdn.rawgit.com/novus/nvd3/v1.8.1/build/nv.d3.min.js" type="text/javascript"></script>
+
+<style>
+.rChart {
+  display: block;
+  margin-left: auto; 
+  margin-right: auto;
+  width: 800px;
+  height: 400px;
+}  
+</style>
+</head>
+<body>
+<div>
+<p>W tej pracy domowej postarałem się zwizualizować dane zaczerpnięte z australijskiej strony rządowej traktującej o bezpieczeństwie drogowym (
+<a href="http://roadsafety.gov.au/performance/road-deaths-age-group.aspx">http://roadsafety.gov.au/performance/road-deaths-age-group.aspx</a>). W tabeli znajdującej się na stronie znajdują się dane dotyczące liczby ofiar śmiertelnych wypadków drogowych w Australii, spowodowanych przez kierowców z określonej grupy wiekowej.</p>
+<p>Dane zwizualizowane na wykresach zostały przedstawione dobrze, jednakże są one trochę zbyt skomplikowane dla prostego odbiorcy (przedstawiane dane były agregowane w dość nieoczywisty sposób), zatem postaram się przedstawić dane w prostszy sposób.</p>
+<p>Wykres przedstawia liczbę ofiar śmiertelnych wypadków drogowych w Australii w ostatnich latach, dla każdej z grup wiekowych oraz zagregowanych wartości wszystkich grup wiekowych.</p>
+<p>Do stworzenia wykresu zostało użyte NVD3.</p>
+</div>
+
+<div id="charta3f45ba28ab" class="rChart nvd3"></div>    
+
+<script type="text/javascript">
+ $(document).ready(function(){
+      drawcharta3f45ba28ab()
+    });
+    function drawcharta3f45ba28ab(){  
+      var opts = {
+ "dom": "charta3f45ba28ab",
+"width":    800,
+"height":    400,
+"x": "Year",
+"y": "value",
+"group": "variable",
+"type": "lineChart",
+"id": "charta3f45ba28ab" 
+},
+        data = [
+ {
+ "Year": 2008,
+"variable": "Under 17 years old",
+"value": 87 
+},
+{
+ "Year": 2009,
+"variable": "Under 17 years old",
+"value": 106 
+},
+{
+ "Year": 2010,
+"variable": "Under 17 years old",
+"value": 74 
+},
+{
+ "Year": 2011,
+"variable": "Under 17 years old",
+"value": 93 
+},
+{
+ "Year": 2012,
+"variable": "Under 17 years old",
+"value": 70 
+},
+{
+ "Year": 2013,
+"variable": "Under 17 years old",
+"value": 66 
+},
+{
+ "Year": 2014,
+"variable": "Under 17 years old",
+"value": 65 
+},
+{
+ "Year": 2015,
+"variable": "Under 17 years old",
+"value": 65 
+},
+{
+ "Year": 2016,
+"variable": "Under 17 years old",
+"value": 60 
+},
+{
+ "Year": 2008,
+"variable": "17 - 25 years old",
+"value": 377 
+},
+{
+ "Year": 2009,
+"variable": "17 - 25 years old",
+"value": 362 
+},
+{
+ "Year": 2010,
+"variable": "17 - 25 years old",
+"value": 336 
+},
+{
+ "Year": 2011,
+"variable": "17 - 25 years old",
+"value": 280 
+},
+{
+ "Year": 2012,
+"variable": "17 - 25 years old",
+"value": 284 
+},
+{
+ "Year": 2013,
+"variable": "17 - 25 years old",
+"value": 230 
+},
+{
+ "Year": 2014,
+"variable": "17 - 25 years old",
+"value": 234 
+},
+{
+ "Year": 2015,
+"variable": "17 - 25 years old",
+"value": 225 
+},
+{
+ "Year": 2016,
+"variable": "17 - 25 years old",
+"value": 265 
+},
+{
+ "Year": 2008,
+"variable": "26 - 39 years old",
+"value": 345 
+},
+{
+ "Year": 2009,
+"variable": "26 - 39 years old",
+"value": 355 
+},
+{
+ "Year": 2010,
+"variable": "26 - 39 years old",
+"value": 305 
+},
+{
+ "Year": 2011,
+"variable": "26 - 39 years old",
+"value": 275 
+},
+{
+ "Year": 2012,
+"variable": "26 - 39 years old",
+"value": 300 
+},
+{
+ "Year": 2013,
+"variable": "26 - 39 years old",
+"value": 243 
+},
+{
+ "Year": 2014,
+"variable": "26 - 39 years old",
+"value": 252 
+},
+{
+ "Year": 2015,
+"variable": "26 - 39 years old",
+"value": 272 
+},
+{
+ "Year": 2016,
+"variable": "26 - 39 years old",
+"value": 290 
+},
+{
+ "Year": 2008,
+"variable": "40 - 64 years old",
+"value": 395 
+},
+{
+ "Year": 2009,
+"variable": "40 - 64 years old",
+"value": 445 
+},
+{
+ "Year": 2010,
+"variable": "40 - 64 years old",
+"value": 418 
+},
+{
+ "Year": 2011,
+"variable": "40 - 64 years old",
+"value": 398 
+},
+{
+ "Year": 2012,
+"variable": "40 - 64 years old",
+"value": 400 
+},
+{
+ "Year": 2013,
+"variable": "40 - 64 years old",
+"value": 374 
+},
+{
+ "Year": 2014,
+"variable": "40 - 64 years old",
+"value": 359 
+},
+{
+ "Year": 2015,
+"variable": "40 - 64 years old",
+"value": 373 
+},
+{
+ "Year": 2016,
+"variable": "40 - 64 years old",
+"value": 413 
+},
+{
+ "Year": 2008,
+"variable": "65 - 74 years old",
+"value": 86 
+},
+{
+ "Year": 2009,
+"variable": "65 - 74 years old",
+"value": 94 
+},
+{
+ "Year": 2010,
+"variable": "65 - 74 years old",
+"value": 97 
+},
+{
+ "Year": 2011,
+"variable": "65 - 74 years old",
+"value": 83 
+},
+{
+ "Year": 2012,
+"variable": "65 - 74 years old",
+"value": 96 
+},
+{
+ "Year": 2013,
+"variable": "65 - 74 years old",
+"value": 118 
+},
+{
+ "Year": 2014,
+"variable": "65 - 74 years old",
+"value": 108 
+},
+{
+ "Year": 2015,
+"variable": "65 - 74 years old",
+"value": 118 
+},
+{
+ "Year": 2016,
+"variable": "65 - 74 years old",
+"value": 103 
+},
+{
+ "Year": 2008,
+"variable": "Above 74 years old",
+"value": 147 
+},
+{
+ "Year": 2009,
+"variable": "Above 74 years old",
+"value": 129 
+},
+{
+ "Year": 2010,
+"variable": "Above 74 years old",
+"value": 122 
+},
+{
+ "Year": 2011,
+"variable": "Above 74 years old",
+"value": 148 
+},
+{
+ "Year": 2012,
+"variable": "Above 74 years old",
+"value": 149 
+},
+{
+ "Year": 2013,
+"variable": "Above 74 years old",
+"value": 156 
+},
+{
+ "Year": 2014,
+"variable": "Above 74 years old",
+"value": 129 
+},
+{
+ "Year": 2015,
+"variable": "Above 74 years old",
+"value": 152 
+},
+{
+ "Year": 2016,
+"variable": "Above 74 years old",
+"value": 163 
+},
+{
+ "Year": 2008,
+"variable": "All ages",
+"value": 1437 
+},
+{
+ "Year": 2009,
+"variable": "All ages",
+"value": 1491 
+},
+{
+ "Year": 2010,
+"variable": "All ages",
+"value": 1353 
+},
+{
+ "Year": 2011,
+"variable": "All ages",
+"value": 1277 
+},
+{
+ "Year": 2012,
+"variable": "All ages",
+"value": 1300 
+},
+{
+ "Year": 2013,
+"variable": "All ages",
+"value": 1187 
+},
+{
+ "Year": 2014,
+"variable": "All ages",
+"value": 1150 
+},
+{
+ "Year": 2015,
+"variable": "All ages",
+"value": 1205 
+},
+{
+ "Year": 2016,
+"variable": "All ages",
+"value": 1294 
+} 
+]
+  
+      if(!(opts.type==="pieChart" || opts.type==="sparklinePlus" || opts.type==="bulletChart")) {
+        var data = d3.nest()
+          .key(function(d){
+            //return opts.group === undefined ? 'main' : d[opts.group]
+            //instead of main would think a better default is opts.x
+            return opts.group === undefined ? opts.y : d[opts.group];
+          })
+          .entries(data);
+      }
+      
+      if (opts.disabled != undefined){
+        data.map(function(d, i){
+          d.disabled = opts.disabled[i]
+        })
+      }
+      
+      nv.addGraph(function() {
+        var chart = nv.models[opts.type]()
+          .width(opts.width)
+          .height(opts.height)
+          
+        if (opts.type != "bulletChart"){
+          chart
+            .x(function(d) { return d[opts.x] })
+            .y(function(d) { return d[opts.y] })
+        }
+          
+         
+        
+          
+        chart.xAxis
+  .axisLabel("Year")
+
+        
+        
+        chart.yAxis
+  .axisLabel("Number of road deaths")
+      
+       d3.select("#" + opts.id)
+        .append('svg')
+        .datum(data)
+        .transition().duration(500)
+        .call(chart);
+
+       nv.utils.windowResize(chart.update);
+       return chart;
+      });
+    };
+</script>
+
+
+</body>
+
+ 
+
+
+</html>
