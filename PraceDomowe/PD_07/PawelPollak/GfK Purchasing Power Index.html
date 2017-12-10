@@ -1,0 +1,243 @@
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            position: relative;
+            width: 800px;
+          }
+          
+          .axis text {
+            font: 10px sans-serif;
+          }
+          
+          .axis path,
+          .axis line {
+            fill: none;
+            stroke: #000;
+            shape-rendering: crispEdges;
+          }
+          
+          .bar {
+            fill: orange;
+            fill-opacity: .9;
+          }
+          
+          .x.axis path {
+            display: none;
+          }
+          
+          label {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+          }
+    </style>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+</head>
+
+<body>
+        <h1>Porównanie indeksu europejskiej siły nabywczej</h1>
+        <p>
+            Wykres prezentuje porównanie indeksu europejskiej sił nabywczej dla 10 krajów z jego największą wartości i Polski.
+            Dane pochodzą z <a href="https://www.money.pl/gospodarka/unia-europejska/wiadomosci/artykul/polska-bogata-europa,176,0,2392496.html">tego artykułu</a>.
+            Dane z 2016 pochodzą z <a href="http://www.gfk.com/pl/aktualnosci/press-release/wzrost-sily-nabywczej-konsumentow-w-europie/">archiwum</a>.
+        </p>
+        <p>
+            Wyniki można posortować odpowiednio wg:
+            <ul>
+                <li>
+                    indeksu z 2017
+                </li>
+                <li>
+                    indeksu z 2016
+                </li>
+                <li>
+                    nazwy kraju (indeks z 2017)
+                </li>
+                <li>
+                    populacji kraju (indeks z 2017)
+                </li>
+            </ul>
+        </p>
+    <script>
+
+        data = [{
+            name: 'Lichtenstein',
+            order: [1, 1],
+            index: [460.9, 453.9],
+            population: 37622
+        },
+        {
+            name: 'Szwajcaria',
+            order: [2, 2],
+            index: [309.4, 302.4],
+            population: 8327126
+        },
+        {
+            name: 'Islandia',
+            order: [5, 3],
+            index: [177.5, 239.6],
+            population: 338349
+        },
+        {
+            name: 'Luksemburg',
+            order: [3, 4],
+            index: [221.2, 218.8],
+            population: 590667
+        },
+        {
+            name: 'Norwegia',
+            order: [4, 5],
+            index: [204.0, 211],
+            population: 5258317
+        },
+        {
+            name: 'Dania',
+            order: [6, 6],
+            index: [173.3, 175.7],
+            population: 5748769
+        },
+        {
+            name: 'Austria',
+            order: [7, 7],
+            index: [164.8, 162.1],
+            population: 8700471
+        },
+        {
+            name: 'Niemcy',
+            order: [9, 8],
+            index: [160.0, 159.6],
+            population: 82175684
+        },
+        {
+            name: 'Szwecja',
+            order: [8, 9],
+            index: [160.7, 156.2],
+            population: 9995153
+        },
+        {
+            name: 'Wielka Brytania',
+            order: [10, 10],
+            index: [154.6, 149.6],
+            population: 65648054
+        },
+        {
+            name: 'Polska',
+            order: [11, 11],
+            index: [46.6, 48.1],
+            population: 38432992
+        }];
+
+        var year = 2017;
+
+        var margin = { top: 20, right: 20, bottom: 30, left: 40 },
+            width = 800 - margin.left - margin.right,
+            height = 500 - margin.top - margin.bottom;
+
+        var formatPercent = d3.format(".0%");
+
+        var x = d3.scale.ordinal()
+            .rangeRoundBands([0, width], 0.1, 1);
+
+        var y = d3.scale.linear()
+            .range([height, 0]);
+
+        var xAxis = d3.svg.axis()
+            .scale(x)
+            .orient("bottom");
+
+        var yAxis = d3.svg.axis()
+            .scale(y)
+            .orient("left")
+
+        var svg = d3.select("body").append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        x.domain(data.map(function (d) { return d.name; }));
+        y.domain([0, d3.max(data, function (d) { return d.index[1]; })]);
+
+        svg.append("g")
+            .attr("class", "x axis")
+            .attr("transform", "translate(0," + height + ")")
+            .call(xAxis)
+            .selectAll("g")
+            .each(function (d, i) { this.old_i = i; });
+
+        svg.append("g")
+            .attr("class", "y axis")
+            .call(yAxis)
+            .append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 6)
+            .attr("dy", ".71em")
+            .style("text-anchor", "end")
+            .text("indeks");
+
+        svg.selectAll(".bar")
+            .data(data)
+            .enter().append("rect")
+            .each(function (d, i) { this.old_i = i; })
+            .attr("class", "bar")
+            .attr("x", function (d) { return x(d.name); })
+            .attr("width", x.rangeBand())
+            .attr("y", function (d) { return y(d.index[1]); })
+            .attr("height", function (d) { return height - y(d.index[1]); });
+
+        var sort_data = ["2017", "2016", "Alfabetycznie", "Po ludności"];
+
+        var select = d3.select('body')
+        .append('select')
+            .attr('class','select')
+            .on('change',change)
+
+        var options = select
+            .selectAll('option')
+                .data(sort_data).enter()
+                .append('option')
+                    .text(function (d) { return d; });
+
+        function change() {
+            sort_type = d3.select('select').property('value');
+            console.log(sort_type);
+            var sortedData = undefined;
+            if(sort_type == "Alfabetycznie") {
+                ord = 1
+                sortedData = data.sort(function(a, b) { return d3.ascending(a.name, b.name); });
+            } else if (sort_type == "Po ludności") {
+                ord = 1
+                sortedData = data.sort(function (a, b) { return b.population - a.population; });
+            } else {
+                year = parseInt(d3.select('select').property('value'));
+                var ord = year == 2017 ? 1 : 0;
+                sortedData = data.sort(function (a, b) { return a.order[ord] - b.order[ord]; });
+            }
+
+            var x0 = x.domain(sortedData.map(function (d) { return d.name; })).copy();
+
+            var transition = svg.transition().duration(750),
+                delay = function (d, i) { return this.old_i * 250; };
+
+            svg.selectAll(".bar")
+                .data(sortedData, function (d) { return d.name; })
+                .transition().duration(750)
+                .delay(delay)
+                .each(function (d, i) { this.old_i = i; })
+                .attr("x", function (d) { return x0(d.name); })
+                .attr("y", function (d) { return y(d.index[ord]); })
+                .attr("height", function (d) { return height - y(d.index[ord]); });
+
+            transition.select(".x.axis")
+                .call(xAxis)
+                .selectAll("g")
+                .delay(delay)
+                .each(function (d, i) { this.old_i = i; });
+        }
+    </script>
+
+</body>
+</html>
