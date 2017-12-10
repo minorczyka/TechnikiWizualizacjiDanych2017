@@ -14,20 +14,22 @@ fluidPage(
   p("Ciekawą sprawą jest to, że ze wszystkich Państw jedynie dane dla Polski nie są w pełni dostępne."),
   fluidRow(
     column(3, wellPanel(
-      checkboxGroupInput("years", "Lata:",
+      conditionalPanel(condition="input[\"tabs\"] == \"Na przestrzeni lat\"",checkboxGroupInput("years", "Lata:",
                            c("2010" = "2",
                              "2014" = "3",
                              "2015" = "4"), 
-                         selected = c("3","4")),
+                         selected = c("3","4"))),
       checkboxGroupInput("countries", "Kraje:",
                          sort(data$Country), 
                          selected = sort(data$Country))
     )),
-    column(6, tabsetPanel(
+    column(6, tabsetPanel( id = "tabs",
     tabPanel("Na przestrzeni lat",
-           plotOutput("plotYears", width = 500, height = 800)),
+           plotOutput("plotYears", width = 500, height = 800),
+           p("* dane dla Polski tylko z 2010 roku")),
     tabPanel("Rozkład wydatków w 2015",
-             plotOutput("plotShare", width = 600, height = 700))
+             plotOutput("plotShare", width = 600, height = 700),
+             p("* dane dla Polski niedostępne"))
     ))
   )
 )
