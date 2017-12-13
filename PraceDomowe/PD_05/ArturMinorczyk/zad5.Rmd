@@ -1,0 +1,45 @@
+---
+title: "Praca domowa 5"
+author: Artur Minorczyk
+output:
+  html_document: default
+  html_notebook: default
+---
+
+```{r, include=FALSE}
+library(dplyr)
+library(ggplot2)
+```
+
+```{r, include=FALSE}
+states <- map_data("state")
+tax <- c(WA = 0, OR = 9.9,  CA = 13.3,  NV = 0, ID = 7.4, MT = 6.9, WY = 0, UT = 5, AZ = 4.54, CO = 4.63, NM = 4.9, TX = 0, ND = 2.9, SD = 0, NE = 6.84, KS = 4.6, OK = 5, MN = 9.85, IA = 8.98, MO = 6, AR = 6.9, LA = 6, WI = 7.65, IL = 3.75, MI = 4.25, IN = 3.3, KU = 6, TN = 6, MS = 5, AL = 5, GA = 6, FL = 0, WV = 6.5, VA = 5.75, PA = 3.07, NY = 8.82, VT = 8.95, NH = 5, ME = 7.15, NC = 5.75, SC = 7, MA = 5.1, RI = 5.99, CT = 6.99, NJ = 8.97, DE = 6.6, MD = 5.75, DC = 8.95, OH = 4.997)
+
+state_names <- c("alabama"="AL", "arizona"="AR", "arkansas"="AZ", "california"="CA", "colorado"="CO", "connecticut"="CT", "district of columbia"="DC", "delaware"="DE", "florida"="FL", "georgia"="GA", "iowa"="IA", "idaho"="ID", "illinois"="IL", "indiana"="IN", "kansas"="KS", "kentucky"="KU", "louisiana"="LA", "massachusetts"="MA", "maryland"="MD", "maine"="ME", "michigan"="MI", "minnesota"="MN", "missouri"="MO", "mississippi"="MS", "montana"="MT", "north carolina"="NC", "north dakota"="ND", "nebraska"="NE", "new hampshire"="NH", "new jersey"="NJ", "new mexico"="NM", "nevada"="NV", "new york"="NY", "ohio"="OH", "oklahoma"="OK", "oregon"="OR", "pennsylvania"="PA", "rhode island"="RI", "south carolina"="SC", "south dakota"="SD", "tennessee"="TN", "texas"="TX", "utah"="UT", "virginia"="VA", "vermont"="VT", "washington"="WA", "wisconsin"="WI", "west virginia"="WV", "wyoming"="WY")
+
+states_tax <- states %>% mutate(tax = sapply(region, function(x) tax[state_names[x]]))
+```
+
+Wykorzystane przeze mnie dane pochodzą z artykułu http://microeconomicinsights.org/star-scientists-choose-locate-impact-us-state-taxes/ i dotyczą wysokości podatków stanowych w USA. W artykule pojawiają się dwie mapy USA z podziałem na poszczególne stany. Kolor danego stanu uzależniony jest od wysokości obowiązującego w nim podatku.
+
+Największym problemem wspomnianych wykresów jest użyta skala kolorów. Uniemożliwia ona proste porównanie wysokości podatku w dwóch stanach i wymaga nieustannego korzystania z legendy. W rezultacie wykres w łatwy sposób umożliwia jedynie zlokalizowanie stanów, w których podatek wynosi 0% (czerwone stany). Jednak zwykła lista stanów z zerowym podatkiem robiłaby to w równie dobry sposób, a nawet lepszy, gdyż nie wymagała znajomości geografii Stanów Zjednoczonych.
+
+Dwoma mniejszymi, raczej kosmetycznymi problemami są zakres czerwonego koloru, który w legendzie opisany jest jako $[-1, 0]$, pomimo że ujemna wartość oczywiście nigdy nie zostanie przyjęta. Drugim problemem jest nieco mylący fakt, iż tylko niektóre stany mają podaną wartość liczbową obowiązującego w nich podatku. Po bliższym przyjrzeniu się wykresom można się domyślić, że wybrane zostały stany o zerowym podatku oraz trzy stany z najwyższym podatkiem.
+
+Aby uzyskać lepszy wykres, wystarczy praktycznie tylko lepiej dobrać skalę kolorów oraz usunąć nieścisłości. W celu stworzenia takiego wykresu posłużono się danymi z portalu Wikipedia pochodzącymi z 2016r (https://en.wikipedia.org/wiki/State_income_tax), gdyż w samym artykule nie zamieszczono kompletu danych.
+
+```{r}
+ggplot(data = states_tax) + 
+  geom_polygon(aes(x = long, y = lat, fill = tax, group = group), color = "white") + 
+  scale_fill_gradient2(low = "green4", mid = "yellow2", high = "red2", midpoint = 6, name="Wysokość\npodatku w %") +
+  coord_fixed(1.3) +
+  ggtitle("Top state marginal individual tax rate in 2016") +
+  theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank(),
+        axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank())
+```
+
+

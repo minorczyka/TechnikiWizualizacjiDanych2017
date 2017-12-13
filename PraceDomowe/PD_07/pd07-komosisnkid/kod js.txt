@@ -1,0 +1,62 @@
+var kraje=[{"kraj":"Liechtenstein", "indeks":453},
+{"kraj":"Szwajcaria", "indeks":302},
+{"kraj":"Islandia", "indeks":239},
+{"kraj":"Luksemburg", "indeks":218},
+{"kraj":"Norwegia", "indeks":211},
+{"kraj":"Dania", "indeks":175},
+{"kraj":"Austria", "indeks":162},
+{"kraj":"Niemcy", "indeks":159},
+{"kraj":"Szwecja", "indeks":156},
+{"kraj":"Wielka Brytania", "indeks":149},
+{"kraj":"Polska", "indeks":48},]
+
+var x = d3.scale.linear()
+	.domain([950, 1050])
+  .range([0, 500])
+  
+var xindeks = d3.scale.linear()
+	.domain([0, 500])
+  .range([0, 500])
+  
+var svg = d3.select("g.linie")
+var selection = svg.selectAll("rect")
+	.data(kraje)
+  
+selection.enter().append("rect")
+
+selection
+   .attr("x",0)
+   .attr("y", function(d,i) {return i*50+50})
+   .attr("width", 100)
+   .attr("height", 45)
+  .transition()
+  .duration(3000) // 3 seconds
+    .attr("x", 150)
+    .attr("y", function(d,i) {return i*50+50})
+    .attr("width", function(d,i) { return xindeks(d.indeks) })
+    .attr("height", 45)
+    
+var svg2 = d3.select("g.imiona")
+var selection2 = svg2.selectAll("text")
+  .data(kraje)
+selection2.enter().append("text")
+selection2
+    .attr("x",0)
+    .attr("y", function(d,i) { return i*50+75 })
+    .text(function(d,i) {return d.kraj })
+                   .attr("font-family", "sans-serif")
+                   .attr("font-size", "20px")
+                   .attr("fill", "black");
+                 
+                 
+var svg2 = d3.select("g.wartosci")
+var selection2 = svg2.selectAll("text")
+  .data(kraje)
+selection2.enter().append("text")
+selection2
+  .attr("x",function(d,i) { return xindeks(d.indeks)+160 })
+  .attr("y", function(d,i) { return i*50+75 })
+  .text(function(d,i) {return d.indeks })
+                 .attr("font-family", "sans-serif")
+                 .attr("font-size", "20px")
+                 .attr("fill", "black");
