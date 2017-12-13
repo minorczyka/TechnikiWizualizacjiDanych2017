@@ -1,0 +1,52 @@
+---
+title: "TWD - Praca domowa 05"
+author: "Krzeszewski Piotr"
+date: "November 21, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(reshape2)
+library(stringi)
+
+setwd("~/Projects/TWD_09/PD_05")
+
+```
+
+## Dane
+
+http://www.wirtualnemedia.pl/artykul/ranking-serwisow-vod-w-polsce-liderem-vod-pl#
+
+Powyższy artykuł przedstawia udział serwisów typu VoD na polskim rynku. Badanie to przeprowadził serwis wirtualne media. Bez danych udostępnianych przez właścieli serwisów nie jest możliwe dokładne podanie udziału platform VoD na polskim rynku, ale pozwala to na porównywanie podobnych do siebie rozwiązań. Platformy takie jak Netflix, ShowMax czy HBO nie udostępniają informacji na temat liczby swoich abonentów. 
+
+W artykule poniższe dane nie były wizualizowane. Ramka danych była tworzona ręcznie (częściowo wkorzystano tabele z artykułu, a część danych uzupełniono ręcznie).
+
+W przypadku CDA porównujemy usługę Premium, która nie była badana rok temu. 
+
+```{r wykres, echo = FALSE}
+data <- read.csv("wirtualne_media.csv", header = TRUE)
+
+data$domena <- matrix(unlist(stri_split(data$domena, fixed=".")))[seq(1, 20,2),1]
+data$domena <- factor(data$domena, levels = data$domena[order(data$uzytkownicy)])
+
+colnames(data)[2:3] <- c("2017", "2016")
+
+melted <- melt(data[,1:3], id.vars = c("domena"))
+
+melted$variable <- factor(melted$variable, levels=c("2016", "2017"))
+
+ggplot(melted, aes(x=domena, fill=variable, y=value)) +
+  geom_bar(stat="identity", position = "dodge") +
+  labs(title="Serwisy streamingowe w Polsce",
+         subtitle="Serisy zagraniczne gromadzą subskrybentów",
+         x="Platforma streamingowa",
+         y="Liczba użytkowników w październiku") +
+  scale_fill_manual(values = c("#bdcebe", "#eca1a6")) +
+  guides(fill=guide_legend(title="Rok")) + 
+  scale_y_continuous(breaks=seq(0, 4000000, 1000000), labels=c("0", "1mln", "2mln", "3mln", "4mln")) +
+  geom_segment(aes(x=3.5, xend=3.8, y=2e6, yend=1.3e6), arrow = arrow(length = unit(0.5, "cm"), type = "closed"),col='red') +
+  annotate("text", label ="Netflix notuje\nznaczny wzrost", x=3.5, y= 2.3e6)
+
+```
