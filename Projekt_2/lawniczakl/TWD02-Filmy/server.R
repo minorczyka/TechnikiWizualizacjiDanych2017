@@ -15,7 +15,7 @@ library(ggplot2)
 shinyServer(function(input, output) {
   
   scenario <- reactive({
-    read.csv("data/scenario.csv") %>% 
+    read.csv("data/scenario.csv", stringsAsFactors=TRUE) %>% 
       filter(start != 0, end != 0)
   })
   
@@ -108,13 +108,12 @@ shinyServer(function(input, output) {
       sc <- scenario() %>% 
         filter(start <= time) %>%
         arrange(desc(start))
-      print(sc$scene)
       if(nrow(sc) == 0)
         sc <- "UNKNOWN"
       else if(sc[1, "scene"] == "")
         sc <- "UNKNOWN"
       else
-        sc <- sc[1, "scene"]
+        sc <- sc[1, "scene"] %>% as.character
       sc
     } else {
       scNames <- scenario()$scene %>% as.factor %>% levels
@@ -127,9 +126,9 @@ shinyServer(function(input, output) {
   output$heroesUI <- renderUI({
     if(input$heroAutoSel == "manually") {
       if(input$group == "time")
-        names <- timeHeroData()$name %>% unique
+        names <- timeHeroData()$name %>% as.character %>% unique
       else
-        names <- sceneHeroData()$name %>% unique
+        names <- sceneHeroData()$name %>% as.character %>% unique
       names <- c(input$heroes, names)
       selectInput("heroes", "", multiple=TRUE, choices=names,
                   selected=input$heroes)

@@ -12,8 +12,10 @@ library(shiny)
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(
   
-  # Application title
-  titlePanel("Władca pierścieni"),
+  titlePanel("TWD 02 - Władca pierścieni"),
+  fluidRow(column(12, "Łukasz Ławniczak, Mateusz Mazurkiewicz",
+                  style="margin-bottom:10px;")),
+  
   
   fluidRow(
     column(4, selectInput(inputId="group", label="Group by", 
