@@ -10,6 +10,7 @@
 library(shiny)
 library(dplyr)
 library(ggplot2)
+library(hms)
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
@@ -126,7 +127,7 @@ shinyServer(function(input, output) {
   output$heroesUI <- renderUI({
     if(input$heroAutoSel == "manually") {
       if(input$group == "time")
-        names <- timeHeroData()$name %>% as.character %>% unique
+        names <- scenario()$name %>% as.character %>% unique
       else
         names <- sceneHeroData()$name %>% as.character %>% unique
       names <- c(input$heroes, names)
@@ -136,10 +137,16 @@ shinyServer(function(input, output) {
   })
   
   output$heroGantt <- renderPlot({
+    heroes <- input$heroes
+    autoSel <- input$heroeAutoSel
+    if(is.null(autoSel))
+      autoSel <- "automatically"
+    if(input$heroAutoSel == "automatically")
+      heroes <- NULL
     if(input$group == "scenes") {
-      sceneHeroPlot(input$heroes)
+      sceneHeroPlot(heroes)
     } else {
-      timeHeroPlot(input$heroes)
+      timeHeroPlot(heroes)
     }
   })
   
