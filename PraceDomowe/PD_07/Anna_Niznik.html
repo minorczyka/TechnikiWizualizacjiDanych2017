@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+    .bar {
+        fill: steelblue;
+    }
+
+    .bar:hover {
+        fill: brown;
+    }
+
+    .axis--x path {
+        display: none;
+    }
+</style>
+<h1>Techniki wizualizacji danych - Zadanie domowe nr 7</h1>
+<h3>Anna Niżnik</h3>
+<h2>Średnie roczne temepratury w Miami</h2>
+<br/>
+<p align="justify">
+    Poniższy wykres przedstawia średnie roczne temperatury panujące w Miami w USA w 2016 roku.
+    <br/>
+    Temperatury przedstawione są w stopniach Celsjusza. 
+    <br/>  
+    Zebrane zostały dane, w których zestawiono najwyższe średnie temperatury.
+    <br />
+    <br/>
+    Informacje zawarte na wykresie pobrano ze strony:
+    <a href="http://www.holiday-weather.com/miami/averages/">http://www.holiday-weather.com/miami/averages/</a>
+</p>
+<svg width="960" height="500"></svg>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script>
+
+        var svg = d3.select("svg"),
+            margin = { top: 20, right: 20, bottom: 30, left: 40 },
+            width = +svg.attr("width") - margin.left - margin.right,
+            padding = -10,
+            height = +svg.attr("height") - margin.top - margin.bottom;
+
+        var x = d3.scaleBand().rangeRound([0, width]).padding(0.1),
+            y = d3.scaleLinear().rangeRound([height, 0]);
+
+        var g = svg.append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        var monthdata = [
+            { "month": 1, "monthName": "January", "temperature": 23 },
+            { "month": 2, "monthName": "February", "temperature": 24 },
+            { "month": 3, "monthName": "March", "temperature": 26 },
+            { "month": 4, "monthName": "April", "temperature": 27 },
+            { "month": 5, "monthName": "May", "temperature": 29 },
+            { "month": 6, "monthName": "June", "temperature": 30 },
+            { "month": 7, "monthName": "July", "temperature": 31 },
+            { "month": 8, "monthName": "August", "temperature": 31 },
+            { "month": 9, "monthName": "September", "temperature": 31 },
+            { "month": 10, "monthName": "October", "temperature": 28 },
+            { "month": 11, "monthName": "November", "temperature": 26 },
+            { "month": 12, "monthName": "December", "temperature": 24 }
+        ];
+
+        var x_domain = d3.extent(monthdata, function (d) { return d.monthName; }),
+            y_domain = d3.extent(monthdata, function (d) { return d.temperature; });
+
+        g.append("text")
+            .attr("x", width / 2)
+            .attr("y", 0)
+            .style("text-anchor", "middle")
+            .text("Month");
+
+        var yScale = d3.scaleLinear()
+            .domain([0, 35])
+            .range([height, 0]);
+
+        var xz = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+        var xScale = d3.scalePoint()
+            .domain(xz)
+            .range([0, width]);
+
+        var yAxis = d3.axisLeft()
+            .scale(yScale);
+
+        var xAxis = d3.axisBottom()
+            .scale(xScale);
+
+        g.append("g")
+            .attr("class", "axis")
+            .call(yAxis);
+
+        g.append("g")
+            .attr("class", "xaxis axis")
+            .attr("transform", "translate(0," + (height) + ")")
+            .call(xAxis);
+
+        var bar = g.selectAll(".bar")
+            .data(monthdata)
+            .enter().append("rect")
+            .attr("class", "bar")
+            .attr("x", function (d, i) { return d.month + i * 77; })
+            .attr("y", function (d) { return d.temperature; })
+            .attr("width", x.bandwidth() / 20)
+            .attr("height", function (d) { return height - d.temperature });
+
+        var texts = g.selectAll(".label")
+            .data(monthdata)
+            .enter()
+            .append("text")
+            .attr("class", "label")
+            .attr("x",
+            function (d, i) {
+                return d.month + i * 77 + 15;
+            })
+            .attr("y",
+            function (d) {
+                return 220;
+            })
+            .text(function (d) {
+                return d.temperature;
+            })
+            .attr("font-size", "13px")
+            .attr("fill", "white");
+
+    </script>

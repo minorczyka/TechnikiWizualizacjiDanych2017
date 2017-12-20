@@ -1,0 +1,63 @@
+---
+title: "Techniki Wizualizacji Danych - praca domowa 6"
+author: "Magda Tatarynowicz"
+date: "27 listopada 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(ggplot2)
+library(plotly)
+library(dplyr)
+
+colors_rgb <- col2rgb(colors(distinct = TRUE))
+
+colors_rgb <- data.frame(t(colors_rgb))
+colors_rgb["kolor"] <- colors(distinct = TRUE)
+
+colors_hsv <- rgb2hsv(colors_rgb$red,colors_rgb$green,colors_rgb$blue)
+colors_hsv <- data.frame(t(colors_hsv))
+
+colors_rgb <- data.frame(cbind(colors_rgb, colors_hsv))
+
+colors_rgb <- arrange(colors_rgb, h, s)
+colors_rgb <- colors_rgb[c(3,106:nrow(colors_rgb)),]
+colors_rgb <- colors_rgb[-351,]
+colors_rgb <- colors_rgb[-155,]
+
+colors_rgb <- arrange(colors_rgb, s)
+colors_rgb["group"] <- c(rep(1, 132), rep(2, 132), rep(3, 132))
+colors_rgb["group_name"] <- c(rep("Niskie nasycenie (pastele)", 132), rep("Średnie nasycenie", 132), rep("Wysokie nasycenie (kolory żywe)", 132))
+colors_rgb <- arrange(colors_rgb, group, h)
+colors_rgb["x"] <- rep(rep(1:33,4),3)
+colors_rgb["y"] <- c(sort(rep(1:4, 33)), sort(rep(1:4, 33)), sort(rep(1:4, 33)))
+
+p <- ggplot(colors_rgb) + 
+  scale_fill_identity() +
+  geom_rect(aes(xmin = x, ymin = y, xmax= x + 1, ymax = y + 1, fill=kolor)) +
+  facet_grid(. ~ group_name) + 
+  theme(legend.position='none', 
+        axis.line=element_blank(),
+        axis.text.x=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks=element_blank(),
+        axis.title.x=element_blank(),
+        axis.title.y=element_blank(), 
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank())
+
+```
+
+Wizualizacja pokazuje kolory dostępne w środowisku `R` uzyskane poleceniem `colors()`. Po najechaniu na wybrany kolor prezentuje się jego nazwa, której użyć można przy projektowaniu wykresów.
+
+Przedstawiona wizualizacja może pomóc użytkownikowi znaleźć kolory potrzebne do wykorzystania przy tworzeniu wykresów. Kolory podzieliłam na trzy grupy ze względu na stopień nasycenia. Dla danych ilościowych kolory o niskim nasyceniu (pastelowe, przygaszone) będą lepiej nadawały się do prezentowania małych wartości, a kolory o wysokim nasyceniu do dużych wartości. Dla danych kategorycznych dobrze pasuje każda z grup, ale warto ograniczyć się do kolorów o podobnym nasyceniu, tak aby kolorystyka wykresu była spójna.
+
+Przy tworzeniu wizualizacji ograniczyłam kolory, które według mnie niekoniecznie przydadzą się przy tworzeniu większości wykresów i mogłyby utrudnić korzystanie z palety (na przykład wiele odcieni szarości dostępnych w środowisku `R`).
+
+
+```{r}
+ggplotly(p)
+```
+

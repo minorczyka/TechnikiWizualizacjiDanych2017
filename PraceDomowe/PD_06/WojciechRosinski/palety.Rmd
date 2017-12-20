@@ -1,0 +1,95 @@
+---
+title: "Palety kolorów"
+author: "Wojciech Rosinski"
+date: "27 listopada 2017"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+W oparciu o RColorBrewer stworzyłem funkcję pozwalającą zestawić ze sobą wybrane palety każdego rodzaju, co umożliwia zobrazowanie, w jaki sposób powinny wyglądać palety w zależności od tego, jaki cel chcemy nimi uzyskać.
+Palety sekwencyjne (Sequential) sugerują, że dana zmienna ma naturę uporządkowaną, zaś jakościowe (Qualitative) pozwalają nam sądzić, że nie ma określonego porządku w symbolice wartości zmiennej.
+
+
+```{r, echo=FALSE, include=FALSE}
+library(RColorBrewer)
+library(plotly)
+library(ggplot2)
+library(dplyr)
+library(assertthat)
+
+plot_palettes <- function(type='Diverging', palette_name, num_colors=8) {
+  
+  assert_that(type == 'Diverging' || type == 'Qualitative' || type == 'Sequential')
+  
+  # Could be extented to the whole range of RColorBrewer palettes
+  if (type == 'Diverging') {
+    assert_that(palette_name %in% c('Spectral', 'RdYlGn', 'PRGn', 'BrBG'))
+  }
+  if (type == 'Qualitative') {
+    assert_that(palette_name %in% c('Set3', 'Set1', 'Pastel2', 'Paired'))
+  }
+  if (type == 'Sequential') {
+    assert_that(palette_name %in% c('YlOrRd', 'YlGnBu', 'RdPu', 'Greys'))
+  }
+  
+  manual_brewer <- brewer.pal(n=num_colors, name=palette_name)
+  df_brewer = data.frame(manual_brewer)
+  colnames(df_brewer) <- c('Color')
+  
+  gg_plot <- ggplot(df_brewer, aes(Color)) +
+    geom_bar(aes(fill=Color)) +
+    scale_fill_manual(values=manual_brewer,
+                       name='Colors') +
+    theme(axis.text.y=element_blank(),
+          axis.title.y=element_blank(),
+          legend.position="none") +
+    ggtitle(sprintf('%s colors, palette name: %s with %s colors', type, palette_name, num_colors))
+  
+  plotly_plot <- ggplotly(gg_plot)
+  return(plotly_plot)
+}
+
+plot_palettes_grid <- function(num_colors, palette_index, palettes) {
+  plot_seq1 <- plot_palettes(type='Sequential', palettes[[1]][palette_index], num_colors)
+  plot_qual1 <- plot_palettes(type='Qualitative', palettes[[2]][palette_index], num_colors)
+  plot_div1 <- plot_palettes(type='Diverging', palettes[[3]][palette_index], num_colors)
+  p <- subplot(plot_seq1, plot_qual1, plot_div1, nrows=3) %>% layout(title = 'Palettes by row: Sequential, Qualitative, Diverging')
+  return(p)
+}
+
+
+num_colors = 8
+palette_index = 1
+seq_palettes = c('YlOrRd', 'YlGnBu', 'RdPu', 'Greys')
+qual_palettes = c('Set3', 'Set1', 'Pastel2', 'Paired')
+div_palettes = c('Spectral', 'RdYlGn', 'PRGn', 'BrBG')
+all_palettes = list(seq_palettes, qual_palettes, div_palettes)
+
+pal_plot1 <- plot_palettes_grid(8, 1, all_palettes)
+pal_plot2 <- plot_palettes_grid(8, 2, all_palettes)
+pal_plot3 <- plot_palettes_grid(8, 3, all_palettes)
+pal_plot4 <- plot_palettes_grid(8, 4, all_palettes)
+
+```
+
+```{r}
+pal_plot1
+```
+
+```{r}
+pal_plot2
+```
+
+```{r}
+pal_plot3
+```
+
+```{r}
+pal_plot4
+```
