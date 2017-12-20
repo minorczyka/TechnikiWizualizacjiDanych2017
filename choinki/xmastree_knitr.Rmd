@@ -1,0 +1,59 @@
+---
+title: "Christmas tree"
+output: html_document
+author: Anton Lenartovich & Agata Czajkowska
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(rbokeh)
+library(dplyr)
+```
+
+
+
+```{r, warning=FALSE, message=FALSE, echo=TRUE}
+getTriangle <- function(topx, topy, leftx, lefty, rightx, righty, howmuchpoint=10000){
+   x <- runif(howmuchpoint, leftx, rightx)
+   y <- runif(howmuchpoint, lefty, topy)
+   
+   df <- data.frame(x = x, y= y)
+   
+   a <- (topy - lefty) / (topx - leftx)
+   b <- topy - a*topx
+   
+   df$isInside1 <- ifelse(df$x*a + b < df$y, 1, 0)
+   
+   a <- (topy - righty) / (topx - rightx)
+   b <- topy - a*topx
+   
+   df$isInside2 <- ifelse(df$x*a + b < df$y, 1, 0)
+   
+   df <- df[df$isInside1 == 0 & df$isInside2 == 0,]
+   
+   df
+}
+
+getTrank <- function(leftdownX, leftdownY, toprightX, toprightY){
+  x <- runif(10000, leftdownX, toprightX)
+  y <- runif(10000, leftdownY, toprightY)
+  
+  df <- data.frame(x,y)
+  df
+}
+
+
+drawXMasTree <- function(){
+  tr1 <- getTriangle(0, 11, -1, 9, 1, 9, 1000) %>% select(x, y) %>% data.frame()
+  tr2 <- getTriangle(0, 9, -1.5, 6, 1.5, 6) %>% select(x, y) %>% data.frame()
+  tr3 <- getTriangle(0, 6, -2.5, 2, 2.5, 2) %>% select(x, y) %>% data.frame()
+  
+  trank <- getTrank(-0.5, 1, 0.5, 2) %>% select(x, y) %>% data.frame()
+  
+  final <- rbind(tr1, tr2, tr3, trank)
+  figure() %>% ly_hexbin(final$x, final$y)
+}
+
+drawXMasTree()
+
+```

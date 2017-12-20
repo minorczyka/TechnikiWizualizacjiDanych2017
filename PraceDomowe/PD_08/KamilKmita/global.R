@@ -1,0 +1,1 @@
+dane <- readRDS("dane.RDS")
