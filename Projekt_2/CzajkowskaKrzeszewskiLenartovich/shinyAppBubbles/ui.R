@@ -20,7 +20,7 @@ shinyUI(fluidPage(
                     }
                     
                     .poster-image{
-                    
+                      display:none;
                       margin-top: 15px;
                     }
 
@@ -123,11 +123,11 @@ shinyUI(fluidPage(
     ),
   sidebarLayout(
     sidebarPanel(
-      selectInput(inputId="chooseType",
-                  label="Choose emotions",
-                  choices=c("analytical","anger","confident","fear","joy","sadness","tentative"),
-                  multiple = TRUE,
-                  selected=c("analytical","anger","confident","fear","joy","sadness","tentative")),
+      div(style = 'display: none',   selectInput(inputId="chooseType",
+                                                 label="Choose emotions",
+                                                 choices=c("analytical","anger","confident","fear","joy","sadness","tentative"),
+                                                 multiple = TRUE,
+                                                 selected=c("analytical","anger","confident","fear","joy","sadness","tentative"))),
       div(style = 'display: none', textInput(inputId="myInput", label="")),
       conditionalPanel(
             condition="input.selectAll == false",
