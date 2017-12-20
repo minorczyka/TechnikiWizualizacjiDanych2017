@@ -1,0 +1,9 @@
+﻿Wykorzystane dane pochodzą z EuroStat:
+
+http://appsso.eurostat.ec.europa.eu/nui/show.do?dataset=road_if_motorwa&lang=en
+
+Podczas przygotowania pracy wykonano przetworzenie danych przy użyciu R.
+
+Aplikacja dostępna tutaj:
+
+https://public.tableau.com/profile/piotr.krzeszewski#!/vizhome/zad_09/Dashboard1?publish=yes
