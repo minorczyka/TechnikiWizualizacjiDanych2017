@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "options(shinyapps.locale='pl_PL')\n\ndane <- readRDS(\"dane.RDS\")\n\n\nlibrary(shiny)\nlibrary(shinyjs)\n\n\n\n\nshinyUI(fluidPage(\n  \n  useShinyjs(),\n\n  titlePanel(\"Jak grają Legioniści w sezonie 2017/2018?\"),\n  \n  sidebarLayout(\n    sidebarPanel(\n      \n\n      \n      radioButtons(\n        inputId=\"filtr\",\n        label=\"Ukryj/pokaż panel filtru poszczególnych piłkarzy\",\n        choices=list(\n          \"Pokaż\",\n          \"Ukryj\"\n        ),\n        selected=\"Pokaż\"),      \n\n\n      checkboxGroupInput(inputId = \"wybraneformacje\",\n                         label = \"Zaznacz formacje, które chcesz analizować (można kilka na raz)\",\n                         choices = c(\"bramka\", \"obrona\", \"pomoc\", \"atak\"),\n                         selected = character(0)),\n\n      conditionalPanel(\n        condition = \"input.filtr == 'Pokaż'\",\n      htmlOutput(\"listaPilkarzy\")),\n      \n      sliderInput(inputId = \"range\", label = \"Zaznacz zakres kolejek:\",\n                  min = 1, max = 15,\n                  value = c(1,1))\n    ),\n    \n    mainPanel(\n      \n      tabsetPanel(\n        tabPanel(\"Wykres\", \n                 p(\"Oceny w poszczególnych kolejkach Ekstraklasy\"), \n                 plotlyOutput(\"trend\")),\n        \n        tabPanel(\"Informacje dot. wykonanej wizualizacji\",\n                 \n                 verbatimTextOutput(\"napis\")\n        )    \n      )\n    )\n  )\n  ))\n  \n",
+    "created" : 1513125968839.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3337835255",
+    "id" : "F02C9359",
+    "lastKnownWriteTime" : 1513125565,
+    "last_content_update" : 1513125565,
+    "path" : "C:/Users/Kamil/Desktop/GITHUB/WizualizacjaDanych/PD_08/ui.R",
+    "project_path" : "ui.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,221 @@
+data,id_mecz,ocena,pilkarz,rezultat,rywal,wynik,pozycja
+15-07-2017,1.0,2.0,C. Guilherme,przegrana,Górnik Zabrze,1 - 3,pomoc
+15-07-2017,1.0,3.0,A. Hlousek,przegrana,Górnik Zabrze,1 - 3,obrona
+15-07-2017,1.0,2.0,A. Jędrzejczyk,przegrana,Górnik Zabrze,1 - 3,obrona
+15-07-2017,1.0,5.0,A. Malarz,przegrana,Górnik Zabrze,1 - 3,bramka
+15-07-2017,1.0,5.0,T. Moulin,przegrana,Górnik Zabrze,1 - 3,pomoc
+15-07-2017,1.0,7.0,D. Nagy,przegrana,Górnik Zabrze,1 - 3,pomoc
+15-07-2017,1.0,3.0,M. Dąbrowski,przegrana,Górnik Zabrze,1 - 3,obrona
+15-07-2017,1.0,3.0,Ł. Broź,przegrana,Górnik Zabrze,1 - 3,obrona
+15-07-2017,1.0,2.0,K. Hamalainen,przegrana,Górnik Zabrze,1 - 3,pomoc
+15-07-2017,1.0,2.0,M. Kopczyński,przegrana,Górnik Zabrze,1 - 3,pomoc
+15-07-2017,1.0,2.0,M. Szwoch,przegrana,Górnik Zabrze,1 - 3,pomoc
+22-07-2017,2.0,5.0,M. Pazdan,remis,Korona Kielce,1 - 1,obrona
+22-07-2017,2.0,5.0,A. Hlousek,remis,Korona Kielce,1 - 1,obrona
+22-07-2017,2.0,8.0,A. Malarz,remis,Korona Kielce,1 - 1,bramka
+22-07-2017,2.0,4.0,T. Moulin,remis,Korona Kielce,1 - 1,pomoc
+22-07-2017,2.0,3.0,D. Nagy,remis,Korona Kielce,1 - 1,pomoc
+22-07-2017,2.0,4.0,Ł. Broź,remis,Korona Kielce,1 - 1,obrona
+22-07-2017,2.0,4.0,J. Czerwiński,remis,Korona Kielce,1 - 1,obrona
+22-07-2017,2.0,8.0,K. Hamalainen,remis,Korona Kielce,1 - 1,pomoc
+22-07-2017,2.0,6.0,M. Kopczyński,remis,Korona Kielce,1 - 1,pomoc
+22-07-2017,2.0,3.0,S. Szymański,remis,Korona Kielce,1 - 1,pomoc
+22-07-2017,2.0,3.0,A. Sadiku,remis,Korona Kielce,1 - 1,atak
+29-07-2017,3.0,5.0,M. Pazdan,wygrana,Sandecja Nowy Sącz,2 - 0,obrona
+29-07-2017,3.0,3.0,A. Hlousek,wygrana,Sandecja Nowy Sącz,2 - 0,obrona
+29-07-2017,3.0,5.0,A. Jędrzejczyk,wygrana,Sandecja Nowy Sącz,2 - 0,obrona
+29-07-2017,3.0,5.0,A. Malarz,wygrana,Sandecja Nowy Sącz,2 - 0,bramka
+29-07-2017,3.0,5.0,M. Kucharczyk,wygrana,Sandecja Nowy Sącz,2 - 0,pomoc
+29-07-2017,3.0,4.0,D. Nagy,wygrana,Sandecja Nowy Sącz,2 - 0,pomoc
+29-07-2017,3.0,5.0,J. Czerwiński,wygrana,Sandecja Nowy Sącz,2 - 0,obrona
+29-07-2017,3.0,5.0,M. Kopczyński,wygrana,Sandecja Nowy Sącz,2 - 0,pomoc
+29-07-2017,3.0,4.0,K. Mączyński,wygrana,Sandecja Nowy Sącz,2 - 0,pomoc
+29-07-2017,3.0,5.0,A. Sadiku,wygrana,Sandecja Nowy Sącz,2 - 0,atak
+29-07-2017,3.0,3.0,C. Pasquato,wygrana,Sandecja Nowy Sącz,2 - 0,pomoc
+05-08-2017,4.0,2.0,M. Pazdan,przegrana,Bruk-Bet Termalica Nieciecza,0 - 1,obrona
+05-08-2017,4.0,4.0,A. Hlousek,przegrana,Bruk-Bet Termalica Nieciecza,0 - 1,obrona
+05-08-2017,4.0,4.0,A. Jędrzejczyk,przegrana,Bruk-Bet Termalica Nieciecza,0 - 1,obrona
+05-08-2017,4.0,5.0,A. Malarz,przegrana,Bruk-Bet Termalica Nieciecza,0 - 1,bramka
+05-08-2017,4.0,5.0,T. Moulin,przegrana,Bruk-Bet Termalica Nieciecza,0 - 1,pomoc
+05-08-2017,4.0,4.0,J. Czerwiński,przegrana,Bruk-Bet Termalica Nieciecza,0 - 1,obrona
+05-08-2017,4.0,3.0,K. Hamalainen,przegrana,Bruk-Bet Termalica Nieciecza,0 - 1,pomoc
+05-08-2017,4.0,2.0,M. Kopczyński,przegrana,Bruk-Bet Termalica Nieciecza,0 - 1,pomoc
+05-08-2017,4.0,2.0,S. Szymański,przegrana,Bruk-Bet Termalica Nieciecza,0 - 1,pomoc
+05-08-2017,4.0,4.0,K. Mączyński,przegrana,Bruk-Bet Termalica Nieciecza,0 - 1,pomoc
+05-08-2017,4.0,2.0,A. Sadiku,przegrana,Bruk-Bet Termalica Nieciecza,0 - 1,atak
+11-08-2017,5.0,5.0,A. Malarz,wygrana,Piast Gliwice,3 - 1,bramka
+11-08-2017,5.0,4.0,A. Jędrzejczyk,wygrana,Piast Gliwice,3 - 1,obrona
+11-08-2017,5.0,7.0,C. Guilherme,wygrana,Piast Gliwice,3 - 1,pomoc
+11-08-2017,5.0,3.0,D. Chima Chukwu,wygrana,Piast Gliwice,3 - 1,atak
+11-08-2017,5.0,7.0,D. Nagy,wygrana,Piast Gliwice,3 - 1,pomoc
+11-08-2017,5.0,4.0,K. Hamalainen,wygrana,Piast Gliwice,3 - 1,pomoc
+11-08-2017,5.0,7.0,K. Mączyński,wygrana,Piast Gliwice,3 - 1,pomoc
+11-08-2017,5.0,6.0,M. Dąbrowski,wygrana,Piast Gliwice,3 - 1,obrona
+11-08-2017,5.0,5.0,M. Kucharczyk,wygrana,Piast Gliwice,3 - 1,pomoc
+11-08-2017,5.0,6.0,M. Pazdan,wygrana,Piast Gliwice,3 - 1,obrona
+11-08-2017,5.0,5.0,T. Moulin,wygrana,Piast Gliwice,3 - 1,pomoc
+20-08-2017,6.0,5.0,A. Jędrzejczyk,wygrana,Wisła Płock,1 - 0,obrona
+20-08-2017,6.0,5.0,T. Moulin,wygrana,Wisła Płock,1 - 0,pomoc
+20-08-2017,6.0,4.0,M. Dąbrowski,wygrana,Wisła Płock,1 - 0,obrona
+20-08-2017,6.0,4.0,Ł. Broź,wygrana,Wisła Płock,1 - 0,obrona
+20-08-2017,6.0,7.0,T. Jodłowiec,wygrana,Wisła Płock,1 - 0,pomoc
+20-08-2017,6.0,3.0,D. Chima Chukwu,wygrana,Wisła Płock,1 - 0,atak
+20-08-2017,6.0,6.0,R. Cierzniak,wygrana,Wisła Płock,1 - 0,bramka
+20-08-2017,6.0,6.0,C. Pasquato,wygrana,Wisła Płock,1 - 0,pomoc
+20-08-2017,6.0,3.0,H. Pereira,wygrana,Wisła Płock,1 - 0,pomoc
+20-08-2017,6.0,6.0,I. Astiz,wygrana,Wisła Płock,1 - 0,obrona
+20-08-2017,6.0,7.0,J. Niezgoda,wygrana,Wisła Płock,1 - 0,atak
+27-08-2017,7.0,5.0,A. Malarz,wygrana,Zagłębie Lubin,2 - 1,bramka
+27-08-2017,7.0,5.0,A. Sadiku,wygrana,Zagłębie Lubin,2 - 1,atak
+27-08-2017,7.0,5.0,A. Jędrzejczyk,wygrana,Zagłębie Lubin,2 - 1,obrona
+27-08-2017,7.0,4.0,C. Pasquato,wygrana,Zagłębie Lubin,2 - 1,pomoc
+27-08-2017,7.0,5.0,H. Pereira,wygrana,Zagłębie Lubin,2 - 1,pomoc
+27-08-2017,7.0,5.0,I. Astiz,wygrana,Zagłębie Lubin,2 - 1,obrona
+27-08-2017,7.0,3.0,K. Mączyński,wygrana,Zagłębie Lubin,2 - 1,pomoc
+27-08-2017,7.0,6.0,M. Kucharczyk,wygrana,Zagłębie Lubin,2 - 1,pomoc
+27-08-2017,7.0,2.0,M. Pazdan,wygrana,Zagłębie Lubin,2 - 1,obrona
+27-08-2017,7.0,5.0,T. Jodłowiec,wygrana,Zagłębie Lubin,2 - 1,pomoc
+27-08-2017,7.0,4.0,Ł. Broź,wygrana,Zagłębie Lubin,2 - 1,obrona
+09-09-2017,8.0,4.0,M. Pazdan,przegrana,Śląsk Wrocław,1 - 2,obrona
+09-09-2017,8.0,3.0,A. Hlousek,przegrana,Śląsk Wrocław,1 - 2,obrona
+09-09-2017,8.0,4.0,A. Jędrzejczyk,przegrana,Śląsk Wrocław,1 - 2,obrona
+09-09-2017,8.0,5.0,A. Malarz,przegrana,Śląsk Wrocław,1 - 2,bramka
+09-09-2017,8.0,3.0,T. Moulin,przegrana,Śląsk Wrocław,1 - 2,pomoc
+09-09-2017,8.0,2.0,T. Jodłowiec,przegrana,Śląsk Wrocław,1 - 2,pomoc
+09-09-2017,8.0,3.0,M. Kopczyński,przegrana,Śląsk Wrocław,1 - 2,pomoc
+09-09-2017,8.0,6.0,A. Sadiku,przegrana,Śląsk Wrocław,1 - 2,atak
+09-09-2017,8.0,4.0,C. Pasquato,przegrana,Śląsk Wrocław,1 - 2,pomoc
+09-09-2017,8.0,2.0,I. Astiz,przegrana,Śląsk Wrocław,1 - 2,obrona
+09-09-2017,8.0,5.0,J. Niezgoda,przegrana,Śląsk Wrocław,1 - 2,atak
+17-09-2017,9.0,4.0,A. Hlousek,wygrana,Cracovia,1 - 0,obrona
+17-09-2017,9.0,6.0,A. Malarz,wygrana,Cracovia,1 - 0,bramka
+17-09-2017,9.0,5.0,A. Sadiku,wygrana,Cracovia,1 - 0,atak
+17-09-2017,9.0,5.0,A. Jędrzejczyk,wygrana,Cracovia,1 - 0,obrona
+17-09-2017,9.0,4.0,C. Pasquato,wygrana,Cracovia,1 - 0,pomoc
+17-09-2017,9.0,4.0,D. Nagy,wygrana,Cracovia,1 - 0,pomoc
+17-09-2017,9.0,5.0,I. Astiz,wygrana,Cracovia,1 - 0,obrona
+17-09-2017,9.0,6.0,K. Hamalainen,wygrana,Cracovia,1 - 0,pomoc
+17-09-2017,9.0,5.0,K. Mączyński,wygrana,Cracovia,1 - 0,pomoc
+17-09-2017,9.0,5.0,M. Pazdan,wygrana,Cracovia,1 - 0,obrona
+17-09-2017,9.0,5.0,T. Moulin,wygrana,Cracovia,1 - 0,pomoc
+24-09-2017,10.0,6.0,M. Pazdan,przegrana,Jagiellonia Białystok,0 - 1,obrona
+24-09-2017,10.0,6.0,A. Hlousek,przegrana,Jagiellonia Białystok,0 - 1,obrona
+24-09-2017,10.0,3.0,A. Jędrzejczyk,przegrana,Jagiellonia Białystok,0 - 1,obrona
+24-09-2017,10.0,5.0,A. Malarz,przegrana,Jagiellonia Białystok,0 - 1,bramka
+24-09-2017,10.0,2.0,T. Moulin,przegrana,Jagiellonia Białystok,0 - 1,pomoc
+24-09-2017,10.0,5.0,M. Kucharczyk,przegrana,Jagiellonia Białystok,0 - 1,pomoc
+24-09-2017,10.0,4.0,D. Nagy,przegrana,Jagiellonia Białystok,0 - 1,pomoc
+24-09-2017,10.0,3.0,K. Hamalainen,przegrana,Jagiellonia Białystok,0 - 1,pomoc
+24-09-2017,10.0,2.0,M. Kopczyński,przegrana,Jagiellonia Białystok,0 - 1,pomoc
+24-09-2017,10.0,2.0,A. Sadiku,przegrana,Jagiellonia Białystok,0 - 1,atak
+24-09-2017,10.0,4.0,I. Astiz,przegrana,Jagiellonia Białystok,0 - 1,obrona
+01-10-2017,11.0,3.0,A. Hlousek,przegrana,Lech Poznań,0 - 3,obrona
+01-10-2017,11.0,4.0,A. Malarz,przegrana,Lech Poznań,0 - 3,bramka
+01-10-2017,11.0,2.0,A. Sadiku,przegrana,Lech Poznań,0 - 3,atak
+01-10-2017,11.0,4.0,D. Nagy,przegrana,Lech Poznań,0 - 3,pomoc
+01-10-2017,11.0,2.0,M. Dąbrowski,przegrana,Lech Poznań,0 - 3,obrona
+01-10-2017,11.0,3.0,M. Kopczyński,przegrana,Lech Poznań,0 - 3,pomoc
+01-10-2017,11.0,2.0,M. Kucharczyk,przegrana,Lech Poznań,0 - 3,pomoc
+01-10-2017,11.0,2.0,M. Pazdan,przegrana,Lech Poznań,0 - 3,obrona
+01-10-2017,11.0,3.0,T. Moulin,przegrana,Lech Poznań,0 - 3,pomoc
+01-10-2017,11.0,2.0,Ł. Broź,przegrana,Lech Poznań,0 - 3,obrona
+01-10-2017,11.0,3.0,K. Hamalainen,przegrana,Lech Poznań,0 - 3,pomoc
+15-10-2017,12.0,5.0,A. Hlousek,wygrana,Lechia Gdańsk,1 - 0,obrona
+15-10-2017,12.0,7.0,A. Malarz,wygrana,Lechia Gdańsk,1 - 0,bramka
+15-10-2017,12.0,6.0,C. Guilherme,wygrana,Lechia Gdańsk,1 - 0,pomoc
+15-10-2017,12.0,6.0,I. Astiz,wygrana,Lechia Gdańsk,1 - 0,obrona
+15-10-2017,12.0,7.0,J. Niezgoda,wygrana,Lechia Gdańsk,1 - 0,atak
+15-10-2017,12.0,5.0,K. Mączyński,wygrana,Lechia Gdańsk,1 - 0,pomoc
+15-10-2017,12.0,6.0,M. Kucharczyk,wygrana,Lechia Gdańsk,1 - 0,pomoc
+15-10-2017,12.0,5.0,T. Jodłowiec,wygrana,Lechia Gdańsk,1 - 0,pomoc
+15-10-2017,12.0,5.0,Ł. Broź,wygrana,Lechia Gdańsk,1 - 0,obrona
+15-10-2017,12.0,7.0,M. Pazdan,wygrana,Lechia Gdańsk,1 - 0,obrona
+15-10-2017,12.0,3.0,K. Hamalainen,wygrana,Lechia Gdańsk,1 - 0,pomoc
+22-10-2017,13.0,5.0,A. Hlousek,wygrana,Wisła Kraków,1 - 0,obrona
+22-10-2017,13.0,7.0,A. Malarz,wygrana,Wisła Kraków,1 - 0,bramka
+22-10-2017,13.0,7.0,C. Guilherme,wygrana,Wisła Kraków,1 - 0,pomoc
+22-10-2017,13.0,6.0,I. Astiz,wygrana,Wisła Kraków,1 - 0,obrona
+22-10-2017,13.0,6.0,J. Niezgoda,wygrana,Wisła Kraków,1 - 0,atak
+22-10-2017,13.0,5.0,K. Hamalainen,wygrana,Wisła Kraków,1 - 0,pomoc
+22-10-2017,13.0,5.0,K. Mączyński,wygrana,Wisła Kraków,1 - 0,pomoc
+22-10-2017,13.0,6.0,M. Kucharczyk,wygrana,Wisła Kraków,1 - 0,pomoc
+22-10-2017,13.0,6.0,M. Pazdan,wygrana,Wisła Kraków,1 - 0,obrona
+22-10-2017,13.0,5.0,T. Jodłowiec,wygrana,Wisła Kraków,1 - 0,pomoc
+22-10-2017,13.0,5.0,Ł. Broź,wygrana,Wisła Kraków,1 - 0,obrona
+29-10-2017,14.0,6.0,A. Hlousek,wygrana,Arka Gdynia,2 - 0,obrona
+29-10-2017,14.0,6.0,A. Malarz,wygrana,Arka Gdynia,2 - 0,bramka
+29-10-2017,14.0,8.0,C. Guilherme,wygrana,Arka Gdynia,2 - 0,pomoc
+29-10-2017,14.0,5.0,I. Astiz,wygrana,Arka Gdynia,2 - 0,obrona
+29-10-2017,14.0,6.0,J. Niezgoda,wygrana,Arka Gdynia,2 - 0,atak
+29-10-2017,14.0,6.0,K. Hamalainen,wygrana,Arka Gdynia,2 - 0,pomoc
+29-10-2017,14.0,6.0,K. Mączyński,wygrana,Arka Gdynia,2 - 0,pomoc
+29-10-2017,14.0,6.0,M. Kucharczyk,wygrana,Arka Gdynia,2 - 0,pomoc
+29-10-2017,14.0,7.0,M. Pazdan,wygrana,Arka Gdynia,2 - 0,obrona
+29-10-2017,14.0,4.0,T. Jodłowiec,wygrana,Arka Gdynia,2 - 0,pomoc
+29-10-2017,14.0,6.0,Ł. Broź,wygrana,Arka Gdynia,2 - 0,obrona
+05-11-2017,15.0,6.0,M. Pazdan,wygrana,Pogoń Szczecin,3 - 1,obrona
+05-11-2017,15.0,5.0,A. Hlousek,wygrana,Pogoń Szczecin,3 - 1,obrona
+05-11-2017,15.0,7.0,A. Malarz,wygrana,Pogoń Szczecin,3 - 1,bramka
+05-11-2017,15.0,7.0,M. Kucharczyk,wygrana,Pogoń Szczecin,3 - 1,pomoc
+05-11-2017,15.0,6.0,Ł. Broź,wygrana,Pogoń Szczecin,3 - 1,obrona
+05-11-2017,15.0,3.0,T. Jodłowiec,wygrana,Pogoń Szczecin,3 - 1,pomoc
+05-11-2017,15.0,5.0,K. Hamalainen,wygrana,Pogoń Szczecin,3 - 1,pomoc
+05-11-2017,15.0,5.0,K. Mączyński,wygrana,Pogoń Szczecin,3 - 1,pomoc
+05-11-2017,15.0,4.0,C. Pasquato,wygrana,Pogoń Szczecin,3 - 1,pomoc
+05-11-2017,15.0,4.0,I. Astiz,wygrana,Pogoń Szczecin,3 - 1,obrona
+05-11-2017,15.0,6.0,J. Niezgoda,wygrana,Pogoń Szczecin,3 - 1,atak
+19-11-2017,16.0,5.0,A. Hlousek,wygrana,Górnik Zabrze,1 - 0,obrona
+19-11-2017,16.0,6.0,A. Malarz,wygrana,Górnik Zabrze,1 - 0,bramka
+19-11-2017,16.0,7.0,C. Guilherme,wygrana,Górnik Zabrze,1 - 0,pomoc
+19-11-2017,16.0,6.0,I. Astiz,wygrana,Górnik Zabrze,1 - 0,obrona
+19-11-2017,16.0,4.0,J. Niezgoda,wygrana,Górnik Zabrze,1 - 0,atak
+19-11-2017,16.0,7.0,K. Hamalainen,wygrana,Górnik Zabrze,1 - 0,pomoc
+19-11-2017,16.0,5.0,K. Mączyński,wygrana,Górnik Zabrze,1 - 0,pomoc
+19-11-2017,16.0,6.0,M. Dąbrowski,wygrana,Górnik Zabrze,1 - 0,obrona
+19-11-2017,16.0,5.0,M. Kucharczyk,wygrana,Górnik Zabrze,1 - 0,pomoc
+19-11-2017,16.0,5.0,T. Moulin,wygrana,Górnik Zabrze,1 - 0,pomoc
+19-11-2017,16.0,5.0,Ł. Broź,wygrana,Górnik Zabrze,1 - 0,obrona
+25-11-2017,17.0,3.0,A. Hlousek,przegrana,Korona Kielce,2 - 3,obrona
+25-11-2017,17.0,8.0,A. Malarz,przegrana,Korona Kielce,2 - 3,bramka
+25-11-2017,17.0,6.0,C. Guilherme,przegrana,Korona Kielce,2 - 3,pomoc
+25-11-2017,17.0,3.0,I. Astiz,przegrana,Korona Kielce,2 - 3,obrona
+25-11-2017,17.0,5.0,J. Niezgoda,przegrana,Korona Kielce,2 - 3,atak
+25-11-2017,17.0,6.0,K. Hamalainen,przegrana,Korona Kielce,2 - 3,pomoc
+25-11-2017,17.0,6.0,K. Mączyński,przegrana,Korona Kielce,2 - 3,pomoc
+25-11-2017,17.0,3.0,M. Dąbrowski,przegrana,Korona Kielce,2 - 3,obrona
+25-11-2017,17.0,5.0,M. Kucharczyk,przegrana,Korona Kielce,2 - 3,pomoc
+25-11-2017,17.0,4.0,T. Moulin,przegrana,Korona Kielce,2 - 3,pomoc
+25-11-2017,17.0,4.0,Ł. Broź,przegrana,Korona Kielce,2 - 3,obrona
+25-11-2017,18.0,3.0,A. Hlousek,przegrana,Korona Kielce,2 - 3,obrona
+25-11-2017,18.0,8.0,A. Malarz,przegrana,Korona Kielce,2 - 3,bramka
+25-11-2017,18.0,6.0,C. Guilherme,przegrana,Korona Kielce,2 - 3,pomoc
+25-11-2017,18.0,3.0,I. Astiz,przegrana,Korona Kielce,2 - 3,obrona
+25-11-2017,18.0,5.0,J. Niezgoda,przegrana,Korona Kielce,2 - 3,atak
+25-11-2017,18.0,6.0,K. Hamalainen,przegrana,Korona Kielce,2 - 3,pomoc
+25-11-2017,18.0,6.0,K. Mączyński,przegrana,Korona Kielce,2 - 3,pomoc
+25-11-2017,18.0,3.0,M. Dąbrowski,przegrana,Korona Kielce,2 - 3,obrona
+25-11-2017,18.0,5.0,M. Kucharczyk,przegrana,Korona Kielce,2 - 3,pomoc
+25-11-2017,18.0,4.0,T. Moulin,przegrana,Korona Kielce,2 - 3,pomoc
+25-11-2017,18.0,4.0,Ł. Broź,przegrana,Korona Kielce,2 - 3,obrona
+02-12-2017,19.0,5.0,A. Hlousek,remis,Sandecja Nowy Sącz,- - -,obrona
+02-12-2017,19.0,3.0,A. Malarz,remis,Sandecja Nowy Sącz,- - -,bramka
+02-12-2017,19.0,1.0,C. Guilherme,remis,Sandecja Nowy Sącz,- - -,pomoc
+02-12-2017,19.0,2.0,I. Astiz,remis,Sandecja Nowy Sącz,- - -,obrona
+02-12-2017,19.0,6.0,J. Niezgoda,remis,Sandecja Nowy Sącz,- - -,atak
+02-12-2017,19.0,5.0,K. Hamalainen,remis,Sandecja Nowy Sącz,- - -,pomoc
+02-12-2017,19.0,3.0,K. Mączyński,remis,Sandecja Nowy Sącz,- - -,pomoc
+02-12-2017,19.0,6.0,M. Dąbrowski,remis,Sandecja Nowy Sącz,- - -,obrona
+02-12-2017,19.0,2.0,M. Kucharczyk,remis,Sandecja Nowy Sącz,- - -,pomoc
+02-12-2017,19.0,5.0,T. Moulin,remis,Sandecja Nowy Sącz,- - -,pomoc
+02-12-2017,19.0,5.0,Ł. Broź,remis,Sandecja Nowy Sącz,- - -,obrona
+09-12-2017,20.0,5.0,M. Pazdan,wygrana,Bruk-Bet Termalica Nieciecza,3 - 0,obrona
+09-12-2017,20.0,5.0,C. Guilherme,wygrana,Bruk-Bet Termalica Nieciecza,3 - 0,pomoc
+09-12-2017,20.0,7.0,A. Hlousek,wygrana,Bruk-Bet Termalica Nieciecza,3 - 0,obrona
+09-12-2017,20.0,6.0,A. Malarz,wygrana,Bruk-Bet Termalica Nieciecza,3 - 0,bramka
+09-12-2017,20.0,6.0,T. Moulin,wygrana,Bruk-Bet Termalica Nieciecza,3 - 0,pomoc
+09-12-2017,20.0,6.0,M. Dąbrowski,wygrana,Bruk-Bet Termalica Nieciecza,3 - 0,obrona
+09-12-2017,20.0,6.0,Ł. Broź,wygrana,Bruk-Bet Termalica Nieciecza,3 - 0,obrona
+09-12-2017,20.0,8.0,K. Hamalainen,wygrana,Bruk-Bet Termalica Nieciecza,3 - 0,pomoc
+09-12-2017,20.0,5.0,K. Mączyński,wygrana,Bruk-Bet Termalica Nieciecza,3 - 0,pomoc
+09-12-2017,20.0,7.0,C. Pasquato,wygrana,Bruk-Bet Termalica Nieciecza,3 - 0,pomoc
+09-12-2017,20.0,3.0,J. Niezgoda,wygrana,Bruk-Bet Termalica Nieciecza,3 - 0,atak
