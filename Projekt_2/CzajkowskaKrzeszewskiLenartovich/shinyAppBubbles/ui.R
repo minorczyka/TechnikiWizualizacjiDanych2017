@@ -134,7 +134,7 @@ shinyUI(fluidPage(
             div(style = 'overflow-x: scroll', DT::dataTableOutput('choosingTable'))
       ),
       checkboxInput("selectAll","Select all characters"),
-      checkboxInput("wholeScenes", "Show whole scenes")
+      checkboxInput("wholeScenes", "Show whole scenes", TRUE)
       
     ),  
     # Show ui
