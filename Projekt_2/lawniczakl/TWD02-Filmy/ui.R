@@ -33,10 +33,15 @@ shinyUI(fluidPage(
       sidebarPanel(
         selectInput("heroAutoSel", "Select visible heroes", 
                     choices=c("automatically", "manually")),
-        htmlOutput("heroesUI")
+        htmlOutput("heroesUI"),
+        selectInput("keyWordSelection", "Select key word", 
+                    choices=c("RING", "MORDOR", "ELVES", "RIVENDELL", "MORIA", "SAURON", "SARUMAN", "ELROND", "SHIRE"))
       ),
+      
       mainPanel(
-        plotOutput("heroGantt")
+        plotOutput("heroGantt"),
+        br(),
+        plotOutput("keyWords", height = "80px")
       )
     )
   )

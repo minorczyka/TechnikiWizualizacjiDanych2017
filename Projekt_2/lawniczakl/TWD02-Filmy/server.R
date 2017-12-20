@@ -142,4 +142,51 @@ shinyServer(function(input, output) {
       timeHeroPlot(input$heroes)
     }
   })
+  
+  output$keyWords <- renderPlot({
+   
+    
+    
+    data<-read.csv("data/scenario.csv", stringsAsFactors=TRUE)
+    
+    if(input$group == "scenes") {
+      scenes <- input$sliderScene
+      
+      data$scene <- data$scene %>% as.factor %>% as.integer
+      if(!is.null(scenes)) {
+        data <- data %>% filter(scene >= scenes[1], scene <= scenes[2])
+      }
+    }
+    
+    else if(input$group=="time")
+    {
+      dtl <- 60
+      dtr <- 300
+      time <- input$sliderTime
+      if(is.null(time))
+        time <- 0
+      
+      data <- data %>% filter(start > time-dtl, end < time+dtr)
+    }
+    
+    length<-dim(data)[1]
+    present<-integer(length)
+    
+    for(i in 1:length)
+    {
+      present[i]<-as.integer(grepl(input$keyWordSelection, toupper((data$dialog)[i])))
+    }
+    
+    time<-1:length 
+    
+    words<-data.frame(time, present)
+    
+    ggplot(words, aes(time, present)) + geom_line(color='steelblue', size=1) + coord_cartesian(ylim=c(0.8, 1.1)) + theme(
+      axis.title.x=element_blank(),
+            axis.text.x=element_blank(),
+            axis.ticks.x=element_blank(),
+      axis.title.y=element_blank(),
+      axis.text.y=element_blank(),
+      axis.ticks.y=element_blank()) + ggtitle("Key word frquency")
+  })
 })
