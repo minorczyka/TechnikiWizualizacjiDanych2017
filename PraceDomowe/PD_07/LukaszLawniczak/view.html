@@ -1,0 +1,41 @@
+﻿<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.15/d3.js"></script>
+	<script src="data.js"></script>
+	<script src="vm.js"></script>
+</head>
+<body onload="updatePlot()">
+	<p style="width: 900px">
+		Praca domowa powstała na podstawie artykułu o <a href="http://appfunds.blogspot.com/2017/11/rajd-sw-Mikolaja-na-gieldzie.html"> efekcie świętego Mikołaja</a>. Przedstawione w nim zostały dane dotyczące zmian polskich indeksów giełdowych (WIG, WIG20, mWIG40, sWIG80) w okresie 30.11 - 31.12 z ostatnich 20 lat. Dane były przedstawione w postaci tabelki.
+	</p>
+	
+	<div style="width:500px;padding-left:200px">
+		<svg id="plot" height="500" width="100%">
+			<text x="115" y="35" style="font-size:32">Efekt świętego Mikołaja</text>
+			<line></line>
+			<line></line>
+			<line></line>
+			<line></line>
+			<g id="yaxis"></g>
+			<g id="xaxis"></g>
+			<g id="year">
+				<rect x="227" y="464" width="70" height="30" 
+					  fill="#ffffff" fill-opacity="0.8"></rect>
+				<text x="237" y="488" text-anchor="center"
+					  style="font-size:24"></text>
+			</g>
+			<g id="legend" style="stroke-width:2" transform="translate(0, 25)">
+				
+			</g>
+		</svg>
+		<div style="width:100%;padding-left:10px;padding-right:10px;">
+			<span style="float:left;padding:2px">1997</span>
+			<input id="slider-time" type="range" style="width:390px;float:left" 
+				   min="1997" max="2016" step="1" value="2016" 
+				   oninput="updatePlot()"/>
+			<span style="float:left;;padding:2px">2016</span>
+		<div>
+	</div>
+</body>
+</html>

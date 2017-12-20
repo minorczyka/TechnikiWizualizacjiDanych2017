@@ -1,0 +1,74 @@
+---
+title: 'Praca domowa #6'
+author: "Anton Lenartovich"
+date: "November 27, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(RColorBrewer)
+library(grid)
+library(gridExtra)
+library(wesanderson)
+```
+
+Poniżej zostały zestawione niektóre z dostępnych palet z pakietu $RColorBrewer$. Dostępne są między innymi palety typu $diverging$, $qualitative$ oraz $sequential$. Tak zestawione palety pozwalają na szybsze wybranie odpowiednich kolorów do wizualizacji danych.
+
+```{r echo=FALSE, warning=FALSE, error=FALSE, fig.align='center', fig.width=10}
+
+df <- data.frame(x = 1:20, y = rep(1, 20))
+div <- c("BrBG", "PiYG", "PRGn", "PuOr", "RdBu", "RdGy", "RdYlBu", "RdYlGn", "Spectral")
+qual <- c("Accent", "Dark2", "Paired", "Pastel1", "Pastel2", "Set1", "Set2", "Set3")
+sequen <- c("Blues", "BuGn", "BuPu", "GnBu", "Greens", "Greys", "Oranges", "OrRd", "PuBu", "PuBuGn", 
+            "PuRd", "Purples", "RdPu", "Reds", "YlGn", "YlGnBu", "YlOrBr")
+
+
+generatePlots <- function(palette){
+  listOfPlots <- list()
+  for(i in 1:length(palette)){
+    p <- ggplot(df, aes(x, y)) +
+      geom_tile(aes(fill=x)) + 
+      scale_fill_distiller(palette = palette[i]) + 
+      theme(legend.position="none",
+            axis.title.x=element_blank(),
+            axis.text.x=element_blank(),
+            axis.ticks.x=element_blank(),
+            axis.title.y=element_blank(),
+            axis.text.y=element_blank(),
+            axis.ticks.y=element_blank(),
+            plot.title = element_text(hjust = 0.5))+
+      coord_fixed(ratio = 0.2) + 
+      coord_flip() +
+      ggtitle(palette[i])
+    listOfPlots[[i]] <- p
+  }
+  listOfPlots
+}
+
+
+drawPlots <- function(plots, ncol, title){
+  title <- textGrob(title, gp=gpar(fontface="bold"))
+  grid.arrange(grobs=plots, ncol=ncol, top=title)
+}
+
+
+```
+
+```{r echo=FALSE, warning=FALSE, error=FALSE, fig.align='center', fig.width=10, fig.height=3}
+divPlots <- generatePlots(div)
+drawPlots(divPlots, ncol=length(div), "Diverging")
+```
+
+```{r echo=FALSE, warning=FALSE, error=FALSE, fig.align='center', fig.width=10, fig.height=3}
+qualPlots <- generatePlots(qual)
+drawPlots(qualPlots, ncol=length(qual), "Qualitative")
+```
+
+```{r echo=FALSE, warning=FALSE, error=FALSE, fig.align='center', fig.width=10, fig.height=5.5}
+sequenPlots <- generatePlots(sequen)
+drawPlots(sequenPlots, ncol=10, "Sequential")
+```
+
+
