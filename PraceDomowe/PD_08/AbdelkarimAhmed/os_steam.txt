@@ -1,0 +1,17 @@
+Wersja;Rodzina;Architektura;Procent
+Windows 7;Windows;x64;69.89
+Windows 10;Windows;x64;23.65
+Windows 8.1;Windows;x64;2.47
+Windows 7;Windows;x86;1.41
+Windows 10;Windows;x86;0.29
+Windows 8;Windows;x64;0.27
+Windows XP;Windows;x86;0.22
+Windows 8.1;Windows;x86;0.06
+Other Windows;Windows;x86;0.07
+MacOS "Sierra" 10.12;MacOS;x64;0.55
+MacOS "High Sierra" 10.13;MacOS;x64;0.3
+MacOS "El Capitan" 10.11;MacOS;x64;0.18
+MacOS "Yosemite" 10.10;MacOS;x64;0.11
+Other MacOS;MacOS;x64;0.21
+Ubuntu 16.04.3 LTS;Linux;x64;0.07
+Other Linux;Linux;x64;0.20

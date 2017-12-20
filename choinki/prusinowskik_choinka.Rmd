@@ -1,0 +1,35 @@
+---
+title: "Choinka"
+author: "Karol Prusinowski"
+date: "20 grudnia 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(vegalite)
+```
+
+## Choinka
+
+```{r cars}
+data <- data.frame(x=1:2, y=c(10, 3), z =c("1","1"))
+data <- rbind(data.frame(x=2:3, y=c(8,3), z = c("2","2")), data)
+data <- rbind(data.frame(x=3:4, y=c(5,0), z = c("3","3")), data)
+data <- rbind(data.frame(x=c(0,1), y=c(1,1), z = c("0","0")), data)
+data <- rbind(data, data.frame(x=data$x, y = -data$y, z = c("4", "4","5", "5","6", "6","7", "7")))
+vegalite() %>%
+  cell_size(300, 200) %>%
+  add_data(data) %>%
+  encode_x("x", "temporal") %>%
+  encode_y("y", "quantitative") %>%
+  encode_color("z", "nominal") %>%
+  scale_color_nominal(domain=c("0", "1","2","3","4","5","6","7"),
+                      range=c("#8B4513", "#007f00","#006600","#004c00", "#8B4513", "#004c00", "#006600", "#007f00")) %>%
+  axis_x(axisWidth=0, format="", labelAngle=0) %>%
+  mark_area()
+
+
+
+
+```
