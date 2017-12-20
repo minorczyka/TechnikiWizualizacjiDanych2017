@@ -1,0 +1,437 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>PS4</title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <style type="text/css">
+        div {
+            width: 50%;
+
+            margin-left: auto;
+
+            margin-right: auto;
+            text-align: center;
+        }
+
+
+        #containter {
+            min-width: 310px;
+            height: 400px;
+            margin: 0 auto;
+            width: 100%
+        }
+
+        input,
+        select {
+            margin: 5px;
+        }
+
+        .scale-input {
+            max-width: 40px;
+            display: inline-block;
+        }
+
+        bestMovie {
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+    <hr />
+    <h3><div id="bestMovie" class="bestMovie"></div></h3>
+    <hr />
+    <div>
+        <input type="text" class="form-control" id="movieName" placeholder="Enter movie title" list="moviesNames" />
+        <datalist id="moviesNames">
+
+        </datalist>
+        <button onclick="addMovie()" class="btn btn-primary">Add</button>
+    </div>
+    <hr />
+    <div>
+
+        Revert category value
+        <br />
+        <select id="revertSelect">
+                <option value="0">swear words count (now: more - better)</option>
+                <option value="1">words count (now: more - better)</option>
+                <option value="2">score (now: more - better)</option>
+                <option value="3">duration (now: more - better)</option>
+                <option value="4">year (now: more - better)</option>
+                <option value="5">characters (now: more - better)</option>
+              </select>
+        <br />
+        <button class="btn btn-success" onclick="revertCategory()">Revert</button>
+        <hr /> Change category impact
+        <br />
+        <select id="scaleSelect" onchange="updateMinMaxText()">
+            <option value="0">swear words count</option>
+            <option value="1">words count</option>
+            <option value="2">score</option>
+            <option value="3">duration</option>
+            <option value="4">year</option>
+            <option value="5">characters</option>
+              </select>
+        <div class="scaleDiv">
+            <span> min <input type="text" class="form-control scale-input" id="min" value="0"> </span>
+            <span> max <input type="text" class="form-control scale-input" id="max" value="5"> </span>
+        </div>
+        <br />
+        <button class="btn btn-info" onclick="scaleCategory()">Change</button>
+        <hr />
+        <input type="text" class="form-control" id="deleteMovieName" placeholder="Enter movie title" list="addedMoviesNames" />
+        <datalist id="addedMoviesNames">
+        </datalist>
+
+        <button onclick="deleteMovie()" class="btn btn-danger">Delete movie</button>
+        <hr />
+    </div>
+</body>
+<script type="text/javascript">
+    function createMovie(name, swear_words_count, words_count, score, english_name, duration, year, polish_name, number_of_characters) {
+        return {
+            name: english_name, swear_words_count: swear_words_count, words_count: words_count, score: score,
+            english_name: english_name, duration: duration, year: year, polish_name: polish_name,
+            number_of_characters: number_of_characters,
+            data: [swear_words_count, words_count, score, duration, year, number_of_characters]
+        };
+    }
+
+    var movies = [
+        // createMovie('american_sniper', 4.5000000, 0.500000, 3.8, 'American Sniper', 3, 5, 'Snajper', 2.647059),
+        // createMovie('avatar', 2.4047619, 4.500000, 3.7, 'Avatar', 4, 1, 'Avatar', 1.117647),
+        // createMovie('deadpool', 1.3571429, 1.701900, 3.8, 'Deadpool', 2, 5, 'Deadpool', 0.000000),
+        // createMovie('inception', 0.6904762, 2.157957, 4.15, 'Inception', 2, 2, 'Incepcja', 1.058824),
+        // createMovie('interstellar', 0.8809524, 4.432542, 3.85, 'Interstellar', 4, 3, 'Interstellar', 1.352941),
+        // createMovie('star_wars', 0.5000000, 1.448535, 3.75, 'Star Wars: The Force Awakens', 5, 4, 'Gwiezdne wojny: Przebudzenie Mocy', 5.000000)
+    ];
+
+    var originalScales = [
+        createMovie('american_sniper', 4.5000000, 0.500000, 3.8, 'American Sniper', 3, 5, 'Snajper', 2.647059),
+        createMovie('avatar', 2.4047619, 4.500000, 3.7, 'Avatar', 4, 1, 'Avatar', 1.117647),
+        createMovie('deadpool', 1.3571429, 1.701900, 3.8, 'Deadpool', 2, 5, 'Deadpool', 0.000000),
+        createMovie('inception', 0.6904762, 2.157957, 4.15, 'Inception', 2, 2, 'Incepcja', 1.058824),
+        createMovie('interstellar', 0.8809524, 4.432542, 3.85, 'Interstellar', 4, 3, 'Interstellar', 1.352941),
+        createMovie('star_wars', 0.5000000, 1.448535, 3.75, 'Star Wars: The Force Awakens', 5, 4, 'Gwiezdne wojny: Przebudzenie Mocy', 5.000000)
+    ];
+
+
+    var formatRising = "(now: more - better)";
+    var formatDecreasing = "(now: less - better)";
+
+    var scales = [{
+        min: 0,
+        max: 5
+    }, {
+        min: 0,
+        max: 5
+    }, {
+        min: 0,
+        max: 5
+    }, {
+        min: 0,
+        max: 5
+    }, {
+        min: 0,
+        max: 5
+    }, {
+        min: 0,
+        max: 5
+    }]
+
+
+    var shownMovies = [];
+
+    function scaledValue(seriesId, value) {
+        var min = scales[seriesId]['min']
+        var max = scales[seriesId]['max']
+        return (max - min) / 5 * value + min;
+    }
+
+    function scaleBack(seriesId, value) {
+        var min = scales[seriesId]['min']
+        var max = scales[seriesId]['max']
+        return 5 * (value - min) / (max - min);
+    }
+
+    function updateMinMaxText() {
+        var scaleSelect = document.getElementById('scaleSelect').value;
+        document.getElementById('min').value = scales[scaleSelect]['min'];
+        document.getElementById('max').value = scales[scaleSelect]['max'];
+    }
+
+    function revertCategory() {
+        var revertSelect = document.getElementById('revertSelect');
+        for (i = 0; i < chart.series[0].data.length; i++) {
+
+            chart.series[revertSelect.value].data[i].update({
+                y: scaleBack(revertSelect.value, chart.series[revertSelect.value].data[i].y)
+            });
+
+            chart.series[revertSelect.value].data[i].update({
+                y: 5 - chart.series[revertSelect.value].data[i].y
+            });
+
+            chart.series[revertSelect.value].data[i].update({
+                y: scaledValue(revertSelect.value, chart.series[revertSelect.value].data[i].y)
+            });
+        }
+        if (revertSelect[revertSelect.value].innerText.indexOf(formatRising) !== -1) {
+            revertSelect[revertSelect.value].innerText = revertSelect[revertSelect.value].innerText.replace(formatRising, formatDecreasing);
+        } else {
+            revertSelect[revertSelect.value].innerText = revertSelect[revertSelect.value].innerText.replace(formatDecreasing, formatRising);
+        }
+        showBestMovie();
+    }
+
+    function scaleCategory() {
+        var scaleSelect = document.getElementById('scaleSelect');
+
+        var min = parseInt(document.getElementById('min').value);
+        var max = parseInt(document.getElementById('max').value);
+
+        if (max <= min)
+            return;
+
+        for (i = 0; i < chart.series[0].data.length; i++)
+            chart.series[scaleSelect.value].data[i].update({
+                y: scaleBack(scaleSelect.value, chart.series[scaleSelect.value].data[i].y)
+            });
+
+        scales[scaleSelect.value]['min'] = min;
+        scales[scaleSelect.value]['max'] = max;
+
+        for (i = 0; i < chart.series[0].data.length; i++)
+            chart.series[scaleSelect.value].data[i].update({
+                y: scaledValue(scaleSelect.value, chart.series[scaleSelect.value].data[i].y)
+            });
+
+        showBestMovie();
+    }
+
+    function addMovie(name = undefined) {
+        if (shownMovies.length == 6)
+            return;
+        var movieName = (name == undefined) ? document.getElementById("movieName").value : name;
+
+        var index = -1;
+        for (i = 0; i < movies.length; i++) {
+            if (movieName == movies[i].english_name) {
+                index = i;
+                break;
+            }
+        }
+        if (index == -1)
+            return;
+        for (var i = 0; i < shownMovies.length; i++) {
+            if (shownMovies[i] == index) {
+                return;
+            }
+        }
+        shownMovies.push(index);
+        addMovieToDatalist("addedMoviesNames", movies[index]);
+        removeMovieFromDatalist("moviesNames", movies[index]);
+        redrawChart();
+        if (name == undefined){
+            document.getElementById("movieName").value = "";
+        }
+    }
+
+    function addMovieToDatalist(datalistId, movie) {
+        var datalist = document.getElementById(datalistId);
+        var option = document.createElement("option");
+        option.value = movie.english_name;
+        datalist.appendChild(option);
+    }
+
+    function removeMovieFromDatalist(datalistId, movie) {
+        var datalist = document.getElementById(datalistId);
+        for (i = 0; i < datalist.childNodes.length; i++) {
+            if (datalist.childNodes[i].value == movie.english_name) {
+                datalist.removeChild(datalist.childNodes[i]);
+                break;
+            }
+        }
+    }
+
+    function deleteMovie(movie) {
+        if (shownMovies.length == 0)
+            return;
+        var movieName = document.getElementById("deleteMovieName");
+
+        var index = -1;
+        for (i = 0; i < shownMovies.length; i++) {
+            if (movieName.value == movies[shownMovies[i]].english_name) {
+                index = i;
+                break;
+            }
+        }
+        if (index == -1)
+            return;
+        removeMovieFromDatalist("addedMoviesNames", movies[shownMovies[index]]);
+        addMovieToDatalist("moviesNames", movies[shownMovies[index]]);
+        shownMovies.splice(index, 1);
+        redrawChart();
+        movieName.value = "";
+    }
+
+    function redrawChart() {
+        categories = [];
+        for (i = 0; i < chart.series.length; i++) {
+
+            data = [];
+            for (j = 0; j < shownMovies.length; j++) {
+                if (i == 0) {
+                    categories.push(movies[shownMovies[j]].name);
+                }
+                data.push(movies[shownMovies[j]].data[i]);
+                chart.series[i].setData(data, true);
+                if (i == 0) {
+                    chart.xAxis[0].setCategories(categories);
+                }
+            }
+
+            for (j = 0; j < chart.series[i].data.length; j++)
+                chart.series[i].data[j].update({
+                    y: scaledValue(i, chart.series[i].data[j].y)
+                });
+        }
+        showBestMovie();
+    }
+
+
+    var chart = Highcharts.chart('container', {
+        chart: {
+            type: 'area'
+        },
+        title: {
+            text: 'Movies ranking'
+        },
+        xAxis: {
+            categories: [],
+            tickmarkPlacement: 'on',
+            title: {
+                enabled: false
+            }
+        },
+        yAxis: {
+            title: {
+                text: "Score"
+            }
+        },
+        tooltip: {
+            split: true,
+
+        },
+        plotOptions: {
+            area: {
+                stacking: 'normal',
+                lineColor: '#666666',
+                lineWidth: 1,
+                marker: {
+                    lineWidth: 1,
+                    lineColor: '#666666'
+                }
+            }
+        },
+        series: [
+            {
+                name: 'Swear words',
+                data: []
+            },
+            {
+                name: 'Words',
+                data: []
+            },
+
+            {
+                name: 'Score',
+                data: []
+            },
+            {
+                name: 'Duration',
+                data: []
+            },
+            {
+                name: 'Year',
+                data: []
+            },
+            {
+                name: 'Number of characters',
+                data: []
+            }
+        ]
+    });
+
+    function whichMax(data) {
+        var max = -1;
+        var max_ind = undefined;
+        for(var i = 0; i < data.length; i++) {
+            if(max < data[i]) {
+                max = data[i];
+                max_ind = i;
+            }
+        }
+        return max_ind;
+    }
+
+    function showBestMovie() {
+        scores = []
+        for (i = 0; i < chart.series[0].data.length; i++){
+            score = 0;
+            for(j = 0; j < chart.series.length; j++)
+                score += chart.series[j].data[i].y;
+            scores.push(score);
+        }
+        document.getElementById('bestMovie').innerText = "The best movie for you is: " + movies[shownMovies[whichMax(scores)]].name;
+        
+    }
+
+    data = "Name,Words.count,Swear.words,Score,English.name,Duration,Year,Polish.name,Number.of.characters|2012,2.80588024542075,1.5,3.1,2012,4,1,2012,2.91860465116279|american_hustle,3.72558108289668,3.13636363636364,3.35,American Hustle,3,3,American Hustle,3.62558139534884|american_sniper,2.23747144968427,4.5,3.8,American Sniper,3,4,Snajper,3.64418604651163|avatar,4.5,2.5,3.7,Avatar,4,1,Avatar,3.16046511627907|avengers,2.51191275919208,2.22727272727273,3.75,The Avengers,3,1,Avengers,3.43953488372093|deadpool,2.91730485019481,1.5,3.8,Deadpool,3,4,Deadpool,2.80697674418605|fault_in_our_stars,2.37182587666264,1.31818181818182,3.75,The Fault in Our Stars,3,3,Gwiazd naszych wina,2.86279069767442|gravity,1.64129607237225,1.22727272727273,3.3,Gravity,2,3,Grawitacja,4.16511627906977|hancock,2.40550405302521,3.04545454545455,3.5,Hancock,2,1,Hancock,3.06744186046512|inception,3.17526534999328,0.863636363636364,4.15,Inception,3,1,Incepcja,3.14186046511628|interstellar,4.46184334273814,1.04545454545455,3.95,Interstellar,4,3,Interstellar,3.23488372093023|into_the_woods,1.49171481033633,0.590909090909091,3,Into the Woods,3,3,Tajemnice lasu,3.14186046511628|pretty_woman,2.10598325048144,0.863636363636364,3.7,Pretty Woman,2,0,Pretty Woman,2.28604651162791|saw,2.62817412333736,1.86363636363636,3.35,Saw,2,1,Piła,0.5|shrek,0.5,0.5,3.9,Shrek,2,0,Shrek,1.22558139534884|social_network,2.37182587666264,1.31818181818182,3.5,The Social Network,3,1,The Social Network,2.86279069767442|star_wars,2.77399346141789,0.681818181818182,3.75,Star Wars: The Force Awakens,5,3,Gwiezdne wojny: Przebudzenie Mocy,4.38837209302326|ted,2.98412378521206,4.13636363636364,3.25,Ted,2,1,Ted,4.01627906976744|thor,3.71662412109812,1.13636363636364,3.45,Thor,2,1,Thor,4.5|yes_man,2.10598325048144,0.863636363636364,3.5,Yes man,2,1,Jestem na tak,2.28604651162791|"
+
+    window.onload = function(){ 
+            processData(data);
+            showBestMovie();
+        }
+
+    function processData(data) {
+        var allTextLines = data.split(/\|/);
+        var headers = allTextLines[0].split(',');
+        var lines = [];
+
+        for (var i = 1; i < allTextLines.length; i++) {
+            var row = allTextLines[i].split(',');
+            if (row.length == headers.length) {
+                movies.push(createMovie(row[0], Number(row[1]), Number(row[2]), Number(row[3]), row[4], Number(row[5]), Number(row[6]), row[7], Number(row[8])));
+            }
+        }
+        var datalist = document.getElementById("moviesNames")
+        for (i = 0; i < movies.length; i++) {
+            var option = document.createElement("option")
+            option.value = movies[i].english_name;
+            datalist.appendChild(option);
+        }
+        addMovie('Avatar');
+        addMovie('Star Wars: The Force Awakens');
+        addMovie('Interstellar');
+        addMovie('Inception');
+    }
+
+</script>
+
+</html>
