@@ -1,12 +1,19 @@
 # Projekt 3
 
 Celem trzeciego projektu jest graficzne objaśnienie pewnego zagadnienia (lista poniżej).
+
 Wynikiem projektu jest plakat formatu A2, który należy przynieść wydrukowany na ostatnie zajęcia. 
+
 Szablon plakatu znajduje się [tutaj](https://github.com/pbiecek/TechnikiWizualizacjiDanych2017/blob/master/Projekt_3/projekt3.pdf). W górnym panelu należy uzupełnić dane autorów oraz tytuł plakatu.
+
 Każdy zespół otrzyma unikalny kod QR który umieści na plakacie w prawym górnym rogu.
+
 Dolny obszar można dowolnie zapełnić. 
+
 Plakat zawierać może jeden lub więcej wykresów.
+
 Wykresy mogą być wykonane w dowolnym narzędziu i złożone w plakat z użyciem dowolnej techniki.
+
 Wykresy mogą być okraszone ilustracjami oraz objaśnieniami.
 
 
