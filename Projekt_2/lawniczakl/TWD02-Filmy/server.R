@@ -11,14 +11,14 @@ library(shiny)
 library(dplyr)
 library(ggplot2)
 library(hms)
+library(stringr)
+library(reshape2)
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
   
-  scenario <- reactive({
-    read.csv("data/scenario.csv", stringsAsFactors=TRUE) %>% 
+  scenario <- read.csv("data/scenario.csv", stringsAsFactors=TRUE) %>% 
       filter(start != 0, end != 0)
-  })
   
   timeHeroData <- reactive({
     dtl <- 60
@@ -26,23 +26,23 @@ shinyServer(function(input, output) {
     time <- input$sliderTime
     if(is.null(time))
       time <- 0
-    d1 <- scenario()
+    d1 <- scenario
     
-    d1 <- d1 %>% filter(start > time-dtl, end < time+dtr)
+    d1 <- d1 %>% filter(end > time-dtl, start < time+dtr)
     d1$start <- pmax(d1$start, time-dtl)
     d1$end <- pmin(d1$end, time+dtr)
     d1
   })
   
   sceneHeroData <- reactive({
-    d1 <- scenario()
+    d1 <- scenario
     scenes <- input$sliderScene
     
     d1$scene <- d1$scene %>% as.factor %>% as.integer
     if(!is.null(scenes)) {
       d1 <- d1 %>% filter(scene >= scenes[1], scene <= scenes[2])
     }
-    d1 %>% select(name, scene) %>% distinct
+    d1
   })
   
   
@@ -67,7 +67,7 @@ shinyServer(function(input, output) {
   }
   
   sceneHeroPlot <- function(heroes) {
-    d1 <- sceneHeroData()
+    d1 <- sceneHeroData() %>% select(name, scene) %>% distinct
     if(is.null(heroes)) {
       most_frequent <- d1 %>% group_by(name) %>%
         summarise(n = n()) %>% arrange(desc(n)) %>% head(n=9)
@@ -85,7 +85,7 @@ shinyServer(function(input, output) {
   
   
   output$sliderTimeUI <- renderUI({
-    data <- scenario()
+    data <- scenario
     if(input$group == "time") {
       maxTime <- data %>% select(end) %>% as.vector %>% max
       minVal <- as.POSIXct(0, origin="1970-01-01", tz="UTC")
@@ -106,7 +106,7 @@ shinyServer(function(input, output) {
       if(is.null(time))
         time <- 0
       
-      sc <- scenario() %>% 
+      sc <- scenario %>% 
         filter(start <= time) %>%
         arrange(desc(start))
       if(nrow(sc) == 0)
@@ -117,7 +117,7 @@ shinyServer(function(input, output) {
         sc <- sc[1, "scene"] %>% as.character
       sc
     } else {
-      scNames <- scenario()$scene %>% as.factor %>% levels
+      scNames <- scenario$scene %>% as.factor %>% levels
       scNames[scNames == ""] <- "UNKNOWN"
       scenes <- input$sliderScene
       paste(scNames[scenes[1]], scNames[scenes[2]], sep=" ~ ")
@@ -127,7 +127,7 @@ shinyServer(function(input, output) {
   output$heroesUI <- renderUI({
     if(input$heroAutoSel == "manually") {
       if(input$group == "time")
-        names <- scenario()$name %>% as.character %>% unique
+        names <- scenario$name %>% as.character %>% unique
       else
         names <- sceneHeroData()$name %>% as.character %>% unique
       names <- c(input$heroes, names)
@@ -151,49 +151,39 @@ shinyServer(function(input, output) {
   })
   
   output$keyWords <- renderPlot({
-   
+    if(is.null(input$keyWordSelection)) {
+      kws <- "\\bRING\\b"
+      kws1 <- "RING"
+    } else {
+      kws <- paste0("\\b", input$keyWordSelection, "\\b")
+      kws1 <- input$keyWordSelection
+    }
+    if(input$group == "scenes")
+      data <- sceneHeroData()
+    else
+      data <- timeHeroData()
     
-    
-    data<-read.csv("data/scenario.csv", stringsAsFactors=TRUE)
-    
-    if(input$group == "scenes") {
-      scenes <- input$sliderScene
-      
-      data$scene <- data$scene %>% as.factor %>% as.integer
-      if(!is.null(scenes)) {
-        data <- data %>% filter(scene >= scenes[1], scene <= scenes[2])
-      }
+    present<-matrix(nrow=nrow(data), ncol=length(kws))
+    time <- numeric(nrow(data))
+    for(i in 1:nrow(data)) {
+      present[i,]<-str_count(toupper(data$dialog[i]), kws)
+      time[i] <- (data$start[i]+data$end[i])/2
     }
     
-    else if(input$group=="time")
-    {
-      dtl <- 60
-      dtr <- 300
-      time <- input$sliderTime
-      if(is.null(time))
-        time <- 0
-      
-      data <- data %>% filter(start > time-dtl, end < time+dtr)
-    }
+    words <- data.frame(time, present)
+    names(words) <- c("time", kws1)
+    words <- melt(words, id.vars="time")
     
-    length<-dim(data)[1]
-    present<-integer(length)
-    
-    for(i in 1:length)
-    {
-      present[i]<-as.integer(grepl(input$keyWordSelection, toupper((data$dialog)[i])))
-    }
-    
-    time<-1:length 
-    
-    words<-data.frame(time, present)
-    
-    ggplot(words, aes(time, present)) + geom_line(color='steelblue', size=1) + coord_cartesian(ylim=c(0.8, 1.1)) + theme(
-      axis.title.x=element_blank(),
-            axis.text.x=element_blank(),
-            axis.ticks.x=element_blank(),
-      axis.title.y=element_blank(),
-      axis.text.y=element_blank(),
-      axis.ticks.y=element_blank()) + ggtitle("Key word frquency")
+    ggplot(words, aes(x=time, y=value, color=variable)) + 
+      geom_line(size=1) + 
+      scale_x_time() +
+      scale_y_continuous(expand=c(0, 0), limits=c(0, max(words$value)+0.1)) +
+      scale_color_discrete(name="word") +
+      theme(
+        axis.title.x=element_blank(),
+        axis.title.y=element_blank(),
+        axis.ticks.y=element_blank()
+      ) + 
+      ggtitle("Key word frequency")
   })
 })

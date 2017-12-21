@@ -16,33 +16,31 @@ shinyUI(fluidPage(
   fluidRow(column(12, "Łukasz Ławniczak, Mateusz Mazurkiewicz",
                   style="margin-bottom:10px;")),
   
-  
-  fluidRow(
-    column(4, selectInput(inputId="group", label="Group by", 
-                choices=c("scenes", "time"))),
-    column(8, htmlOutput("sliderTimeUI"))
-  ),
   fluidRow(
     column(12, "scene name(s):", align="center"),
     column(12, textOutput("sceneName"), 
            align="center", style="margin-top:-8px;
-           margin-bottom:8px;font-size:28pt;")
+           margin-bottom:8px;font-size:20pt;")
   ),
-  fluidRow(
-    sidebarLayout(
-      sidebarPanel(
-        selectInput("heroAutoSel", "Select visible heroes", 
-                    choices=c("automatically", "manually")),
-        htmlOutput("heroesUI"),
-        selectInput("keyWordSelection", "Select key word", 
-                    choices=c("RING", "MORDOR", "ELVES", "RIVENDELL", "MORIA", "SAURON", "SARUMAN", "ELROND", "SHIRE"))
-      ),
-      
-      mainPanel(
-        plotOutput("heroGantt"),
-        br(),
-        plotOutput("keyWords", height = "80px")
-      )
+  
+  sidebarLayout(
+    sidebarPanel(
+      selectInput(inputId="group", label="Group by", 
+                  choices=c("scenes", "time")),
+      htmlOutput("sliderTimeUI"),
+      selectInput("heroAutoSel", "Select visible heroes", 
+                  choices=c("automatically", "manually")),
+      htmlOutput("heroesUI"),
+      selectInput("keyWordSelection", "Select key word", 
+                  choices=c("RING", "MORDOR", "ELVES", "RIVENDELL", "MORIA", "SAURON", "SARUMAN", "ELROND", "SHIRE"),
+                  selected="RING",
+                  multiple=TRUE)
+    ),
+    
+    mainPanel(
+      plotOutput("heroGantt", height="250px"),
+      br(),
+      plotOutput("keyWords", height="250px")
     )
   )
 ))
