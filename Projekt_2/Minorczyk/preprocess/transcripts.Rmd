@@ -1,0 +1,69 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(dplyr)
+library(purrr)
+library(rvest)
+library(stringi)
+library(jsonlite)
+```
+
+```{r}
+scrap_genius <- function(url) {
+  res <- read_html(url)
+  res %>%
+    html_node("div.lyrics") %>%
+    html_nodes("p") %>%
+    html_text %>%
+    paste(collapse = "")
+}
+
+scrap_transcripts <- function(url) {
+  res <- read_html(url)
+  res %>%
+    html_node("div.postbody") %>%
+    html_nodes("p") %>%
+    paste(collapse = "")
+}
+
+scrap <- function(url) {
+  if (stri_match_first_regex(url, "http://transcripts")[1] %>% is.na) {
+    scrap_genius(url)
+  } else {
+    scrap_transcripts(url)
+  }
+}
+```
+
+
+```{r}
+# df <- read.csv("transcript_urls.csv", sep = ";", stringsAsFactors = FALSE)
+# df <- df %>% mutate(html = sapply(url, function(u) scrap(u)))
+# save(df, file = "transcripts.Rda")
+load("transcripts.Rda")
+
+characters <- read.csv("characters.csv", sep = ";", stringsAsFactors = FALSE)
+```
+
+```{r}
+df2 <- characters %>% 
+  pmap(function(name, regex, dialog_regex) {
+    counts <- df %>% pmap(function(season, episode, url, html) {
+      bounded_regex <- paste("\\b(", regex, ")\\b", sep = "")
+      stri_count_regex(html, bounded_regex, opts_regex = stri_opts_regex(case_insensitive = TRUE))
+    }) %>% unlist
+    dialog_counts <- df %>% pmap(function(season, episode, url, html) {
+      bounded_regex <- paste("\\b(", dialog_regex, ") ?:", sep = "")
+      stri_count_regex(html, bounded_regex, opts_regex = stri_opts_regex(case_insensitive = TRUE))
+    }) %>% unlist
+    df %>% select(season, episode) %>% mutate(name = name, counts = counts, dialog_counts = dialog_counts)
+  }) %>% bind_rows
+```
+
+```{r}
+# write_json(df2, "data.json")
+saveRDS(df2, file = "../game-of-thrones/data.rds")
+```
