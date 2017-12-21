@@ -1,0 +1,64 @@
+---
+title: "Krzeszewski_palma"
+author: "Krzeszewski Piotr"
+date: "December 21, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(dplyr)
+library(rbokeh)
+
+set.seed(125)
+```
+
+```{r, echo = FALSE, warning=FALSE}
+getSquareSeries <- function(x1, y1, x2, y2, n = 10) {
+  dx <- abs(x1 - x2)
+  dy <- abs(y1 - y2)
+  x <- c(x1, (x1+x2)/2 + runif(1, -dx/3, dx/3), x2)
+  y <- c(y1, max(y1, y2) + runif(1,dx/5, dx/2), y2)
+  
+  res <- solve(cbind(1, x, x^2), y)
+  
+  px <- seq(min(x1,x2), max(x1,x2), dx/n)[1:30]
+  py <- res[3] * px^2 + res[2] * px + res[1]
+  
+  return(list(x = px, y = py))
+}
+
+data <- data.frame(x=numeric(), y=numeric(), group=numeric())
+for (i in 1:150) {
+  n <- 30
+  x1 <- runif(1) + 4.5
+  y1 <- runif(1, 0, 0.3) + 9.7
+  x2 <- runif(1, 0, 3) + rbinom(1,1, 0.5) * 7
+  y2 <- rnorm(1, 9, 1.2)
+  
+  r <- getSquareSeries(x1, y1, x2, y2, n)
+  data <- rbind(data, data.frame(x=r$x, y=r$y, group=rep(i, n)))
+}
+
+trunk_color <- paste0("#", "7a6565")
+beach_line <- seq(10, 0, -0.5)
+water_line <- seq(10, 0, -0.2)
+
+p <- figure(xlim = c(0,10), ylim=c(-2, 16), xaxes = FALSE, yaxes = FALSE) %>%
+  ly_rect(0, 0, 10, 16, color = "#b6c4f9", fill_alpha = 1) %>%
+  ly_polygons(c(0, 10, beach_line), c(-2, -2, -0.08 * beach_line^2 + 0.8 * beach_line + 2), color = "#f0f72c", fill_alpha = 1) %>%
+  #water
+  ly_polygons(c(0, 10, water_line), c(-2, -2, 0.5 * sin(water_line *2) -0.5), color = "#052bba", fill_alpha = 1) %>%
+  ly_rect(4.5, 4, 5.5, 10, color = trunk_color, fill_alpha = 1) %>%
+  ly_polygons(c(4.3, 5.7, 5.5, 4.5), c(0.5, 0.5, 4, 4), color = trunk_color, fill_alpha = 1) %>%
+  ly_lines(x=data$x, y = data$y, group=data$group, color = "#10992e", width=3) %>%
+  ly_oval(6.1, 9.7, width=1, height = 1, color = "#605050") %>%
+  ly_oval(5.2, 9.7, width=1.1, height = 1.1, color = "#635353") %>%
+  ly_oval(4.8, 9.7, width=1, height = 1, color = "#6d5c5c") %>%
+  ly_oval(5.05, 9.4, width=1, height = 1, color = "#5c4040") %>%
+  ly_text(5, 14.5, text = "POZDROWIENIA Z WAKACJI!", color = "darkblue", font_size = "23pt", align="center")
+  
+
+p
+```
