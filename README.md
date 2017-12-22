@@ -31,10 +31,9 @@ Blok 2 - Grafika interaktywna / internetowa
 Blok 3 - Grafika informatywna
 
 * [11] W: [Percepcja danych](http://biecek.pl/Eseje/indexDane.html); L: 
-* [12] W: [O historii słów kilka](http://biecek.pl/Eseje/indexHistoria.html); L: 
+* [12] W: [Czas i przestrzeń](http://biecek.pl/Eseje/indexDroga.html); L: [Kartogramy](https://github.com/pbiecek/TechnikiWizualizacjiDanych/tree/master/MINI_MIMUW_2014/materialy_z_wykladow_i_lab/mapy), [ZanieczyszczeniePowietrze](https://github.com/pbiecek/TechnikiWizualizacjiDanych/blob/master/MINI_2016/CiekaweDane/gios-pjp-zanieczyszczenie.csv)
 * [13] W: Prezentacja projektu 3/1; L: 
-* [14] W: [Czas i przestrzeń](http://biecek.pl/Eseje/indexDroga.html); L: [Kartogramy](https://github.com/pbiecek/TechnikiWizualizacjiDanych/tree/master/MINI_MIMUW_2014/materialy_z_wykladow_i_lab/mapy), [ZanieczyszczeniePowietrze](https://github.com/pbiecek/TechnikiWizualizacjiDanych/blob/master/MINI_2016/CiekaweDane/gios-pjp-zanieczyszczenie.csv)
-* [15] W: Prezentacja projektu 3/2
+* [14] W: Prezentacja projektu 3/2
 
 
 # Zasady zaliczenia
