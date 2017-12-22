@@ -131,6 +131,7 @@ scenario$name[scenario$name == "FRODO DISAPPEARS"] <- "!"
 subtitles <- parseSubtitles("../data/LotR-1-sub.srt")
 data <- joinTime(scenario, subtitles)
 data[data$subs == "" & data$name != "!", c("subs", "dialog")]
+write.csv(data,"../TWD02-Filmy/data/scenario.csv")
 ```
 
 ```{r}
