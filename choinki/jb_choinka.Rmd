@@ -1,0 +1,55 @@
+---
+title: "Choinka \"runif\""
+author: "Jakub Bondyra"
+date: "December 20, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, warning=FALSE}
+library(rbokeh)
+
+set.seed(123)
+
+make_part = function(ymin,yheight,xwidth,p=0.10){
+  pts = yheight*xwidth*200
+  trboundx = c((-xwidth/2),xwidth/2)
+  trboundy = c(ymin,ymin+yheight)
+  
+  b = ymin+yheight
+  a1 = (ymin-b)/(-xwidth/2)
+  a2 = (ymin-b)/(xwidth/2)
+  pts_x = runif(pts,trboundx[1],trboundx[2])
+  pts_y = runif(pts,trboundy[1],trboundy[2])
+  whx = which((pts_y < (pts_x*a1 + b)) & (pts_y < (pts_x*a2 + b)))
+  pts_x = pts_x[whx]
+  pts_y = pts_y[whx]
+  
+  nbombs = rbinom(1,yheight*xwidth*10,prob=p)
+  
+  newx = sapply(1:nbombs,function(nb){
+    runif(1,trboundx[1],trboundx[2])
+  })
+  newy = sapply(1:nbombs,function(nb){
+    runif(1,trboundy[1],trboundy[2])
+  })
+  nwhx = which((newy < (newx*a1 + b)) & (newy < (newx*a2 + b)))
+  newx = newx[nwhx]
+  newy = newy[nwhx]
+  nwx = rep(newx,each=50)
+  nwy = rep(newy,each=50)
+  data.frame(pts_x=c(pts_x,nwx),pts_y=c(pts_y,nwy))
+}
+
+part1= make_part(0,6,4)
+part2= make_part(6,4,3)
+part3= make_part(10,3,2)
+part4= make_part(13,3,1)
+
+df = rbind(part1,part2,part3,part4)
+
+figure() %>% ly_hexbin(df$pts_x,df$pts_y)
+```

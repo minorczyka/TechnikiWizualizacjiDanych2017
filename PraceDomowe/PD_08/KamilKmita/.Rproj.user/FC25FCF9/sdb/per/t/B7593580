@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "options(shinyapps.locale='pl_PL')\n\ndane <- readRDS(\"dane.RDS\")\n\n\nlibrary(ggplot2)\nlibrary(plotly)\nlibrary(shiny)\n\n\nshinyServer(function(input, output, session) {\n  \n\n  wybraniPilkarze <- reactive({\n    dane %>% filter(pozycja %in% input$wybraneformacje) %>% select(pilkarz) %>% unique()\n  })\n  \n  output$listaPilkarzy <- renderUI({\n    pilkarze <- wybraniPilkarze()\n    \n    checkboxGroupInput(inputId = \"wybranipilkarze\",\n                       label = \"Ktorych pilkarzy pokazac?\",\n                       choices = as.character(pilkarze$pilkarz),\n                       selected = as.character(pilkarze$pilkarz))\n  })\n  \n  \n  output$trend = renderPlotly({\n    \n    danef <- dane %>% filter(id_mecz >= input$range[1] & id_mecz <= input$range[2]) %>%\n      filter(pozycja %in% input$wybraneformacje) %>% filter(pilkarz %in% input$wybranipilkarze)\n    \n    p <- ggplot() +\n      geom_point(position = position_jitterdodge(dodge.width=0.4, jitter.width = 0.3),\n                 size = 4, data = danef, colour = \"black\", shape= 21,\n                 aes(x = id_mecz, y = ocena, group = pozycja, fill = pozycja, text = pilkarz)) +\n      scale_y_continuous(limits = c(0,10), breaks = c(0,1,2,3,4,5,6,7,8,9,10)) +\n      scale_x_continuous(limits = c((input$range[1]-0.5),(input$range[2]+0.5)),\n                         breaks = seq(input$range[1],input$range[2],1)) +\n      xlab(\"kolejka\")\n    \n    ggplotly(p,  tooltip = c(\"text\", \"ocena\"))\n \n  })\n  \n  output$napis = renderPrint({\n    cat('Wizualizacja dotyczy ocen wystawianych piłkarzom Legii w poszczególnych\nkolejkach Ekstraklasy przez `Weszło!`, jeden z najpopularniejszych \\nserwisów internetowych dot. \n        polskiej piłki nożnej\\n\n        Ponieważ `Weszło!` nie udostępnia żadnej bazy danych, informacje dot. \\noceny poszczególnych zawodników\n        musiano pozyskać przy pomocy web-scrapingu.\\n\n        Funkcjonalność wizualizacji pozwala zarówno na analizowanie formy \\nposzczególnego zawodnika w\n        rundzie jesiennej sezonu 2017/2018, \\njak i na porównywanie całych formacji.\\n\n        Kody tworzące odpowiednie tabele dostępne są na stronie:\\nhttps://github.com/kkmita/wizualizacje/PD_08')\n  })\n})\n",
+    "created" : 1513125978493.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3815272031",
+    "id" : "B7593580",
+    "lastKnownWriteTime" : 1513126110,
+    "last_content_update" : 1513126110163,
+    "path" : "C:/Users/Kamil/Desktop/GITHUB/WizualizacjaDanych/PD_08/server.R",
+    "project_path" : "server.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
