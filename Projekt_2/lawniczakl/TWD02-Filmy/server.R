@@ -158,10 +158,13 @@ shinyServer(function(input, output) {
       kws <- paste0("\\b", input$keyWordSelection, "\\b")
       kws1 <- input$keyWordSelection
     }
+    
     if(input$group == "scenes")
       data <- sceneHeroData()
     else
+    {
       data <- timeHeroData()
+    }
     
     present<-matrix(nrow=nrow(data), ncol=length(kws))
     time <- numeric(nrow(data))
@@ -174,16 +177,19 @@ shinyServer(function(input, output) {
     names(words) <- c("time", kws1)
     words <- melt(words, id.vars="time")
     
-    ggplot(words, aes(x=time, y=value, color=variable)) + 
-      geom_line(size=1) + 
+    ggplot() + 
+      geom_area(aes(y = value, x = time, fill = variable), data = words,
+                stat="identity", position = 'identity', alpha = .8) + 
       scale_x_time() +
-      scale_y_continuous(expand=c(0, 0), limits=c(0, max(words$value)+0.1)) +
+      scale_y_continuous(expand=c(0, 0), limits=c(0, max(words$value)+0.1), breaks=1:10) +
       scale_color_discrete(name="word") +
       theme(
         axis.title.x=element_blank(),
         axis.title.y=element_blank(),
         axis.ticks.y=element_blank()
       ) + 
-      ggtitle("Key word frequency")
+      ggtitle("Key words occurance") + theme(legend.position="left") +
+      scale_fill_brewer(palette="Spectral", name = "Key words")
+      
   })
 })
