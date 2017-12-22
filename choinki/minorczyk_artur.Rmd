@@ -1,0 +1,36 @@
+---
+title: "Choinka"
+author: "Artur Minorczyk"
+output: html_notebook
+---
+
+```{r}
+library(dplyr)
+library(ggplot2)
+```
+
+```{r}
+sierpinski_triangle <- function(iterations, corners_x, corners_y) {
+  point <- runif(2)
+  corners <- matrix(c(corners_x, corners_y), ncol = 2)
+  result <- matrix(0, nrow = iterations, ncol = 2)
+  for (i in 1:iterations) {
+    point <- (corners[sample(3, 1),] + point) / 2
+    result[i,] <- point
+  }
+  result
+}
+
+sierpinski_tree <- function(iterations) {
+  t1 <- sierpinski_triangle(iterations, c(-0.5, 0.5, 0), c(-1, -1, 0))
+  t2 <- sierpinski_triangle(2 * iterations, c(-1, 1, 0), c(-2.5, -2.5, -0.5))
+  t3 <- sierpinski_triangle(4 * iterations, c(-2, 2, 0), c(-5.5, -5.5, -1.5))
+  rbind(t1, t2, t3) %>% matrix(ncol = 2) %>% as.data.frame
+}
+
+df <- sierpinski_tree(10000)
+
+ggplot(df, aes(V1, V2)) +
+  geom_point(size = 0.1, color = "green4")
+```
+
