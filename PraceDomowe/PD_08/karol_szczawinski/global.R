@@ -1,0 +1,5 @@
+require(plotly)
+library(PogromcyDanych)
+library(ggplot2)
+library(shinyjs)
+library(shiny)
