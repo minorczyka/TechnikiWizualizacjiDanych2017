@@ -1,0 +1,13 @@
+base
+xml2
+rvest
+httr
+jsonlite
+ggplot2
+ggmap
+maps
+mapdata
+dplyr
+ggrepel
+tidyr
+bindrcpp
