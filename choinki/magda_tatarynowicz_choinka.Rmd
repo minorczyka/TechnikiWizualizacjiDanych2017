@@ -1,0 +1,44 @@
+---
+title: "Choinka"
+author: "Magda Tatarynowicz"
+date: "20 grudnia 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Choinka
+
+```{r}
+library(vegalite)
+
+tree_count <- 5000
+decoration_count <- 30
+
+r1 <- runif(tree_count, 0, 1)
+r2 <- runif(tree_count, 0, 1)
+x = (sqrt(r1) * (1 - r2)) * 1 + (sqrt(r1) * r2) * 0.5
+y = (sqrt(r1) * r2) * 1
+data <- data.frame(x = x, y = y, color = rep("tree",tree_count), size = rep(20, tree_count))
+
+decoration_count <- 30
+r1 <- runif(decoration_count, 0, 1)
+r2 <- runif(decoration_count, 0, 1)
+x = (sqrt(r1) * (1 - r2)) * 1 + (sqrt(r1) * r2) * 0.5
+y = (sqrt(r1) * r2) * 1
+decoration <- data.frame(x = x, y = y, color = rep("decoration",decoration_count), size = rep(100, decoration_count))
+
+data <- rbind(data, decoration)
+
+vegalite() %>%
+  cell_size(400, 400) %>%
+  add_data(data) %>%
+  encode_x("x", "quantitative") %>%
+  encode_y("y", "quantitative") %>%
+  encode_color("color", "nominal") %>%
+  encode_size("size", "quantitative") %>%
+  scale_color_nominal(domain=c("tree", "decoration"),range=c("#92D169", "#BE0000")) %>%
+  mark_point()
+```

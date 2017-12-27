@@ -1,0 +1,82 @@
+---
+title: "Praca domowa 10 - Choinka"
+author: "Karol Prusinowski"
+date: "22 grudnia 2017"
+output:
+  html_document:
+    css: styles.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(vegalite)
+```
+
+## Choinka
+
+```{r, echo=FALSE}
+generateTree <- function(len = 3) {
+  size = 6
+  maxSize = size + (len - 1) * size/2 
+  data <- data.frame(x=rep(c((1 - floor(len/20)),2), 2), 
+                     y=c(maxSize,maxSize,-maxSize,-maxSize)/6, 
+                     part=rep(c(0, 1), each=2))  
+  
+  for(i in 1:len) {
+    data <- rbind(data, data.frame(x = (i+1):(i+2),
+                                   y = c(maxSize - (i-1)*size/2, maxSize - (i+1)*size/2),
+                                   part = rep(2*i, 2)))
+    data <- rbind(data, data.frame(x = (i+1):(i+2),
+                                   y = -c(maxSize - (i-1)*size/2, maxSize - (i+1)*size/2),
+                                   part = rep(2*i+1, 2)))
+  }
+  col <- c(rep("#8B4513",2), 
+              rep(rgb(0, seq(0.2, 0.4, length.out = len), 0), each=2))
+  colors <- data.frame(domain = 0:(2*len + 1), range = col)
+            
+  list(data = data, colors = colors)
+}
+
+
+
+```
+
+#### Weso³ych Œwi¹t!
+```{r, echo=FALSE}
+tree <- generateTree(10)
+
+vegalite(description="Weso³ych Œwi¹t", viewport_width=620, viewport_height=620) %>%
+  cell_size(600, 400) %>%
+  add_data(tree$data) %>%
+  encode_x("x", "temporal") %>%
+  encode_y("y", "quantitative") %>%
+  encode_color("part", "nominal") %>%
+  scale_color_nominal(domain=tree$colors$domain,
+                      range=tree$colors$range) %>%
+  axis_x(remove=TRUE, format="%d") %>%
+  axis_y(remove=TRUE) %>%
+  legend_color(remove = TRUE) %>%
+  mark_area()
+```
+
+
+```{r, echo=FALSE}
+tree <- generateTree(4)
+
+vegalite(description="Weso³ych Œwi¹t", viewport_width=620, viewport_height=620) %>%
+  cell_size(600, 400) %>%
+  add_data(tree$data) %>%
+  encode_x("x", "temporal") %>%
+  encode_y("y", "quantitative") %>%
+  encode_color("part", "nominal") %>%
+  scale_color_nominal(domain=tree$colors$domain,
+                      range=tree$colors$range) %>%
+  axis_x(remove=TRUE, format="%d") %>%
+  axis_y(remove=TRUE) %>%
+  legend_color(remove = TRUE) %>%
+  mark_area()
+```
+
+# Opis
+
+Praca domowa jest usprawnieniem stworzonej podczas zajêæ za pomoc¹ Area Chart z biblioteki Vegalite choinki. Stworzona funkcja pozwala generowaæ choinki ró¿nej wysokoœci. Niestety biblioteka nie pozwala na nak³adanie na siebie warstw, wiêc dodawanie ozdób na choinkê jest trudne. Dodatkowo niemo¿liwe jest obrócenie wykresu przy pomocy kodu, wiêc wykonane to zosta³o z u¿yciem stylu css. Poprawione zosta³o tak¿e formatowanie osi X (wczeœniej w ró¿nych przegl¹darkach wykres odczytywany by³ w ró¿ny sposób. Ustalenie formatu osi jako liczby naprawi³o problem). Przedstawiono powy¿ej przyk³adowe choinki o wysokoœci 10 i 4.

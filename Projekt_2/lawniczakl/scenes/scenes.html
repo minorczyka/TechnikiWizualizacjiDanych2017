@@ -1,0 +1,19 @@
+<html>
+<head>
+	<meta charset="utf-8" />
+	<script src="https://d3js.org/d3.v4.js"></script>
+	<script src="scenes.js"></script>
+</head>
+<body onload="drawPlot()">
+	<div>
+		<svg width="600" height="230">
+			<g id="locations"></g>
+			<g id="chars"></g>
+		</svg>
+	</div>
+	<button id="play" style="float:left">▶</button>
+	<input id="slider-time" type="range" style="width:390px;float:left" 
++		   min="0" step="1" value="0" />
+	<p id="time-hint"></p>
+</body>
+</html>

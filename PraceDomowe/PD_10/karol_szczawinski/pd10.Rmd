@@ -1,0 +1,56 @@
+---
+title: "Choinka"
+author: "Karol Szczawiński"
+date: "22 grudnia 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(rbokeh)
+library(dplyr)
+```
+
+
+```{r echo=FALSE, warning=FALSE}
+
+generatePart <- function(y,n,start,end){
+  resX <- numeric(0)
+  resY <- numeric(0)
+  h <- y
+  for(i in 1:n){
+    temp <- seq(start,end,0.1)
+    resY <- c(resY,rep(h,length(temp)))
+    resX <- c(resX, temp)
+    h <- h + 0.075
+    start <- start + 0.1
+    end <- end - 0.1
+  }
+  return(list(x = resX, y = resY))
+}
+result1 <- generatePart(1,13,-1,4)
+result2 <- generatePart(2,13,-0.5,3.5)
+result3 <- generatePart(3,13,0,3)
+result4 <- generatePart(4,10,0.5,2.5)
+x <- c(result1$x,result2$x,result3$x,result4$x)
+y <- c(result1$y,result2$y,result3$y,result4$y)
+
+ballX <- c(1,-0.5,2,2,2.45,3,0.75,1.15,2.25)
+ballY <- c(1.9,1.25,4.25,1.1,3.35,1.5,3.65,2.75,2.46)
+
+p <- figure(xlim = c(-4,7), ylim = c(0,7),width = 600, height = 600, xgrid = FALSE, ygrid = FALSE) %>%
+  ly_hist(c(1,2), fill_color= "brown", breaks = 1, freq = FALSE) %>%
+  ly_points(x = x, y = y, fill_color = "green", glyph = 24, size = 15) %>%
+  ly_points(x = 1.5, y = 4.8, color = "yellow", glyph = 8, size = 45, line_width= 4) %>%
+  ly_points(x = ballX, y = ballY, color = rep(c("red","blue", "yellow", "pink", "red"), length.out = length(ballX)), glyph = 
+              rep(c(19,18), length.out = length(ballX)), size = 25) %>%
+  y_axis(visible = FALSE) %>%
+  x_axis(visible = FALSE) %>%
+  theme_grid( which = c("x", "y"), grid_line_color = "lightblue") %>%
+  theme_plot(background_fill_color = "lightblue")
+p
+
+
+
+
+```
