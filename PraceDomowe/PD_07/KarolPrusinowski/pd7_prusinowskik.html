@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Praca domowa 7</title>
+		<script src="https://d3js.org/d3.v4.js"></script>
+	</head>
+
+	<body>
+
+
+		<h1>
+			Praca domowa 7
+		</h1>
+
+		<p>
+			Wykres przedstawia dane znalezione na stronie <a href="https://www.fakt.pl/pieniadze/finanse/akcyza-na-nowatorskie-wyroby-tytoniowe-wzrost-przemytu-iqos/wscvx9p">fakt.pl</a> i dotyczą stawki akcyzy za kilogram nowatorskich wyrobów tytoniowych w poszczególnych krajach, z naciskiem na kraje sąsiadujące. 
+			Pokazane tam dane słabo pokazują różnice między Polską, a pozostałymi państwami.
+		</p>
+
+		<p>
+			Wykres stworzony w d3:
+		</p>
+		<svg id="svg" width="900" height="500"></svg>
+		
+		<p>
+			Oryginalny wykres:
+		</p>
+		<img src="https://ocdn.eu/pulscms-transforms/1/X2NktkqTURBXy9iNTg0MmI4YjRlNWRhMzk2MDZlMDBhM2UxODdkZmMzZC5qcGVnkZUCzQJsAMLD">
+	</body>
+</html>
+<script type="text/javascript">
+
+var svg = d3.select("svg")
+
+var scale = d3.scaleLinear()
+        .domain([0,140])
+        .range([0, 700]);
+
+		
+d3.formatDefaultLocale({
+	decimal:",",
+	thousands: ".",
+	grouping: [3],
+	currency: ["", "€"]
+})
+
+var xAxis = d3.axisBottom()
+        .scale(scale)
+		.tickFormat(d3.format("$0.0f"))
+		.tickSize(10);
+
+
+var data = [138.25, 93.75, 88, 84.9, 80, 79.3, 73.9, 70, 68.64, 62, 61.99, 19.5, 19]
+var labels = ["Niemcy", "Węgry", "Słowenia", "Rumunia", "Portugalia*", "Chorwacja", "Słowacja", "Polska", "Rosja", "Łotwa", "Włochy", "Serbia", "Ukraina"]
+var colors = ["#d7191c", "#fdae61", "#abd9e9"]
+var legend = ["Polska", "Sąsiadujące państwa", "Pozostałe państwa"]
+svg.selectAll("rect")
+  .data(data)
+  .enter().append("rect")
+  .style("fill", "white")
+  .transition().duration(1000)
+    .attr("x", 120)
+    .attr("y", function(d,i) { return i*30+40 })
+    .attr("width", function(d,i) { return scale(d); })
+    .attr("height", 20)
+    .style("fill", function(d,i) {
+			if(i==0 || i ==6 || i ==8 || i == 12) {
+				return '#fdae61';
+			}
+			else if (i==7) {
+				return "#d7191c"
+			}
+			return "#abd9e9"
+		}
+	)
+	
+
+svg.selectAll("text")
+  .data(labels)
+  .enter().append("text")
+		.style("fill", "white")
+		.attr("x", function (d, i) { return -100; })
+		.attr("y", function (d, i) { return i * 30 + 55 })
+		.transition().duration(2000)
+		.attr("x", function (d, i) { return 10; })
+        .text(function (d, i) { return d })
+		.style("fill", "black")
+		.style("font-family", "monospace")
+		.style("font-weight", "bold")
+        .style("font-size", "17px");
+            
+svg.append("g")
+            .attr("transform", "translate(120, 430)")
+            .call(xAxis)
+			.style("font-family", "monospace")
+			.transition().duration(2000)
+            .attr("id", "axis")
+			.style("font-size", "17px");
+
+
+for(var i =0;i<3;i++) {
+	svg.append("rect")
+		.style("fill", "transparent")
+		.style("stroke", "transparent")
+		.attr("x", 600)
+		.attr("y", function () { return i * 30 + 310 })
+		.attr("width", 30)
+		.attr("height", 15)
+		.transition().duration(1000)
+		.style("fill", function() { return colors[i]; })
+		.style("stroke", "black")
+		.style("stroke-width", "1");
+		
+	svg.append("text")
+		.style("fill", "transparent")
+		.attr("x", 640)
+		.attr("y", function () { return i * 30 + 322 })
+		.transition().duration(2000)
+		.text(function() { return legend[i]; })
+		.style("fill", "black")
+		.style("font-family", "monospace")
+		.style("font-weight", "bold")
+        .style("font-size", "15px");
+}		
+
+svg.append("text")
+	.attr("x", 120)
+	.attr("y", -20)
+	.style("font-size", "20px")
+	.text("Stawki akcyzy za kilogram nowatorskich wyrobów tytoniowych")
+	.style("text-transform", "uppercase")
+	.style("fill", "black")
+	.style("font-family", "monospace")
+	.style("font-weight", "bold")
+	.transition().duration(1000)
+	.attr("y", 20);
+	
+
+svg.append("text")
+	.attr("x", 1000)
+	.attr("y", 1000)
+	.style("font-size", "12px")
+	.text("* plus 16% ceny")
+	.style("fill", "black")
+	.style("font-family", "monospace")
+	.style("font-weight", "bold")
+	.transition().duration(3000)
+	.attr("x", 730)
+	.attr("y", 420); 	
+
+			
+</script>

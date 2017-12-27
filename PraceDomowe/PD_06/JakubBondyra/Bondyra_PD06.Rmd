@@ -1,0 +1,136 @@
+---
+title: "Praca domowa 6"
+author: "Jakub Bondyra"
+date: "November 27, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+W tej pracy domowej chciałbym przedstawić całkiem interesującą skalę kolorów, którą poznałem robiąc wcześniejsze prace domowe z tego przedmiotu. Postaram się również pokazać w jaki sposób można by ją ulepszyć do niektórych zastosowań.
+
+Bardzo często ważne w wizualizacji jest pokazanie zachowania pewnej właśności przy występowaniu pewnej wartości referencyjnej. 
+Przykładami takiego zjawiska są chociażby wizualizacje poziomów pewnych wskaźników w ujęciu procentowym pewnej normy - tak jak wizualizacje zanieczyszczeń powietrza w procentach odpowiedniej normy w mojej ostatniej pracy domowej (numer 5).
+
+W takich przypadkach często interesuje nas, żeby w wyraźny sposób - wprowadzając różne kolory w palecie - zaznaczyć obiekty, które mieszczą się w normie w stosunku do tych, które się nie mieszczą.
+
+Poniżej przedstawiam stosowaną przeze mnie skalę poprzez prosty wykres w ggplot.
+
+```{r,echo=FALSE}
+library(ggplot2)
+df = data.frame(x=1:11,y=rep(1,11),f=seq(0,200,20))
+ggplot(data=df, aes(x, y)) + geom_tile(aes(fill=f)) +
+  geom_vline(xintercept=6)+
+  geom_text(aes(y=1,x=6.16,label="Reference value (100%)"))+
+  scale_fill_distiller(palette="RdYlBu",direction=-1,name="")+
+  scale_y_continuous(expand=c(0,0))+scale_x_continuous(expand=c(0,0))+
+    xlab("") + ylab("")+
+      theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank(),
+        axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank())
+```
+
+Zastosowanie takiej skali można oczywiście znaleźć we wspomianej już przeze mnie pracy domowej numer 5.
+
+Skala należy do bardzo znanego zbioru ColorBrewer (http://colorbrewer2.org/), gdzie można ją znaleźć w zakładce "*diverging*" pod nazwą **RdYlBu**. Charakteryzuje się ona tym, że wartość środkowa oznaczana jest poprzez kolor jasnożółty, wartości niższe przez odcienie niebieskiego, a wartości wyższe poprzez coraz głębszą czerwień. Odpowiada to naturalnym skojarzeniom ludzi czerwieni z czymś negatywnym, natomiast błękitu z dobrym lub neutralnym zjawiskiem. Ponadto, skala ta jest przyjazna również osobom z najpopularniejszymi zaburzeniami rozpoznawania barw.
+
+Skala ma jednakże jedną zauważalną wadę - tego typu reprezentacja jest adekwatna jedynie dla danych wycentrowanych na wartości stanowiącej normę. Z tego też powodu nie da się przedstawić unikalnym kolorem wartości powyżej dwukrotności wartości referencyjnej (upraszczając - powyżej 200% normy) bez zmiany koloru dla wartości środkowej, czego chcielibyśmy uniknąć.
+
+Rozwiązaniem staje się wówczas ekspresja wartości odstających poprzez maksymalną pozycję na skali kolorów (czyli najbardziej czerwony kolor). Podejście to uniemożliwi jednakże wzrokowe porównywanie wartości znacznie przekraczających normę, co pokazuje poniższy wykres skali uzyskanej w taki sposób dla zakresu 0-500%.
+
+```{r,echo=FALSE}
+df = data.frame(x=1:26,y=rep(1,26),f=seq(0,500,20))
+ggplot(data=df, aes(x, y)) + geom_tile(aes(fill=f)) +
+  geom_text(aes(y=1,x=6.38,label="Reference value (100%)"))+
+  scale_fill_gradientn(colors=c("#2c7bb6","#abd9e9","#e0f3f8","#ffffbf","#fdae61","#d7191c","#d7191c"),
+                       values=c(0,0.1,0.2,0.28,0.34,0.4,1.0)) +
+  geom_vline(xintercept=6)+
+  scale_y_continuous(expand=c(0,0))+scale_x_continuous(expand=c(0,0))+
+    xlab("") + ylab("")+
+      theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank(),
+        axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank())
+```
+
+Innym podejściem do problemu może być również rozciągnięcie skali dla odcieni żółci i czerwieni. Tego typu rozwiązanie może jednakże również zmniejszać czytelność wizualizacji. Pokazuje to poniższy wykres, w którym przedstawiam skalę rozciągniętą dla "czerwonej" części skali do maksymalnego poziomu 500%.
+
+```{r,echo=FALSE}
+df = data.frame(x=1:26,y=rep(1,26),f=seq(0,500,20))
+ggplot(data=df, aes(x, y)) + geom_tile(aes(fill=f)) +
+  geom_text(aes(y=1,x=6.38,label="Reference value (100%)"))+
+  scale_fill_gradientn(colors=c("#2c7bb6","#abd9e9","#e0f3f8","#ffffbf","#fdae61","#d7191c"),
+                       values=c(0,0.1,0.2,0.28,0.36,1.0)) +
+  geom_vline(xintercept=6)+
+  scale_y_continuous(expand=c(0,0))+scale_x_continuous(expand=c(0,0))+
+    xlab("") + ylab("")+
+      theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank(),
+        axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank())
+```
+
+Warto tutaj zaznaczyć, że taki problem nie występuje dla wartości poniżej normy - są one tak czy inaczej ograniczone z dołu przez zero.
+
+Pokuszę się zatem o przedstawienie możliwego rozwiązania takiego problemu poprzez rozszerzenie skali **RdYlBu** o dodatkowe odcienie dla wartości znacznie przekraczających normę.
+Skalę proponowaną przeze mnie do powyżej opisanych problemów można by określić jako **BkRdYlBu** - dodanie czerni, w którą przechodzą kolory na końcu skali.
+Skala jest pokazana poniżej za pomocą prostego wykresu:
+
+```{r,echo=FALSE}
+df = data.frame(x=1:26,y=rep(1,26),f=seq(0,500,20))
+ggplot(data=df, aes(x, y)) + geom_tile(aes(fill=f)) +
+  geom_text(aes(y=1,x=6.38,label="Reference value (100%)"))+
+  scale_fill_gradientn(colors=c("#2c7bb6","#abd9e9","#e0f3f8","#ffffbf","#fdae61","#d7191c","#000000"),
+                       values=c(0,0.1,0.2,0.28,0.36,0.5,1.0)) +
+  geom_vline(xintercept=6)+
+  scale_y_continuous(expand=c(0,0))+scale_x_continuous(expand=c(0,0))+
+    xlab("") + ylab("")+
+      theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank(),
+        axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank())
+
+```
+
+Tego typu podejście może ułatwić wzrokowe porównywanie wartości znacznie przewyższających normę. Skala zdecydowanie lepiej zachowuje się niż pokazane rozciągania "czerwonej" części skali **RdYlBu**. Jest ona oczywiście nadal przyjazna dla osób z zaburzeniami rozpoznawania barw.
+
+Na zakończenie, pokażę prosty przykład wizualizacji z zastosowaniem palety **RdYlBu** oraz palety **BkRdYlBu**.
+
+```{r, echo=FALSE}
+df2 = data.frame(x=c(1,2,3,1,2,3,1,2,3),y=c(1,1,1,2,2,2,3,3,3),f=c(10,340,500,380,450,300,20,135,400))
+ggplot(data=df2, aes(x, y)) + geom_tile(aes(fill=f)) + scale_fill_gradientn(colors=c("#2c7bb6","#abd9e9","#e0f3f8","#ffffbf","#fdae61","#d7191c"),
+                       values=c(0,0.1,0.2,0.28,0.36,0.5,1.0),lim=c(0,500)) +
+  scale_y_continuous(expand=c(0,0))+scale_x_continuous(expand=c(0,0))+
+  geom_text(aes(x=x,y=y,label=paste0(f,"%")),col="gray")+
+    xlab("") + ylab("")+ ggtitle("Skala RdYlBu")+
+      theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank(),
+        axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank())
+
+ggplot(data=df2, aes(x, y)) + geom_tile(aes(fill=f)) +
+  scale_fill_gradientn(colors=c("#2c7bb6","#abd9e9","#e0f3f8","#ffffbf","#fdae61","#d7191c","#000000"),
+                       values=c(0,0.1,0.2,0.28,0.36,0.5,1.0),lim=c(0,500)) +
+  scale_y_continuous(expand=c(0,0))+scale_x_continuous(expand=c(0,0))+
+  geom_text(aes(x=x,y=y,label=paste0(f,"%")),col="gray")+
+    xlab("") + ylab("")+ ggtitle("Skala BkRdYlBu")+
+      theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank(),
+        axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank())
+```

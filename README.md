@@ -26,15 +26,14 @@ Blok 2 - Grafika interaktywna / internetowa
 * [7] W: [Skale pomiarowe](http://biecek.pl/Eseje/indexKuchnia.html); L: [Wladcy Polski](https://pl.wikipedia.org/wiki/W%C5%82adcy_Polski), [Tutorial D3](http://vadim.ogievetsky.com/IntroD3/#1), [JS fiddle](https://jsfiddle.net/), [Time line](https://github.com/jiahuang/d3-timeline)
 * [8] W: Prezentacja projektu 2/1; L: [shiny](http://pbiecek.github.io/Przewodnik/Programowanie/jak_tworzyc_aplikajce.html)
 * [9] W: Prezentacje studentów (tematy poniżej); L: Tableau, 
-* [10] W: Prezentacja projektu 2/2; L: [RBokeh](http://hafen.github.io/rbokeh/#preview) / [ggiraph](https://github.com/davidgohel/ggiraph), [vegalite1](https://github.com/hrbrmstr/vegalite), [vegalite2](https://idl.cs.washington.edu/files/2017-VegaLite-InfoVis.pdf), [googleVis](http://www.magesblog.com/2016/09/googlevis-061-on-cran.html), choinki: [1](http://simplystatistics.org/wp-content/uploads/2012/12/xmas.png), [2](http://smarterpoland.pl/wp-content/uploads/2015/12/cars-1015x1024.png), [3](http://smarterpoland.pl/wp-content/uploads/2015/12/ctree-1024x957.png), [4](http://smarterpoland.pl/wp-content/uploads/2014/12/Screen-Shot-2014-12-19-at-23.28.01-300x283.png)
+* [10] W: Prezentacja projektu 2/2; L: [RBokeh](http://hafen.github.io/rbokeh/#preview) / [ggiraph](https://github.com/davidgohel/ggiraph), [vegalite1](https://github.com/hrbrmstr/vegalite), [vegalite2](https://idl.cs.washington.edu/files/2017-VegaLite-InfoVis.pdf), [googleVis](http://www.magesblog.com/2016/09/googlevis-061-on-cran.html), choinki: [1](http://smarterpoland.pl/wp-content/uploads/2015/12/cars-1015x1024.png), [2](http://smarterpoland.pl/wp-content/uploads/2015/12/ctree-1024x957.png), [3](http://smarterpoland.pl/wp-content/uploads/2014/12/Screen-Shot-2014-12-19-at-23.28.01-300x283.png), [4](https://rawgit.com/pbiecek/TechnikiWizualizacjiDanych/master/MINI_2016/PraceDomowe/TydzienX/mchristmas.html), [5](https://rawgit.com/pbiecek/TechnikiWizualizacjiDanych/master/MINI_2016/PraceDomowe/TydzienX/christmastree_MSobczak.html), [6](https://rawgit.com/pbiecek/TechnikiWizualizacjiDanych/master/MINI_2016/PraceDomowe/TydzienX/DorotaLepicka.html), [7](https://rawgit.com/pbiecek/TechnikiWizualizacjiDanych/master/MINI_2016/PraceDomowe/TydzienX/SmudaPiotr/praca%20domowa%20X.html)
 
 Blok 3 - Grafika informatywna
 
-* [11] W: [Percepcja danych](http://biecek.pl/Eseje/indexDane.html); L: [ZwyczajeTramwaje](https://www.dropbox.com/s/1egykiaefhmz5v4/wybraneKolumny.rda?dl=0), [ggmap](http://stat405.had.co.nz/ggmap.pdf), [Linie](https://www.dropbox.com/s/oqrduyarze5z4v8/linie.zip?dl=0)
-* [12] W: [O historii słów kilka](http://biecek.pl/Eseje/indexHistoria.html); L: [DiagrammeR](https://github.com/rich-iannone/DiagrammeR), [igraph1](http://kateto.net/networks-r-igraph), [igraph2](http://kateto.net/network-visualization), [rozkłady pociągów](http://marlenacompton.com/?tag=edward-tufte)
-* [13] W: Prezentacja projektu 3/1; L: L: [ggvis+shiny](http://ggvis.rstudio.com/interactivity.html)
-* [14] W: [Czas i przestrzeń](http://biecek.pl/Eseje/indexDroga.html); L: [Kartogramy](https://github.com/pbiecek/TechnikiWizualizacjiDanych/tree/master/MINI_MIMUW_2014/materialy_z_wykladow_i_lab/mapy), [ZanieczyszczeniePowietrze](https://github.com/pbiecek/TechnikiWizualizacjiDanych/blob/master/MINI_2016/CiekaweDane/gios-pjp-zanieczyszczenie.csv)
-* [15] W: Prezentacja projektu 3/2
+* [11] W: [Percepcja danych](http://biecek.pl/Eseje/indexDane.html); L: 
+* [12] W: [Czas i przestrzeń](http://biecek.pl/Eseje/indexDroga.html); L: [Kartogramy](https://github.com/pbiecek/TechnikiWizualizacjiDanych/tree/master/MINI_MIMUW_2014/materialy_z_wykladow_i_lab/mapy), [ZanieczyszczeniePowietrze](https://github.com/pbiecek/TechnikiWizualizacjiDanych/blob/master/MINI_2016/CiekaweDane/gios-pjp-zanieczyszczenie.csv)
+* [13] W: Prezentacja projektu 3/1; L: 
+* [14] W: Prezentacja projektu 3/2
 
 
 # Zasady zaliczenia
@@ -56,9 +55,11 @@ Każdy projekt należy realizować w innym zespole.
 Propozycje projektów:
 
 [Projekt 1](https://github.com/pbiecek/TechnikiWizualizacjiDanych2017/blob/master/Projekt_1/README.md)
+[Punktacja projekt 1](https://docs.google.com/spreadsheets/d/1_6Z8uYRdm0cd29V0kvymWmfQmUN_4tAcb-anye-YYg4/edit?usp=sharing)
 
 [Projekt 2](https://github.com/pbiecek/TechnikiWizualizacjiDanych2017/blob/master/Projekt_2/README.md)
 
+[Projekt 3](https://github.com/pbiecek/TechnikiWizualizacjiDanych2017/blob/master/Projekt_3/README.md)
 
 # Prezentacje studentów
 
