@@ -67,11 +67,11 @@ shinyServer(function(input, output) {
                dom = "bubbleChart", size="val")
     h$colors(c(getColorsForPeople(sort(as.character(unique(dataForChart$person)))), 'rgba(223, 83, 83, .5)', 'rgba(119, 152, 191, .5)'))
 
-    h$set(height = 500, width= 1000)
+    h$set(height = 500, width= 1200)
     h$yAxis(categories = c("", constEmotionsNames, " "), title = list(text = "Emotion"))
     h$chart(rightAlignYAxis = FALSE)
     h$chart(zoomType = "xy")
-    h$title(text = "Leon Proffesional: So many emotions")
+    h$title(text = "Léon The Professional: So many emotions")
     h$xAxis(title = list(text = "Scene no"), min = 0, max = 85)
     h$tooltip(useHTML=TRUE,formatter = "#! function(){
                           
