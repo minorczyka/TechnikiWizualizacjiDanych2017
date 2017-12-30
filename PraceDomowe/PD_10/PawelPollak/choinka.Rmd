@@ -1,0 +1,93 @@
+---
+title: "Choinka - PD10"
+author: "Paweł Pollak"
+date: "21 grudnia 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+"Wykres" został wykonany przy użyciu pakietu *rbokeh*.
+
+```{r, include=FALSE}
+library(rbokeh)
+library(RColorBrewer)
+
+get_triangle <- function(n, A, B, C) {
+  x <- runif(n)
+  y <- runif(n)
+  data.frame( x = (1-sqrt(x))*A[1] + (sqrt(x)*(1-y))*B[1] + (y*sqrt(x))*C[1],
+              y = (1-sqrt(x))*A[2] + (sqrt(x)*(1-y))*B[2] + (y*sqrt(x))*C[2])
+}
+
+get_tree <- function() {
+  A <- c(0,0)
+  B <- c(0.5,1)
+  C <- c(1,0)
+  N <- 10000
+  tree <- get_triangle(N, A, B, C)
+  data.frame( x = tree$x,
+              y = tree$y,
+              col = "green",
+              shape = 8,
+              size = 35)
+}
+
+get_baubles <- function(n) {
+  data.frame(x = c(0.4, 0.55, 0.2, 0.8,  0.38, 0.65, 0.6, 0.74, 0.2, 0.54, 0.6, 0.42),
+             y = c(0.55, 0.85, 0.3, 0.08, 0.25,  0.6, 0.28, 0.4, 0.05, 0.4, 0.1, 0.67),
+             col = sample(brewer.pal(9, "Set1"), 9)[1:12],
+             shape = 16,
+             size = 20)
+}
+
+get_chains <- function(N) {
+  A <- c(-0.07,-0.07)
+  B <- c(0.5,1.07)
+  C <- c(1.07,-0.07)
+  tree <- get_triangle(100000, A, B, C)
+  c1 <- tree[(tree$y > (0.4*tree$x)^2 + 0.1) & (tree$y < (0.4*tree$x)^2 + 0.14),]
+  c2 <- tree[(tree$y > (0.4*tree$x)^2 + 0.4) & (tree$y < (0.4*tree$x)^2 + 0.44),]
+  c3 <- tree[(tree$y > (0.4*tree$x)^2 + 0.7) & (tree$y < (0.4*tree$x)^2 + 0.74),]
+  
+  rbind(data.frame(x = c1$x, y = c1$y, col = "blue", shape = 9, size = 15),
+        data.frame(x = c2$x, y = c2$y, col = "yellow", shape = 9, size = 15),
+        data.frame(x = c3$x, y = c3$y, col = "silver", shape = 9, size = 15))
+}
+
+get_star <- function() {
+  data.frame(x = 0.5, y = 1.04, 
+             col = "yellow",
+             shape = 18,
+             size = 30)
+}
+
+get_root <- function() {
+  t1 <- get_triangle(500, c(0.4, -0.23), c(0.45, -0.03), c(0.55, -0.03))
+  t2 <- get_triangle(500, c(0.4, -0.23), c(0.55, -0.03), c(0.6, -0.23))
+  t1 <- data.frame(x = t1$x, y = t1$y, col = "brown", shape = 15, size = 10)
+  t2 <- data.frame(x = t2$x, y = t2$y, col = "brown", shape = 15, size = 10)
+  rbind(t1, t2)
+}
+
+
+data <- rbind(get_root(), get_tree(), get_baubles(), get_chains(), get_star())
+  
+p <- figure() %>%
+  ly_points(x, 
+            y, 
+            data = data,
+            color = col, 
+            glyph = shape,
+            size = size) %>%
+  x_axis(visible = FALSE) %>%
+  y_axis(visible = FALSE)
+```
+
+```{r}
+p
+```
+
+
