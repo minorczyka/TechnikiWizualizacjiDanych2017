@@ -1,0 +1,13 @@
+name: housecharacters
+title: HouseCharacters
+username:
+account: alkuerissa
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 250464
+bundleId: 1143815
+url: https://alkuerissa.shinyapps.io/housecharacters/
+when: 1513740762.61435
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: D3_LM.html
