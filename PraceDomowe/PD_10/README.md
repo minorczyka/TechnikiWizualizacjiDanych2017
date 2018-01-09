@@ -10,7 +10,7 @@
 
 <img src="http://smarterpoland.pl/wp-content/uploads/2017/12/Screen-Shot-2017-12-22-at-23.09.48-161x300.png" alt="Screen Shot 2017-12-22 at 23.09.48" width="161" height="300" class="alignnone size-medium wp-image-8450" /><img src="http://smarterpoland.pl/wp-content/uploads/2017/12/Screen-Shot-2017-12-22-at-23.09.25-277x300.png" alt="Screen Shot 2017-12-22 at 23.09.25" width="277" height="300" class="alignnone size-medium wp-image-8451" />
 
-<img src="http://smarterpoland.pl/wp-content/uploads/2017/12/Screen-Shot-2018-01-09-at-22.37.20-300x261.png" alt="Screen Shot 2018-01-09 at 22.37.20" width="300" height="261" class="alignnone size-medium wp-image-8486" /><img src="http://smarterpoland.pl/wp-content/uploads/2017/12/Screen-Shot-2018-01-09-at-22.20.51-963x1024.png" alt="Screen Shot 2018-01-09 at 22.20.51" width="300" height="702" class="alignnone size-large wp-image-8487" />
+<img src="http://smarterpoland.pl/wp-content/uploads/2017/12/Screen-Shot-2018-01-09-at-22.37.20-300x261.png" alt="Screen Shot 2018-01-09 at 22.37.20" width="300" height="261" class="alignnone size-medium wp-image-8486" /><img src="http://smarterpoland.pl/wp-content/uploads/2017/12/Screen-Shot-2018-01-09-at-22.20.51-963x1024.png" alt="Screen Shot 2018-01-09 at 22.20.51" width="300" class="alignnone size-large wp-image-8487" />
 
 <img src="http://smarterpoland.pl/wp-content/uploads/2017/12/Screen-Shot-2018-01-09-at-22.13.01.png" alt="Screen Shot 2018-01-09 at 22.13.01" width="300" class="alignnone size-large wp-image-8488" /><img src="http://smarterpoland.pl/wp-content/uploads/2017/12/Screen-Shot-2018-01-09-at-21.57.06-971x1024.png" alt="Screen Shot 2018-01-09 at 21.57.06" width="300" class="alignnone size-large wp-image-8489" />
 
