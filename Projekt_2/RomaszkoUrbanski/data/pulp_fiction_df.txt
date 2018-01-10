@@ -1,0 +1,1183 @@
+Number$Location$Character$Sentence
+1$INT. COFFEE SHOP – MORNING$YOUNG MAN$No, forget it, it's too risky. I'm through doin' that shit.
+2$INT. COFFEE SHOP – MORNING$YOUNG WOMAN$You always say that, the same thing every time: never again, I'm through, too dangerous.
+3$INT. COFFEE SHOP – MORNING$YOUNG MAN$I know that's what I always say. I'm always right too, but –
+4$INT. COFFEE SHOP – MORNING$YOUNG WOMAN$– but you forget about it in a day or two -
+5$INT. COFFEE SHOP – MORNING$YOUNG MAN$– yeah, well, the days of me forgittin' are over, and the days of me rememberin' have just begun.
+6$INT. COFFEE SHOP – MORNING$YOUNG WOMAN$When you go on like this, you know what you sound like?
+7$INT. COFFEE SHOP – MORNING$YOUNG MAN$I sound like a sensible fucking man, is what I sound like.
+8$INT. COFFEE SHOP – MORNING$YOUNG WOMAN$You sound like a duck. Quack, quack, quack, quack, quack, quack, quack...
+9$INT. COFFEE SHOP – MORNING$YOUNG MAN$Well take heart, 'cause you're never gonna hafta hear it again. Because since I'm never gonna do it again, you're never gonna hafta hear me quack about how I'm never gonna do it again.
+10$INT. COFFEE SHOP – MORNING$YOUNG WOMAN$After tonight.
+11$INT. COFFEE SHOP – MORNING$YOUNG MAN$Correct. I got all tonight to quack.
+12$INT. COFFEE SHOP – MORNING$WAITRESS$Can I get anybody anymore coffee?
+13$INT. COFFEE SHOP – MORNING$YOUNG WOMAN$Oh yes, thank you.
+14$INT. COFFEE SHOP – MORNING$YOUNG MAN$I'm doin' fine.
+15$INT. COFFEE SHOP – MORNING$YOUNG MAN$I mean the way it is now, you're takin' the same fuckin' risk as when you rob a bank. You take more of a risk. Banks are easier!  Federal banks aren't supposed to stop you anyway, during a robbery. They're insured, why should they care? You don't even need a gun in a federal bank. I heard about this guy, walked into a federal bank with a portable phone, handed the phone to the teller, the guy on the other end of the phone said: "We got this guy's little girl, and if you don't give him all your money, we're gonna kill 'er."
+16$INT. COFFEE SHOP – MORNING$YOUNG WOMAN$Did it work?
+17$INT. COFFEE SHOP – MORNING$YOUNG MAN$Fuckin' A it worked, that's what I'm talkin' about! Knucklehead walks in a bank with a telephone, not a pistol, not a shotgun, but a fuckin' phone, cleans the place out, and they don't lift a fuckin' finger.
+18$INT. COFFEE SHOP – MORNING$YOUNG WOMAN$Did they hurt the little girl?
+19$INT. COFFEE SHOP – MORNING$YOUNG MAN$I don't know. There probably never was a little girl – the point of the story isn't the little girl. The point of the story is they robbed the bank with a telephone.
+20$INT. COFFEE SHOP – MORNING$YOUNG WOMAN$You wanna rob banks?
+21$INT. COFFEE SHOP – MORNING$YOUNG MAN$I'm not sayin' I wanna rob banks, I'm just illustrating that if we did, it would be easier than what we been doin'.
+22$INT. COFFEE SHOP – MORNING$YOUNG WOMAN$So you don't want to be a bank robber?
+23$INT. COFFEE SHOP – MORNING$YOUNG MAN$Naw, all those guys are goin' down the same road, either dead or servin' twenty.
+24$INT. COFFEE SHOP – MORNING$YOUNG WOMAN$And no more liquor stores?
+25$INT. COFFEE SHOP – MORNING$YOUNG MAN$What have we been talking about? Yeah, no more-liquor-stores. Besides, it ain't the giggle it usta be. Too many foreigners own liquor stores. Vietnamese, Koreans, they can't fuckin' speak English. You tell 'em: "Empty out the register," and they don't know what it fuckin' means. They make it too personal. We keep on, one of those gook motherfuckers' gonna make us kill 'em.
+26$INT. COFFEE SHOP – MORNING$YOUNG WOMAN$I'm not gonna kill anybody.
+27$INT. COFFEE SHOP – MORNING$YOUNG MAN$I don't wanna kill anybody either. But they'll probably put us in a situation where it's us of them. And if it's not the gooks, it these old Jews who've owned the store for fifteen fuckin' generations. Ya got Grandpa Irving sittin' behind the counter with a fuckin' Magnum. Try walkin' into one of those stores with nothin' but a telephone, see how far it gets you. Fuck it, forget it, we're out of it.
+28$INT. COFFEE SHOP – MORNING$YOUNG WOMAN$Well, what else is there, day jobs?
+29$INT. COFFEE SHOP – MORNING$YOUNG MAN$Not this life.
+30$INT. COFFEE SHOP – MORNING$YOUNG WOMAN$Well what then?
+31$INT. COFFEE SHOP – MORNING$YOUNG MAN$Garcon! Coffee!
+32$INT. COFFEE SHOP – MORNING$YOUNG MAN$This place.
+33$INT. COFFEE SHOP – MORNING$WAITRESS$"Garcon" means boy.
+34$INT. COFFEE SHOP – MORNING$YOUNG WOMAN$Here? It's a coffee shop.
+35$INT. COFFEE SHOP – MORNING$YOUNG MAN$What's wrong with that? People never rob restaurants, why not? Bars, liquor stores, gas stations, you get your head blown off stickin' up one of them. Restaurants, on the other hand, you catch with their pants down. They're not expecting to get robbed, or not as expecting.
+36$INT. COFFEE SHOP – MORNING$YOUNG WOMAN$I bet in places like this you could cut down on the hero factor.
+37$INT. COFFEE SHOP – MORNING$YOUNG MAN$Correct. Just like banks, these places are insured. The managers don't give a fuck, they're just tryin' to get ya out the door before you start pluggin' diners.  Waitresses, forget it, they ain't takin' a bullet for the register. Busboys, some wetback gettin' paid a dollar fifty a hour gonna really give a fuck you're stealin' from the owner. Customers are sittin' there with food in their mouths, they don't know what's goin' on. One minute they're havin' a Denver omelet, next minute somebody's stickin' a gun in their face.
+38$INT. COFFEE SHOP – MORNING$YOUNG MAN$See, I got the idea last liquor store we stuck up. 'Member all those customers kept comin' in?
+39$INT. COFFEE SHOP – MORNING$YOUNG WOMAN$Yeah.
+40$INT. COFFEE SHOP – MORNING$YOUNG MAN$Then you got the idea to take everybody's wallet.
+41$INT. COFFEE SHOP – MORNING$YOUNG WOMAN$Uh-huh.
+42$INT. COFFEE SHOP – MORNING$YOUNG MAN$That was a good idea.
+43$INT. COFFEE SHOP – MORNING$YOUNG WOMAN$Thanks.
+44$INT. COFFEE SHOP – MORNING$YOUNG MAN$We made more from the wallets then we did the register.
+45$INT. COFFEE SHOP – MORNING$YOUNG WOMAN$Yes we did.
+46$INT. COFFEE SHOP – MORNING$YOUNG MAN$A lot of people go to restaurants.
+47$INT. COFFEE SHOP – MORNING$YOUNG WOMAN$A lot of wallets.
+48$INT. COFFEE SHOP – MORNING$YOUNG MAN$Pretty smart, huh?
+49$INT. COFFEE SHOP – MORNING$YOUNG WOMAN$Pretty smart. I'm ready, let's go, right here, right now.
+50$INT. COFFEE SHOP – MORNING$YOUNG MAN$Remember, same as before, you're crowd control, I handle the employees.
+51$INT. COFFEE SHOP – MORNING$YOUNG WOMAN$Got it.
+52$INT. COFFEE SHOP – MORNING$YOUNG WOMAN$I love you, Pumpkin.
+53$INT. COFFEE SHOP – MORNING$YOUNG MAN$I love you, Honey Bunny.
+54$INT. COFFEE SHOP – MORNING$PUMPKIN$Everybody be cool this is a robbery!
+55$INT. COFFEE SHOP – MORNING$HONEY BUNNY$Any of you fuckin' pricks move and I'll execute every one of you motherfuckers!  Got that?
+56$INT. '74 CHEVY (MOVING) – MORNING$JULES$– Okay now, tell me about the hash bars?
+57$INT. '74 CHEVY (MOVING) – MORNING$VINCENT$What so you want to know?
+58$INT. '74 CHEVY (MOVING) – MORNING$JULES$Well, hash is legal there, right?
+59$INT. '74 CHEVY (MOVING) – MORNING$VINCENT$Yeah, it's legal, but is ain't a hundred percent legal. I mean you can't walk into a restaurant, roll a joint, and start puffin' away. You're only supposed to smoke in your home or certain designated places.
+60$INT. '74 CHEVY (MOVING) – MORNING$JULES$Those are hash bars?
+61$INT. '74 CHEVY (MOVING) – MORNING$VINCENT$Yeah, it breaks down like this: it's legal to buy it, it's legal to own it and, if you're the proprietor of a hash bar, it's legal to sell it. It's legal to carry it, which doesn't really matter 'cause – get a load of this – if the cops stop you, it's illegal for this to search you. Searching you is a right that the cops in Amsterdam don't have.
+62$INT. '74 CHEVY (MOVING) – MORNING$JULES$That did it, man – I'm fuckin' goin', that's all there is to it.
+63$INT. '74 CHEVY (MOVING) – MORNING$VINCENT$You'll dig it the most. But you know what the funniest thing about Europe is?
+64$INT. '74 CHEVY (MOVING) – MORNING$JULES$What?
+65$INT. '74 CHEVY (MOVING) – MORNING$VINCENT$It's the little differences. A lotta the same shit we got here, they got there, but there they're a little different.
+66$INT. '74 CHEVY (MOVING) – MORNING$JULES$Examples?
+67$INT. '74 CHEVY (MOVING) – MORNING$VINCENT$Well, in Amsterdam, you can buy beer in a movie theatre. And I don't mean in a paper cup either. They give you a glass of beer, like in a bar. In Paris, you can buy beer at MacDonald's. Also, you know what they call a Quarter Pounder with Cheese in Paris?
+68$INT. '74 CHEVY (MOVING) – MORNING$JULES$They don't call it a Quarter Pounder with Cheese?
+69$INT. '74 CHEVY (MOVING) – MORNING$VINCENT$No, they got the metric system there, they wouldn't know what the fuck a Quarter Pounder is.
+70$INT. '74 CHEVY (MOVING) – MORNING$JULES$What'd they call it?
+71$INT. '74 CHEVY (MOVING) – MORNING$VINCENT$Royale with Cheese.
+72$INT. '74 CHEVY (MOVING) – MORNING$JULES$Royale with Cheese. What'd they call a Big Mac?
+73$INT. '74 CHEVY (MOVING) – MORNING$VINCENT$Big Mac's a Big Mac, but they call it Le Big Mac.
+74$INT. '74 CHEVY (MOVING) – MORNING$JULES$Le Big Mac. What do they call a Whopper?
+75$INT. '74 CHEVY (MOVING) – MORNING$VINCENT$I dunno, I didn't go into a Burger King.  But you know what they put on french fries in Holland instead of ketchup?
+76$INT. '74 CHEVY (MOVING) – MORNING$JULES$What?
+77$INT. '74 CHEVY (MOVING) – MORNING$VINCENT$Mayonnaise.
+78$INT. '74 CHEVY (MOVING) – MORNING$JULES$Goddamn!
+79$INT. '74 CHEVY (MOVING) – MORNING$VINCENT$I seen 'em do it. And I don't mean a little bit on the side of the plate, they fuckin' drown 'em in it.
+80$INT. '74 CHEVY (MOVING) – MORNING$JULES$Uuccch!
+81$INT. CHEVY (TRUNK) – MORNING$JULES$We should have shotguns for this kind of deal.
+82$INT. CHEVY (TRUNK) – MORNING$VINCENT$How many up there?
+83$INT. CHEVY (TRUNK) – MORNING$JULES$Three or four.
+84$INT. CHEVY (TRUNK) – MORNING$VINCENT$Counting our guy?
+85$INT. CHEVY (TRUNK) – MORNING$JULES$I'm not sure.
+86$INT. CHEVY (TRUNK) – MORNING$VINCENT$So there could be five guys up there?
+87$INT. CHEVY (TRUNK) – MORNING$JULES$It's possible.
+88$INT. CHEVY (TRUNK) – MORNING$VINCENT$We should have fuckin' shotguns.
+89$EXT. APARTMENT BUILDING COURTYARD – MORNING$VINCENT$What's her name?
+90$EXT. APARTMENT BUILDING COURTYARD – MORNING$JULES$Mia.
+91$EXT. APARTMENT BUILDING COURTYARD – MORNING$VINCENT$How did Marsellus and her meet?
+92$EXT. APARTMENT BUILDING COURTYARD – MORNING$JULES$I dunno, however people meet people. She usta be an actress.
+93$EXT. APARTMENT BUILDING COURTYARD – MORNING$VINCENT$She ever do anything I woulda saw?
+94$EXT. APARTMENT BUILDING COURTYARD – MORNING$JULES$I think her biggest deal was she starred in a pilot.
+95$EXT. APARTMENT BUILDING COURTYARD – MORNING$VINCENT$What's a pilot?
+96$EXT. APARTMENT BUILDING COURTYARD – MORNING$JULES$Well, you know the shows on TV?
+97$EXT. APARTMENT BUILDING COURTYARD – MORNING$VINCENT$I don't watch TV.
+98$EXT. APARTMENT BUILDING COURTYARD – MORNING$JULES$Yes, but you're aware that there's an invention called television, and on that invention they show shows?
+99$EXT. APARTMENT BUILDING COURTYARD – MORNING$VINCENT$Yeah.
+100$EXT. APARTMENT BUILDING COURTYARD – MORNING$JULES$Well, the way they pick the shows on TV is they make one show, and that show's called a pilot. And they show that one show to the people who pick the shows, and on the strength of that one show, they decide if they want to make more shows. Some get accepted and become TV programs, and some don't, and become nothing. She starred in one of the ones that became nothing.
+101$INT. RECEPTION AREA (APARTMENT BUILDING) – MORNING$JULES$You remember Antwan Rockamora? Half- black, half-Samoan, usta call him Tony Rocky Horror.
+102$INT. RECEPTION AREA (APARTMENT BUILDING) – MORNING$VINCENT$Yeah maybe, fat right?
+103$INT. RECEPTION AREA (APARTMENT BUILDING) – MORNING$JULES$I wouldn't go so far as to call the brother fat. He's got a weight problem.  What's the nigger gonna do, he's Samoan.
+104$INT. RECEPTION AREA (APARTMENT BUILDING) – MORNING$VINCENT$I think I know who you mean, what about him?
+105$INT. RECEPTION AREA (APARTMENT BUILDING) – MORNING$JULES$Well, Marsellus fucked his ass up good.  And word around the campfire, it was on account of Marsellus Wallace's wife.
+106$INT. ELEVATOR – MORNING$VINCENT$What'd he do, fuck her?
+107$INT. ELEVATOR – MORNING$JULES$No no no no no no no, nothin' that bad.
+108$INT. ELEVATOR – MORNING$VINCENT$Well what then?
+109$INT. ELEVATOR – MORNING$JULES$He gave her a foot massage.
+110$INT. ELEVATOR – MORNING$VINCENT$A foot massage?
+111$INT. ELEVATOR – MORNING$VINCENT$That's all?
+112$INT. ELEVATOR – MORNING$VINCENT$What did Marsellus do?
+113$INT. ELEVATOR – MORNING$JULES$Sent a couple of guys over to his place.  They took him out on the patio of his apartment, threw his ass over the balcony.  Nigger fell four stories. They had this garden at the bottom, enclosed in glass, like one of them greenhouses – nigger fell through that. Since then, he's kinda developed a speech impediment.
+114$INT. ELEVATOR – MORNING$VINCENT$That's a damn shame.
+115$INT. APARTMENT BUILDING HALLWAY – MORNING$VINCENT$Still I hafta say, play with matches, ya get burned.
+116$INT. APARTMENT BUILDING HALLWAY – MORNING$JULES$Whaddya mean?
+117$INT. APARTMENT BUILDING HALLWAY – MORNING$VINCENT$You don't be givin' Marsellus Wallace's new bride a foot massage.
+118$INT. APARTMENT BUILDING HALLWAY – MORNING$JULES$You don't think he overreacted?
+119$INT. APARTMENT BUILDING HALLWAY – MORNING$VINCENT$Antwan probably didn't expect Marsellus to react like he did, but he had to expect a reaction.
+120$INT. APARTMENT BUILDING HALLWAY – MORNING$JULES$It was a foot massage, a foot massage is nothing, I give my mother a foot massage.
+121$INT. APARTMENT BUILDING HALLWAY – MORNING$VINCENT$It's laying hands on Marsellus Wallace's new wife in a familiar way. Is it as bad as eatin' her out – no, but you're in the same fuckin' ballpark.
+122$INT. APARTMENT BUILDING HALLWAY – MORNING$JULES$Whoa... whoa... whoa... stop right there.  Eatin' a bitch out, and givin' a bitch a foot massage ain't even the same fuckin' thing.
+123$INT. APARTMENT BUILDING HALLWAY – MORNING$VINCENT$Not the same thing, the same ballpark.
+124$INT. APARTMENT BUILDING HALLWAY – MORNING$JULES$It ain't no ballpark either. Look maybe your method of massage differs from mine, but touchin' his lady's feet, and stickin' your tongue in her holyiest of holyies, ain't the same ballpark, ain't the same league, ain't even the same fuckin' sport. Foot massages don't mean shit.
+125$INT. APARTMENT BUILDING HALLWAY – MORNING$VINCENT$Have you ever given a foot massage?
+126$INT. APARTMENT BUILDING HALLWAY – MORNING$JULES$Don't be tellin' me about foot massages – I'm the foot fuckin' master.
+127$INT. APARTMENT BUILDING HALLWAY – MORNING$VINCENT$Given a lot of 'em?
+128$INT. APARTMENT BUILDING HALLWAY – MORNING$JULES$Shit yeah. I got my technique down man, I don't tickle or nothin'.
+129$INT. APARTMENT BUILDING HALLWAY – MORNING$VINCENT$Have you ever given a guy a foot massage?
+130$INT. APARTMENT BUILDING HALLWAY – MORNING$JULES$Fuck you.
+131$INT. APARTMENT BUILDING HALLWAY – MORNING$VINCENT$How many?
+132$INT. APARTMENT BUILDING HALLWAY – MORNING$JULES$Fuck you.
+133$INT. APARTMENT BUILDING HALLWAY – MORNING$VINCENT$Would you give me a foot massage – I'm kinda tired.
+134$INT. APARTMENT BUILDING HALLWAY – MORNING$JULES$Man, you best back off, I'm gittin' pissed – this is the door.
+135$INT. APARTMENT BUILDING HALLWAY – MORNING$JULES$What time is it?
+136$INT. APARTMENT BUILDING HALLWAY – MORNING$VINCENT$Seven-twenty-two in the morning.
+137$INT. APARTMENT BUILDING HALLWAY – MORNING$JULES$It ain't quite time, let's hang back.
+138$INT. APARTMENT BUILDING HALLWAY – MORNING$JULES$Look, just because I wouldn't give no man a foot massage, don't make it right for Marsellus to throw Antwan off a building into a glass- motherfuckin-house, fuckin' up the way the nigger talks. That ain't right, man. Motherfucker do that to me, he better paralyze my ass, 'cause I'd kill'a motherfucker.
+139$INT. APARTMENT BUILDING HALLWAY – MORNING$VINCENT$I'm not sayin' he was right, but you're sayin' a foot massage don't mean nothing, and I'm sayin' it does. I've given a million ladies a million foot massages and they all meant somethin'. We act like they don't, but they do. That's what's so fuckin' cool about 'em. This sensual thing's goin' on that nobody's talkin about, but you know it and she knows it, fuckin' Marsellus knew it, and Antwan shoulda known fuckin' better. That's his fuckin' wife, man. He ain't gonna have a sense of humor about that shit.
+140$INT. APARTMENT BUILDING HALLWAY – MORNING$JULES$That's an interesting point, but let's get into character.
+141$INT. APARTMENT BUILDING HALLWAY – MORNING$VINCENT$What's her name again?
+142$INT. APARTMENT BUILDING HALLWAY – MORNING$JULES$Mia. Why you so interested in big man's wife?
+143$INT. APARTMENT BUILDING HALLWAY – MORNING$VINCENT$Well, Marsellus is leavin' for Florida and when he's gone, he wants me to take care of Mia.
+144$INT. APARTMENT BUILDING HALLWAY – MORNING$JULES$Take care of her?
+145$INT. APARTMENT BUILDING HALLWAY – MORNING$VINCENT$Not that! Take her out. Show her a good time. Don't let her get lonely.
+146$INT. APARTMENT BUILDING HALLWAY – MORNING$JULES$You're gonna be takin' Mia Wallace out on a date?
+147$INT. APARTMENT BUILDING HALLWAY – MORNING$VINCENT$It ain't a date. It's like when you and your buddy's wife go to a movie or somethin'. It's just... you know... good company.
+148$INT. APARTMENT BUILDING HALLWAY – MORNING$VINCENT$It's not a date.
+149$INT. APARTMENT (ROOM 49) – MORNING$JULES$Hey kids.
+150$INT. APARTMENT (ROOM 49) – MORNING$JULES$How you boys doin'?
+151$INT. APARTMENT (ROOM 49) – MORNING$JULES$Am I trippin', or did I just ask you a question.
+152$INT. APARTMENT (ROOM 49) – MORNING$BRETT$We're doin' okay.
+153$INT. APARTMENT (ROOM 49) – MORNING$JULES$Do you know who we are?
+154$INT. APARTMENT (ROOM 49) – MORNING$JULES$We're associates of your business partner Marsellus Wallace, you remember your business partner dont'ya?
+155$INT. APARTMENT (ROOM 49) – MORNING$JULES$Now I'm gonna take a wild guess here: you're Brett, right?
+156$INT. APARTMENT (ROOM 49) – MORNING$BRETT$I'm Brett.
+157$INT. APARTMENT (ROOM 49) – MORNING$JULES$I thought so. Well, you remember your business partner Marsellus Wallace, dont'ya Brett?
+158$INT. APARTMENT (ROOM 49) – MORNING$BRETT$I remember him.
+159$INT. APARTMENT (ROOM 49) – MORNING$JULES$Good for you. Looks like me and Vincent caught you at breakfast, sorry 'bout that.  What'cha eatin'?
+160$INT. APARTMENT (ROOM 49) – MORNING$BRETT$Hamburgers.
+161$INT. APARTMENT (ROOM 49) – MORNING$JULES$Hamburgers. The cornerstone of any nutritious breakfast. What kinda hamburgers?
+162$INT. APARTMENT (ROOM 49) – MORNING$BRETT$Cheeseburgers.
+163$INT. APARTMENT (ROOM 49) – MORNING$JULES$No, I mean where did you get'em? MacDonald's, Wendy's, Jack-in-the- Box, where?
+164$INT. APARTMENT (ROOM 49) – MORNING$BRETT$Big Kahuna Burger.
+165$INT. APARTMENT (ROOM 49) – MORNING$JULES$Big Kahuna Burger. That's that Hawaiian burger joint. I heard they got some tasty burgers. I ain't never had one myself, how are they?
+166$INT. APARTMENT (ROOM 49) – MORNING$BRETT$They're good.
+167$INT. APARTMENT (ROOM 49) – MORNING$JULES$Mind if I try one of yours?
+168$INT. APARTMENT (ROOM 49) – MORNING$BRETT$No.
+169$INT. APARTMENT (ROOM 49) – MORNING$JULES$Yours is this one, right?
+170$INT. APARTMENT (ROOM 49) – MORNING$BRETT$Yeah.
+171$INT. APARTMENT (ROOM 49) – MORNING$JULES$Uuummmm, that's a tasty burger. Vince, you ever try a Big Kahuna Burger?
+172$INT. APARTMENT (ROOM 49) – MORNING$VINCENT$No.
+173$INT. APARTMENT (ROOM 49) – MORNING$JULES$You wanna bite, they're real good.
+174$INT. APARTMENT (ROOM 49) – MORNING$VINCENT$I ain't hungry.
+175$INT. APARTMENT (ROOM 49) – MORNING$JULES$Well, if you like hamburgers give 'em a try sometime. Me, I can't usually eat 'em 'cause my girlfriend's a vegetarian. Which more or less makes me a vegetarian, but I sure love the taste of a good burger. You know what they call a Quarter Pounder with Cheese in France?
+176$INT. APARTMENT (ROOM 49) – MORNING$BRETT$No.
+177$INT. APARTMENT (ROOM 49) – MORNING$JULES$Tell 'em, Vincent.
+178$INT. APARTMENT (ROOM 49) – MORNING$VINCENT$Royale with Cheese.
+179$INT. APARTMENT (ROOM 49) – MORNING$JULES$Royale with Cheese, you know why they call it that?
+180$INT. APARTMENT (ROOM 49) – MORNING$BRETT$Because of the metric system?
+181$INT. APARTMENT (ROOM 49) – MORNING$JULES$Check out the big brain on Brett. You'a smart motherfucker, that's right. The metric system. What's in this?
+182$INT. APARTMENT (ROOM 49) – MORNING$BRETT$Sprite.
+183$INT. APARTMENT (ROOM 49) – MORNING$JULES$Sprite, good, mind if I have some of your tasty beverage to wash this down with?
+184$INT. APARTMENT (ROOM 49) – MORNING$BRETT$Sure.
+185$INT. APARTMENT (ROOM 49) – MORNING$JULES$Uuuuummmm, hit's the spot! You, Flock of Seagulls, you know what we're here for?
+186$INT. APARTMENT (ROOM 49) – MORNING$JULES$Then why don't you tell my boy here Vince, where you got the shit hid.
+187$INT. APARTMENT (ROOM 49) – MORNING$MARVIN$It's under the be –
+188$INT. APARTMENT (ROOM 49) – MORNING$JULES$– I don't remember askin' you a goddamn thing. You were sayin'?
+189$INT. APARTMENT (ROOM 49) – MORNING$ROGER$It's under the bed.
+190$INT. APARTMENT (ROOM 49) – MORNING$VINCENT$Got it.
+191$INT. APARTMENT (ROOM 49) – MORNING$JULES$We happy?
+192$INT. APARTMENT (ROOM 49) – MORNING$JULES$Vincent!
+193$INT. APARTMENT (ROOM 49) – MORNING$JULES$We happy?
+194$INT. APARTMENT (ROOM 49) – MORNING$VINCENT$We're happy.
+195$INT. APARTMENT (ROOM 49) – MORNING$BRETT$Look, what's your name? I got his name's Vincent, but what's yours?
+196$INT. APARTMENT (ROOM 49) – MORNING$JULES$My name's Pitt, and you ain't talkin' your ass outta this shit.
+197$INT. APARTMENT (ROOM 49) – MORNING$BRETT$I just want you to know how sorry we are about how fucked up things got between us and Mr. Wallace. When we entered into this thing, we only had the best intentions –
+198$INT. APARTMENT (ROOM 49) – MORNING$JULES$Oh, I'm sorry. Did that break your concentration? I didn't mean to do that.  Please, continue. I believe you were saying something about "best intentions."
+199$INT. APARTMENT (ROOM 49) – MORNING$JULES$Whatsamatter? Oh, you were through anyway.  Well, let me retort. Would you describe for me what Marsellus Wallace looks like?
+200$INT. APARTMENT (ROOM 49) – MORNING$JULES$What country you from!
+201$INT. APARTMENT (ROOM 49) – MORNING$BRETT$What?
+202$INT. APARTMENT (ROOM 49) – MORNING$JULES$"What" ain't no country I know! Do they speak English in "What?"
+203$INT. APARTMENT (ROOM 49) – MORNING$BRETT$What?
+204$INT. APARTMENT (ROOM 49) – MORNING$JULES$English-motherfucker-can-you-speak- it?
+205$INT. APARTMENT (ROOM 49) – MORNING$BRETT$Yes.
+206$INT. APARTMENT (ROOM 49) – MORNING$JULES$Then you understand what I'm sayin'?
+207$INT. APARTMENT (ROOM 49) – MORNING$BRETT$Yes.
+208$INT. APARTMENT (ROOM 49) – MORNING$JULES$Now describe what Marsellus Wallace looks like!
+209$INT. APARTMENT (ROOM 49) – MORNING$BRETT$What?
+210$INT. APARTMENT (ROOM 49) – MORNING$JULES$Say "What" again! C'mon, say "What" again!  I dare ya, I double dare ya motherfucker, say "What" one more goddamn time!
+211$INT. APARTMENT (ROOM 49) – MORNING$JULES$Now describe to me what Marsellus Wallace looks like!
+212$INT. APARTMENT (ROOM 49) – MORNING$BRETT$Well he's... he's... black –
+213$INT. APARTMENT (ROOM 49) – MORNING$JULES$– go on!
+214$INT. APARTMENT (ROOM 49) – MORNING$BRETT$...and he's... he's... bald –
+215$INT. APARTMENT (ROOM 49) – MORNING$JULES$– does he look like a bitch?!
+216$INT. APARTMENT (ROOM 49) – MORNING$BRETT$What?
+217$INT. APARTMENT (ROOM 49) – MORNING$JULES$Does-he-look-like-a-bitch?!
+218$INT. APARTMENT (ROOM 49) – MORNING$BRETT$No.
+219$INT. APARTMENT (ROOM 49) – MORNING$JULES$Then why did you try to fuck 'im like a bitch?!
+220$INT. APARTMENT (ROOM 49) – MORNING$BRETT$I didn't.
+221$INT. APARTMENT (ROOM 49) – MORNING$JULES$Yes ya did Brett. Ya tried ta fuck 'im.  You ever read the Bible, Brett?
+222$INT. APARTMENT (ROOM 49) – MORNING$BRETT$Yes.
+223$INT. APARTMENT (ROOM 49) – MORNING$JULES$There's a passage I got memorized, seems appropriate for this situation: Ezekiel 25:17. "The path of the righteous man is beset on all sides by the inequities of the selfish and the tyranny of evil men.  Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who attempt to poison and destroy my brothers. And you will know my name is the Lord when I lay my vengeance upon you."
+224$INT. APARTMENT (ROOM 49) – MORNING$MARSELLUS (O.S.)$I think you're gonna find – when all this shit is over and done – I think you're gonna find yourself one smilin' motherfucker. Thing is Butch, right now you got ability. But painful as it may be, ability don't last. Now that's a hard motherfuckin' fact of life, but it's a fact of life your ass is gonna hafta git realistic about. This business is filled to the brim with unrealistic motherfuckers who thought their ass aged like wine.  Besides, even if you went all the way, what would you be? Feather-weight champion of the world. Who gives a shit? I doubt you can even get a credit card based on that.
+225$INT. APARTMENT (ROOM 49) – MORNING$MARSELLUS (O.S.)$Now the night of the fight, you may fell a slight sting, that's pride fuckin' wit ya.  Fuck pride! Pride only hurts, it never helps. Fight through that shit. 'Cause a year from now, when you're kickin' it in the Caribbean you're gonna say, "Marsellus Wallace was right."
+226$INT. APARTMENT (ROOM 49) – MORNING$BUTCH$I got no problem with that.
+227$INT. APARTMENT (ROOM 49) – MORNING$MARSELLUS (O.S.)$In the fifth, your ass goes down.
+228$INT. APARTMENT (ROOM 49) – MORNING$MARSELLUS (O.S.)$Say it!
+229$INT. APARTMENT (ROOM 49) – MORNING$BUTCH$In the fifth, my ass goes down.
+230$EXT. SALLY LEROY'S – DAY$ENGLISH DAVE$Vincent Vega, our man in Amsterdam, git your ass on in here.
+231$INT. SALLY LEROY'S – DAY$VINCENT$Where's the big man?
+232$INT. SALLY LEROY'S – DAY$ENGLISH DAVE$He's over there, finishing up some business.
+233$INT. SALLY LEROY'S – DAY$ENGLISH DAVE (O.S.)$Hang back for a second or two, and when you see the white boy leave, go on over.  In the meanwhile, can I make you an espresso?
+234$INT. SALLY LEROY'S – DAY$VINCENT$How 'bout a cup of just plain lo' American?
+235$INT. SALLY LEROY'S – DAY$ENGLISH DAVE$Comin' up. I hear you're taking Mia out tomorrow?
+236$INT. SALLY LEROY'S – DAY$VINCENT$At Marsellus' request.
+237$INT. SALLY LEROY'S – DAY$ENGLISH DAVE$Have you met Mia?
+238$INT. SALLY LEROY'S – DAY$VINCENT$Not yet.
+239$INT. SALLY LEROY'S – DAY$VINCENT$What's so funny?
+240$INT. SALLY LEROY'S – DAY$ENGLISH DAVE$Not a goddamn thing.
+241$INT. SALLY LEROY'S – DAY$VINCENT$Look, I'm not a idiot. She's the big man's fuckin' wife. I'm gonna sit across a table, chew my food with my mouth closed, laugh at her jokes and that's all I'm gonna do.
+242$INT. SALLY LEROY'S – DAY$ENGLISH DAVE$My name's Paul, and this is between y'all.
+243$INT. SALLY LEROY'S – DAY$BUTCH$Can I get a pack'a Red Apples?
+244$INT. SALLY LEROY'S – DAY$ENGLISH DAVE$Filters?
+245$INT. SALLY LEROY'S – DAY$BUTCH$Non.
+246$INT. SALLY LEROY'S – DAY$BUTCH$Lookin' at somethin', friend?
+247$INT. SALLY LEROY'S – DAY$VINCENT$I ain't your friend, palooka.
+248$INT. SALLY LEROY'S – DAY$BUTCH$What was that?
+249$INT. SALLY LEROY'S – DAY$VINCENT$I think ya heard me just fine, punchy.
+250$INT. SALLY LEROY'S – DAY$MARSELLUS (O.S.)$Vincent Vega has entered the building, git your ass over here!
+251$INT. SALLY LEROY'S – DAY$ENGLISH DAVE (O.S.)$Pack of Red Apples, dollar-forty.
+252$INT. LANCE'S HOUSE (KITCHEN) – NIGHT$JODY$...I'll lend it to you. It's a great book on body piercing.
+253$INT. LANCE'S HOUSE (KITCHEN) – NIGHT$TRUDI$You know how they use that gun when they pierce your ears? They don't use that when they pierce your nipples, do they?
+254$INT. LANCE'S HOUSE (KITCHEN) – NIGHT$JODY$Forget that gun. That gun goes against the entire idea behind piercing. All of my piercing, sixteen places on my body, every one of 'em done with a needle. Five in each ear. One through the nipple on my left breast. One through my right nostril.  One through my left eyebrow. One through my lip. One in my clit. And I wear a stud in my tongue.
+255$INT. LANCE'S HOUSE (KITCHEN) – NIGHT$VINCENT$Excuse me, sorry to interrupt. I'm curious, why would you get a stud in your tongue?
+256$INT. LANCE'S HOUSE (KITCHEN) – NIGHT$JODY$It's a sex thing. It helps fellatio.
+257$INT. LANCE'S HOUSE (KITCHEN) – NIGHT$LANCE (O.S.)$Vince, you can come in now!
+258$INT. LANCE'S BEDROOM – NIGHT$LANCE$Now this is Panda, from Mexico. Very good stuff. This is Bava, different, but equally good. And this is Choco from the Hartz Mountains of Germany. Now the first two are the same, forty- five an ounce – those are friend prices – but this one... ...this one's a little more expensive. It's fifty-five. But when you shoot it, you'll know where that extra money went.  Nothing wrong with the first two. It's real, real, real, good shit. But this one's a fuckin' madman.
+259$INT. LANCE'S BEDROOM – NIGHT$VINCENT$Remember, I just got back from Amsterdam.
+260$INT. LANCE'S BEDROOM – NIGHT$LANCE$Am I a nigger? Are you in Inglewood? No.  You're in my house. White people who know the difference between good shit and bad shit, this is the house they come to. My shit, I'll take the Pepsi Challenge with Amsterdam shit any ol' day of the fuckin' week.
+261$INT. LANCE'S BEDROOM – NIGHT$VINCENT$That's a bold statement.
+262$INT. LANCE'S BEDROOM – NIGHT$LANCE$This ain't Amsterdam, Vince. This is a seller's market. Coke is fuckin' dead as disco. Heroin's comin' back in a big fuckin' way. It's this whole seventies retro. Bell bottoms, heroin, they're as hot as hell.
+263$INT. LANCE'S BEDROOM – NIGHT$VINCENT$Give me three hundred worth of the madman.  If it's as good as you say, I'll be back for a thousand.
+264$INT. LANCE'S BEDROOM – NIGHT$LANCE$I just hope I still have it. Whaddya think of Trudi? She ain't got a boyfriend, wanna hand out an' get high?
+265$INT. LANCE'S BEDROOM – NIGHT$VINCENT$Which one's Trudi? The one with all the shit in her face?
+266$INT. LANCE'S BEDROOM – NIGHT$LANCE$No, that's Jody. That's my wife.
+267$INT. LANCE'S BEDROOM – NIGHT$VINCENT$I'm on my way somewhere. I got a dinner engagement. Rain check?
+268$INT. LANCE'S BEDROOM – NIGHT$LANCE$No problem?
+269$INT. LANCE'S BEDROOM – NIGHT$VINCENT$You don't mind if I shoot up here?
+270$INT. LANCE'S BEDROOM – NIGHT$LANCE$Me casa, su casa.
+271$INT. LANCE'S BEDROOM – NIGHT$VINCENT$Mucho gracias.
+272$INT. LANCE'S BEDROOM – NIGHT$LANCE$Still got your Malibu?
+273$INT. LANCE'S BEDROOM – NIGHT$VINCENT$You know what some fucker did to it the other day?
+274$INT. LANCE'S BEDROOM – NIGHT$LANCE$What?
+275$INT. LANCE'S BEDROOM – NIGHT$VINCENT$Fuckin' keyed it.
+276$INT. LANCE'S BEDROOM – NIGHT$LANCE$Oh man, that's fucked up.
+277$INT. LANCE'S BEDROOM – NIGHT$VINCENT$Tell me about it. I had the goddamn thing in storage three years. It's out five fuckin' days – five days, and some dickless piece of shit fucks with it.
+278$INT. LANCE'S BEDROOM – NIGHT$LANCE$They should be fuckin' killed. No trial, no jury, straight to execution.
+279$INT. LANCE'S BEDROOM – NIGHT$VINCENT$I just wish I caught 'em doin' it, ya know?  Oh man, I'd give anything to catch 'em doin' it. It'a been worth his doin' it, if I coulda just caught 'em, you know what I mean?
+280$INT. LANCE'S BEDROOM – NIGHT$LANCE$It's chicken shit. You don't fuck another man's vehicle.
+281$EXT. MARSELLUS WALLACE'S HOUSE – NIGHT$MIA (V.O.)$Hi, Vincent. I'm getting dressed. The door's open. Come inside and make yourself a drink.
+282$INT. MARCELLUS' HOUSE / LIVING ROOM – NIGHT$VINCENT$Hello?
+283$INT. MARCELLUS' HOUSE / DRESSING ROOM – NIGHT$MIA$Vincent.
+284$INT. MARCELLUS' HOUSE / LIVING ROOM – NIGHT$MIA$Vincent. I'm on the intercom.
+285$INT. MARCELLUS' HOUSE / DRESSING ROOM – NIGHT$MIA$It's on the wall by the two African fellas.
+286$INT. MARCELLUS' HOUSE / LIVING ROOM – NIGHT$MIA$To your right.
+287$INT. MARCELLUS' HOUSE / LIVING ROOM – NIGHT$MIA$...warm. Warmer. Disco.
+288$INT. MARCELLUS' HOUSE / LIVING ROOM – NIGHT$VINCENT$Hello.
+289$INT. MARCELLUS' HOUSE / LIVING ROOM – NIGHT$MIA$Push the button if you want to talk.
+290$INT. MARCELLUS' HOUSE / LIVING ROOM – NIGHT$VINCENT$Hello.
+291$INT. MARCELLUS' HOUSE / DRESSING ROOM – NIGHT$MIA$Go make yourself a drink., and I'll be down in two shakes of a lamb's tail.
+292$INT. MARCELLUS' HOUSE / LIVING ROOM – NIGHT$MIA$The bar's by the fireplace.
+293$INT. MARCELLUS' HOUSE / LIVING ROOM – NIGHT$VINCENT$Okay.
+294$INT. MARCELLUS' HOUSE / LIVING ROOM – NIGHT$MIA$Let's go.
+295$EXT. JACKRABBIT SLIM'S – NIGHT$VINCENT$What the fuck is this place?
+296$EXT. JACKRABBIT SLIM'S – NIGHT$MIA$This is Jackrabbit Slim's. An Elvis man should love it.
+297$EXT. JACKRABBIT SLIM'S – NIGHT$VINCENT$Come on, Mia, let's go get a steak.
+298$EXT. JACKRABBIT SLIM'S – NIGHT$MIA$You can get a steak here, daddy-o. Don't be a...
+299$EXT. JACKRABBIT SLIM'S – NIGHT$VINCENT$After you, kitty-cat.
+300$INT. JACKRABBIT SLIM'S – NIGHT$BUDDY$Hi, I'm Buddy, what can I get'cha?
+301$INT. JACKRABBIT SLIM'S – NIGHT$VINCENT$I'll have the Douglas Sirk steak.
+302$INT. JACKRABBIT SLIM'S – NIGHT$BUDDY$How d'ya want it, burnt to a crisp, or bloody as hell?
+303$INT. JACKRABBIT SLIM'S – NIGHT$VINCENT$Bloody as hell. And to drink, a vanilla coke.
+304$INT. JACKRABBIT SLIM'S – NIGHT$BUDDY$How 'bout you, Peggy Sue?
+305$INT. JACKRABBIT SLIM'S – NIGHT$MIA$I'll have the Durwood Kirby burger – bloody – and a five-dollar shake.
+306$INT. JACKRABBIT SLIM'S – NIGHT$BUDDY$How d'ya want that shake, Martin and Lewis, or Amos and Andy?
+307$INT. JACKRABBIT SLIM'S – NIGHT$MIA$Martin and Lewis.
+308$INT. JACKRABBIT SLIM'S – NIGHT$VINCENT$Did you just order a five-dollar shake?
+309$INT. JACKRABBIT SLIM'S – NIGHT$MIA$Sure did.
+310$INT. JACKRABBIT SLIM'S – NIGHT$VINCENT$A shake? Milk and ice cream?
+311$INT. JACKRABBIT SLIM'S – NIGHT$MIA$Uh-huh.
+312$INT. JACKRABBIT SLIM'S – NIGHT$VINCENT$It costs five dollars?
+313$INT. JACKRABBIT SLIM'S – NIGHT$BUDDY$Yep.
+314$INT. JACKRABBIT SLIM'S – NIGHT$VINCENT$You don't put bourbon in it or anything?
+315$INT. JACKRABBIT SLIM'S – NIGHT$BUDDY$Nope.
+316$INT. JACKRABBIT SLIM'S – NIGHT$VINCENT$Just checking.
+317$INT. JACKRABBIT SLIM'S – NIGHT$MIA$Whaddya think?
+318$INT. JACKRABBIT SLIM'S – NIGHT$VINCENT$It's like a wax museum with a pulse rate.
+319$INT. JACKRABBIT SLIM'S – NIGHT$MIA$What are you doing?
+320$INT. JACKRABBIT SLIM'S – NIGHT$VINCENT$Rollin' a smoke.
+321$INT. JACKRABBIT SLIM'S – NIGHT$MIA$Here?
+322$INT. JACKRABBIT SLIM'S – NIGHT$VINCENT$It's just tobacco.
+323$INT. JACKRABBIT SLIM'S – NIGHT$MIA$Oh. Well in that case, will you roll me one, cowboy?
+324$INT. JACKRABBIT SLIM'S – NIGHT$VINCENT$You can have this one, cowgirl.
+325$INT. JACKRABBIT SLIM'S – NIGHT$MIA$Thanks.
+326$INT. JACKRABBIT SLIM'S – NIGHT$VINCENT$Think nothing of it.
+327$INT. JACKRABBIT SLIM'S – NIGHT$MIA$Marsellus said you just got back from Amsterdam.
+328$INT. JACKRABBIT SLIM'S – NIGHT$VINCENT$Sure did. I heard you did a pilot.
+329$INT. JACKRABBIT SLIM'S – NIGHT$MIA$That was my fifteen minutes.
+330$INT. JACKRABBIT SLIM'S – NIGHT$VINCENT$What was it?
+331$INT. JACKRABBIT SLIM'S – NIGHT$MIA$It was show about a team of female secret agents called "Fox Force Five."
+332$INT. JACKRABBIT SLIM'S – NIGHT$VINCENT$What?
+333$INT. JACKRABBIT SLIM'S – NIGHT$MIA$"Fox Force Five." Fox, as in we're a bunch of foxy chicks. Force, as in we're a force to be reckoned with. Five, as in there's one... two ... three... four... five of us. There was a blonde one, Sommerset O'Neal from that show "Baton Rouge," she was the leader. A Japanese one, a black one, a French one and a brunette one, me.  We all had special skills. Sommerset had a photographic memory, the Japanese fox was a kung fu master, the black girl was a demolition expert, the French fox' specialty was sex...
+334$INT. JACKRABBIT SLIM'S – NIGHT$VINCENT$What was your specialty?
+335$INT. JACKRABBIT SLIM'S – NIGHT$MIA$Knives. The character I played, Raven McCoy, her background was she was raised by circus performers. So she grew up doing a knife act. According to the show, she was the deadliest woman in the world with a knife. But because she grew up in a circus, she was also something of an acrobat. She could do illusions, she was a trapeze artist – when you're keeping the world safe from evil, you never know when being a trapeze artist's gonna come in handy. And she knew a zillion old jokes her grandfather, an old vaudevillian, taught her. If we woulda got picked up, they woulda worked in a gimmick where every episode I woulda told and ol joke.
+336$INT. JACKRABBIT SLIM'S – NIGHT$VINCENT$Do you remember any of the jokes?
+337$INT. JACKRABBIT SLIM'S – NIGHT$MIA$Well I only got the chance to say one, 'cause we only did one show.
+338$INT. JACKRABBIT SLIM'S – NIGHT$VINCENT$Tell me.
+339$INT. JACKRABBIT SLIM'S – NIGHT$MIA$No. It's really corny.
+340$INT. JACKRABBIT SLIM'S – NIGHT$VINCENT$C'mon, don't be that way.
+341$INT. JACKRABBIT SLIM'S – NIGHT$MIA$No. You won't like it and I'll be embarrassed.
+342$INT. JACKRABBIT SLIM'S – NIGHT$VINCENT$You told it in front of fifty million people and you can't tell it to me? I promise I won't laugh.
+343$INT. JACKRABBIT SLIM'S – NIGHT$MIA$That's what I'm afraid of.
+344$INT. JACKRABBIT SLIM'S – NIGHT$VINCENT$That's not what I meant and you know it.
+345$INT. JACKRABBIT SLIM'S – NIGHT$MIA$You're quite the silver tongue devil, aren't you?
+346$INT. JACKRABBIT SLIM'S – NIGHT$VINCENT$I meant I wouldn't laugh at you.
+347$INT. JACKRABBIT SLIM'S – NIGHT$MIA$That's not what you said Vince. Well now I'm definitely not gonna tell ya, 'cause it's been built up too much.
+348$INT. JACKRABBIT SLIM'S – NIGHT$VINCENT$What a gyp.
+349$INT. JACKRABBIT SLIM'S – NIGHT$MIA$Yummy!
+350$INT. JACKRABBIT SLIM'S – NIGHT$VINCENT$Can I have a sip of that? I'd like to know what a five-dollar shake tastes like.
+351$INT. JACKRABBIT SLIM'S – NIGHT$MIA$Be my guest.
+352$INT. JACKRABBIT SLIM'S – NIGHT$MIA$You can use my straw, I don't have kooties.
+353$INT. JACKRABBIT SLIM'S – NIGHT$VINCENT$Yeah, but maybe I do.
+354$INT. JACKRABBIT SLIM'S – NIGHT$MIA$Kooties I can handle.
+355$INT. JACKRABBIT SLIM'S – NIGHT$VINCENT$Goddamn! That's a pretty fuckin' good milk shake.
+356$INT. JACKRABBIT SLIM'S – NIGHT$MIA$Told ya.
+357$INT. JACKRABBIT SLIM'S – NIGHT$VINCENT$I don't know if it's worth five dollars, but it's pretty fuckin' good.
+358$INT. JACKRABBIT SLIM'S – NIGHT$MIA$Don't you hate that?
+359$INT. JACKRABBIT SLIM'S – NIGHT$VINCENT$What?
+360$INT. JACKRABBIT SLIM'S – NIGHT$MIA$Uncomfortable silences. Why do we feel it's necessary to yak about bullshit in order to be comfortable?
+361$INT. JACKRABBIT SLIM'S – NIGHT$VINCENT$I don't know.
+362$INT. JACKRABBIT SLIM'S – NIGHT$MIA$That's when you know you found somebody special. When you can just shit the fuck up for a minute, and comfortably share silence.
+363$INT. JACKRABBIT SLIM'S – NIGHT$VINCENT$I don't think we're there yet. But don't feel bad, we just met each other.
+364$INT. JACKRABBIT SLIM'S – NIGHT$MIA$Well I'll tell you what, I'll go to the bathroom and powder my nose, while you sit here and think of something to say.
+365$INT. JACKRABBIT SLIM'S – NIGHT$VINCENT$I'll do that.
+366$INT. JACKRABBIT SLIM'S (LADIES ROOM) – NIGHT$MIA$I said goddamn!
+367$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$MIA$Don't you love it when you go to the bathroom and you come back to find your food waiting for you?
+368$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$VINCENT$We're lucky we got it at all. Buddy Holly doesn't seem to be much of a waiter. We shoulda sat in Marilyn Monroe's section.
+369$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$MIA$Which one, there's two Marilyn Monroes.
+370$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$VINCENT$No there's not.
+371$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$VINCENT$That's Marilyn Monroe...
+372$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$VINCENT$... and that's Mamie Van Doren. I don't see Jayne Mansfield, so it must be her night off.
+373$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$MIA$Pretty smart.
+374$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$VINCENT$I have moments.
+375$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$MIA$Did ya think of something to say?
+376$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$VINCENT$Actually, there's something I've wanted to ask you about, but you seem like a nice person, and I didn't want to offend you.
+377$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$MIA$Oooohhhh, this doesn't sound like mindless, boring, getting-to-know- you chit-chat. This sounds like you actually have something to say.
+378$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$VINCENT$Only if you promise not to get offended.
+379$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$MIA$You can't promise something like that. I have no idea what you're gonna ask. You could ask me what you're gonna ask me, and my natural response could be to be offended. Then, through no fault of my own, I woulda broken my promise.
+380$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$VINCENT$Then let's just forget it.
+381$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$MIA$That is an impossibility. Trying to forget anything as intriguing as this would be an exercise in futility.
+382$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$VINCENT$Is that a fact?
+383$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$MIA$Besides, it's more exciting when you don't have permission.
+384$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$VINCENT$What do you think about what happened to Antwan?
+385$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$MIA$Who's Antwan?
+386$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$VINCENT$Tony Rocky Horror.
+387$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$MIA$He fell out of a window.
+388$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$VINCENT$That's one way to say it. Another way is, he was thrown out. Another was is, he was thrown out by Marsellus. And even another way is, he was thrown out of a window by Marsellus because of you.
+389$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$MIA$Is that a fact?
+390$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$VINCENT$No it's not, it's just what I heard.
+391$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$MIA$Who told you this?
+392$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$VINCENT$They.
+393$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$MIA$They talk a lot, don't they?
+394$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$VINCENT$They certainly do.
+395$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$MIA$Well don't by shy Vincent, what exactly did they say?
+396$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$MIA$Let me help you Bashful, did it involve the F-word?
+397$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$VINCENT$No. They just said Rocky Horror gave you a foot massage.
+398$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$MIA$And...?
+399$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$VINCENT$No and, that's it.
+400$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$MIA$You heard Marsellus threw Rocky Horror out of a four-story window because he massaged my feet?
+401$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$VINCENT$Yeah.
+402$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$MIA$And you believed that?
+403$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$VINCENT$At the time I was told, it seemed reasonable.
+404$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$MIA$Marsellus throwing Tony out of a four story window for giving me a foot massage seemed reasonable?
+405$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$VINCENT$No, it seemed excessive. But that doesn't mean it didn't happen. I heard Marsellus is very protective of you.
+406$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$MIA$A husband being protective of his wife is one thing. A husband almost killing another man for touching his wife's feet is something else.
+407$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$VINCENT$But did it happen?
+408$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$MIA$The only thing Antwan ever touched of mine was my hand, when he shook it. I met Anwan once – at my wedding – then never again.  The truth is, nobody knows why Marsellus tossed Tony Rocky Horror out of that window except Marsellus and Tony Rocky Horror. But when you scamps get together, you're worse than a sewing circle.
+409$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$ED SULLIVAN$Ladies and gentlemen, now the moment you've all been waiting for, the worldfamous Jackrabbit Slim's twist contest.
+410$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$ED SULLIVAN$...One lucky couple will win this handsome trophy that Marilyn here is holding.
+411$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$ED SULLIVAN$...Now, who will be our first contestants?
+412$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$MIA$Right here.
+413$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$MIA$I wanna dance.
+414$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$VINCENT$No, no, no no, no, no, no, no.
+415$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$MIA$No, no, no, no, no, no, no. I do believe Marsellus, my husband, your boss, told you to take me out and do whatever I wanted, Now, I want to dance. I want to win. I want that trophy.
+416$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$VINCENT$All right.
+417$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$MIA$So, dance good.
+418$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$VINCENT$All right, you asked for it.
+419$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$ED SULLIVAN$Let's hear it for our first contestants.
+420$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$ED SULLIVAN$Now let's meet our first contestants here this evening. Young lady, what is your name?
+421$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$MIA$Missus Mia Wallace.
+422$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$ED SULLIVAN$And, uh, how 'bout your fella here?
+423$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$MIA$Vincent Vega.
+424$INT. JACKRABBIT SLIM'S (DINING AREA) – NIGHT$ED SULLIVAN$All right, let's see what you can do. Take it away!
+425$INT. MARSELLUS WALLACE'S HOME – NIGHT$VINCENT$Was than an uncomfortable silence?
+426$INT. MARSELLUS WALLACE'S HOME – NIGHT$MIA$I don't know what that was. Music and drinks!
+427$INT. MARSELLUS WALLACE'S HOME – NIGHT$VINCENT$I'm gonna take a piss.
+428$INT. MARSELLUS WALLACE'S HOME – NIGHT$MIA$That was a little bit more information than I needed to know, but go right ahead.
+429$INT. MARSELLUS WALLACE'S HOME – NIGHT$MIA$Disco! Vince, you little cola nut, you've been holding out on me.
+430$INT. BATHROOM (MARSELLUS WALLACE'S HOUSE) – NIGHT$VINCENT$One drink and leave. Don't be rude, but drink your drink quickly, say goodbye, walk out the door, get in your car, and go down the road.
+431$INT. BATHROOM (MARSELLUS WALLACE'S HOUSE) – NIGHT$VINCENT$...It's a moral test of yourself, whether or not you can maintain loyalty. Because when people are loyal to each other, that's very meaningful.
+432$INT. BATHROOM (MARSELLUS WALLACE'S HOUSE) – NIGHT$VINCENT$So you're gonna go out there, drink your drink, say "Goodnight, I've had a very lovely evening," go home, and jack off.  And that's all you're gonna do.
+433$INT. BATHROOM (MARSELLUS WALLACE'S HOUSE) – NIGHT$VINCENT$Jesus Christ!
+434$INT. BATHROOM (MARSELLUS WALLACE'S HOUSE) – NIGHT$VINCENT$Mia! MIA! What the hell happened?
+435$INT. BATHROOM (MARSELLUS WALLACE'S HOUSE) – NIGHT$VINCENT$I'll be a son-of-a-bitch. Mia! MIA! What did you take? Answer me honey, what did you take?
+436$INT. BATHROOM (MARSELLUS WALLACE'S HOUSE) – NIGHT$VINCENT$Okay honey, we're getting you on your feet.
+437$INT. BATHROOM (MARSELLUS WALLACE'S HOUSE) – NIGHT$VINCENT$We're on our feet now, and now we're gonna talk out to the car. Here we go, watch us walk.
+438$INT. LANCE'S HOUSE – NIGHT$PREACHER (EMIL SIMKUS)$Hold hands, you love birds.
+439$INT. LANCE'S HOUSE – NIGHT$JODY (O.S.)$Lance! The phone's ringing!
+440$INT. LANCE'S HOUSE – NIGHT$LANCE$I can hear it!
+441$INT. LANCE'S HOUSE – NIGHT$JODY (O.S.)$I thought you told those fuckin' assholes never to call this late!
+442$INT. LANCE'S HOUSE – NIGHT$LANCE$I told 'em and that's what I'm gonna tell this fuckin' asshole right now! Hello, do you know how late it is? You're not supposed to be callin' me this fuckin' late.
+443$INT. LANCE'S HOUSE – NIGHT$VINCENT$Lance, this is Vincent, I'm in big fuckin' trouble man, I'm on my way to your place.
+444$INT. LANCE'S HOUSE – NIGHT$LANCE$Whoa, hold you horses man, what's the problem?
+445$INT. LANCE'S HOUSE – NIGHT$VINCENT$You still got an adrenaline shot?
+446$INT. LANCE'S HOUSE – NIGHT$LANCE$Maybe.
+447$INT. LANCE'S HOUSE – NIGHT$VINCENT$I need it man, I got a chick she's fuckin'  Doing on me.
+448$INT. LANCE'S HOUSE – NIGHT$LANCE$Don't bring her here!  I'm not even fuckin' joking with you, don't you be bringing some fucked up pooh-butt to my house!
+449$INT. LANCE'S HOUSE – NIGHT$VINCENT$No choice.
+450$INT. LANCE'S HOUSE – NIGHT$LANCE$She's ODin'?
+451$INT. LANCE'S HOUSE – NIGHT$VINCENT$Yeah. She's dyin'.
+452$INT. LANCE'S HOUSE – NIGHT$LANCE$Then bite the fuckin' bullet, take 'er to a hospital and call a lawyer!
+453$INT. LANCE'S HOUSE – NIGHT$VINCENT$Negative.
+454$INT. LANCE'S HOUSE – NIGHT$LANCE$She ain't my fuckin' problem, you fucked her up, you deal with it – are you talkin' to me on a cellular phone?
+455$INT. LANCE'S HOUSE – NIGHT$VINCENT$Sorry.
+456$INT. LANCE'S HOUSE – NIGHT$LANCE$I don't know you, who is this, don't come here, I'm hangin' up.
+457$INT. LANCE'S HOUSE – NIGHT$VINCENT$Too late, I'm already here.
+458$INT. LANCE'S HOUSE – NIGHT$JODY (O.S.)$What the hell was that?
+459$EXT. LANCE'S HOUSE – NIGHT$LANCE$Have you lost your mind?! You crashed your car in my fuckin' house! You talk about drug shit on a cellular fuckin' phone –
+460$EXT. LANCE'S HOUSE – NIGHT$VINCENT$If you're through havin' your little hissy fit, this chick is dyin', get your needle and git it now!
+461$EXT. LANCE'S HOUSE – NIGHT$LANCE$Are you deaf? You're not bringin' that fucked up bitch in my house!
+462$EXT. LANCE'S HOUSE – NIGHT$VINCENT$This fucked up bitch is Marsellus Wallace's wife. Now if she fuckin' croaks on me, I'm a grease spot. But before he turns me into a bar soap, I'm gonna be forced to tell 'im about how you coulda saved her life, but instead you let her die on your front lawn.
+463$INT. LANCE'S HOUSE – NIGHT$JODY$It's only one-thirty in the goddamn mornin'! What the fuck's goin' on out here?
+464$INT. LANCE'S HOUSE – NIGHT$JODY$Who's she?
+465$INT. LANCE'S HOUSE – NIGHT$LANCE$Get that black box in the bedroom I have with the adrenaline shot.
+466$INT. LANCE'S HOUSE – NIGHT$JODY$What's wrong with her?
+467$INT. LANCE'S HOUSE – NIGHT$VINCENT$She's ODing on us.
+468$INT. LANCE'S HOUSE – NIGHT$JODY$Well get her the hell outta here!
+469$INT. LANCE'S HOUSE – NIGHT$LANCE AND VINCENT$Get the fuckin' shot!
+470$INT. LANCE'S HOUSE – NIGHT$JODY$Don't yell and me!
+471$INT. LANCE'S HOUSE – NIGHT$VINCENT$You two are a match made in heaven.
+472$INT. LANCE'S HOUSE – NIGHT$LANCE$Look, just keep talkin' to her, okay? While she's gettin' the shot, I gotta get a medical book.
+473$INT. LANCE'S HOUSE – NIGHT$VINCENT$What do you need a medical book for?
+474$INT. LANCE'S HOUSE – NIGHT$LANCE$To tell me how to do it. I've never given an adrenaline shot before.
+475$INT. LANCE'S HOUSE – NIGHT$VINCENT$You've had that thing for six years and you never used it?
+476$INT. LANCE'S HOUSE – NIGHT$LANCE$I never had to use it. I don't go joypoppin' with bubble-gummers, all of my friends can handle their highs!
+477$INT. LANCE'S HOUSE – NIGHT$VINCENT$Well then get it.
+478$INT. LANCE'S HOUSE – NIGHT$LANCE$I am, if you'll let me.
+479$INT. LANCE'S HOUSE – NIGHT$VINCENT$I'm not fuckin' stoppin' you.
+480$INT. LANCE'S HOUSE – NIGHT$LANCE$Stop talkin' to me, and start talkin' to her.
+481$INT. SPARE ROOM$VINCENT (O.S.)$Hurry up man! We're losin' her!
+482$INT. SPARE ROOM$LANCE$I'm looking as fast as I can!
+483$INT. SPARE ROOM$JODY (O.S.)$What's he lookin' for?
+484$INT. SPARE ROOM$VINCENT (O.S.)$I dunno, some medical book.
+485$INT. SPARE ROOM$JODY (O.S.)$What are you lookin' for?
+486$INT. SPARE ROOM$LANCE$My black medical book!
+487$INT. SPARE ROOM$JODY$Whata're you looking for?
+488$INT. SPARE ROOM$LANCE$My black fuckin' medical book. It's like a text book they give to nurses.
+489$INT. SPARE ROOM$JODY$I never saw a medical book.
+490$INT. SPARE ROOM$LANCE$Trust me, I have one.
+491$INT. SPARE ROOM$JODY$Well if it's that important, why didn't you keep it with the shot?
+492$INT. SPARE ROOM$LANCE$I don't know! Stop bothering me!
+493$INT. SPARE ROOM$JODY$While you're lookin' for it, that girl's gonna die on our carpet. You're never gonna find it in all this shit. For six months now, I've been telling you to clean this room –
+494$INT. SPARE ROOM$VINCENT (O.S.)$– get your ass in here, fuck the book!
+495$INT. SPARE ROOM$VINCENT$Quit fuckin' around man and give her the shot!
+496$INT. SPARE ROOM$LANCE$While I'm doing this, take her shirt off and find her heart.
+497$INT. SPARE ROOM$VINCENT$Does it have to be exact?
+498$INT. SPARE ROOM$LANCE$Yeah, it has to be exact! I'm giving her an injection in the heart, so I gotta exactly hit her in the heart.
+499$INT. SPARE ROOM$VINCENT$Well, I don't know exactly where her heart is, I think it's here.
+500$INT. SPARE ROOM$LANCE$That's it.
+501$INT. SPARE ROOM$VINCENT$I need a big fat magic marker, got one?
+502$INT. SPARE ROOM$JODY$What?
+503$INT. SPARE ROOM$VINCENT$I need a big fat magic marker, any felt pen'll do, but a magic marker would be great.
+504$INT. SPARE ROOM$JODY$Hold on.
+505$INT. SPARE ROOM$LANCE$It's ready, I'll tell you what to do.
+506$INT. SPARE ROOM$VINCENT$You're gonna give her the shot.
+507$INT. SPARE ROOM$LANCE$No, you're gonna give her the shot.
+508$INT. SPARE ROOM$VINCENT$I've never does this before.
+509$INT. SPARE ROOM$LANCE$I've never done this before either, and I ain't starting now. You brought 'er here, that means you give her the shot. The day I bring an ODing bitch to your place, then I gotta give her the shot.
+510$INT. SPARE ROOM$JODY$Got it.
+511$INT. SPARE ROOM$VINCENT$Okay, what do I do?
+512$INT. SPARE ROOM$LANCE$Well, you're giving her an injection of adrenaline straight to her heart. But she's got a breast plate in front of her heart, so you gotta pierce through that. So what you gotta do is bring the needle down in a stabbing motion.
+513$INT. SPARE ROOM$VINCENT$I gotta stab her?
+514$INT. SPARE ROOM$LANCE$If you want the needle to pierce through to her heart, you gotta stab her hard.
+515$INT. SPARE ROOM$VINCENT$What happens after that?
+516$INT. SPARE ROOM$LANCE$I'm curious about that myself.
+517$INT. SPARE ROOM$VINCENT$This ain't a fuckin' joke man!
+518$INT. SPARE ROOM$LANCE$She's supposed to come out of it like – – that.
+519$INT. SPARE ROOM$VINCENT$Count to three.
+520$INT. SPARE ROOM$LANCE$One...
+521$INT. SPARE ROOM$LANCE (O.S.)$...two...
+522$INT. SPARE ROOM$LANCE (O.S.)$...three!
+523$INT. SPARE ROOM$LANCE$If you're okay, say something.
+524$INT. SPARE ROOM$MIA$Something.
+525$INT. SPARE ROOM$JODY$Anybody want a beer?
+526$EXT. FRONT OF MARSELLUS WALLACE'S HOUSE – NIGHT$VINCENT (O.S.)$Mia!
+527$EXT. FRONT OF MARSELLUS WALLACE'S HOUSE – NIGHT$VINCENT$What are your thoughts on how to handle this?
+528$EXT. FRONT OF MARSELLUS WALLACE'S HOUSE – NIGHT$MIA$What's yours?
+529$EXT. FRONT OF MARSELLUS WALLACE'S HOUSE – NIGHT$VINCENT$Well I'm of the opinion that Marsellus can live his whole live and never ever hear of this incident.
+530$EXT. FRONT OF MARSELLUS WALLACE'S HOUSE – NIGHT$MIA$Don't worry about it. If Marsellus ever heard of this, I'd be in as much trouble as you.
+531$EXT. FRONT OF MARSELLUS WALLACE'S HOUSE – NIGHT$VINCENT$I seriously doubt that.
+532$EXT. FRONT OF MARSELLUS WALLACE'S HOUSE – NIGHT$MIA$If you can keep a secret, so can I.
+533$EXT. FRONT OF MARSELLUS WALLACE'S HOUSE – NIGHT$VINCENT$Let's shake on it.
+534$EXT. FRONT OF MARSELLUS WALLACE'S HOUSE – NIGHT$VINCENT$Mum's the word.
+535$EXT. FRONT OF MARSELLUS WALLACE'S HOUSE – NIGHT$VINCENT$If you'll excuse me, I gotta go home and have a heart attack.
+536$EXT. FRONT OF MARSELLUS WALLACE'S HOUSE – NIGHT$MIA$You still wanna hear my "FOX FORCE FIVE" joke?
+537$EXT. FRONT OF MARSELLUS WALLACE'S HOUSE – NIGHT$VINCENT$Sure, but I think I'm still a little too petrified to laugh.
+538$EXT. FRONT OF MARSELLUS WALLACE'S HOUSE – NIGHT$MIA$Uh-huh. You won't laugh because it's not funny. But if you still wanna hear it, I'll tell it.
+539$EXT. FRONT OF MARSELLUS WALLACE'S HOUSE – NIGHT$VINCENT$I can't wait.
+540$EXT. FRONT OF MARSELLUS WALLACE'S HOUSE – NIGHT$MIA$Three tomatoes are walking down the street, a poppa tomato, a momma tomato, and a little baby tomato. The baby tomato is lagging behind the poppa and momma tomato. The poppa tomato gets mad, goes over to the momma tomato and stamps on him – – and says: catch up.
+541$EXT. FRONT OF MARSELLUS WALLACE'S HOUSE – NIGHT$MIA$See ya 'round, Vince.
+542$BUTCH'S POV$WOMAN'S VOICE (O.S.)$Butch.
+543$BUTCH'S POV$MOTHER$Butch, stop watching TV a second. We got a special visitor. Now do you remember when I told you your daddy dies in a P.O.W. camp?
+544$BUTCH'S POV$BUTCH (O.S.)$Uh-huh.
+545$BUTCH'S POV$MOTHER$Well this here is Capt. Koons. He was in the P.O.W. camp with Daddy.
+546$BUTCH'S POV$CAPT. KOONS$Hello, little man. Boy I sure heard a bunch about you. See, I was a good friend of your Daddy's. We were in that Hanoi pit of hell over five years together.  Hopefully, you'll never have to experience this yourself, but when two men are in a situation like me and your Daddy were, for as long as we were, you take on certain responsibilities of the other. If it had been me who had not made it, Major Coolidge would be talkin' right now to my son Jim. But the way it worked out is I'm talkin' to you, Butch. I got somethin' for ya.
+547$BUTCH'S POV$CAPT. KOONS$This watch I got here was first purchased by your great-granddaddy. It was bought during the First World War in a little general store in Knoxville, Tennessee. It was bought by private Doughboy Ernie Coolidge the day he set sail for Paris. It was your great-granddaddy's war watch, made by the first company to ever make wrist watches. You see, up until then, people just carried pocket watches. Your great-granddaddy wore that watch every day he was in the war. Then when he had done his duty, he went home to your great- grandmother, took the watch off his wrist and put it in an ol' coffee can. And in that can it stayed 'til your grandfather Dane Coolidge was called upon by his country to go overseas and fight the Germans once again. This time they called it World War Two. Your great-granddaddy gave it to your granddad for good luck. Unfortunately, Dane's luck wasn't as good as his old man's. Your granddad was a Marine and he was killed with all the other Marines at the battle of Wake Island. Your granddad was facing death and he knew it. None of those boys had any illusions about ever leavin' that island alive. So three days before the Japanese took the island, your 22-year old grandfather asked a gunner on an Air Force transport named Winocki, a man he had never met before in his life, to deliver to his infant son, who he had never seen in the flesh, his gold watch. Three days later, your grandfather was dead. But Winocki kept his word. After the war was over, he paid a visit to your grandmother, delivering to your infant father, his Dad's gold watch. This watch. This watch was on your Daddy's wrist when he was shot down over Hanoi. He was captured and put in a Vietnamese prison camp. Now he knew if the gooks ever saw the watch it'd be confiscated. The way your Daddy looked at it, that watch was your birthright. And he'd be damned if and slopeheads were gonna put their greasy yella hands on his boy's birthright. So he hid it in the one place he knew he could hide somethin'. His ass. Five long years, he wore this watch up his ass. Then when he died of dysentery, he gave me the watch. I hid with uncomfortable hunk of metal up my ass for two years. Then, after seven years, I was sent home to my family. And now, little man, I give the watch to you.
+548$INT. LOCKER ROOM – NIGHT$KLONDIKE$It's time, Butch.
+549$INT. LOCKER ROOM – NIGHT$BUTCH$I'm ready.
+550$INT. LOCKER ROOM – NIGHT$SPORTSCASTER #1 (O.S.)$– Well Dan, that had to be the bloodiest and, hands-down, the most brutal fight this city has ever seen.
+551$EXT. ALLEY (RAINING) – NIGHT$SPORTSCASTER #1 (O.S.)$...Coolidge was out of there faster than I've ever seen a victorious boxer vacate the ring. Do you think he knew Willis was dead?
+552$EXT. ALLEY (RAINING) – NIGHT$SPORTSCASTER #2 (O.S.)$My guess would be yes, Richard. I could see from my position here, the frenzy in his eyes give way to the realization of what he was doing. I think any man would've left the ring that fast.
+553$INT. TAXI (PARKED/RAINING) – NIGHT$SPORTSCASTER #1 (O.S.)$Do you feel this ring death tragedy will have an effect on the world of boxing?
+554$INT. TAXI (PARKED/RAINING) – NIGHT$SPORTSCASTER #2 (O.S.)$Oh Dan, a tragedy like this can't help but shake the world of boxing to its very foundation. But it's of paramount importance that during the sad weeks ahead, the eyes of the W.B.A. remain firmly fixed on the –
+555$INT. TAXI (PARKED / RAINING) – NIGHT$ESMARELDA$Are you the man I was supposed to pick up?
+556$INT. TAXI (PARKED / RAINING) – NIGHT$BUTCH$If you're the cab I called, I'm the guy you're supposed to pick up.
+557$INT. TAXI (PARKED / RAINING) – NIGHT$ESMARELDA$Where to?
+558$INT. TAXI (PARKED / RAINING) – NIGHT$BUTCH$Outta here.
+559$INT. WILLIS LOCKER ROOM (AUDITORIUM) – NIGHT$VINCENT$Mia. How you doin'?
+560$INT. WILLIS LOCKER ROOM (AUDITORIUM) – NIGHT$MIA$Great. I never thanked you for the dinner.
+561$INT. WILLIS LOCKER ROOM (AUDITORIUM) – NIGHT$MARSELLUS (O.S.)$What'cha got?
+562$INT. WILLIS LOCKER ROOM (AUDITORIUM) – NIGHT$ENGLISH DAVE$He booked.
+563$INT. WILLIS LOCKER ROOM (AUDITORIUM) – NIGHT$MARSELLUS (O.S.)$I'm prepared to scour the earth for this motherfucker. If Butch goes to Indo China, I want a nigger hidin' in a bowl of rice, ready to pop a cap in his ass.
+564$INT. WILLIS LOCKER ROOM (AUDITORIUM) – NIGHT$ENGLISH DAVE$I'll take care of it.
+565$INT. CAB (MOVING / RAINING) – NIGHT$BUTCH$Hey, how do I open the window back here?
+566$INT. CAB (MOVING / RAINING) – NIGHT$ESMARELDA$I have to do it.
+567$INT. CAB (MOVING / RAINING) – NIGHT$ESMARELDA$Hey, mister?
+568$INT. CAB (MOVING / RAINING) – NIGHT$BUTCH$What?
+569$INT. CAB (MOVING / RAINING) – NIGHT$ESMARELDA$You were in that fight? The fight on the radio – you're the fighter?
+570$INT. CAB (MOVING / RAINING) – NIGHT$BUTCH$Whatever gave you that idea?
+571$INT. CAB (MOVING / RAINING) – NIGHT$ESMARELDA$No c'mon, you're him, I know you're him, tell me you're him.
+572$INT. CAB (MOVING / RAINING) – NIGHT$BUTCH$I'm him.
+573$INT. CAB (MOVING / RAINING) – NIGHT$ESMARELDA$You killed the other boxing man.
+574$INT. CAB (MOVING / RAINING) – NIGHT$BUTCH$He's dead?
+575$INT. CAB (MOVING / RAINING) – NIGHT$ESMARELDA$The radio said he was dead.
+576$INT. CAB (MOVING / RAINING) – NIGHT$BUTCH$Sorry 'bout that, Floyd.
+577$INT. CAB (MOVING / RAINING) – NIGHT$ESMARELDA$What does it feel like?
+578$INT. CAB (MOVING / RAINING) – NIGHT$BUTCH$What does what feel like?
+579$INT. CAB (MOVING / RAINING) – NIGHT$ESMARELDA$Killing a man. Beating another man to death with your bare hands.
+580$INT. CAB (MOVING / RAINING) – NIGHT$BUTCH$Are you some kinda weirdo?
+581$INT. CAB (MOVING / RAINING) – NIGHT$ESMARELDA$No, it's a subject I have much interest in. You are the first person I ever met who has killed somebody. So, what was it like to kill a man?
+582$INT. CAB (MOVING / RAINING) – NIGHT$BUTCH$Tell ya what, you give me one of them cigarettes, I'll give you an answer.
+583$INT. CAB (MOVING / RAINING) – NIGHT$ESMARELDA$Deal!
+584$INT. CAB (MOVING / RAINING) – NIGHT$BUTCH$So...
+585$INT. CAB (MOVING / RAINING) – NIGHT$BUTCH$...Esmarelda Villalobos – is that Mexican?
+586$INT. CAB (MOVING / RAINING) – NIGHT$ESMARELDA$The name is Spanish, but I'm Columbian.
+587$INT. CAB (MOVING / RAINING) – NIGHT$BUTCH$It's a very pretty name.
+588$INT. CAB (MOVING / RAINING) – NIGHT$ESMARELDA$It mean "Esmarelda of the wolves."
+589$INT. CAB (MOVING / RAINING) – NIGHT$BUTCH$That's one hell of a name you got there, sister.
+590$INT. CAB (MOVING / RAINING) – NIGHT$ESMARELDA$Thank you. And what is your name?
+591$INT. CAB (MOVING / RAINING) – NIGHT$BUTCH$Butch.
+592$INT. CAB (MOVING / RAINING) – NIGHT$ESMARELDA$Butch. What does it mean?
+593$INT. CAB (MOVING / RAINING) – NIGHT$BUTCH$I'm an American, our names don't mean shit. Anyway, moving right along, what is it you wanna know, Esmarelda?
+594$INT. CAB (MOVING / RAINING) – NIGHT$ESMARELDA$I want to know what it feels like to kill a man –
+595$INT. CAB (MOVING / RAINING) – NIGHT$BUTCH$– I couldn't tell ya. I didn't know he was dead 'til you told me he was dead. Now I know he's dead, do you wanna know how I feel about it?
+596$INT. CAB (MOVING / RAINING) – NIGHT$BUTCH$I don't feel the least little bit bad.
+597$EXT. PHONE BOOTH (RAINING) – NIGHT$BUTCH$What'd I tell ya, soon as the word got out a fix was in, the odds would be outta control. Hey, if he was a better fighter he's be alive. If he never laced up his gloves in the first place, which he never shoulda done, he'd be alive. Enough about the poor unfortunate Mr. Floyd, let's talk about the rich and prosperous Mr. Butch.  How many bookies you spread it around with?
+598$EXT. PHONE BOOTH (RAINING) – NIGHT$BUTCH$Fabienne my love, our adventure begins.
+599$EXT. MOTEL (STOPPED / RAINING) – NIGHT$ESMARELDA$Forty-five sixty.
+600$EXT. MOTEL (STOPPED / RAINING) – NIGHT$BUTCH$Merci beaucoup. And here's a little something for the effort.
+601$EXT. MOTEL (STOPPED / RAINING) – NIGHT$BUTCH$Now if anybody should ask you about who your fare was tonight, what're you gonna tell 'em?
+602$EXT. MOTEL (STOPPED / RAINING) – NIGHT$ESMARELDA$The truth. Three well-dressed, slightly toasted, Mexicans.
+603$EXT. MOTEL (STOPPED / RAINING) – NIGHT$BUTCH$Bon soir, Esmarelda.
+604$EXT. MOTEL (STOPPED / RAINING) – NIGHT$ESMARELDA$Sleep well, Butch.
+605$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Keep the light off.
+606$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$Is that better, sugar pop?
+607$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Oui. Hard day at the office?
+608$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$Pretty hard. I got into a fight.
+609$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Poor baby. Can we make spoons?
+610$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$I was looking at myself in the mirror.
+611$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$Uh-huh?
+612$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$I wish I had a pot.
+613$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$You were lookin' in the mirror and you wish you had some pot?
+614$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$A pot. A pot belly. Pot bellies are sexy.
+615$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$Well you should be happy, 'cause you do.
+616$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Shut up, Fatso! I don't have a pot! I have a bit of a tummy, like Madonna when she did "Lucky Star," it's not the same thing.
+617$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$I didn't realize there was a difference between a tummy and a pot belly.
+618$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$The difference is huge.
+619$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$You want me to have a pot?
+620$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$No. Pot bellies make a man look either oafish, or like a gorilla. But on a woman, a pot belly is very sexy. The rest of you is normal. Normal face, normal legs, normal hips, normal ass, but with a big, perfectly round pot belly. If I had one, I'd wear a tee-shirt two sizes too small to accentuate it.
+621$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$You think guys would find that attractive?
+622$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$I don't give a damn what men find attractive. It's unfortunate what we find pleasing to the touch and pleasing to the eye is seldom the same.
+623$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$If you a pot belly, I'd punch you in it.
+624$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$You'd punch me in my belly?
+625$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$Right in the belly.
+626$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$I'd smother you. I'd drop it on your right on your face 'til you couldn't breathe.
+627$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$You'd do that to me?
+628$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Yes!
+629$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$Did you get everything, sugar pop?
+630$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Yes, I did.
+631$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$Good job.
+632$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Did everything go as planned?
+633$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$You didn't listen to the radio?
+634$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$I never listen to your fights. Were you the winner?
+635$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$I won alright.
+636$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Are you still retiring?
+637$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$Sure am.
+638$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$What about the man you fought?
+639$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$Floyd retired too.
+640$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Really?! He won't be fighting no more?!
+641$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$Not no more.
+642$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$So it all worked out in the finish?
+643$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$We ain't at the finish, baby.
+644$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$We're in a lot of danger, aren't we?
+645$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$If they find us, they'll kill us, won't they?
+646$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$But they won't find us, will they?
+647$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Do you still want me to go with you?
+648$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$I don't want to be a burden or a nuisance -
+649$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Say it!
+650$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$Fabienne, I want you to be with me.
+651$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Forever?
+652$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$...and ever.
+653$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Do you love me?
+654$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$Oui.
+655$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Butch? Will you give me oral pleasure?
+656$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$Will you kiss it?
+657$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$But you first.
+658$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Butch my love, the adventure begins.
+659$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$I think I cracked a rib.
+660$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Giving me oral pleasure?
+661$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$No retard, from the fight.
+662$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Don't call me retard.
+663$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$My name is Fabby! My name is Fabby!
+664$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Shut up fuck head! I hate that Mongoloid voice.
+665$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$Okay, sorry, sorry, sorry, I take it back!  Can I have a towel please, Miss Beautiful Tulip.
+666$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Oh I like that, I like being called a tulip. Tulip is much better than Mongoloid.
+667$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$I didn't call you a Mongoloid, I called you a retard, but I took it back.
+668$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$Merci beaucoup.
+669$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Butch?
+670$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$Yes, lemon pie.
+671$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Where are we going to go?
+672$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$I'm not sure yet. Wherever you want. We're gonna get a lot of money from this. But it ain't gonna be so much, we can live like hogs in the fat house forever. I was thinking we could go somewhere in the South Pacific. The kinda money we'll have'll carry us a long way down there.
+673$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$So if we wanted, we could live in Bora Bora?
+674$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$You betcha. And if after awhile you don't dig Bora Bora, then we can move over to Tahiti or Mexico.
+675$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$But I do not speak Spanish.
+676$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$You don't speak Bora Boran either. Besides, Mexican is easy: Donde esta el zapataria?
+677$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$What does that mean?
+678$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$Where's the shoe store?
+679$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Donde esta el zapataria?
+680$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$Excellent pronunciation. You'll be my little mama ceta in no time.
+681$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH (O.S.)$Que hora es?
+682$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Que hora es?
+683$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH (O.S.)$What time is it?
+684$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$What time is it?
+685$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH (O.S.)$Time for bed. Sweet dream, jellybean.
+686$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Butch.
+687$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Forget it.
+688$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Merde! You startled me. Did you have a bad dream?
+689$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$What are you watching?
+690$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$A motorcycle movie, I'm not sure the name.
+691$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$Are you watchin' it?
+692$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$In a way. Why? Would you like for me to switch it off?
+693$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$Would you please?
+694$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$It's a little too early in the morning for explosions and war.
+695$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$What was it about?
+696$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$How should I know, you were the one watchin' it.
+697$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$No, imbecile, what was your dream about?
+698$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$Oh, I... don't remember. It's really rare I remember a dream.
+699$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$You just woke up from it.
+700$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$Fabienne, I'm not lying to you, I don't remember.
+701$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Well, let's look at the grumpy man in the morning. I didn't say you were lying, it's just odd you don't remember your dreams. I always remember mine. Did you know you talk in your sleep?
+702$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$I don't talk in my sleep, do I talk in my sleep?
+703$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$You did last night.
+704$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$What did I say?
+705$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$I don't know. I couldn't understand you.
+706$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Why don't you get up and we'll get some breakfast at that breakfast place with the pancakes.
+707$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$One more kiss and I'll get up.
+708$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Satisfied?
+709$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$Yep.
+710$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Then get up, lazy bones.
+711$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$What time is it?
+712$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Almost nine in the morning. What time does our train arrive?
+713$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$Eleven.
+714$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$I'm gonna order a big plate of blueberry pancakes with maple syrup, eggs over easy, and five sausages.
+715$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$Anything to drink with that?
+716$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Oh yes, that looks nice. To drink, a tall glass or orange juice and a black cup of coffee. After that, I'm going to have a slice of pie.
+717$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$Pie for breakfast?
+718$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Any time of the day is a good time for pie. Blueberry pie to go with the pancakes. And on top, a thin slice of melted cheese –
+719$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$– where's my watch?
+720$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$It's there.
+721$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$No, it's not. It's not here.
+722$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Have you looked?
+723$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$Yes I've fuckin' looked!!
+724$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$What the fuck do you think I'm doing?! Are you sure you got it?
+725$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Uhhh... yes... beside the table drawer –
+726$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$– on the little kangaroo.
+727$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Yes, it was on your little kangaroo.
+728$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$Well it's not here!
+729$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Well it should be!
+730$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$Oh it most definitely should be here, but it's not. So where is it?
+731$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$Fabienne, that was my father's fuckin' watch. You know what my father went through to git me that watch?... I don't wanna get into it right now... but he went through a lot. Now all this other shit, you coulda set on fire, but I specifically reminded you not to forget my father's watch. Now think, did you get it?
+732$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$I believe so...
+733$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$You believe so? You either did, or you didn't, now which one is it?
+734$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Then I did.
+735$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$Are you sure?
+736$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$No.
+737$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$No! It's not your fault. You left it at the apartment.
+738$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$If you did leave it at the apartment, it's not your fault. I had you bring a bunch of stuff. I reminded you about it, but I didn't illustrate how personal the watch was to me. If all I gave a fuck about was my watch, I should've told you. You ain't a mind reader.
+739$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$I'm sorry.
+740$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$Don't be. It just means I won't be able to eat breakfast with you.
+741$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Why does it mean that?
+742$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$Because I'm going back to my apartment to get my watch.
+743$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Won't the gangsters be looking for you there?
+744$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$That's what I'm gonna find out. If they are, and I don't think I can handle it, I'll split.
+745$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$I was so dreadful. I saw your watch, I thought I brought it. I'm so sorry.
+746$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$Don't feel bad, sugar pop. Nothing you could ever do would make me permanently angry at you. I love you, remember? Now here's some money, order those pancakes and have a great breakfast.
+747$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Don't go.
+748$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$I'll be back before you can say, blueberry pie.
+749$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Blueberry pie.
+750$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$Well maybe not that fast, but fast. Okay?  Okay?
+751$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Okay.
+752$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$Bye-bye, sugar pop.
+753$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Bye.
+754$INT. MOTEL (ROOM SIX) – NIGHT$BUTCH$I'm gonna take your Honda.
+755$INT. MOTEL (ROOM SIX) – NIGHT$FABIENNE$Okay.
+756$INT. HONDA (MOVING) – DAY$BUTCH$Of all the fuckin' things she coulda forgot, she forgets my father's watch. I specifically reminded her not to forget it. "Bedside table – on the kangaroo." I said the words: "Don't forget my father's watch."
+757$INT. BUTCH'S APARTMENT – DAY$BUTCH$Holy shit.
+758$INT. HONDA – DAY$BUTCH$That's how you're gonna beat 'em, Butch.  They keep underestimatin' ya.
+759$INT. HONDA – DAY$PEDESTRIAN$Jesus, are you okay?
+760$INT. HONDA – DAY$BUTCH$I guess.
+761$INT. HONDA – DAY$GAWKER #1$He's dead! He's dead!
+762$INT. HONDA – DAY$GAWKER #2$If you need a witness in court, I'll be glad to help. He was a drunken maniac. He hit you and crashed into that car.
+763$INT. HONDA – DAY$MARSELLUS$Who?
+764$INT. HONDA – DAY$GAWKER #2$Him.
+765$INT. HONDA – DAY$MARSELLUS$Well, I'll be damned.
+766$INT. HONDA – DAY$BUTCH$Sacre bleu.
+767$INT. HONDA – DAY$LOOKY-LOO WOMAN$Oh my God, I've been shot!
+768$INT. MASON-DIXIE PAWNSHOP – DAY$MAYNARD$Can I help you wit' somethin'?
+769$INT. MASON-DIXIE PAWNSHOP – DAY$BUTCH$Shut up!
+770$INT. MASON-DIXIE PAWNSHOP – DAY$MAYNARD$Now you just wait one goddamn minute –
+771$INT. MASON-DIXIE PAWNSHOP – DAY$BUTCH$So you like chasing people, huh?
+772$INT. MASON-DIXIE PAWNSHOP – DAY$BUTCH$Well guess what, big man, you caught me –
+773$INT. MASON-DIXIE PAWNSHOP – DAY$MAYNARD (O.S.)$– hold it right there, godammit!
+774$INT. MASON-DIXIE PAWNSHOP – DAY$BUTCH$Look mister, this ain't any of your business –
+775$INT. MASON-DIXIE PAWNSHOP – DAY$MAYNARD$– I'm makin' it my business! Now toss that gun!
+776$INT. MASON-DIXIE PAWNSHOP – DAY$MAYNARD$Now you on top, stand up and come to the counter.
+777$INT. MASON-DIXIE PAWNSHOP – DAY$MAYNARD$Zed? It's Maynard. The spider just caught a coupl'a flies.
+778$INT. PAWNSHOP BACK ROOM – DAY$MAYNARD$Nobody kills anybody in my place of business except me or Zed.
+779$INT. PAWNSHOP BACK ROOM – DAY$MAYNARD$That's Zed.
+780$INT. PAWNSHOP BACK ROOM – DAY$ZED$You said you waited for me?
+781$INT. PAWNSHOP BACK ROOM – DAY$MAYNARD$I did.
+782$INT. PAWNSHOP BACK ROOM – DAY$ZED$Then how come they're all beat up?
+783$INT. PAWNSHOP BACK ROOM – DAY$MAYNARD$They did that to each other. They was fightin' when they came in. This one was gonna shoot that one.
+784$INT. PAWNSHOP BACK ROOM – DAY$ZED$You were gonna shoot him?
+785$INT. PAWNSHOP BACK ROOM – DAY$ZED$Hey, is Grace gonna be okay in front of this place?
+786$INT. PAWNSHOP BACK ROOM – DAY$MAYNARD$Yeah, it ain't Tuesday is it?
+787$INT. PAWNSHOP BACK ROOM – DAY$ZED$No, it's Thursday.
+788$INT. PAWNSHOP BACK ROOM – DAY$MAYNARD$Then she'll be fine.
+789$INT. PAWNSHOP BACK ROOM – DAY$ZED$Bring out The Gimp.
+790$INT. PAWNSHOP BACK ROOM – DAY$MAYNARD$I think The Gimp's sleepin'.
+791$INT. PAWNSHOP BACK ROOM – DAY$ZED$Well, I guess you'll just wake 'em up then, won't you?
+792$INT. PAWNSHOP BACK ROOM – DAY$MAYNARD$Wake up!
+793$INT. PAWNSHOP BACK ROOM – DAY$MAYNARD$Down!
+794$INT. PAWNSHOP BACK ROOM – DAY$MAYNARD$Who's first?
+795$INT. PAWNSHOP BACK ROOM – DAY$ZED$I ain't fer sure yet.
+796$INT. PAWNSHOP BACK ROOM – DAY$ZED$Wanna do it here?
+797$INT. PAWNSHOP BACK ROOM – DAY$MAYNARD$Naw, drag big boy to Russell's old room.
+798$INT. PAWNSHOP BACK ROOM – DAY$MAYNARD$Up!
+799$INT. PAWNSHOP BACK ROOM – DAY$MAYNARD$Keep an eye on this one.
+800$INT. PAWNSHOP BACK ROOM – DAY$MAYNARD (O.S.)$Whoa, this boy's got a bit of fight in 'em!
+801$INT. PAWNSHOP BACK ROOM – DAY$ZED (O.S.)$You wanna fight? You wanna fight? Good, I like to fight!
+802$INT. PAWNSHOP BACK ROOM – DAY$MAYNARD (O.S.)$That's it... that's it boy, you're goin' fine. Oooooooh, just like that... that's good. Stay still... stay still goddamn ya! Zed goddammit, git over here and hold 'em!
+803$INT. PAWNSHOP BACK ROOM – DAY$THE GIMP$Huhng?
+804$INT. RUSSELL'S OLD ROOM – DAY$BUTCH$Hey hillbilly.
+805$INT. RUSSELL'S OLD ROOM – DAY$BUTCH$You want that gun, Zed? Pick it up.
+806$INT. RUSSELL'S OLD ROOM – DAY$MARSELLUS (O.S.)$Step aside, Butch.
+807$INT. RUSSELL'S OLD ROOM – DAY$BUTCH$You okay?
+808$INT. RUSSELL'S OLD ROOM – DAY$MARSELLUS$Naw man. I'm pretty fuckin' far from okay!
+809$INT. RUSSELL'S OLD ROOM – DAY$BUTCH$What now?
+810$INT. RUSSELL'S OLD ROOM – DAY$MARSELLUS$What now? Well let me tell you what now.  I'm gonna call a couple pipe- hittin' niggers, who'll go to work on homes here with a pair of pliers and a blow torch. Hear me talkin' hillbilly boy?! I ain't through with you by a damn sight. I'm gonna git Medieval on your ass.
+811$INT. RUSSELL'S OLD ROOM – DAY$BUTCH$I meant what now, between me and you?
+812$INT. RUSSELL'S OLD ROOM – DAY$MARSELLUS$Oh, that what now? Well, let me tell ya what now between me an' you. There is no me an' you. Not no more.
+813$INT. RUSSELL'S OLD ROOM – DAY$BUTCH$So we're cool?
+814$INT. RUSSELL'S OLD ROOM – DAY$MARSELLUS$Yeah man, we're cool. One thing I ask – two things I ask: Don't tell nobody about this. This shit's between me and you and the soon-to-be-livin'- the-rest-of-his-short-ass-life-in- agonizing-pain, Mr. Rapist here. It ain't nobody else's business. Two: leave town. Tonight. Right now. And when you're gone, stay gone.  You've lost your Los Angeles privileges. Deal?
+815$INT. RUSSELL'S OLD ROOM – DAY$BUTCH$Deal.
+816$INT. RUSSELL'S OLD ROOM – DAY$MARSELLUS$Go on now, get your ass outta here.
+817$INT. RUSSELL'S OLD ROOM – DAY$MARSELLUS$Hello Mr. Wolf, it's Marsellus. Gotta bit of a situation.
+818$EXT. MOTEL ROOM – DAY$FABIENNE (O.S.)$Butch, I was so worried!
+819$EXT. MOTEL ROOM – DAY$BUTCH$Honey, grab your radio and your purse and let's go!
+820$EXT. MOTEL ROOM – DAY$FABIENNE (O.S.)$But what about all our bags?
+821$EXT. MOTEL ROOM – DAY$BUTCH$Fuck the bags. We'll miss our train if we don't split now.
+822$EXT. MOTEL ROOM – DAY$FABIENNE (O.S.)$Is everything well? Are we in danger?
+823$EXT. MOTEL ROOM – DAY$BUTCH$We're cool. In fact, we're super- cool. But we gots to go. I'll wait for you outside.
+824$EXT. MOTEL ROOM – DAY$FABIENNE$Where did you get this motorcycle?
+825$EXT. MOTEL ROOM – DAY$BUTCH$It's a chopper, baby, hop on.
+826$EXT. MOTEL ROOM – DAY$FABIENNE$What happened to my Honda?
+827$EXT. MOTEL ROOM – DAY$BUTCH$Sorry baby, I crashed the Honda.
+828$EXT. MOTEL ROOM – DAY$FABIENNE$You're hurt?
+829$EXT. MOTEL ROOM – DAY$BUTCH$I might've broke my nose, no biggie. Hop on.
+830$EXT. MOTEL ROOM – DAY$BUTCH$Honey, we gotta hit the fuckin' road!
+831$EXT. MOTEL ROOM – DAY$BUTCH$I'm sorry, baby-love.
+832$EXT. MOTEL ROOM – DAY$FABIENNE$You were gone so long, I started to think dreadful thoughts.
+833$EXT. MOTEL ROOM – DAY$BUTCH$I'm sorry I worried you, sweetie. Everything's fine. Hey, how was breakfast?
+834$EXT. MOTEL ROOM – DAY$FABIENNE$It was good –
+835$EXT. MOTEL ROOM – DAY$BUTCH$– did you get the blueberry pancakes?
+836$EXT. MOTEL ROOM – DAY$FABIENNE$No, they didn't have blueberry pancakes, I had to get buttermilk – are you sure you're okay?
+837$EXT. MOTEL ROOM – DAY$BUTCH$Baby-love, from the moment I left you, this has been without a doubt the single weirdest day of my entire life. Climb on an' I'll tell ya about it.
+838$EXT. MOTEL ROOM – DAY$FABIENNE$Butch, whose motorcycle is this?
+839$EXT. MOTEL ROOM – DAY$BUTCH$It's a chopper.
+840$EXT. MOTEL ROOM – DAY$FABIENNE$Whose chopper is this?
+841$EXT. MOTEL ROOM – DAY$BUTCH$Zed's.
+842$EXT. MOTEL ROOM – DAY$FABIENNE$Who's Zed?
+843$EXT. MOTEL ROOM – DAY$BUTCH$Zed's dead, baby, Zed's dead.
+844$EXT. MOTEL ROOM – DAY$JULES (O.S.)$You ever read the Bible, Brett?
+845$EXT. MOTEL ROOM – DAY$BRETT (O.S.)$Yes!
+846$EXT. MOTEL ROOM – DAY$JULES (O.S.)$There's a passage I got memorized, seems appropriate for this situation: Ezekiel 25:17. "The path of the righteous man is beset on all sides by the inequities of the selfish and the tyranny of evil men..."
+847$INT. BATHROOM – DAY$JULES (O.S.)$"...blessed is he who, in the name of charity and good will, shepherded the weak through the valley of darkness. And I will strike down upon thee with great vengeance and furious anger those who attempt to poison and destroy my brothers. And you will know I am the Lord when I lay my vengeance upon you."
+848$INT. BATHROOM – DAY$VINCENT (O.S.)$Friend of yours?
+849$INT. BATHROOM – DAY$JULES (O.S.)$Yeah, Marvin-Vincent-Vincent-Marvin.
+850$INT. APARTMENT – DAY$FOURTH MAN$Die... die... die... die...!
+851$INT. APARTMENT – DAY$FOURTH MAN$I don't understand –
+852$INT. APARTMENT – DAY$VINCENT$Why the fuck didn't you tell us about that guy in the bathroom? Slip your mind?  Forget he was in there with a goddamn hand cannon?
+853$INT. APARTMENT – DAY$JULES$We should be fuckin' dead right now. Did you see that gun he fired at us? It was bigger than him.
+854$INT. APARTMENT – DAY$VINCENT$.357.
+855$INT. APARTMENT – DAY$JULES$We should be fuckin' dead!
+856$INT. APARTMENT – DAY$VINCENT$Yeah, we were lucky.
+857$INT. APARTMENT – DAY$JULES$That shit wasn't luck. That shit was somethin' else.
+858$INT. APARTMENT – DAY$VINCENT$Yeah, maybe.
+859$INT. APARTMENT – DAY$JULES$That was... divine intervention. You know what divine intervention is?
+860$INT. APARTMENT – DAY$VINCENT$Yeah, I think so. That means God came down from Heaven and stopped the bullets.
+861$INT. APARTMENT – DAY$JULES$Yeah, man, that's what is means. That's exactly what it means! God came down from Heaven and stopped the bullets.
+862$INT. APARTMENT – DAY$VINCENT$I think we should be going now.
+863$INT. APARTMENT – DAY$JULES$Don't do that! Don't you fuckin' do that!  Don't blow this shit off! What just happened was a fuckin' miracle!
+864$INT. APARTMENT – DAY$VINCENT$Chill the fuck out, Jules, this shit happens.
+865$INT. APARTMENT – DAY$JULES$Wrong, wrong, this shit doesn't just happen.
+866$INT. APARTMENT – DAY$VINCENT$Do you wanna continue this theological discussion in the car, or at the jailhouse with the cops?
+867$INT. APARTMENT – DAY$JULES$We should be fuckin' dead now, my friend!  We just witnessed a miracle, and I want you to fuckin' acknowledge it!
+868$INT. APARTMENT – DAY$VINCENT$Okay man, it was a miracle, can we leave now?
+869$INT. NOVA (MOVING) – MORNING$VINCENT$...Ever seen that show "COPS?"  I was watchin' it once and this cop was on it who was talkin' about this time he got into this gun fight with a guy in a hallway. He unloads on this guy and he doesn't hit anything. And these guys were in a hallway. It's a freak, but it happens.
+870$INT. NOVA (MOVING) – MORNING$JULES$If you wanna play blind man, then go walk with a Shepherd. But me, my eyes are wide fuckin' open.
+871$INT. NOVA (MOVING) – MORNING$VINCENT$What the fuck does that mean?
+872$INT. NOVA (MOVING) – MORNING$JULES$That's it for me. For here on in, you can consider my ass retired.
+873$INT. NOVA (MOVING) – MORNING$VINCENT$Jesus Christ!
+874$INT. NOVA (MOVING) – MORNING$JULES$Don't blaspheme!
+875$INT. NOVA (MOVING) – MORNING$VINCENT$Goddammit, Jules –
+876$INT. NOVA (MOVING) – MORNING$JULES$– I said don't do that –
+877$INT. NOVA (MOVING) – MORNING$VINCENT$– you're fuckin' freakin' out!
+878$INT. NOVA (MOVING) – MORNING$JULES$I'm tellin' Marsellus today I'm through.
+879$INT. NOVA (MOVING) – MORNING$VINCENT$While you're at it, be sure to tell 'im why.
+880$INT. NOVA (MOVING) – MORNING$JULES$Don't worry, I will.
+881$INT. NOVA (MOVING) – MORNING$VINCENT$I'll bet ya ten thousand dollars, he laughs his ass off.
+882$INT. NOVA (MOVING) – MORNING$JULES$I don't give a damn if he does.
+883$INT. NOVA (MOVING) – MORNING$VINCENT$Marvin, what do you make of all this?
+884$INT. NOVA (MOVING) – MORNING$MARVIN$I don't even have an opinion.
+885$INT. NOVA (MOVING) – MORNING$VINCENT$C'mon, Marvin. Do you think God came down from Heaven and stopped the bullets?
+886$INT. NOVA (MOVING) – MORNING$JULES$What the fuck's happening?
+887$INT. NOVA (MOVING) – MORNING$VINCENT$I just accidentally shot Marvin in the throat.
+888$INT. NOVA (MOVING) – MORNING$JULES$Why the fuck did you do that?
+889$INT. NOVA (MOVING) – MORNING$VINCENT$I didn't mean to do it. I said it was an accident.
+890$INT. NOVA (MOVING) – MORNING$JULES$I've seen a lot of crazy-ass shit in my time –
+891$INT. NOVA (MOVING) – MORNING$VINCENT$– chill out, man, it was an accident, okay? You hit a bump or somethin' and the gun went off.
+892$INT. NOVA (MOVING) – MORNING$JULES$The car didn't hit no motherfuckin' bump!
+893$INT. NOVA (MOVING) – MORNING$VINCENT$Look! I didn't mean to shoot this son-ofa-bitch, the gun just went off, don't ask me how!
+894$INT. NOVA (MOVING) – MORNING$JULES$Look at this mess! We're drivin' around on a city street in broad daylight –
+895$INT. NOVA (MOVING) – MORNING$VINCENT$– I know, I know, I wasn't thinkin' about the splatter.
+896$INT. NOVA (MOVING) – MORNING$JULES$Well you better be thinkin' about it now, motherfucker! We gotta get this car off the road. Cops tend to notice shit like you're driving a car drenched in fuckin' blood.
+897$INT. NOVA (MOVING) – MORNING$VINCENT$Can't we just take it to a friendly place?
+898$INT. NOVA (MOVING) – MORNING$JULES$This is the Valley, Vincent. Marsellus don't got no friendly places in the Valley.
+899$INT. NOVA (MOVING) – MORNING$VINCENT$Well, don't look at me, this is your town, Jules.
+900$INT. NOVA (MOVING) – MORNING$VINCENT$Who ya callin'?
+901$INT. NOVA (MOVING) – MORNING$JULES$A buddy of mine in Toluca Lake.
+902$INT. NOVA (MOVING) – MORNING$VINCENT$Where's Toluca Lake.
+903$INT. NOVA (MOVING) – MORNING$JULES$On the other side of the hill, by Burbank Studios. If Jimmie's ass ain't home, I don't know what the fuck we're gonna go. I ain't got any other partners in 818. Jimmie! How you doin' man, it's Jules. Listen up man, me an' my homeboy are in some serious shit. We're in a car we gotta get off the road, pronto! I need to use your garage for a couple hours.
+904$INT. JIMMIE'S BATHROOM – DAY$JULES$We gotta be real fuckin' delicate with this Jimmie's situation. He's one remark away from kickin' our asses out the door.
+905$INT. JIMMIE'S BATHROOM – DAY$VINCENT$If he kicks us out, whadda we do?
+906$INT. JIMMIE'S BATHROOM – DAY$JULES$Well, we ain't leavin' 'til we made a couple phone calls. But I never want it to reach that pitch. Jimmie's my friend and you don't bust in your friend's house and start tellin' 'im what's what.
+907$INT. JIMMIE'S BATHROOM – DAY$VINCENT$Just tell 'im not to be abusive. He kinda freaked out back there when he saw Marvin.
+908$INT. JIMMIE'S BATHROOM – DAY$JULES$Put yourself in his position. It's eight o'clock in the morning. He just woke up, he wasn't prepared for this shit. Don't forget who's doin' who a favor.
+909$INT. JIMMIE'S BATHROOM – DAY$VINCENT$If the price of that favor is I gotta take shit, he can stick his favor straight up his ass.
+910$INT. JIMMIE'S BATHROOM – DAY$JULES$What the fuck did you just do to his towel?
+911$INT. JIMMIE'S BATHROOM – DAY$VINCENT$I was just dryin' my hands.
+912$INT. JIMMIE'S BATHROOM – DAY$JULES$You're supposed to wash 'em first.
+913$INT. JIMMIE'S BATHROOM – DAY$VINCENT$You watched me wash 'em.
+914$INT. JIMMIE'S BATHROOM – DAY$JULES$I watched you get 'em wet.
+915$INT. JIMMIE'S BATHROOM – DAY$VINCENT$I washed 'em. Blood's real hard to get off. Maybe if he had some Lava, I coulda done a better job.
+916$INT. JIMMIE'S BATHROOM – DAY$JULES$I used the same soap you did and when I dried my hands, the towel didn't look like a fuckin' Maxie pad. Look, fuck it, alright. Who cares? But it's shit like this that's gonna bring this situation to a boil. If he were to come in here and see that towel like that... I'm tellin' you Vincent, you best be cool. 'Cause if I gotta get in to it with Jimmie on account of you... Look, I ain't threatenin' you, I respect you an' all, just don't put me in that position.
+917$INT. JIMMIE'S BATHROOM – DAY$JULES$Jules, you ask me nice like that, no problem. He's your friend, you handle him.
+918$INT. JIMMIE'S KITCHEN – MORNING$JULES$Goddamn Jimmie, this is some serious gourmet shit. Me an' Vincent woulda been satisfied with freeze-dried Tasters Choice. You spring this gourmet fuckin' shit on us. What flavor is this?
+919$INT. JIMMIE'S KITCHEN – MORNING$JIMMIE$Knock it off, Julie.
+920$INT. JIMMIE'S KITCHEN – MORNING$JULES$What?
+921$INT. JIMMIE'S KITCHEN – MORNING$JIMMIE$I'm not a cobb or corn, so you can stop butterin' me up. I don't need you to tell me how good my coffee is. I'm the one who buys it, I know how fuckin' good it is.  When Bonnie goes shoppin;, she buys shit.  I buy the gourmet expensive stuff 'cause when I drink it, I wanna taste it. But what's on my mind at this moment isn't the coffee in my kitchen, it's the dead nigger in my garage.
+922$INT. JIMMIE'S KITCHEN – MORNING$JULES$Jimmie –
+923$INT. JIMMIE'S KITCHEN – MORNING$JIMMIE$– I'm talkin'. Now let me ask you a question, Jules. When you drove in here, did you notice a sign out front that said, "Dead nigger storage?"
+924$INT. JIMMIE'S KITCHEN – MORNING$JIMMIE$– answer to question. Did you see a sign out in front of my house that said, "Dead nigger storage?"
+925$INT. JIMMIE'S KITCHEN – MORNING$JULES$Naw man, I didn't.
+926$INT. JIMMIE'S KITCHEN – MORNING$JIMMIE$You know why you didn't see that sign?
+927$INT. JIMMIE'S KITCHEN – MORNING$JULES$Why?
+928$INT. JIMMIE'S KITCHEN – MORNING$JIMMIE$'Cause storin' dead niggers ain't my fuckin' business!
+929$INT. JIMMIE'S KITCHEN – MORNING$JIMMIE$– I ain't through! Now don't you understand that if Bonnie comes home and finds a dead body in her house, I'm gonna get divorced. No marriage counselor, no trial separation – fuckin' divorced. And I don't wanna get fuckin' divorced. The last time me an' Bonnie talked about this shit was gonna be the last time me an' Bonnie talked about this shit. Now I wanna help ya out Julie, I really do. But I ain't gonna lose my wife doin' it.
+930$INT. JIMMIE'S KITCHEN – MORNING$JULES$Jimmie –
+931$INT. JIMMIE'S KITCHEN – MORNING$JIMMIE$– don't fuckin' Jimmie me, man, I can't be Jimmied. There's nothin' you can say that's gonna make me forget I love my wife. Now she's workin' the graveyard shift at the hospital. She'll be comin' home in less than an hour and a half. Make your phone calls, talk to your people, than get the fuck out of my house.
+932$INT. JIMMIE'S KITCHEN – MORNING$JULES$That's all we want. We don't wanna fuck up your shit. We just need to call our people to bring us in.
+933$INT. JIMMIE'S KITCHEN – MORNING$JIMMIE$Then I suggest you get to it. Phone's in my bedroom.
+934$INT. MARSELLUS WALLACE'S DINING ROOM – MORNING$MARSELLUS$...well, say she comes home. Whaddya think she'll do? No fuckin' shit she'll freak. That ain't no kinda answer. You know 'er, I don't.  How bad, a lot or a little?
+935$INT. JIMMIE'S BEDROOM – MORNING$JULES$You got to appreciate what an explosive element this Bonnie situation is. If she comes home from a hard day's work and finds a bunch of gangsters doin' a bunch of gangsta' shit in her kitchen, ain't no tellin' what she's apt to do.
+936$INT. JIMMIE'S BEDROOM – MORNING$MARSELLUS$I've grasped that, Jules. All I'm doin' is contemplating the "ifs."
+937$INT. JIMMIE'S BEDROOM – MORNING$JULES$I don't wanna hear about no motherfuckin' "ifs."What I wanna hear from your ass is: "you ain't got no problems, Jules. I'm on the motherfucker. Go back in there, chill them niggers out and wait for the cavalry, which should be comin' directly."
+938$INT. JIMMIE'S BEDROOM – MORNING$MARSELLUS$You ain't got no problems, Jules. I'm on the motherfucker. Go back in there, chill them niggers out and wait for The Wolf, who should be comin' directly.
+939$INT. JIMMIE'S BEDROOM – MORNING$JULES$You sendin' The Wolf?
+940$INT. JIMMIE'S BEDROOM – MORNING$MARSELLUS$Feel better?
+941$INT. JIMMIE'S BEDROOM – MORNING$JULES$Shit Negro, that's all you had to say.
+942$INT. HOTEL SUITE – MORNING$THE WOLF$Is she the hysterical type? When she due? Give me the principals' names again? Jules...
+943$INT. HOTEL SUITE – MORNING$THE WOLF$...Vincent... Jimmie... Bonnie...
+944$INT. HOTEL SUITE – MORNING$THE WOLF$Expect a call around 10:30. It's about thirty minutes away. I'll be there in ten.
+945$INT. JIMMIE'S HOUSE – MORNING$THE WOLF$You're Jimmie, right? This is your house?
+946$INT. JIMMIE'S HOUSE – MORNING$JIMMIE$Yeah.
+947$INT. JIMMIE'S HOUSE – MORNING$THE WOLF$I'm Winston Wolf, I solve problems.
+948$INT. JIMMIE'S HOUSE – MORNING$JIMMIE$Good, 'cause we got one.
+949$INT. JIMMIE'S HOUSE – MORNING$THE WOLF$So I heard. May I come in?
+950$INT. JIMMIE'S HOUSE – MORNING$JIMMIE$Please do.
+951$INT. JIMMIE'S HOUSE – MORNING$THE WOLF$You must be Jules, which would make you Vincent. Let's get down to brass tacks, gentlemen. If I was informed correctly, the clock is ticking, is that right, Jimmie?
+952$INT. JIMMIE'S HOUSE – MORNING$JIMMIE$100%.
+953$INT. JIMMIE'S HOUSE – MORNING$THE WOLF$Your wife, Bonnie... ...comes home at 9:30 in the AM, is that correct?
+954$INT. JIMMIE'S HOUSE – MORNING$JIMMIE$Uh-huh.
+955$INT. JIMMIE'S HOUSE – MORNING$THE WOLF$I was led to believe if she comes home and finds us here, she wouldn't appreciate it none too much.
+956$INT. JIMMIE'S HOUSE – MORNING$JIMMIE$She won't at that.
+957$INT. JIMMIE'S HOUSE – MORNING$THE WOLF$That gives us forty minutes to get the fuck outta Dodge, which, if you do what I say when I say it, should by plenty. Now you got a corpse in a car, minus a head, in a garage. Take me to it.
+958$INT. JIMMIE'S GARAGE – MORNING$THE WOLF$Jimmie?
+959$INT. JIMMIE'S GARAGE – MORNING$JIMMIE$Yes.
+960$INT. JIMMIE'S GARAGE – MORNING$THE WOLF$Do me a favor, will ya? Thought I smelled some coffee in there. Would you make me a cup?
+961$INT. JIMMIE'S GARAGE – MORNING$JIMMIE$Sure, how do you take it?
+962$INT. JIMMIE'S GARAGE – MORNING$THE WOLF$Lotsa cream, lotsa sugar.
+963$INT. JIMMIE'S GARAGE – MORNING$THE WOLF$About the car, is there anything I need to know? Does it stall, does it make a lot of noise, does it smoke, is there gas in it, anything?
+964$INT. JIMMIE'S GARAGE – MORNING$JULES$Aside from how it looks, the car's cool.
+965$INT. JIMMIE'S GARAGE – MORNING$THE WOLF$Positive?  Don't get me out on the road and I find out the brake lights don't work.
+966$INT. JIMMIE'S GARAGE – MORNING$JULES$Hey man, as far as I know, the motherfucker's tip-top.
+967$INT. JIMMIE'S GARAGE – MORNING$THE WOLF$Good enough, let's go back to the kitchen.
+968$INT. KITCHEN – MORNING$THE WOLF$Thank you, Jimmie.
+969$INT. KITCHEN – MORNING$THE WOLF$Okay first thing, you two. Take the body, stick it in the trunk. Now Jimmie, this looks to be a pretty domesticated house. That would lead me to believe that in the garage or under the sink, you got a bunch of cleansers and cleaners and shit like that, am I correct?
+970$INT. KITCHEN – MORNING$JIMMIE$Yeah. Exactly. Under the sink.
+971$INT. KITCHEN – MORNING$THE WOLF$Good. What I need you two fellas to do is take those cleaning products and clean the inside of the car. And I'm talkin' fast, fast, fast. You need to go in the backseat, scoop up all those little pieces of brain and skull. Get it out of there.  Wipe down the upholstery – now when it comes to upholstery, it don't need to be spic and span, you don't need to eat off it. Give it a good once over. What you need to take care of are the really messy parts. The pools of blood that have collected, you gotta soak that shit up.  But the windows are a different story.  Them you really clean. Get the Windex, do a good job. Now Jimmie, we need to raid your linen closet. I need blankets, I need comforters, I need quilts, I need bedspreads. The thicker the better, the darker the better. No whites, can't use 'em. We need to camouflage the interior of the car. We're gonna line the front seat and the backseat and the floor boards with quilts and blankets. If a cop stops us and starts stickin' his big snout in the car, the subterfuge won't last. But at a glance, the car will appear to be normal.  Jimmie – lead the way, boys – get to work.
+972$INT. KITCHEN – MORNING$VINCENT$A "please" would be nice.
+973$INT. KITCHEN – MORNING$THE WOLF$Come again?
+974$INT. KITCHEN – MORNING$VINCENT$I said a "please" would be nice.
+975$INT. KITCHEN – MORNING$THE WOLF$Set is straight, Buster. I'm not here to say "please."I'm here to tell you want to do. And if self- preservation is an instinct you possess, you better fuckin' do it and do it quick. I'm here to help. If my help's not appreciated, lotsa luck gentlemen.
+976$INT. KITCHEN – MORNING$JULES$It ain't that way, Mr. Wolf. Your help is definitely appreciated.
+977$INT. KITCHEN – MORNING$VINCENT$I don't mean any disrespect. I just don't like people barkin' orders at me.
+978$INT. KITCHEN – MORNING$THE WOLF$If I'm curt with you, it's because time is a factor. I think fast, I talk fast, and I need you guys to act fast if you want to get out of this. So pretty please, with sugar on top, clean the fuckin' car.
+979$INT. JIMMIE'S BEDROOM – MORNING$THE WOLF$It's a 1974 Chevy Nova. White. Nothin', except for the mess inside. About twenty minutes. Nobody who'll be missed. You're a good man, Joe. See ya soon. How we comin', Jimmie?
+980$INT. JIMMIE'S BEDROOM – MORNING$JIMMIE$Mr. Wolf, you gotta understand somethin' –
+981$INT. JIMMIE'S BEDROOM – MORNING$THE WOLF$– Winston, Jimmie – please, Winston.
+982$INT. JIMMIE'S BEDROOM – MORNING$JIMMIE$You gotta understand something, Winston. I want to help you guys out and all, but that's my best linen. It was a wedding present from my Uncle Conrad and Aunt Ginny, and they ain't with us anymore –
+983$INT. JIMMIE'S BEDROOM – MORNING$THE WOLF$– let me ask you a question, if you don't mind?
+984$INT. JIMMIE'S BEDROOM – MORNING$JIMMIE$Sure.
+985$INT. JIMMIE'S BEDROOM – MORNING$THE WOLF$Were you Uncle Conrad and Aunt Ginny millionaires?
+986$INT. JIMMIE'S BEDROOM – MORNING$JIMMIE$No.
+987$INT. JIMMIE'S BEDROOM – MORNING$THE WOLF$Well, your Uncle Marsellus is. And I'm positive if Uncle Conrad and Aunt Ginny were millionaires, they would've furnished you with a whole bedroom set, which your Uncle Marsellus is more than happy to do. I like oak myself, that's what's in my bedroom. How 'bout you Jimmie, you an oak man?
+988$INT. JIMMIE'S BEDROOM – MORNING$JIMMIE$Oak's nice.
+989$INT. GARAGE – MORNING$JULES$I will never forgive your ass for this shit. This is some fucked-up repugnant shit!
+990$INT. GARAGE – MORNING$VINCENT$Did you ever hear the philosophy that once a man admits he's wrong, he's immediately forgiven for all wrong-doings?
+991$INT. GARAGE – MORNING$JULES$Man, get outta my face with that shit! The motherfucker who said that never had to pick up itty-bitty pieces of skull with his fingers on account of your dumb ass.
+992$INT. GARAGE – MORNING$VINCENT$I got a threshold, Jules. I got a threshold for the abuse I'll take. And you're crossin' it. I'm a race car and you got me in the red. Redline 7000, that's where you are. Just know, it's fuckin' dangerous to be drivin' a race car when it's in the red. It could blow.
+993$INT. GARAGE – MORNING$JULES$You're gettin' ready to blow? I'm a mushroom-cloud-layin' motherfucker! Every time my fingers touch brain I'm "SUPERFLY T.N.T," I'm the "GUNS OF NAVARONE." I'm what Jimmie Walker usta talk about. In fact, what the fuck am I doin' in the back?  You're the motherfucker should be on brain detail. We're tradin'. I'm washin' windows and you're pickin' up this nigger's skull.
+994$INT. CHEVY NOVA – MORNING$THE WOLF$Fine job, gentlemen. We may get out of this yet.
+995$INT. CHEVY NOVA – MORNING$JIMMIE$I can't believe that's the same car.
+996$INT. CHEVY NOVA – MORNING$THE WOLF$Well, let's not start suckin' each other's dicks quite yet. Phase one is complete, clean the car, which moves us right along to phase two, clean you two.
+997$EXT. JIMMIE'S BACKYARD – MORNING$THE WOLF$Strip.
+998$EXT. JIMMIE'S BACKYARD – MORNING$VINCENT$All the way?
+999$EXT. JIMMIE'S BACKYARD – MORNING$THE WOLF$To your bare ass.
+1000$EXT. JIMMIE'S BACKYARD – MORNING$THE WOLF$Quickly gentlemen, we got about fifteen minutes before Jimmie's better- half comes pulling into the driveway.
+1001$EXT. JIMMIE'S BACKYARD – MORNING$JULES$This morning air is some chilly shit.
+1002$EXT. JIMMIE'S BACKYARD – MORNING$VINCENT$Are you sure this is absolutely necessary?
+1003$EXT. JIMMIE'S BACKYARD – MORNING$THE WOLF$You know what you two look like?
+1004$EXT. JIMMIE'S BACKYARD – MORNING$VINCENT$What?
+1005$EXT. JIMMIE'S BACKYARD – MORNING$THE WOLF$Like a couple of guys who just blew off somebody's head. Yes, strippin' off those bloody rags is absolutely necessary. Toss the clothes in Jim's garbage bag.
+1006$EXT. JIMMIE'S BACKYARD – MORNING$JULES$Now Jimmie, don't do nothin' stupid like puttin' that out in front of your house for Elmo the garbage man to take away.
+1007$EXT. JIMMIE'S BACKYARD – MORNING$THE WOLF$Don't worry, we're takin' it with us. Jim, the soap.
+1008$EXT. JIMMIE'S BACKYARD – MORNING$THE WOLF$Okay gentlemen, you're both been to County before, I'm sure. Here it comes.
+1009$EXT. JIMMIE'S BACKYARD – MORNING$JULES$Goddamn, that water's fuckin' cold!
+1010$EXT. JIMMIE'S BACKYARD – MORNING$THE WOLF$Better you than me, gentlemen.
+1011$EXT. JIMMIE'S BACKYARD – MORNING$THE WOLF$Don't be afraid of the soap, spread it around.
+1012$EXT. JIMMIE'S BACKYARD – MORNING$THE WOLF$Towel 'em.
+1013$EXT. JIMMIE'S BACKYARD – MORNING$THE WOLF$You're dry enough, give 'em their clothes.
+1014$EXT. JIMMIE'S BACKYARD – MORNING$THE WOLF$Perfect. Perfect. We couldn't've planned this better. You guys look like... what do they look like, Jimmie?
+1015$EXT. JIMMIE'S BACKYARD – MORNING$JIMMIE$Dorks. They look like a couple of dorks.
+1016$EXT. JIMMIE'S BACKYARD – MORNING$JULES$Ha ha ha. They're your clothes, motherfucker.
+1017$EXT. JIMMIE'S BACKYARD – MORNING$JIMMIE$I guess you just gotta know how to wear them.
+1018$EXT. JIMMIE'S BACKYARD – MORNING$JULES$Yeah, well, our asses ain't the expert on wearin' dorky shit that your is.
+1019$EXT. JIMMIE'S BACKYARD – MORNING$THE WOLF$C'mon, gentlemen, we're laughin' and jokin' our way into prison. Don't make me beg.
+1020$INT. JIMMIE'S GARAGE – MORNING$THE WOLF$Gentlemen, let's get our rules of the road straight. We're going to a place called Monster Joe's Truck and Tow. Monster Joe and his daughter Raquel are sympathetic to out dilemma. The place is North Hollywood, so a few twist and turns aside, we'll be goin' up Hollywood Way. Now I'll drive the tainted car. Jules, you ride with me.  Vincent, you follow in my Porsche. Now if we cross the path of any John Q. Laws, nobody does a fuckin' thing 'til I do something.
+1021$INT. JIMMIE'S GARAGE – MORNING$JULES$Don't do shit unless –
+1022$INT. JIMMIE'S GARAGE – MORNING$THE WOLF$– unless what?
+1023$INT. JIMMIE'S GARAGE – MORNING$JULES$Unless you do it first.
+1024$INT. JIMMIE'S GARAGE – MORNING$THE WOLF$Spoken like a true prodigy. How 'bout you, Lash Larue?  Can you keep your spurs from jingling and jangling?
+1025$INT. JIMMIE'S GARAGE – MORNING$VINCENT$I'm cool, Mr. Wolf. My gun just went off, I dunno how.
+1026$INT. JIMMIE'S GARAGE – MORNING$THE WOLF$Fair enough. I drive real fuckin' fast, so keep up. If I get my car back any different than I gave it, Monster Joe's gonna be disposing of two bodies.
+1027$EXT. MONSTER JOE'S TRUCK AND TOW – MORNING$JULES$We cool?
+1028$EXT. MONSTER JOE'S TRUCK AND TOW – MORNING$WINSTON$Like it never happened.
+1029$EXT. MONSTER JOE'S TRUCK AND TOW – MORNING$WINSTON$Boys, this is Raquel. Someday, all this will be hers.
+1030$EXT. MONSTER JOE'S TRUCK AND TOW – MORNING$RAQUEL$Hi. You know, if they ever do "I SPY: THE MOTION PICTURE," you guys, I'd be great.  What's with the outfits. You guys going to a volleyball game?
+1031$EXT. MONSTER JOE'S TRUCK AND TOW – MORNING$WINSTON$I'm takin' m'lady out to breakfast. Maybe I can drop you two off. Where do you live?
+1032$EXT. MONSTER JOE'S TRUCK AND TOW – MORNING$VINCENT$Redondo Beach.
+1033$EXT. MONSTER JOE'S TRUCK AND TOW – MORNING$JULES$Inglewood.
+1034$EXT. MONSTER JOE'S TRUCK AND TOW – MORNING$WINSTON$It's your future: I see... a cab ride. Sorry guys, move out of the sticks. Say goodbye, Raquel.
+1035$EXT. MONSTER JOE'S TRUCK AND TOW – MORNING$RAQUEL$Goodbye, Raquel.
+1036$EXT. MONSTER JOE'S TRUCK AND TOW – MORNING$WINSTON$I'll see you two around, and stay outta trouble, you crazy kids.
+1037$EXT. MONSTER JOE'S TRUCK AND TOW – MORNING$JULES$Mr. Wolf.
+1038$EXT. MONSTER JOE'S TRUCK AND TOW – MORNING$JULES$I was a pleasure watchin' you work.
+1039$EXT. MONSTER JOE'S TRUCK AND TOW – MORNING$WINSTON$Call me Winston.
+1040$EXT. MONSTER JOE'S TRUCK AND TOW – MORNING$WINSTON$You hear that, young lady? Respect. You could lean a lot from those two fine specimens. Respect for one's elders shows character.
+1041$EXT. MONSTER JOE'S TRUCK AND TOW – MORNING$RAQUEL$I have character.
+1042$EXT. MONSTER JOE'S TRUCK AND TOW – MORNING$WINSTON$Just because you are a character doesn't mean you have character.
+1043$EXT. MONSTER JOE'S TRUCK AND TOW – MORNING$RAQUEL$Oh you're so funny, oh you're so funny.
+1044$EXT. MONSTER JOE'S TRUCK AND TOW – MORNING$JULES$Wanna share a cab?
+1045$EXT. MONSTER JOE'S TRUCK AND TOW – MORNING$VINCENT$You know I could go for some breakfast.  Want to have breakfast with me?
+1046$EXT. MONSTER JOE'S TRUCK AND TOW – MORNING$JULES$Sure.
+1047$INT. COFFEE SHOP – MORNING$VINCENT$Thanks a bunch. Want a sausage?
+1048$INT. COFFEE SHOP – MORNING$JULES$Naw, I don't eat pork.
+1049$INT. COFFEE SHOP – MORNING$VINCENT$Are you Jewish?
+1050$INT. COFFEE SHOP – MORNING$JULES$I ain't Jewish man, I just don't dig on swine.
+1051$INT. COFFEE SHOP – MORNING$VINCENT$Why not?
+1052$INT. COFFEE SHOP – MORNING$JULES$They're filthy animals. I don't eat filthy animals.
+1053$INT. COFFEE SHOP – MORNING$VINCENT$Sausages taste good. Pork chops taste good.
+1054$INT. COFFEE SHOP – MORNING$JULES$A sewer rat may taste like pumpkin pie.  I'll never know 'cause even if it did, I wouldn't eat the filthy motherfucker. Pigs sleep and root in shit. That's a filthy animal. I don't wanna eat nothin' that ain't got enough sense to disregard its own feces.
+1055$INT. COFFEE SHOP – MORNING$VINCENT$How about dogs? Dogs eat their own feces.
+1056$INT. COFFEE SHOP – MORNING$JULES$I don't eat dog either.
+1057$INT. COFFEE SHOP – MORNING$VINCENT$Yes, but do you consider a dog to be a filthy animal?
+1058$INT. COFFEE SHOP – MORNING$JULES$I wouldn't go so far as to call a dog filthy, but they're definitely dirty. But a dog's got personality. And personality goes a long way.
+1059$INT. COFFEE SHOP – MORNING$VINCENT$So by that rationale, if a pig had a better personality, he's cease to be a filthy animal?
+1060$INT. COFFEE SHOP – MORNING$JULES$We'd have to be talkin' 'bout one motherfuckin' charmin' pig. It'd have to be the Cary Grant of pigs.
+1061$INT. COFFEE SHOP – MORNING$VINCENT$Good for you. Lighten up a little. You been sittin' there all quiet.
+1062$INT. COFFEE SHOP – MORNING$JULES$I just been sittin' here thinkin'.
+1063$INT. COFFEE SHOP – MORNING$VINCENT$About what?
+1064$INT. COFFEE SHOP – MORNING$JULES$The miracle we witnessed.
+1065$INT. COFFEE SHOP – MORNING$VINCENT$The miracle you witnessed. I witnessed a freak occurrence.
+1066$INT. COFFEE SHOP – MORNING$JULES$Do you know that a miracle is?
+1067$INT. COFFEE SHOP – MORNING$VINCENT$An act of God.
+1068$INT. COFFEE SHOP – MORNING$JULES$What's an act of God?
+1069$INT. COFFEE SHOP – MORNING$VINCENT$I guess it's when God makes the impossible possible. And I'm sorry Jules, but I don't think what happened this morning qualifies.
+1070$INT. COFFEE SHOP – MORNING$JULES$Don't you see, Vince, that shit don't matter. You're judging this thing the wrong way. It's not about what. It could be God stopped the bullets, he changed Coke into Pepsi, he found my fuckin' car keys. You don't judge shit like this based on merit. Whether or not what we experienced was an according-to-Hoyle miracle is insignificant. What is significant is I felt God's touch, God got involved.
+1071$INT. COFFEE SHOP – MORNING$VINCENT$But why?
+1072$INT. COFFEE SHOP – MORNING$JULES$That's what's fuckin' wit' me! I don't know why. But I can't go back to sleep.
+1073$INT. COFFEE SHOP – MORNING$VINCENT$So you're serious, you're really gonna quit?
+1074$INT. COFFEE SHOP – MORNING$JULES$The life, most definitely.
+1075$INT. COFFEE SHOP – MORNING$PATRON$Garcon! Coffee!
+1076$INT. COFFEE SHOP – MORNING$VINCENT$So if you're quitting the life, what'll you do?
+1077$INT. COFFEE SHOP – MORNING$JULES$That's what I've been sitting here contemplating. First, I'm gonna deliver this case to Marsellus. Then, basically, I'm gonna walk the earth.
+1078$INT. COFFEE SHOP – MORNING$VINCENT$What do you mean, walk the earth?
+1079$INT. COFFEE SHOP – MORNING$JULES$You know, like Caine in "KUNG FU." Just walk from town to town, meet people, get in adventures.
+1080$INT. COFFEE SHOP – MORNING$VINCENT$How long do you intend to walk the earth?
+1081$INT. COFFEE SHOP – MORNING$JULES$Until God puts me where he want me to be.
+1082$INT. COFFEE SHOP – MORNING$VINCENT$What if he never does?
+1083$INT. COFFEE SHOP – MORNING$JULES$If it takes forever, I'll wait forever.
+1084$INT. COFFEE SHOP – MORNING$VINCENT$So you decided to be a bum?
+1085$INT. COFFEE SHOP – MORNING$JULES$I'll just be Jules, Vincent – no more, no less.
+1086$INT. COFFEE SHOP – MORNING$VINCENT$No Jules, you're gonna be like those pieces of shit out there who beg for change. They walk around like a bunch of fuckin' zombies, they sleep in garbage bins, they eat what I throw away, and dogs piss on 'em. They got a word for 'em, they're called bums. And without a job, residence, or legal tender, that's what you're gonna be – a fuckin' bum!
+1087$INT. COFFEE SHOP – MORNING$JULES$Look my friend, this is just where me and you differ –
+1088$INT. COFFEE SHOP – MORNING$VINCENT$– what happened was peculiar – no doubt about it – but it wasn't water into wine.
+1089$INT. COFFEE SHOP – MORNING$JULES$All shapes and sizes, Vince.
+1090$INT. COFFEE SHOP – MORNING$VINCENT$Stop fuckin' talkin' like that!
+1091$INT. COFFEE SHOP – MORNING$JULES$If you find my answers frightening, Vincent, you should cease askin' scary questions.
+1092$INT. COFFEE SHOP – MORNING$VINCENT$I gotta take a shit. To be continued.
+1093$INT. COFFEE SHOP – MORNING$PUMPKIN$Everybody be cool, this is a robbery!
+1094$INT. COFFEE SHOP – MORNING$HONEY BUNNY$Any of you fuckin' pricks move and I'll execute every one of you motherfuckers!  Got that?!
+1095$INT. COFFEE SHOP – MORNING$PUMPKIN$Customers stay seated, waitresses on the floor.
+1096$INT. COFFEE SHOP – MORNING$HONEY BUNNY$Now mean fuckin' now! Do it or die, do it or fucking die!
+1097$INT. COFFEE SHOP – MORNING$PUMPKIN$You Mexicans in the kitchen, get out here!  Asta luego!
+1098$INT. COFFEE SHOP – MORNING$PUMPKIN$On the floor or I'll cook you ass, comprende?
+1099$INT. COFFEE SHOP – MORNING$MANAGER$I'm the manager here, there's no problem, no problem at all –
+1100$INT. COFFEE SHOP – MORNING$PUMPKIN$You're gonna give me a problem?
+1101$INT. COFFEE SHOP – MORNING$PUMPKIN$What? You said you're gonna give me a problem?
+1102$INT. COFFEE SHOP – MORNING$MANAGER$No, I'm not. I'm not gonna give you any problem!
+1103$INT. COFFEE SHOP – MORNING$PUMPKIN$I don't know, Honey Bunny. He looks like the hero type to me!
+1104$INT. COFFEE SHOP – MORNING$HONEY BUNNY$Don't take any chances. Execute him!
+1105$INT. COFFEE SHOP – MORNING$MANAGER$Please don't! I'm not a hero. I'm just a coffee shop manager. Take anything you want.
+1106$INT. COFFEE SHOP – MORNING$PUMPKIN$Tell everyone to cooperate and it'll be all over.
+1107$INT. COFFEE SHOP – MORNING$MANAGER$Everybody just be calm and cooperate with them and this will be all over soon!
+1108$INT. COFFEE SHOP – MORNING$PUMPKIN$Well done, now git your fuckin' ass on the ground.
+1109$INT. COFFEE SHOP – MORNING$PUMPKIN$Okay people, I'm going to go 'round and collect your wallets. Don't talk, just toss 'em in the bag. We clear?
+1110$INT. COFFEE SHOP – MORNING$PUMPKIN$In the bag.
+1111$INT. COFFEE SHOP – MORNING$PUMPKIN$What's in that?
+1112$INT. COFFEE SHOP – MORNING$JULES$My boss' dirty laundry.
+1113$INT. COFFEE SHOP – MORNING$PUMPKIN$You boss makes you do his laundry?
+1114$INT. COFFEE SHOP – MORNING$JULES$When he wants it clean.
+1115$INT. COFFEE SHOP – MORNING$PUMPKIN$Sounds like a shit job.
+1116$INT. COFFEE SHOP – MORNING$JULES$Funny, I've been thinkin' the same thing.
+1117$INT. COFFEE SHOP – MORNING$PUMPKIN$Open it up.
+1118$INT. COFFEE SHOP – MORNING$JULES$'Fraid I can't do that.
+1119$INT. COFFEE SHOP – MORNING$PUMPKIN$I didn't hear you.
+1120$INT. COFFEE SHOP – MORNING$JULES$Yes, you did.
+1121$INT. COFFEE SHOP – MORNING$HONEY BUNNY$What's goin' on?
+1122$INT. COFFEE SHOP – MORNING$PUMPKIN$Looks like we got a vigilante in our midst.
+1123$INT. COFFEE SHOP – MORNING$HONEY BUNNY$Shoot 'em in the face!
+1124$INT. COFFEE SHOP – MORNING$JULES$I don't mean to shatter your ego, but this ain't the first time I've had gun pointed at me.
+1125$INT. COFFEE SHOP – MORNING$PUMPKIN$You don't open up that case, it's gonna be the last.
+1126$INT. COFFEE SHOP – MORNING$MANAGER$Quit causing problems, you'll get us all killed! Give 'em what you got and get 'em out of here.
+1127$INT. COFFEE SHOP – MORNING$JULES$Keep your fuckin' mouth closed, fat man, this ain't any of your goddamn business!
+1128$INT. COFFEE SHOP – MORNING$PUMPKIN$I'm countin' to three, and if your hand ain't off that case, I'm gonna unload right in your fuckin' face. Clear? One...
+1129$INT. COFFEE SHOP – MORNING$PUMPKIN$...two... three.
+1130$INT. COFFEE SHOP – MORNING$JULES$You win.
+1131$INT. COFFEE SHOP – MORNING$JULES$It's all yours, Ringo.
+1132$INT. COFFEE SHOP – MORNING$PUMPKIN$Open it.
+1133$INT. COFFEE SHOP – MORNING$HONEY BUNNY$What is it? What is it?
+1134$INT. COFFEE SHOP – MORNING$PUMPKIN$Is that what I think it is?
+1135$INT. COFFEE SHOP – MORNING$PUMPKIN$It's beautiful.
+1136$INT. COFFEE SHOP – MORNING$HONEY BUNNY$Goddammit, what is it?
+1137$INT. COFFEE SHOP – MORNING$HONEY BUNNY$Let him go! Let him go! I'll blow your fuckin' head off! I'll kill ya! I'll kill ya! You're gonna die, you're gonna fuckin' die bad!
+1138$INT. COFFEE SHOP – MORNING$JULES$Tell that bitch to be cool! Say, bitch be cool! Say, bitch be cool!
+1139$INT. COFFEE SHOP – MORNING$PUMPKIN$Chill out, honey!
+1140$INT. COFFEE SHOP – MORNING$HONEY BUNNY$Let him go!
+1141$INT. COFFEE SHOP – MORNING$JULES$Tell her it's gonna be okay.
+1142$INT. COFFEE SHOP – MORNING$PUMPKIN$I'm gonna be okay.
+1143$INT. COFFEE SHOP – MORNING$JULES$Promise her.
+1144$INT. COFFEE SHOP – MORNING$PUMPKIN$I promise.
+1145$INT. COFFEE SHOP – MORNING$JULES$Tell her to chill.
+1146$INT. COFFEE SHOP – MORNING$PUMPKIN$Just chill out.
+1147$INT. COFFEE SHOP – MORNING$JULES$What's her name?
+1148$INT. COFFEE SHOP – MORNING$PUMPKIN$Yolanda.
+1149$INT. COFFEE SHOP – MORNING$JULES$So, we cool Yolanda? We ain't gonna do anything stupid, are we?
+1150$INT. COFFEE SHOP – MORNING$YOLANDA$Don't you hurt him.
+1151$INT. COFFEE SHOP – MORNING$JULES$Nobody's gonna hurt anybody. We're gonna be like three Fonzies. And what' Fonzie like?
+1152$INT. COFFEE SHOP – MORNING$JULES$C'mon Yolanda, what's Fonzie like?
+1153$INT. COFFEE SHOP – MORNING$YOLANDA$He's cool?
+1154$INT. COFFEE SHOP – MORNING$JULES$Correct-amundo! And that's what we're gonna be, we're gonna be cool. Now Ringo, I'm gonna count to three and I want you to let go your gun and lay your palms flat on the table. But when you do it, do it cool. Ready?
+1155$INT. COFFEE SHOP – MORNING$JULES$One... two... three.
+1156$INT. COFFEE SHOP – MORNING$YOLANDA$Okay, now let him go!
+1157$INT. COFFEE SHOP – MORNING$JULES$Yolanda, I thought you were gonna be cool.  When you yell at me, it makes me nervous.  When I get nervous, I get scared. And when motherfuckers get scared, that's when motherfuckers get accidentally shot.
+1158$INT. COFFEE SHOP – MORNING$YOLANDA$Just know: you hurt him, you die.
+1159$INT. COFFEE SHOP – MORNING$JULES$That seems to be the situation. Now I don't want that and you don't want that and Ringo here don't want that. So let's see what we can do. Now this is the situation. Normally both of your asses would be dead as fuckin' fried chicken. But you happened to pull this shit while I'm in a transitional period. I don't wanna kill ya, I want to help ya. But I'm afraid I can't give you the case. It don't belong to me. Besides, I went through too much shit this morning on account of this case to just hand it over to your ass.
+1160$INT. COFFEE SHOP – MORNING$VINCENT (O.S.)$What the fuck's goin' on here?
+1161$INT. COFFEE SHOP – MORNING$JULES$It's cool, Vincent! It's cool! Don't do a goddamn thing. Yolanda, it's cool baby, nothin's changed. We're still just talkin'. Tell her we're still cool.
+1162$INT. COFFEE SHOP – MORNING$PUMPKIN$It's cool, Honey Bunny, we're still cool.
+1163$INT. COFFEE SHOP – MORNING$VINCENT$What the hell's goin' on, Jules?
+1164$INT. COFFEE SHOP – MORNING$JULES$Nothin' I can't handle. I want you to just hang back and don't do shit unless it's absolutely necessary.
+1165$INT. COFFEE SHOP – MORNING$VINCENT$Check.
+1166$INT. COFFEE SHOP – MORNING$JULES$Yolanda, how we doin, baby?
+1167$INT. COFFEE SHOP – MORNING$YOLANDA$I gotta go pee! I want to go home.
+1168$INT. COFFEE SHOP – MORNING$JULES$Just hang in there, baby, you're doing' great, Ringo's proud of you and so am I.  It's almost over. Now I want you to go in that bag and find my wallet.
+1169$INT. COFFEE SHOP – MORNING$PUMPKIN$Which one is it?
+1170$INT. COFFEE SHOP – MORNING$JULES$It's the one that says Bad Motherfucker on it.
+1171$INT. COFFEE SHOP – MORNING$JULES$That's my bad motherfucker. Now open it up and take out the cash. How much is there?
+1172$INT. COFFEE SHOP – MORNING$PUMPKIN$About fifteen hundred dollars.
+1173$INT. COFFEE SHOP – MORNING$JULES$Put it in your pocket, it's yours. Now with the rest of them wallets and the register, that makes this a pretty successful little score.
+1174$INT. COFFEE SHOP – MORNING$VINCENT$Jules, if you give this nimrod fifteen hundred buck, I'm gonna shoot 'em on general principle.
+1175$INT. COFFEE SHOP – MORNING$JULES$You ain't gonna do a goddamn thing, now hang back and shut the fuck up. Besides, I ain't givin' it to him. I'm buyin' somethin' for my money. Wanna know what I'm buyin' Ringo?
+1176$INT. COFFEE SHOP – MORNING$PUMPKIN$What?
+1177$INT. COFFEE SHOP – MORNING$JULES$Your life. I'm givin' you that money so I don't hafta kill your ass. You read the Bible?
+1178$INT. COFFEE SHOP – MORNING$PUMPKIN$Not regularly.
+1179$INT. COFFEE SHOP – MORNING$JULES$There's a passage I got memorized. Ezekiel 25:17. "The path of the righteous man is beset on all sides by the inequities of the selfish and the tyranny of evil men.  Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of the darkness. For he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who attempt to poison and destroy my brothers. And you will know I am the Lord when I lay my vengeance upon you." I been sayin' that shit for years.  And if you ever heard it, it meant your ass. I never really questioned what it meant. I thought it was just a coldblooded thing to say to a motherfucker 'fore you popped a cap in his ass. But I saw some shit this mornin' made me think twice. Now I'm thinkin', it could mean you're the evil man. And I'm the righteous man.  And Mr. .45 here, he's the shepherd protecting my righteous ass in the valley of darkness. Or is could by you're the righteous man and I'm the shepherd and it's the world that's evil and selfish.  I'd like that. But that shit ain't the truth. The truth is you're the weak. And I'm the tyranny of evil men. But I'm tryin'. I'm tryin' real hard to be a shepherd.
+1180$INT. COFFEE SHOP – MORNING$JULES$It's cold.
+1181$INT. COFFEE SHOP – MORNING$VINCENT$I think we oughta leave now.
+1182$INT. COFFEE SHOP – MORNING$JULES$That's probably a good idea.

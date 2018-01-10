@@ -1,0 +1,75 @@
+---
+title: "Christmas Tree"
+author: "Magdalena Baracz"
+date: "26 grudnia 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(rbokeh)
+library(dplyr)
+```
+
+
+```{r echo=FALSE, warning=FALSE}
+
+bauble1X <- c(0.25, -0.25)
+bauble1Y <- c(2.5, 2.7)
+
+bauble2X <- c(0.1, -0.5, 0.75, 0, -0.75)
+bauble2Y <- c(0.8, 2, 1.3, 1.6, 1)
+
+bauble3X <- c(0.2, 0.4, 1.5, 1.1 ,1.8, -1.5, -1.7, -0.5, -0.9 ,-0.2)
+bauble3Y <- c(-0.1, -0.75, 0.3, -0.4, -1, -0.1, -0.75, 0.3, -0.4, -1)
+
+bauble4X <- c(0.2, 0.4, 1.5, 2.5, 1.1 ,1.8, -1.5, -1.7, -0.5, -0.9 ,-0.2, -2.4, -1.7)
+bauble4Y <- c(-1.9, -2.75, -3, -3.5, -2.4, -2, -2.6, -3.25, -2.4, -2.9, -3.5, -3.6, -1.8)
+
+figure(xlim = c(-5,5), ylim = c(-5,5),width = 600, height = 600, xgrid = FALSE, ygrid = FALSE, legend_location = NULL) %>%
+  ### TREE
+  ly_points(x = 0, y = -4, fill_color= "brown", glyph = 15, size = 100) %>%
+  ly_points(x = 0, y = -2, fill_color = "green", glyph = 17, size = 400) %>%
+  ly_points(x = 0, y = 0, fill_color = "green", glyph = 17, size = 300) %>%
+  ly_points(x = 0, y = 1.5, fill_color = "green", glyph = 17, size = 200) %>%
+  ly_points(x = 0, y = 2.75, fill_color = "green", glyph = 17, size = 100) %>%
+  ### STAR
+  ly_points(x = 0, y = 4, color = "yellow", glyph = 24, size = 60, line_width= 10) %>%
+  ly_points(x = 0, y = 4, color = "yellow", glyph = 25, size = 60, line_width= 10) %>%
+  ly_points(x = 0, y = 4, color = "yellow", glyph = 8, size = 30, line_width= 10) %>%
+  ### BAUBLES 1
+  ly_points(x = bauble1X, y = bauble1Y, color = rep(c("red", "yellow", "blue"), length.out = length(bauble1X)), glyph = 
+              rep(c(16)), size = 25) %>%
+  ### BAUBLES 1
+  ly_points(x = bauble1X, y = bauble1Y, color = rep(c("black"), length.out = length(bauble1X)), glyph = 
+              rep(c(9)), size = 23) %>%
+  ### BAUBLES 2
+  ly_points(x = bauble2X, y = bauble2Y, color = rep(c("red", "yellow", "blue"), length.out = length(bauble2X)), glyph = 
+              rep(c(16)), size = 25) %>%
+  ### BAUBLES 2
+  ly_points(x = bauble2X, y = bauble2Y, color = rep(c("black"), length.out = length(bauble2X)), glyph = 
+              rep(c(9)), size = 23) %>%
+  ### BAUBLES 3
+  ly_points(x = bauble3X, y = bauble3Y, color = rep(c("red", "yellow", "blue"), length.out = length(bauble3X)), glyph = 
+              rep(c(16)), size = 25) %>%
+  ### BAUBLES 3
+  ly_points(x = bauble3X, y = bauble3Y, color = rep(c("black"), length.out = length(bauble3X)), glyph = 
+              rep(c(9)), size = 23) %>%
+  ### BAUBLES 4
+  ly_points(x = bauble4X, y = bauble4Y, color = rep(c("red", "yellow", "blue"), length.out = length(bauble4X)), glyph = 
+              rep(c(16)), size = 25) %>%
+  ### BAUBLES 4
+  ly_points(x = bauble4X, y = bauble4Y, color = rep(c("black"), length.out = length(bauble4X)), glyph = 
+              rep(c(9)), size = 23) %>%
+  ### SNOW
+  ly_points(x = runif(3000, -5, 5), y = runif(3000, -5, -4.5), color = rep(c("white")), glyph = 
+              rep(c(8)), size = 10) %>%
+    ly_points(x = runif(200, -5, 5), y = runif(200, -4.5, 5), color = rep(c("white")), glyph = 
+              rep(c(8)), size = 10) %>%
+  ### BACKGROUND
+  y_axis(visible = FALSE) %>%
+  x_axis(visible = FALSE) %>%
+  theme_grid( which = c("x", "y"), grid_line_color = "darkblue") %>%
+  theme_plot(background_fill_color = "darkblue")
+
+```

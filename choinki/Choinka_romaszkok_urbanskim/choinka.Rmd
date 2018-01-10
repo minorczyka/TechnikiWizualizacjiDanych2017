@@ -1,0 +1,78 @@
+---
+title: "Choinka"
+author: "Kamil Romaszko & Mateusz Urbański"
+date: "December 20, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(rbokeh)
+options(warn=-1)
+```
+
+
+
+```{r pressure, echo=FALSE, fig.width=7, fig.height=14}
+choinka <- data.frame(x=c(), y =c())
+
+
+trojkat <- function(start, height, center = 3) {
+  tr <- data.frame(x=c(), y =c())
+  for(y in seq(1,height,0.05)) {
+    for(x in seq(1,y,0.05)) {
+      
+      tr <- rbind(tr, c(center + y-x/2,start + x))
+
+    }
+    
+  }
+  colnames(tr) <- c("x", "y")
+  tr
+}
+
+bombka <- function(start, height, center = 3) {
+  tr <- data.frame(x=c(), y =c(), colorb=c())
+  for(y in seq(1,height,0.05)) {
+    for(x in seq(1,y,0.05)) {
+      if(runif(1, 0, 1) < 0.02) {
+        
+        tr <- rbind(tr, data.frame(x = center + y-x/2, y= start + x, sample(c("pink",  "white", "yellow", "red"))[1]))
+      }
+    }
+    
+  }
+  colnames(tr) <- c("x", "y", "colorb")
+  tr
+}
+
+
+prostokat <- function(startx, starty, width, height) {
+  tr <- data.frame(x=c(), y =c())
+  for(y in seq(1,width,0.05)) {
+    for(x in seq(1,height,0.05)) {
+      tr <- rbind(tr, c(starty + y,startx + x))
+    }
+    
+  }
+  colnames(tr) <- c("x", "y")
+  tr
+}
+choinka <- data.frame(trojkat(0, 5))
+choinka <- rbind(choinka, trojkat(3, 4, 3.5))
+choinka <- rbind(choinka, trojkat(5, 3, 4))
+bombka1 <- data.frame(bombka(0, 5))
+bombka2 <- data.frame(bombka(3, 4, 3.5))
+bombka3 <- data.frame(bombka(5, 3, 4))
+
+figure() %>%
+  ly_points(prostokat(-1.6,4.25, 1.5, 2.5), glyph = 15, color = "brown") %>%
+  ly_points(choinka, glyph = 17, color = "green") %>%
+  ly_points(bombka1, glyph = 20, size=10, color = bombka1$colorb) %>%
+  ly_points(bombka2, glyph = 20, size=10, color = bombka2$colorb) %>%
+  ly_points(bombka3, glyph = 20, size=10, color = bombka3$colorb)
+  
+```
+```
+
+

@@ -1,0 +1,9 @@
+W tym tygodniu zaj¹³em siê województwem ³ódzkim. Wykresy z artyku³u pozostawiaj¹ wiele do ¿yczenia.
+
+Na 1. wykresie nie wiadomo czym by³a motywowana kolejnoœæ. Doda³em zatem mo¿liwoœæ sortowania s³upków wedle uznania.
+
+Na 2. wykresie oœ Y szpec¹ niepotrzebne zera, zatem podzieli³em wartoœci przez 10^6. Ponadto podane dok³adne kwoty bardziej mieszaj¹ ni¿ pomagaj¹, dlatego ustawi³em wybranie wysokoœci s³upka wedle uznania. Jeœli ktoœ chcia³by jednak znaæ dok³adn¹ liczbê mo¿e zrobiæ to w tabeli.
+
+Na 3. wykresie wysokoœæ osi Y pokazana jest na 120% przez co mo¿na myœleæ, ¿e by³y jakieœ grupy dzia³ania, które wyrobi³y 120% normy.
+
+Przy wgrywaniu na serwer mia³em problem z polskimi znakami oraz tabelka siê przesunê³a. Dziwne, u mnie dzia³a.

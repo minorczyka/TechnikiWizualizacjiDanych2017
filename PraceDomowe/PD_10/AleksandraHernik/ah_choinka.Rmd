@@ -1,0 +1,41 @@
+---
+title: "Choinka"
+author: "Aleksandra Hernik"
+date: "3 stycznia 2018"
+output: html_document
+---
+
+
+```{r}
+options(warn=-1)
+library(rbokeh)
+
+n=5
+start_x = seq(from=-0.5, to=0.5, length.out = 50)
+tree_bottom = -1
+plt=figure(legend_location = NULL, xgrid=FALSE, ygrid = FALSE, xaxes = FALSE, yaxes = FALSE) %>%
+    theme_plot(
+      background_fill_color = '#000066'
+    ) %>%
+    ly_lines(data.frame(x=c(0, 0), y=c(0, -1.1)), color="#996633", width=15) %>%
+    ly_points(data.frame(x=c(-0.3, 0.1, 0.4, -0.15), y=-1), glyph=c("square_cross", "square_x", "square_cross", "square_x"), size=50 + rnorm(4, 0, 10), color=c("pink", "purple", "deeppink", "cyan"))
+
+final_df = data.frame(x=0, y=0, color="yellow", shape="asterisk")
+for(i in start_x)
+{
+  y = rnorm(n*2, -1, 1)
+  y = y[y >= -1 & y <= 0]
+  a = tree_bottom/i
+  x = y/a
+  color = sample(c("yellow", "red"), length(y), replace=TRUE)
+  shape = sample(c("16", "17", "18"), length(y), replace=TRUE)
+  df = data.frame(x, y, color=color, shape=shape)
+  plt = plt %>% ly_lines(final_df, width=3,  color="#00e600")
+  final_df = rbind(final_df, df)
+}
+
+plt = plt %>% ly_points(x, y, final_df, color=color, glyph=shape)
+plt = plt %>% ly_points(data.frame(x=0, y=0), glyph="asterisk", color="yellow", size=50)
+plt
+```
+

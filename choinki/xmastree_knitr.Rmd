@@ -1,0 +1,147 @@
+---
+title: "Christmas tree"
+output: html_document
+author: Anton Lenartovich & Agata Czajkowska
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(rbokeh)
+library(dplyr)
+```
+
+
+
+```{r, warning=FALSE, message=FALSE, echo=TRUE}
+
+getTriangle <- function(topx, topy, leftx, lefty, rightx, righty, howmuchpoint=10000){
+  newLeft <- numeric()
+  newRight <- numeric()
+  
+  if(lefty - righty > 0){
+    newLeft = c(leftx, lefty)
+    newRight = c(rightx, righty)
+  } else {
+    newLeft = c(rightx, righty) 
+    newRight = c(leftx, lefty)
+  }
+ 
+  x <- runif(howmuchpoint, leftx, rightx)
+  y <- runif(howmuchpoint, newRight[2], topy)
+  
+  df <- data.frame(x = x, y= y)
+  
+  a <- (topy - lefty) / (topx - leftx)
+  b <- topy - a*topx
+  
+  df$isInside1 <- ifelse(df$x*a + b < df$y, 1, 0)
+  
+  a <- (topy - righty) / (topx - rightx)
+  b <- topy - a*topx
+  
+  df$isInside2 <- ifelse(df$x*a + b < df$y, 1, 0)
+  
+  a <- (newLeft[2] - newRight[2]) / (newLeft[1] - newRight[1])
+  b <- newLeft[2] - a*newLeft[1]
+  
+  df$isInside3 <- ifelse(df$x*a + b > df$y, 1, 0)
+  
+  df <- df[df$isInside1 == 0 & df$isInside2 == 0 & df$isInside3 == 0,]
+  
+  df
+}
+
+getTrank <- function(leftdownX, leftdownY, toprightX, toprightY, howmuchpoint=10000){
+  x <- runif(howmuchpoint, leftdownX, toprightX)
+  y <- runif(howmuchpoint, leftdownY, toprightY)
+  
+  df <- data.frame(x,y)
+  df
+}
+
+multiplyPoints <- function(tr, partition){
+  selectedPoints <- tr %>% sample_n(size = partition*nrow(tr), replace=FALSE) %>% data.frame()
+  selectedPoints <- do.call("rbind", replicate(1000, selectedPoints, simplify = FALSE))
+  tr <- rbind(selectedPoints, tr)
+  tr
+}
+
+getEarsAndRibbons <- function(leftdownX, leftdownY, toprightX, toprightY, howmuchpoint=10000){
+  middleX <- (leftdownX + toprightX) / 2
+  middleY <- (leftdownY + toprightY) /2
+  
+  marginX <- 0.1 * (toprightX - leftdownX)
+  marginY <- 0.1 * (toprightY - leftdownY)
+  
+  #ribbons
+  ribbonVertical <- getTrank(middleX - marginX, leftdownY, middleX + marginX, toprightY) %>% select(x, y) %>% data.frame()
+  ribbonHorizontal <- getTrank(leftdownX, middleY - marginY, toprightX, middleY + marginY) %>% select(x, y) %>% data.frame()
+  
+  
+  #left ear
+  topx = (middleX + leftdownX) / 2
+  topy = (toprightY - leftdownY) * 0.25 + toprightY;
+  leftx = leftdownX
+  lefty = (toprightY - leftdownY) * 0.125 + toprightY;
+  rightx = middleX
+  righty = toprightY
+  
+  leftRibbonEar <- getTriangle(topx, topy, leftx, lefty, rightx, righty) %>% select(x, y) %>% data.frame()
+  
+  #right ear
+  topx = (middleX + toprightX) / 2
+  topy = (toprightY - leftdownY) * 0.25 + toprightY;
+  leftx = middleX 
+  lefty = toprightY
+  rightx = toprightX
+  righty = (toprightY - leftdownY) * 0.125 + toprightY;
+  rightRibbonEar <- getTriangle(topx, topy, leftx, lefty, rightx, righty) %>% select(x, y) %>% data.frame()
+  
+
+  
+  rbind(leftRibbonEar, rightRibbonEar, ribbonVertical, ribbonHorizontal)
+}
+
+
+drawXMasTree <- function(){
+  tr1 <-  getTriangle(10, 19, 8, 17, 12, 17, 500) %>% select(x, y) %>% data.frame()
+  tr2 <-  getTriangle(10, 17, 6, 13, 14, 13, 1500) %>% select(x, y) %>% data.frame()
+  tr3 <-  getTriangle(10, 13, 4, 8, 16, 8, 3000) %>% select(x, y) %>% data.frame()
+  tr4 <-  getTriangle(10, 8, 2, 2, 18, 2, 3000) %>% select(x, y) %>% data.frame()
+  trank <- getTrank(8, 0, 12, 2, 1500) %>% select(x, y) %>% data.frame()
+  
+  xmasTree <- rbind(tr1, tr2, tr3, tr4, trank) %>% select(x, y) %>% data.frame()
+
+  presentBox1 <- getTrank(14, 0, 17, 5) %>% select(x, y) %>% data.frame()
+  earsAndRibbons1 <- getEarsAndRibbons(14, 0, 17, 5) %>% select(x, y) %>% data.frame()
+  
+  presentBox2 <- getTrank(18, 2, 21, 4) %>% select(x, y) %>% data.frame()
+  earsAndRibbons2 <- getEarsAndRibbons(18, 2, 21, 4) %>% select(x, y) %>% data.frame()
+  
+  presentBox3 <- getTrank(16, 0, 22, 2) %>% select(x, y) %>% data.frame()
+  earsAndRibbons3 <- getEarsAndRibbons(16, 0, 22, 2) %>% select(x, y) %>% data.frame()
+  
+  presentBox4 <- getTrank(3, 0, 7, 4) %>% select(x, y) %>% data.frame()
+  earsAndRibbons4 <- getEarsAndRibbons(3, 0, 7, 4) %>% select(x, y) %>% data.frame()
+  
+  presentBox5 <- getTrank(2, 0, 5, 2) %>% select(x, y) %>% data.frame()
+  earsAndRibbons5 <- getEarsAndRibbons(2, 0, 5, 2) %>% select(x, y) %>% data.frame()
+
+  
+  figure(xlab = "", ylab="") %>% ly_hexbin(xmasTree$x, xmasTree$y, palette="Greens8") %>%
+    ly_hexbin(trank$x, trank$y, palette = "BrBG3") %>%
+    ly_hexbin(presentBox1$x, presentBox1$y, palette = "Blues4") %>%
+    ly_hexbin(earsAndRibbons1$x, earsAndRibbons1$y,  palette = "Oranges8") %>%
+    ly_hexbin(presentBox2$x, presentBox2$y, palette = "RdPu4") %>%
+    ly_hexbin(earsAndRibbons2$x, earsAndRibbons2$y,  palette = "YlOrRd6") %>%
+    ly_hexbin(presentBox3$x, presentBox3$y, palette = "GnBu3") %>%
+    ly_hexbin(earsAndRibbons3$x, earsAndRibbons3$y,  palette = "Greys4") %>%
+    ly_hexbin(presentBox4$x, presentBox4$y, palette = "Purples3") %>%
+    ly_hexbin(earsAndRibbons4$x, earsAndRibbons4$y,  palette = "Blues4") %>%
+    ly_hexbin(presentBox5$x, presentBox5$y, palette = "RdPu5") %>%
+    ly_hexbin(earsAndRibbons5$x, earsAndRibbons5$y,  palette = "YlOrRd3")
+}
+
+drawXMasTree()
+
+```
