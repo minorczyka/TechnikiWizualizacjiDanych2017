@@ -58,6 +58,7 @@ Propozycje projektów:
 [Punktacja projekt 1](https://docs.google.com/spreadsheets/d/1_6Z8uYRdm0cd29V0kvymWmfQmUN_4tAcb-anye-YYg4/edit?usp=sharing)
 
 [Projekt 2](https://github.com/pbiecek/TechnikiWizualizacjiDanych2017/blob/master/Projekt_2/README.md)
+[Punktacja projekt 2](https://docs.google.com/spreadsheets/d/1DJRIlqscuiyVBVf73jk4taaeeOuYcPXedqUMeauaxyw/edit?usp=sharing)
 
 [Projekt 3](https://github.com/pbiecek/TechnikiWizualizacjiDanych2017/blob/master/Projekt_3/README.md)
 
