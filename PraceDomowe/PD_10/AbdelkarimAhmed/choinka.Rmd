@@ -1,0 +1,64 @@
+---
+title: "Choinka"
+author: "Ahmed Abdelkarim"
+date: "2 stycznia 2018"
+output: html_document
+---
+
+```{r echo=FALSE}
+options(warn=-1)
+library(rbokeh)
+set.seed(1)
+
+tree_y = 1:10000/300
+tree_base = rev(tree_y)
+x2sin = function(x)x*x * sin(x)
+x2cos = function(x)x*x * cos(x)
+x2cosoff = function(x, off)x*x * cos(x + off)
+tree_sin = x2sin(tree_base)
+
+good_intervals = function(x) {
+	y = logical(length(x))
+	m = ceiling(max(x)/pi)
+	for (i in 1:m) {
+		if (i %% 2 == 0)
+			y = y | ((x < pi * (i+0.5)) & (x > pi * (i-0.5)))
+	}
+	x[y]
+}
+tree_y_good = good_intervals(tree_y)
+tree_sin_good = x2sin(rev(tree_y_good))
+tree_y_good = tree_y_good - min(tree_y_good)
+
+tree = figure(xgrid=F, ygrid=F, xaxes=F, yaxes=F)
+
+#drzewko
+for (i in 1:50) {
+	x = x2cosoff(tree_base, i/(2*pi))
+	tree = tree %>% ly_lines(x, tree_y, color="green", type=3) %>% ly_lines(-x, tree_y, color="green", type=3)
+}
+
+#łańcuchy
+tree = tree %>%
+	ly_points(tree_sin_good, tree_y_good, color="red") %>%
+	ly_points(-tree_sin_good, tree_y_good, color="blue")
+
+#bombki
+n = 3
+colors = c("cadetblue", "brown", "darkmagenta", "cornflowerblue", "aquamarine", "beige", "darkorange", "darkred", "darkblue", "darkgoldenrod")
+for (i in 1:10) {
+	ind = runif(n, min = 1, max = i*length(tree_base)/(i+1))
+	y = tree_base[ind]
+	x = x2cosoff(y, i)
+	tree = tree %>% ly_points(x, max(tree_y) - y, glyph=16, color=colors[i], legend=F) 
+}
+
+#gwiazdka (niestety nie ma odwróconego trójkąta nieprzezroczystego)
+for (i in 1:6) {
+	tree = tree %>%
+		ly_points(0, max(tree_y), color="yellow", glyph=24, size=30) %>%
+		ly_points(0, max(tree_y), color="yellow", glyph=25, size=30)
+}
+
+tree
+```

@@ -30,7 +30,8 @@ Blok 2 - Grafika interaktywna / internetowa
 
 Blok 3 - Grafika informatywna
 
-* [11] 10.01.2018 W: [Percepcja danych](http://biecek.pl/Eseje/indexDane.html); L: [ZanieczyszczeniePowietrze](https://github.com/pbiecek/TechnikiWizualizacjiDanych/blob/master/MINI_2016/CiekaweDane/gios-pjp-zanieczyszczenie.csv)
+* [11] 10.01.2018 W: [Percepcja danych](http://biecek.pl/Eseje/indexDane.html); L: [ZanieczyszczeniePowietrze](https://github.com/pbiecek/TechnikiWizualizacjiDanych2017/blob/master/Zajecia/Lab2/gios-pjp-data.csv), [dane](http://powietrze.gios.gov.pl/pjp/current/station_details/archive/530#), [wykres1](https://github.com/pbiecek/TechnikiWizualizacjiDanych/blob/master/MINI_2016/CiekaweDane/slupki.pdf),  [wykres2](https://github.com/pbiecek/TechnikiWizualizacjiDanych/blob/master/MINI_2016/CiekaweDane/slupki2.pdf),  [wykres3](https://github.com/pbiecek/TechnikiWizualizacjiDanych/blob/master/MINI_2016/CiekaweDane/slupki3.pdf)
+
 * [12] 17.01.2018 W: Prezentacja projektu 3/1; L: 
 * [13] 24.01.2018 W: Prezentacja projektu 3/2
 
