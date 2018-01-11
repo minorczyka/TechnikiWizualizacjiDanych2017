@@ -1,0 +1,13 @@
+name: projekt_02_fightclub
+title:
+username:
+account: kkmita
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 250377
+bundleId: 1158697
+url: https://kkmita.shinyapps.io/projekt_02_fightclub/
+when: 1514894137.42678
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: fight.ipynb|README.md

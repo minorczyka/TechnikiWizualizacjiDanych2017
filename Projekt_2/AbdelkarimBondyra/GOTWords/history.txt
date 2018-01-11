@@ -1,0 +1,4 @@
+"history"
+"queen"
+"westeros"
+"now"

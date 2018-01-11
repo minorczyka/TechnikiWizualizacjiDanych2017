@@ -1,0 +1,3 @@
+Dla otrzymania pe³nych doznañ, nale¿y otworzyæ w przegl¹darce.
+
+W wersji przegl¹darkowej, gdy siê zaznaczy 2. czêœæ filmu, nie dzia³a pokazywanie wypowiedzi. Z poziomu Rstudio dzia³a normalnie.

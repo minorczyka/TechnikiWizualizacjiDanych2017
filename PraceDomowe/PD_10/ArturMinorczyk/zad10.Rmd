@@ -1,0 +1,45 @@
+---
+title: "Praca domowa - Choinka"
+author: "Artur Minorczyk"
+output: html_notebook
+---
+
+```{r}
+library(dplyr)
+library(ggplot2)
+library(rbokeh)
+```
+
+```{r}
+sierpinski_triangle <- function(iterations, corners_x, corners_y) {
+  point <- runif(2)
+  corners <- matrix(c(corners_x, corners_y), ncol = 2)
+  result <- matrix(0, nrow = iterations, ncol = 2)
+  for (i in 1:iterations) {
+    point <- (corners[sample(3, 1),] + point) / 2
+    result[i,] <- point
+  }
+  result
+}
+
+sierpinski_tree <- function(iterations) {
+  t1 <- sierpinski_triangle(iterations, c(-0.5, 0.5, 0), c(-1, -1, 0))
+  t2 <- sierpinski_triangle(2 * iterations, c(-1, 1, 0), c(-2.5, -2.5, -0.5))
+  t3 <- sierpinski_triangle(4 * iterations, c(-2, 2, 0), c(-5.5, -5.5, -1.5))
+  rbind(t1, t2, t3) %>% matrix(ncol = 2) %>% as.data.frame
+}
+
+set.seed(1234)
+df <- sierpinski_tree(10000)
+df2 <- df[sample(nrow(df)),][1:30,] %>% 
+  mutate(color = as.factor(sample(1:5, length(V1), replace = TRUE)),
+         shape = as.factor(sample(1:3, length(V1), replace = TRUE)))
+```
+
+```{r, warning=FALSE, message=FALSE}
+figure(xgrid=FALSE, ygrid=FALSE, xaxes=FALSE, yaxes=FALSE) %>%
+  ly_points(V1, V2, data = df, size = 2, color = "green", fill_alpha = 1) %>%
+  ly_points(V1, V2, data = df2, size = 20, color = color, glyph = shape, fill_alpha = 1, legend = FALSE) %>%
+  ly_points(0, 0, color = "yellow", size = 40, line_width= 4, glyph = 8)
+```
+
