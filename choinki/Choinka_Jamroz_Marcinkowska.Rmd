@@ -1,0 +1,52 @@
+---
+title: "Choinka"
+author: "Kinga Jamróz, Karolina Marcinkowska"
+date: "28 grudnia 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r,echo=FALSE, include=FALSE,warning=FALSE}
+library("ggiraph")
+library(ggplot2)
+library(dplyr)
+```
+
+```{r message=FALSE, warning=FALSE}
+set.seed(123)
+ptk <- rnorm(1200,10,1)
+zyczenia <- rep(c("radosci","szczescia","pomyslnosci","zdrowia","milosci", "usmiechu","przyjaciol","spelnienia marzen",
+                  "ladnych calek","samych istotnych statystycznie testow","wesolych swiat"),length.out=1200)
+
+dane <- data.frame(ptk,zyczenia)
+dane$koszyk <- round((dane$ptk-min(dane$ptk))/0.5,0)
+tab <- data.frame(table(dane$koszyk))
+tab$Var1 <- as.numeric(tab$Var1)
+
+bombki <- sample(1:1200,20)
+
+dane2 <- dane[bombki,]
+dane2 <- dane2 %>% left_join(tab,c("koszyk"="Var1"))
+for(i in 1:20){dane2$y[i] <- sample(dane2$Freq[i]-5,1)}
+dane2$y <- as.numeric(dane2$y)
+
+dane3 <- data.frame(x=c(9.5,10.5,9,11,8.5,11.5,8,12),y=tab$Freq[c(6,8,5,9,4,10,3,11)])
+
+
+choinka <- ggplot(dane,aes(x=ptk))+
+  geom_histogram_interactive(bins=13,binwidth = 0.5,fill="darkgreen",col="darkblue")+
+  geom_point_interactive(data=dane2,aes(x=ptk,y=y,colour=zyczenia,size=5,tooltip=zyczenia),show.legend = FALSE)+
+  scale_color_manual(values=c("#8dd3c7","#ffffb3","#bebada","#fb8072","#80b1d3",
+"#fdb462","#b3de69","#fccde5","#d9d9d9","#bc80bd","#ccebc5","#ffed6f","#8dd3c7","#ffffb3","#bebada","#fb8072","#80b1d3",
+"#fdb462","#b3de69","#fccde5"))+
+  geom_point_interactive(data=dane2,aes(x=10,y=260,size=5,stroke=3),shape=8,color="yellow",show.legend = FALSE)+
+  geom_point_interactive(data=dane2,aes(x=10,y=-5,size=5),shape=15,color="brown",show.legend = FALSE)+
+  geom_path_interactive(data=dane3,aes(x=x+0.25,y=y,size=2),colour="gold",show.legend = FALSE)+
+  theme_minimal()+
+  theme(axis.title = element_blank(),axis.text = element_blank())
+
+ggiraph(ggobj=choinka)
+```
