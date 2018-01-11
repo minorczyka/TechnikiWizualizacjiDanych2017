@@ -1,5 +1,40 @@
 # Projekt 2
 
+## Najlepsze projekty - top 5
+
+### Harry Potter
+
+https://prusinowskik.shinyapps.io/twd-projekt2/
+
+![HarryPotter.png](HarryPotter.png)
+
+### Games of Thrones
+
+https://wd2017.shinyapps.io/game-of-thrones/
+
+![GameOfThrones.png](GameOfThrones.png)
+
+### Avengers
+
+https://madziq.shinyapps.io/TWD_Projekt2/
+
+![Avengers.png](Avengers.png)
+
+### Pulp Fiction
+
+http://ec2-18-195-240-248.eu-central-1.compute.amazonaws.com:3838/TWD/pulp-fiction/
+
+![pulpFiction.png](pulpFiction.png)
+
+### The Lion King
+
+https://rawgit.com/pbiecek/TechnikiWizualizacjiDanych2017/master/Projekt_2/Gosiewska%20Marcinkowska/GosiewskaMarcinkowska_Projekt2.html
+
+![LionKing.png](LionKing.png)
+
+
+## Opis
+
 Celem drugiego projektu jest zbudowanie interaktywnej wizualizacji przedstawiającej wybrany film/serial.
 Przedstawiać można interakcje pomiędzy postaciami w filmie, emocje w wypowiedziach, najczęstsze słowa - *the sky is the limit*.
 
