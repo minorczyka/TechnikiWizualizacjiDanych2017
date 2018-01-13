@@ -1,0 +1,3 @@
+W tej pracy nr. 8 Magdaleny Baracz bêd¹c¹ aplikacj¹ shiny zauwa¿y³am, ¿e mo¿na wybraæ a¿ 100 ró¿nych zmiennych, co przy tak ma³ej wielkoœci wykresu sprawia, ¿e jest on ca³kowicie nieczytelny. Dodatkowo, wspó³czynnik popularnoœci ma tak¹ paletê kolorów, ¿e bardzo ciê¿ko odró¿niæ wœród nich wartoœci.
+
+Postanowi³am zwiêkszyæ rozmiar wykresu i zmieniæ paletê, ¿eby mo¿na by³o lepiej zaobserwowaæ ró¿nice w popularnoœci. Po zmianie nadal mo¿na zaobserwowaæ, ¿e wiele kolorów siê zlewa w ca³oœæ, ale to ju¿ jest w³aœciwoœæ zbioru danych, w którym mamy wiele filmów o podobnej popularnoœci.
