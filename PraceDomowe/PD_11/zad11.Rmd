@@ -1,0 +1,102 @@
+---
+title: "Praca domowa 11"
+author: Artur Minorczyk
+date: "13 styczeń 2018"
+output:
+  html_document: default
+  html_notebook: default
+---
+
+```{r, include=FALSE}
+library(jsonlite)
+library(tidyverse)
+library(ggmosaic)
+```
+
+Wybrałem do poprawy pracę Antona Lenartovicha, którą przygotował w ramach Pracy Domowej nr 2. Oryginalna wersja jest dostępna pod adresem: https://cdn.rawgit.com/alenartovich/TechnikiWizualizacjiDanych2017/e30883655221d05e194cbd4a41f7879fe6e58476/PraceDomowe/PD_02/AntonLenartovich/Praca_domowa.html. 
+
+Poniżej znajduje się sam wybrany wykres:
+
+```{r echo=FALSE}
+knitr::include_graphics('./original.png')
+```
+
+Technicznie wykres jest jak najbardziej poprawny i estetyczny. Problematyczne jest jednak interpretowanie przedstawianych danych:
+
+- trudno powiedzieć, które branże zaliczyły największe spadki, a które największe wzrosty
+- branże posortowane są w kolejności alfabetycznej, co nie niesie żadnej istotnej informacji
+- nie da się wprost odczytać o ile procent nastąpił wzrost albo spadek w danej branży
+
+W związku z tym przygotowałem wersję, która stara się rozwiązać powyższe problemy:
+
+```{r, include=FALSE}
+download_data <- function(url) {
+  fromJSON(url) %>%
+    select(-c(uri, imageUri, thumbnail, squareImage)) %>%
+    mutate(revenue = revenue / 1000, brandValue = brandValue / 1000, advertising = advertising / 1000) %>%
+    group_by(industry) %>%
+    summarise(sum = sum(revenue))
+}
+
+translare_factors <- function(f) {
+  f %>% fct_recode(
+    "Handel detaliczny" = "Retail", 
+    "Transport" = "Transportation",
+    "Produkty szybkozbywalne" = "Consumer Packaged Goods",
+    "Technologia" = "Technology",
+    "Telekomunikacja" = "Telecom",
+    "Restauracje" = "Restaurants",
+    "Usługi finansowe" = "Financial Services",
+    "Lotnictwo" = "Aerospace",
+    "Zróżnicowane" = "Diversified",
+    "Motoryzacja" = "Automotive"
+    )
+}
+
+df_2016 <- download_data("https://www.forbes.com/ajax/list/data?year=2016&uri=powerful-brands&type=organization")
+
+df_2017 <- download_data("https://www.forbes.com/ajax/list/data?year=2017&uri=powerful-brands&type=organization")
+
+df <- df_2016 %>% 
+  inner_join(df_2017, by = "industry", suffix = c(".2016", ".2017")) %>%
+  arrange(-sum.2016) %>%
+  head(10) %>%
+  mutate(industry = industry %>% as.factor %>% translare_factors,
+         diff = sum.2017 - sum.2016, 
+         diff_percent = 100 * diff / sum.2016, 
+         industry = paste(industry, " (", ifelse(diff_percent > 0, "+", ""), round(diff_percent, 1), "%)", sep = "") %>% as.factor) %>%
+  arrange(-diff_percent)
+
+df$industry <- factor(df$industry, levels = df$industry %>% rev)
+
+df2 <- rbind(data.frame(industry = df$industry, sum = df$sum.2016, diff_percent = df$diff_percent, year = 2016), 
+             data.frame(industry = df$industry, sum = df$sum.2017, diff_percent = df$diff_percent, year = 2017)) %>%
+  mutate(year = as.factor(year))
+```
+
+```{r, fig.height=8, fig.width=8, echo=FALSE}
+g <- ggplot(df2) +
+  geom_hline(yintercept = 0.5, linetype="dotted", size=0.5) +
+  geom_mosaic(aes(weight = sum, x = product(year, industry), fill = industry)) +
+  geom_text(data = data.frame(x = c(0.25, 0.75), y = c(-0.03, -0.03), label = c("2016", "2017")), aes(y, x, label = label)) +
+  xlab(NULL) +
+  ylab("Rok") +
+  scale_fill_brewer(type = "qual", palette = 3) +
+  theme_classic() +
+  theme(legend.position="none", axis.text.x = element_blank(), axis.ticks.x = element_blank()) +
+  ggtitle("Zmiany dochodu 10 największych branż w 2016 i 2017 roku") +
+  coord_flip()
+
+temp <- ggplot_build(g)$data %>%
+        as.data.frame %>%
+        transmute(prop = as.character(round(ymax - ymin, 3)),
+                  x.position = (xmax + xmin) / 2,
+                  y.position = (ymax + ymin) / 2)
+
+label <- df2$sum[c(10, 20, 9, 19, 8, 18, 7, 17, 6, 16, 5, 15, 4, 14, 3, 13, 2, 12, 1, 11)] %>%
+  map_chr(function(x) paste(x, "mld $"))
+
+g + geom_text(x = temp$x.position, y = temp$y.position, label = label, size = 3)
+```
+
+
