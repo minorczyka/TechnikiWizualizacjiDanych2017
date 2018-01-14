@@ -1,6 +1,6 @@
 # Projekt 2
 
-## Najlepsze projekty - top 5
+## Najlepsze projekty - top 6
 
 ### Harry Potter
 
@@ -31,6 +31,12 @@ http://ec2-18-195-240-248.eu-central-1.compute.amazonaws.com:3838/TWD/pulp-ficti
 https://rawgit.com/pbiecek/TechnikiWizualizacjiDanych2017/master/Projekt_2/Gosiewska%20Marcinkowska/GosiewskaMarcinkowska_Projekt2.html
 
 ![LionKing.png](LionKing.png)
+
+### Léon The Professional
+
+https://franiis.shinyapps.io/shinyappbubbles/
+
+![Leon.png](Leon.png)
 
 
 ## Opis
