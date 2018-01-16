@@ -61,6 +61,10 @@ shinyUI(fluidPage(
                     .left-alignment{
                       left:0;
                     }
+    
+                    .padding-left-5{
+                      padding-left:5px;
+                    }
 
                     .well{
                     margin-top: 15px;
@@ -144,7 +148,38 @@ shinyUI(fluidPage(
     )
   ),
   fluidRow(
-    column(width=4, HTML('<img class="poster-image " src="leon_the_professional_plant.jpg" data-spy="affix" data-offset-top="600"/>')),
+    column(width=4, HTML('
+                        <h3>What does this application do? </h3>
+                        <p>
+                          The application allows user to perform a deep sentiment analysis of the movie <b>Léon The Professional</b>.
+                          It enables you not only to get to know the characters better or to find the crutial scenes of the movie
+                          but also to get a fresh look at the dialogues. Therefore, it makes us realize that the <b>Leon</b> is not just a movie, but an outstanding masterpiece 
+                          in the world of the cinema.
+                        </p>
+                        <br/>   
+
+                        <h3>How to use the application?</h3>
+                        <p>
+                          <ul>
+                            <li>First, choose the characters and emotions that you want to analize. You can do it in the upper left panel.</li>
+                            <li>Using the chart in the the upper right panel you can make very specific analysis of the film including
+                                comparison of the influence between the characters\' speeches within the whole movie.
+                                The presented chart is interactive and allows you to choose a specific person, emotions or stage to perform better understanding of the movie.<br/></li>
+                            <li>  
+                                The scene selection activates the chat view at the bottom of the page. On the right side there are the speeches of the chosen hero. 
+                                Left presents speeches of other characters. Scene descriptions are presented in greyish areas.
+                            </li>
+                            <li>In the right bottom corner there is a graph showing the distribution of emotions in the selected scene.</li>
+                          </ul>
+                        </p>
+                         
+                         <br/>
+                         <div class="padding-left-5">
+                           <p>MiNI 2017</p>
+                           <p>Agata Czajkowska, Piotr Krzeszewski, Anton Lenartovich</p>
+                         </div>
+                         
+                         ')),
     column(width=4,  wellPanel(
       htmlOutput("citations")
     )),
