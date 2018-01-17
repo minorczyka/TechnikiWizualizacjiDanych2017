@@ -1,0 +1,1068 @@
+﻿<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script type="text/javascript" src="d3.js"></script>
+
+  <style type="text/css">
+    svg{
+		width: 600px;
+		height: 600px;
+		margin: 0px;
+	}
+	div{
+		background-color: white;  
+	}
+	button{
+		font-size: 18px;
+	}
+	path {
+            fill: none;
+            stroke-width: 2px;
+        }
+#wrapper {
+    width: 950px;
+    overflow: hidden;
+}
+#first {
+    width: 250px;
+    float:left;
+}
+#second {
+    overflow: hidden;
+}
+  </style>
+
+  <title>Projekt 2 - Alicja Gosiewska, Karolina Marcinowska</title>
+
+  
+</head>
+
+<body>
+
+<h2> The Lion King - What are your favorite character's emotions and how does they change? </h2>
+
+<div class="output" id="wrapper">
+<div id="first">
+ <img src = "img/LionKingCharacters.jpg" width="240px"> 
+</div>
+<div id="second"> 
+Have you ever wondered what emotions do your favourite characters in the Lion King
+feel during the film? Below we present the flow of emotions in each scene based on quotations of characters.
+<h5> Choose your character (you can choose more than one) and click 'Animate'. </h5>
+</div>
+</div>
+ 
+ 
+<div class="output" id="wrapper">
+
+
+
+<div id="first">
+  Chosen characters</br>
+ <input type="checkbox" id="cBanzai" name="Banzai" value="Banzai"> Banzai </br>
+ <input type="checkbox" id="cEd" name="Ed" value="Ed"> Ed </br>
+ <input type="checkbox" id="cMufasa" name="Mufasa" value="Mufasa"> Mufasa </br>
+ <input type="checkbox" id="cNala" name="Nala" value="Nala"> Nala </br>
+ <input type="checkbox" id="cPumba" name="Pumba" value="Pumba"> Pumba </br>
+ <input type="checkbox" id="cRafiki" name="Rafiki" value="Rafiki"> Rafiki </br>
+ <input type="checkbox" id="cSarabi" name="Sarabi" value="Sarabi"> Sarabi </br>
+ <input type="checkbox" id="cScar" name="Scar" value="Scar"> Scar </br>
+ <input type="checkbox" id="cShenzi" name="Shenzi" value="Shenzi"> Shenzi </br>
+ <input type="checkbox" id="cSimba" name="Simba" value="Simba"> Simba </br>
+ <input type="checkbox" id="cTimon" name="Timon" value="Timon"> Timon </br>
+ <input type="checkbox" id="cZazu" name="Zazu" value="Zazu"> Zazu </br> 
+ </br>
+ <form>
+  Speed of animation<br>
+  <input type="radio" name="colors" id="slow">Slow</br>
+  <input type="radio" name="colors" id="medium">Medium</br>
+  <input type="radio" name="colors" id="fast" checked>Fast</br>
+</form>
+</br>
+ <button id="demo">Animate</button> </br>
+
+ 
+ 
+</div>
+<div id="second">
+  <svg id="svg">
+    <filter id="Banzai" x="0%" y="0%" width="130%" height="130%">
+      <feImage xlink:href="img/Banzai3.png"></feImage>
+    </filter>
+    <filter id="Ed" x="0%" y="0%" width="130%" height="130%">
+      <feImage xlink:href="img/Ed3.png"></feImage>
+    </filter>
+    <filter id="Mufasa"  x="0%" y="0%" width="130%" height="130%">
+      <feImage xlink:href="img/Mufasa3.png"></feImage>
+    </filter>
+	<filter id="Nala" x="0%" y="0%" width="130%" height="130%">
+      <feImage xlink:href="img/Nala3.png"></feImage>
+    </filter>
+	<filter id="Pumbaa" x="0%" y="0%" width="130%" height="130%">
+      <feImage xlink:href="img/Pumba3.png"></feImage>
+    </filter>
+	<filter id="Rafiki" x="0%" y="0%" width="130%" height="130%">
+      <feImage xlink:href="img/Rafiki3.png"></feImage>
+    </filter>
+	<filter id="Sarabi" x="0%" y="0%" width="130%" height="130%">
+      <feImage xlink:href="img/sarabi3.png"></feImage>
+    </filter>
+	<filter id="Scar" x="0%" y="0%" width="130%" height="130%">
+      <feImage xlink:href="img/Scar3.png"></feImage>
+    </filter>
+	<filter id="Shenzi" x="0%" y="0%" width="130%" height="130%">
+      <feImage xlink:href="img/shenzi3.png"></feImage>
+    </filter>
+	<filter id="Simba" x="0%" y="0%" width="130%" height="130%">
+      <feImage xlink:href="img/Simba3.png"></feImage>
+    </filter>
+	<filter id="Timon" x="0%" y="0%" width="130%" height="130%">
+      <feImage xlink:href="img/Timon3.png"></feImage>
+    </filter>
+	<filter id="Zazu" x="0%" y="0%" width="130%" height="130%">
+      <feImage xlink:href="img/Zazu3.png"></feImage>
+    </filter>
+    
+	<g class="osie">
+     <rect x="300" y="50" height="500", width="2"></rect>
+     <rect x="0" y="300" height="2", width="600"></rect>
+    </g>
+
+	<g>
+		<text x=260px y=60px>Trust</text>
+		<text x=560px y=290px>Joy</text>
+		<text x=10px y=290px>Sadness</text>
+		<text x=260px y=540px>Fear</text>
+	</g>
+	
+	<g class = "sciezki">
+	</g>
+	
+    <g class="linie">
+	<circle cx="300" cy="300" r="20" filter="url(#Scar)" visibility="hidden"></circle>
+	<circle cx="300" cy="300" r="20" filter="url(#Zazu)" visibility="hidden"></circle>
+	<circle cx="300" cy="300" r="20" filter="url(#Mufasa)" visibility="hidden"></circle>
+	<circle cx="300" cy="300" r="20" filter="url(#Rafiki)" visibility="hidden"></circle>
+	<circle cx="300" cy="300" r="20" filter="url(#Simba)" visibility="hidden"></circle>
+	<circle cx="300" cy="300" r="20" filter="url(#Sarabi)" visibility="hidden"></circle>
+	<circle cx="300" cy="300" r="20" filter="url(#Nala)" visibility="hidden"></circle>
+	<circle cx="300" cy="300" r="20" filter="url(#Shenzi)" visibility="hidden"></circle>
+	<circle cx="300" cy="300" r="20" filter="url(#Banzai)" visibility="hidden"></circle>
+	<circle cx="300" cy="300" r="20" filter="url(#Ed)" visibility="hidden"></circle>
+	<circle cx="300" cy="300" r="20" filter="url(#Timon)" visibility="hidden"></circle>
+	<circle cx="300" cy="300" r="20" filter="url(#Pumbaa)" visibility="hidden"></circle>
+	<text x=20px y=20px font-size="18">Scene 1: Mouse/Challenge Scene</text>
+    </g>
+
+  </svg>
+  
+ </div>
+
+</div>
+  
+<script type="text/javascript">
+document.getElementById("demo").onclick = function() {
+
+var pathss = d3.select("g.sciezki").selectAll("path")
+pathss.remove()
+   
+var scene1= [
+{"name":"Scar","JoySadness":1,"TrustFear":-3},
+{"name":"Zazu","JoySadness":-3,"TrustFear":2},
+{"name":"Mufasa","JoySadness":-3.8,"TrustFear":-3.8},
+{"name":"Rafiki","JoySadness":0,"TrustFear":0},
+{"name":"Simba","JoySadness":0,"TrustFear":0},
+{"name":"Sarabi","JoySadness":0,"TrustFear":0},
+{"name":"Nala","JoySadness":0,"TrustFear":0},
+{"name":"Shenzi","JoySadness":0,"TrustFear":0},
+{"name":"Banzai","JoySadness":0,"TrustFear":0},
+{"name":"Ed","JoySadness":0,"TrustFear":0},
+{"name":"Timon","JoySadness":0,"TrustFear":0},
+{"name":"Pumbaa","JoySadness":0,"TrustFear":0}]
+var scene2= [
+{"name":"Scar","JoySadness":1,"TrustFear":-3},
+{"name":"Zazu","JoySadness":-3,"TrustFear":2},
+{"name":"Mufasa","JoySadness":-3.8,"TrustFear":-3.8},
+{"name":"Rafiki","JoySadness":0.5,"TrustFear":0.5},
+{"name":"Simba","JoySadness":0,"TrustFear":0},
+{"name":"Sarabi","JoySadness":0,"TrustFear":0},
+{"name":"Nala","JoySadness":0,"TrustFear":0},
+{"name":"Shenzi","JoySadness":0,"TrustFear":0},
+{"name":"Banzai","JoySadness":0,"TrustFear":0},
+{"name":"Ed","JoySadness":0,"TrustFear":0},
+{"name":"Timon","JoySadness":0,"TrustFear":0},
+{"name":"Pumbaa","JoySadness":0,"TrustFear":0}]
+var scene3= [
+{"name":"Scar","JoySadness":1,"TrustFear":-3},
+{"name":"Zazu","JoySadness":2,"TrustFear":1.5},
+{"name":"Mufasa","JoySadness":0,"TrustFear":0.5},
+{"name":"Rafiki","JoySadness":0.5,"TrustFear":0.5},
+{"name":"Simba","JoySadness":0,"TrustFear":0.5},
+{"name":"Sarabi","JoySadness":0,"TrustFear":0},
+{"name":"Nala","JoySadness":0,"TrustFear":0},
+{"name":"Shenzi","JoySadness":0,"TrustFear":0},
+{"name":"Banzai","JoySadness":0,"TrustFear":0},
+{"name":"Ed","JoySadness":0,"TrustFear":0},
+{"name":"Timon","JoySadness":0,"TrustFear":0},
+{"name":"Pumbaa","JoySadness":0,"TrustFear":0}]
+var scene4= [
+{"name":"Scar","JoySadness":3,"TrustFear":-0.5},
+{"name":"Zazu","JoySadness":2,"TrustFear":1.5},
+{"name":"Mufasa","JoySadness":0,"TrustFear":0.5},
+{"name":"Rafiki","JoySadness":0.5,"TrustFear":0.5},
+{"name":"Simba","JoySadness":-1.5,"TrustFear":-1.25},
+{"name":"Sarabi","JoySadness":0,"TrustFear":0},
+{"name":"Nala","JoySadness":0,"TrustFear":0},
+{"name":"Shenzi","JoySadness":0,"TrustFear":0},
+{"name":"Banzai","JoySadness":0,"TrustFear":0},
+{"name":"Ed","JoySadness":0,"TrustFear":0},
+{"name":"Timon","JoySadness":0,"TrustFear":0},
+{"name":"Pumbaa","JoySadness":0,"TrustFear":0} ]
+var scene5= [
+{"name":"Scar","JoySadness":3,"TrustFear":-0.5},
+{"name":"Zazu","JoySadness":2,"TrustFear":1.5},
+{"name":"Mufasa","JoySadness":0,"TrustFear":0.5},
+{"name":"Rafiki","JoySadness":0.5,"TrustFear":0.5},
+{"name":"Simba","JoySadness":-0.25,"TrustFear":-0.125},
+{"name":"Sarabi","JoySadness":0,"TrustFear":0},
+{"name":"Nala","JoySadness":0.5,"TrustFear":0},
+{"name":"Shenzi","JoySadness":0,"TrustFear":0},
+{"name":"Banzai","JoySadness":0,"TrustFear":0},
+{"name":"Ed","JoySadness":0,"TrustFear":0},
+{"name":"Timon","JoySadness":0,"TrustFear":0},
+{"name":"Pumbaa","JoySadness":0,"TrustFear":0} ]
+var scene6= [
+{"name":"Scar","JoySadness":3,"TrustFear":-0.5},
+{"name":"Zazu","JoySadness":1.5,"TrustFear":1.5},
+{"name":"Mufasa","JoySadness":0,"TrustFear":0.5},
+{"name":"Rafiki","JoySadness":0.5,"TrustFear":0.5},
+{"name":"Simba","JoySadness":0.875,"TrustFear":-0.5625},
+{"name":"Sarabi","JoySadness":0,"TrustFear":0},
+{"name":"Nala","JoySadness":0.5,"TrustFear":0},
+{"name":"Shenzi","JoySadness":0,"TrustFear":0},
+{"name":"Banzai","JoySadness":0,"TrustFear":0},
+{"name":"Ed","JoySadness":0,"TrustFear":0},
+{"name":"Timon","JoySadness":0,"TrustFear":0},
+{"name":"Pumbaa","JoySadness":0,"TrustFear":0}]
+var scene7= [
+{"name":"Scar","JoySadness":3,"TrustFear":-0.5},
+{"name":"Zazu","JoySadness":0.25,"TrustFear":1.25},
+{"name":"Mufasa","JoySadness":0,"TrustFear":0.5},
+{"name":"Rafiki","JoySadness":0.5,"TrustFear":0.5},
+{"name":"Simba","JoySadness":0.875,"TrustFear":-0.5625},
+{"name":"Sarabi","JoySadness":0,"TrustFear":0},
+{"name":"Nala","JoySadness":-0.25,"TrustFear":-0.5},
+{"name":"Shenzi","JoySadness":-2,"TrustFear":-3},
+{"name":"Banzai","JoySadness":0.5,"TrustFear":-1},
+{"name":"Ed","JoySadness":0.5,"TrustFear":-0.5},
+{"name":"Timon","JoySadness":0,"TrustFear":0},
+{"name":"Pumbaa","JoySadness":0,"TrustFear":0}]
+var scene8=[
+{"name":"Scar","JoySadness":3,"TrustFear":-0.5},
+{"name":"Zazu","JoySadness":1.125,"TrustFear":0.125},
+{"name":"Mufasa","JoySadness":-0.5,"TrustFear":1.75},
+{"name":"Rafiki","JoySadness":0.5,"TrustFear":0.5},
+{"name":"Simba","JoySadness":-0.5625,"TrustFear":-0.5625},
+{"name":"Sarabi","JoySadness":0,"TrustFear":0},
+{"name":"Nala","JoySadness":-0.25,"TrustFear":-0.5},
+{"name":"Shenzi","JoySadness":-2,"TrustFear":-3},
+{"name":"Banzai","JoySadness":0.5,"TrustFear":-1},
+{"name":"Ed","JoySadness":0.5,"TrustFear":-0.5},
+{"name":"Timon","JoySadness":0,"TrustFear":0},
+{"name":"Pumbaa","JoySadness":0,"TrustFear":0} ]
+var scene9=[
+{"name":"Scar","JoySadness":-2,"TrustFear":3.25},
+{"name":"Zazu","JoySadness":1.125,"TrustFear":0.125},
+{"name":"Mufasa","JoySadness":-0.5,"TrustFear":1.75},
+{"name":"Rafiki","JoySadness":0.5,"TrustFear":0.5},
+{"name":"Simba","JoySadness":-0.5625,"TrustFear":-0.5625},
+{"name":"Sarabi","JoySadness":0,"TrustFear":0},
+{"name":"Nala","JoySadness":-0.25,"TrustFear":-0.5},
+{"name":"Shenzi","JoySadness":-0.5,"TrustFear":-3},
+{"name":"Banzai","JoySadness":-1.75,"TrustFear":-1.5},
+{"name":"Ed","JoySadness":0.75,"TrustFear":-0.5},
+{"name":"Timon","JoySadness":0,"TrustFear":0},
+{"name":"Pumbaa","JoySadness":0,"TrustFear":0}]
+var scene10=[
+{"name":"Scar","JoySadness":-0.5,"TrustFear":3.125},
+{"name":"Zazu","JoySadness":0.0625,"TrustFear":0.125},
+{"name":"Mufasa","JoySadness":-0.75,"TrustFear":1.75},
+{"name":"Rafiki","JoySadness":0.5,"TrustFear":0.5},
+{"name":"Simba","JoySadness":-1.7812,"TrustFear":-1.2812},
+{"name":"Sarabi","JoySadness":0,"TrustFear":0},
+{"name":"Nala","JoySadness":-0.25,"TrustFear":-0.5},
+{"name":"Shenzi","JoySadness":-1.25,"TrustFear":-3},
+{"name":"Banzai","JoySadness":-1.875,"TrustFear":-2.25},
+{"name":"Ed","JoySadness":0.75,"TrustFear":-0.5},
+{"name":"Timon","JoySadness":0,"TrustFear":0},
+{"name":"Pumbaa","JoySadness":0,"TrustFear":0}]
+var scene11=[
+{"name":"Scar","JoySadness":-2.75,"TrustFear":-1.4375},
+{"name":"Zazu","JoySadness":0.0625,"TrustFear":0.125},
+{"name":"Mufasa","JoySadness":-0.75,"TrustFear":1.75},
+{"name":"Rafiki","JoySadness":0.5,"TrustFear":0.5},
+{"name":"Simba","JoySadness":-1.7812,"TrustFear":-1.2812},
+{"name":"Sarabi","JoySadness":0,"TrustFear":0},
+{"name":"Nala","JoySadness":-0.25,"TrustFear":-0.5},
+{"name":"Shenzi","JoySadness":-1.25,"TrustFear":-3},
+{"name":"Banzai","JoySadness":-1.875,"TrustFear":-2.25},
+{"name":"Ed","JoySadness":0.75,"TrustFear":-0.5},
+{"name":"Timon","JoySadness":0,"TrustFear":0},
+{"name":"Pumbaa","JoySadness":0,"TrustFear":0}]
+var scene12=[
+{"name":"Scar","JoySadness":-2.75,"TrustFear":-1.4375},
+{"name":"Zazu","JoySadness":0.0625,"TrustFear":0.125},
+{"name":"Mufasa","JoySadness":-0.75,"TrustFear":1.75},
+{"name":"Rafiki","JoySadness":0.5,"TrustFear":0.5},
+{"name":"Simba","JoySadness":-1.7812,"TrustFear":-1.2812},
+{"name":"Sarabi","JoySadness":0,"TrustFear":0},
+{"name":"Nala","JoySadness":-0.25,"TrustFear":-0.5},
+{"name":"Shenzi","JoySadness":-1.25,"TrustFear":-3},
+{"name":"Banzai","JoySadness":-1.875,"TrustFear":-2.25},
+{"name":"Ed","JoySadness":0.75,"TrustFear":-0.5},
+{"name":"Timon","JoySadness":0,"TrustFear":-2},
+{"name":"Pumbaa","JoySadness":1,"TrustFear":0.5}]
+var scene13=[
+{"name":"Scar","JoySadness":-2.75,"TrustFear":-1.4375},
+{"name":"Zazu","JoySadness":0.0625,"TrustFear":0.125},
+{"name":"Mufasa","JoySadness":-0.75,"TrustFear":1.75},
+{"name":"Rafiki","JoySadness":0.5,"TrustFear":0.5},
+{"name":"Simba","JoySadness":-1.7812,"TrustFear":-1.1406},
+{"name":"Sarabi","JoySadness":0,"TrustFear":0},
+{"name":"Nala","JoySadness":-0.25,"TrustFear":-0.5},
+{"name":"Shenzi","JoySadness":-1.25,"TrustFear":-3},
+{"name":"Banzai","JoySadness":-1.875,"TrustFear":-2.25},
+{"name":"Ed","JoySadness":0.75,"TrustFear":-0.5},
+{"name":"Timon","JoySadness":0.5,"TrustFear":1},
+{"name":"Pumbaa","JoySadness":1.5,"TrustFear":-0.25}]
+var scene14=[
+{"name":"Scar","JoySadness":-1.875,"TrustFear":-0.2188},
+{"name":"Zazu","JoySadness":-0.9688,"TrustFear":-0.9375},
+{"name":"Mufasa","JoySadness":-0.75,"TrustFear":1.75},
+{"name":"Rafiki","JoySadness":0.5,"TrustFear":0.5},
+{"name":"Simba","JoySadness":-1.7812,"TrustFear":-1.1406},
+{"name":"Sarabi","JoySadness":0,"TrustFear":0},
+{"name":"Nala","JoySadness":-0.25,"TrustFear":-0.5},
+{"name":"Shenzi","JoySadness":-1.125,"TrustFear":-2},
+{"name":"Banzai","JoySadness":-1.4375,"TrustFear":-1.625},
+{"name":"Ed","JoySadness":0.75,"TrustFear":-0.5},
+{"name":"Timon","JoySadness":0.5,"TrustFear":1},
+{"name":"Pumbaa","JoySadness":1.5,"TrustFear":-0.25}]
+var scene15=[
+{"name":"Scar","JoySadness":-1.875,"TrustFear":-0.2188},
+{"name":"Zazu","JoySadness":-0.9688,"TrustFear":-0.9375},
+{"name":"Mufasa","JoySadness":-0.75,"TrustFear":1.75},
+{"name":"Rafiki","JoySadness":0.5,"TrustFear":0.5},
+{"name":"Simba","JoySadness":-0.3906,"TrustFear":-0.0703},
+{"name":"Sarabi","JoySadness":0,"TrustFear":0},
+{"name":"Nala","JoySadness":-0.25,"TrustFear":-0.5},
+{"name":"Shenzi","JoySadness":-1.125,"TrustFear":-2},
+{"name":"Banzai","JoySadness":-1.4375,"TrustFear":-1.625},
+{"name":"Ed","JoySadness":0.75,"TrustFear":-0.5},
+{"name":"Timon","JoySadness":-0.75,"TrustFear":0},
+{"name":"Pumbaa","JoySadness":1.5,"TrustFear":-0.25}]
+var scene16=[
+{"name":"Scar","JoySadness":-1.875,"TrustFear":-0.2188},
+{"name":"Zazu","JoySadness":-0.9688,"TrustFear":-0.9375},
+{"name":"Mufasa","JoySadness":-0.75,"TrustFear":1.75},
+{"name":"Rafiki","JoySadness":1.25,"TrustFear":1.25},
+{"name":"Simba","JoySadness":-0.3906,"TrustFear":-0.0703},
+{"name":"Sarabi","JoySadness":0,"TrustFear":0},
+{"name":"Nala","JoySadness":-0.25,"TrustFear":-0.5},
+{"name":"Shenzi","JoySadness":-1.125,"TrustFear":-2},
+{"name":"Banzai","JoySadness":-1.4375,"TrustFear":-1.625},
+{"name":"Ed","JoySadness":0.75,"TrustFear":-0.5},
+{"name":"Timon","JoySadness":-0.75,"TrustFear":0},
+{"name":"Pumbaa","JoySadness":1.5,"TrustFear":-0.25}]
+var scene17=[
+{"name":"Scar","JoySadness":-1.875,"TrustFear":-0.2188},
+{"name":"Zazu","JoySadness":-0.9688,"TrustFear":-0.9375},
+{"name":"Mufasa","JoySadness":-0.75,"TrustFear":1.75},
+{"name":"Rafiki","JoySadness":1.25,"TrustFear":1.25},
+{"name":"Simba","JoySadness":0.3047,"TrustFear":0.4648},
+{"name":"Sarabi","JoySadness":0,"TrustFear":0},
+{"name":"Nala","JoySadness":-0.625,"TrustFear":0.25},
+{"name":"Shenzi","JoySadness":-1.125,"TrustFear":-2},
+{"name":"Banzai","JoySadness":-1.4375,"TrustFear":-1.625},
+{"name":"Ed","JoySadness":0.75,"TrustFear":-0.5},
+{"name":"Timon","JoySadness":1.125,"TrustFear":-2.5},
+{"name":"Pumbaa","JoySadness":1.25,"TrustFear":0.375}]
+var scene18=[
+{"name":"Scar","JoySadness":-1.875,"TrustFear":-0.2188},
+{"name":"Zazu","JoySadness":-0.9688,"TrustFear":-0.9375},
+{"name":"Mufasa","JoySadness":-0.75,"TrustFear":1.75},
+{"name":"Rafiki","JoySadness":1.25,"TrustFear":1.25},
+{"name":"Simba","JoySadness":-0.3477,"TrustFear":0.7324},
+{"name":"Sarabi","JoySadness":0,"TrustFear":0},
+{"name":"Nala","JoySadness":-0.625,"TrustFear":-0.375},
+{"name":"Shenzi","JoySadness":-1.125,"TrustFear":-2},
+{"name":"Banzai","JoySadness":-1.4375,"TrustFear":-1.625},
+{"name":"Ed","JoySadness":0.75,"TrustFear":-0.5},
+{"name":"Timon","JoySadness":1.0625,"TrustFear":-0.75},
+{"name":"Pumbaa","JoySadness":0.125,"TrustFear":-0.3125}]
+var scene19=[
+{"name":"Scar","JoySadness":-1.875,"TrustFear":-0.2188},
+{"name":"Zazu","JoySadness":-0.9688,"TrustFear":-0.9375},
+{"name":"Mufasa","JoySadness":-1.375,"TrustFear":-0.125},
+{"name":"Rafiki","JoySadness":2.125,"TrustFear":2.125},
+{"name":"Simba","JoySadness":-3.8,"TrustFear":0.7324},
+{"name":"Sarabi","JoySadness":0,"TrustFear":0},
+{"name":"Nala","JoySadness":2.6875,"TrustFear":1.8125},
+{"name":"Shenzi","JoySadness":-1.125,"TrustFear":-2},
+{"name":"Banzai","JoySadness":-1.4375,"TrustFear":-1.625},
+{"name":"Ed","JoySadness":0.75,"TrustFear":-0.5},
+{"name":"Timon","JoySadness":1.0625,"TrustFear":-0.75},
+{"name":"Pumbaa","JoySadness":0.125,"TrustFear":-0.3125}]
+var scene20=[
+{"name":"Scar","JoySadness":-1.875,"TrustFear":-0.2188},
+{"name":"Zazu","JoySadness":-0.9688,"TrustFear":-0.9375},
+{"name":"Mufasa","JoySadness":-1.375,"TrustFear":-0.125},
+{"name":"Rafiki","JoySadness":2.125,"TrustFear":2.125},
+{"name":"Simba","JoySadness":-3.8,"TrustFear":0.7324},
+{"name":"Sarabi","JoySadness":0,"TrustFear":0},
+{"name":"Nala","JoySadness":0.3438,"TrustFear":-1.5938},
+{"name":"Shenzi","JoySadness":-1.125,"TrustFear":-2},
+{"name":"Banzai","JoySadness":-1.4375,"TrustFear":-1.625},
+{"name":"Ed","JoySadness":0.75,"TrustFear":-0.5},
+{"name":"Timon","JoySadness":1.0625,"TrustFear":-0.75},
+{"name":"Pumbaa","JoySadness":-0.4375,"TrustFear":-0.6562}]
+var scene21=[
+{"name":"Scar","JoySadness":-1.875,"TrustFear":-0.2188},
+{"name":"Zazu","JoySadness":-0.9688,"TrustFear":-0.9375},
+{"name":"Mufasa","JoySadness":-1.375,"TrustFear":-0.125},
+{"name":"Rafiki","JoySadness":2.125,"TrustFear":2.125},
+{"name":"Simba","JoySadness":-1.5869,"TrustFear":-0.1338},
+{"name":"Sarabi","JoySadness":0,"TrustFear":0},
+{"name":"Nala","JoySadness":-0.3281,"TrustFear":-2.2969},
+{"name":"Shenzi","JoySadness":-1.125,"TrustFear":-2},
+{"name":"Banzai","JoySadness":-1.4375,"TrustFear":-1.625},
+{"name":"Ed","JoySadness":0.75,"TrustFear":-0.5},
+{"name":"Timon","JoySadness":1.0625,"TrustFear":-0.75},
+{"name":"Pumbaa","JoySadness":-0.4375,"TrustFear":-0.6562}] 
+var scene22=[
+{"name":"Scar","JoySadness":-1.875,"TrustFear":-0.2188},
+{"name":"Zazu","JoySadness":-0.9688,"TrustFear":-0.9375},
+{"name":"Mufasa","JoySadness":-1.375,"TrustFear":-0.125},
+{"name":"Rafiki","JoySadness":2.125,"TrustFear":2.125},
+{"name":"Simba","JoySadness":-1.5869,"TrustFear":-0.1338},
+{"name":"Sarabi","JoySadness":0,"TrustFear":0},
+{"name":"Nala","JoySadness":-0.3281,"TrustFear":-2.2969},
+{"name":"Shenzi","JoySadness":-1.125,"TrustFear":-2},
+{"name":"Banzai","JoySadness":-1.4375,"TrustFear":-1.625},
+{"name":"Ed","JoySadness":0.75,"TrustFear":-0.5},
+{"name":"Timon","JoySadness":1.0625,"TrustFear":0.125},
+{"name":"Pumbaa","JoySadness":-0.4375,"TrustFear":-0.6562}]
+var scene23=[
+{"name":"Scar","JoySadness":-3.8,"TrustFear":2.3906},
+{"name":"Zazu","JoySadness":-0.9688,"TrustFear":-0.9375},
+{"name":"Mufasa","JoySadness":-1.375,"TrustFear":-0.125},
+{"name":"Rafiki","JoySadness":2.125,"TrustFear":2.125},
+{"name":"Simba","JoySadness":-3.8,"TrustFear":-3.0669},
+{"name":"Sarabi","JoySadness":0.5,"TrustFear":0.5},
+{"name":"Nala","JoySadness":-0.3281,"TrustFear":-2.2969},
+{"name":"Shenzi","JoySadness":-1.125,"TrustFear":-1.5},
+{"name":"Banzai","JoySadness":-1.4375,"TrustFear":-1.625},
+{"name":"Ed","JoySadness":0.75,"TrustFear":-0.5},
+{"name":"Timon","JoySadness":1.0625,"TrustFear":0.125},
+{"name":"Pumbaa","JoySadness":-0.7188,"TrustFear":-0.8281}]
+
+
+var changeScaleJoySadness = d3.scale.linear()
+	.domain([-4,4])
+  .range([0,600])
+var changeScaleTrustFear = d3.scale.linear()
+	.domain([-4,4])
+  .range([600,0])
+
+
+var svg = d3.select("g.linie")
+
+var circles = svg.selectAll("circle")
+	.data(scene1)
+		
+	
+var myText = svg.select('text')
+    .attr('x', 20)
+    .attr('y', 20)
+		.text("Scene 1: Mouse/Challenge Scene")
+		
+var checkScar = document.getElementById("cScar"); 
+var checkZazu = document.getElementById("cZazu"); 
+var checkMufasa = document.getElementById("cMufasa"); 
+var checkRafiki = document.getElementById("cRafiki"); 
+var checkSimba = document.getElementById("cSimba"); 
+var checkSarabi = document.getElementById("cSarabi");   
+var checkNala = document.getElementById("cNala"); 
+var checkShenzi = document.getElementById("cShenzi");
+var checkBanzai = document.getElementById("cBanzai"); 
+var checkEd = document.getElementById("cEd"); 
+var checkTimon = document.getElementById("cTimon");
+var checkPumba = document.getElementById("cPumba");   
+
+var characterVisibility = ["hidden", "hidden","hidden","hidden","hidden","hidden","hidden","hidden","hidden","hidden", "hidden", "hidden"];
+
+
+if (checkScar.checked == true){ characterVisibility[0] = "visible"}
+if (checkZazu.checked == true){ characterVisibility[1] = "visible"}
+if (checkMufasa.checked == true){ characterVisibility[2] = "visible"}
+if (checkRafiki.checked == true){ characterVisibility[3] = "visible"}
+if (checkSimba.checked == true){ characterVisibility[4] = "visible"}
+if (checkSarabi.checked == true){ characterVisibility[5] = "visible"}
+if (checkNala.checked == true){ characterVisibility[6] = "visible"}
+if (checkShenzi.checked == true){ characterVisibility[7] = "visible"}
+if (checkBanzai.checked == true){ characterVisibility[8] = "visible"}
+if (checkEd.checked == true){ characterVisibility[9] = "visible"}
+if (checkTimon.checked == true){ characterVisibility[10] = "visible"}
+if (checkPumba.checked == true){ characterVisibility[11] = "visible"}
+
+
+
+circles
+	.attr("visibility", function(d,i) {
+		return characterVisibility[i]
+	})
+
+	
+var dTime = 3000
+if (document.getElementById("fast").checked == true) {dTime = 1000}
+if (document.getElementById("medium").checked == true) {dTime = 2000}
+	
+	
+
+
+myText.transition()
+	.delay(0*dTime).text("Scene 1: Mouse/Challenge Scene")
+myText.transition()
+	.delay(1*dTime).text("Scene 2: Painting Scene")
+myText.transition()
+	.delay(2*dTime).text("Scene 3: Pouncing Scene")
+myText.transition()
+	.delay(3*dTime).text("Scene 4: Scar Tricks Simba Scene")
+myText.transition()
+	.delay(4*dTime).text("Scene 5: Bath Scene")
+myText.transition()
+	.delay(5*dTime).text("Scene 6: Water Hole Scene")
+myText.transition()
+	.delay(6*dTime).text("Scene 7: Elephant Graveyard/Hyena Scene")
+myText.transition()
+	.delay(7*dTime).text("Scene 8: Disciplinary/Stars Scene")
+myText.transition()
+	.delay(8*dTime).text("Scene 9: Be Prepared Scene")
+myText.transition()
+	.delay(9*dTime).text("Scene 10: Stampede Scene")
+myText.transition()
+	.delay(10*dTime).text("Scene 11: Address and Depaint Scene")
+myText.transition()
+	.delay(11*dTime).text("Scene 12: Buzzards Scene")
+myText.transition()
+	.delay(12*dTime).text("Scene 13: Hakuna Matata Scene")
+myText.transition()
+	.delay(13*dTime).text("Scene 14: Zazu Sings Scene")
+myText.transition()
+	.delay(14*dTime).text("Scene 15: Second Star Scene")
+myText.transition()
+	.delay(15*dTime).text("Scene 16: Discovery Scene")
+myText.transition()
+	.delay(16*dTime).text("Scene 17: In The Jungle Scene")
+myText.transition()
+	.delay(17*dTime).text("Scene 18: Can You Feel The Love Tonight")
+myText.transition()
+	.delay(18*dTime).text("Scene 19: Mufasa's Ghost Scene")
+myText.transition()
+	.delay(19*dTime).text("Scene 20: Timon And Nala Scene")
+myText.transition()
+	.delay(20*dTime).text("Scene 21: Running Scene")
+myText.transition()
+	.delay(21*dTime).text("Scene 22: Ledge Scene")
+myText.transition()
+	.delay(22*dTime).text("Scene 23: Hula Scene")
+
+	
+circles.data(scene1)
+circles.transition().ease("linear") 
+	.duration(dTime)
+	.attr("cx", function(d,i) {return changeScaleJoySadness(d.JoySadness)})
+	.attr("cy", function(d,i) {return changeScaleTrustFear(d.TrustFear)})
+  
+circles.data(scene2)
+circles.transition().ease("linear") 
+	.duration(dTime).delay(dTime)
+	.attr("cx", function(d,i) {return changeScaleJoySadness(d.JoySadness)})
+	.attr("cy", function(d,i) {return changeScaleTrustFear(d.TrustFear)})
+	
+circles.data(scene3)
+circles.transition().ease("linear") 
+	.duration(dTime).delay(2*dTime)
+	.attr("cx", function(d,i) {return changeScaleJoySadness(d.JoySadness)})
+	.attr("cy", function(d,i) {return changeScaleTrustFear(d.TrustFear)})
+  
+circles.data(scene4)
+circles.transition().ease("linear") 
+	.duration(dTime).delay(3*dTime)
+	.attr("cx", function(d,i) {return changeScaleJoySadness(d.JoySadness)})
+	.attr("cy", function(d,i) {return changeScaleTrustFear(d.TrustFear)})
+   
+circles.data(scene5)
+circles.transition().ease("linear") 
+	.duration(dTime).delay(4*dTime)
+	.attr("cx", function(d,i) {return changeScaleJoySadness(d.JoySadness)})
+	.attr("cy", function(d,i) {return changeScaleTrustFear(d.TrustFear)})
+
+circles.data(scene6)
+circles.transition().ease("linear") 
+	.duration(dTime).delay(5*dTime)
+	.attr("cx", function(d,i) {return changeScaleJoySadness(d.JoySadness)})
+	.attr("cy", function(d,i) {return changeScaleTrustFear(d.TrustFear)})
+
+circles.data(scene7)
+circles.transition().ease("linear") 
+	.duration(dTime).delay(6*dTime)
+	.attr("cx", function(d,i) {return changeScaleJoySadness(d.JoySadness)})
+	.attr("cy", function(d,i) {return changeScaleTrustFear(d.TrustFear)})
+
+circles.data(scene8)
+circles.transition().ease("linear") 
+	.duration(dTime).delay(7*dTime)
+	.attr("cx", function(d,i) {return changeScaleJoySadness(d.JoySadness)})
+	.attr("cy", function(d,i) {return changeScaleTrustFear(d.TrustFear)})
+
+circles.data(scene9)
+circles.transition().ease("linear") 
+	.duration(dTime).delay(8*dTime)
+	.attr("cx", function(d,i) {return changeScaleJoySadness(d.JoySadness)})
+	.attr("cy", function(d,i) {return changeScaleTrustFear(d.TrustFear)})
+
+circles.data(scene10)
+circles.transition().ease("linear") 
+	.duration(dTime).delay(9*dTime)
+	.attr("cx", function(d,i) {return changeScaleJoySadness(d.JoySadness)})
+	.attr("cy", function(d,i) {return changeScaleTrustFear(d.TrustFear)})
+
+circles.data(scene11)
+circles.transition().ease("linear") 
+	.duration(dTime).delay(10*dTime)
+	.attr("cx", function(d,i) {return changeScaleJoySadness(d.JoySadness)})
+	.attr("cy", function(d,i) {return changeScaleTrustFear(d.TrustFear)})
+
+circles.data(scene12)
+circles.transition().ease("linear") 
+	.duration(dTime).delay(11*dTime)
+	.attr("cx", function(d,i) {return changeScaleJoySadness(d.JoySadness)})
+	.attr("cy", function(d,i) {return changeScaleTrustFear(d.TrustFear)})
+  
+circles.data(scene13)
+circles.transition().ease("linear") 
+	.duration(dTime).delay(12*dTime)
+	.attr("cx", function(d,i) {return changeScaleJoySadness(d.JoySadness)})
+	.attr("cy", function(d,i) {return changeScaleTrustFear(d.TrustFear)})
+
+circles.data(scene14)
+circles.transition().ease("linear") 
+	.duration(dTime).delay(13*dTime)
+	.attr("cx", function(d,i) {return changeScaleJoySadness(d.JoySadness)})
+	.attr("cy", function(d,i) {return changeScaleTrustFear(d.TrustFear)})
+
+circles.data(scene15)
+circles.transition().ease("linear") 
+	.duration(dTime).delay(14*dTime)
+	.attr("cx", function(d,i) {return changeScaleJoySadness(d.JoySadness)})
+	.attr("cy", function(d,i) {return changeScaleTrustFear(d.TrustFear)})
+
+circles.data(scene16)
+circles.transition().ease("linear") 
+	.duration(dTime).delay(15*dTime)
+	.attr("cx", function(d,i) {return changeScaleJoySadness(d.JoySadness)})
+	.attr("cy", function(d,i) {return changeScaleTrustFear(d.TrustFear)})
+
+circles.data(scene17)
+circles.transition().ease("linear") 
+	.duration(dTime).delay(16*dTime)
+	.attr("cx", function(d,i) {return changeScaleJoySadness(d.JoySadness)})
+	.attr("cy", function(d,i) {return changeScaleTrustFear(d.TrustFear)})
+
+circles.data(scene18)
+circles.transition().ease("linear") 
+	.duration(dTime).delay(17*dTime)
+	.attr("cx", function(d,i) {return changeScaleJoySadness(d.JoySadness)})
+	.attr("cy", function(d,i) {return changeScaleTrustFear(d.TrustFear)})
+
+circles.data(scene19)
+circles.transition().ease("linear") 
+	.duration(dTime).delay(18*dTime)
+	.attr("cx", function(d,i) {return changeScaleJoySadness(d.JoySadness)})
+	.attr("cy", function(d,i) {return changeScaleTrustFear(d.TrustFear)})
+
+circles.data(scene20)
+circles.transition().ease("linear") 
+	.duration(dTime).delay(19*dTime)
+	.attr("cx", function(d,i) {return changeScaleJoySadness(d.JoySadness)})
+	.attr("cy", function(d,i) {return changeScaleTrustFear(d.TrustFear)})
+	
+circles.data(scene21)
+circles.transition().ease("linear") 
+	.duration(dTime).delay(20*dTime)
+	.attr("cx", function(d,i) {return changeScaleJoySadness(d.JoySadness)})
+	.attr("cy", function(d,i) {return changeScaleTrustFear(d.TrustFear)})
+
+circles.data(scene22)
+circles.transition().ease("linear") 
+	.duration(dTime).delay(21*dTime)
+	.attr("cx", function(d,i) {return changeScaleJoySadness(d.JoySadness)})
+	.attr("cy", function(d,i) {return changeScaleTrustFear(d.TrustFear)})
+
+circles.data(scene23)
+circles.transition().ease("linear") 
+	.duration(dTime).delay(22*dTime)
+	.attr("cx", function(d,i) {return changeScaleJoySadness(d.JoySadness)})
+	.attr("cy", function(d,i) {return changeScaleTrustFear(d.TrustFear)})
+
+  
+  var draw = function(x1,y1,x2,y2, del,col) {
+			var data = [[[changeScaleJoySadness(x1),changeScaleTrustFear(y1)],[changeScaleJoySadness(x2),changeScaleTrustFear(y2)]]]
+            var line = d3.svg.line();
+
+            var g = d3.select("g.sciezki");
+            var p = g.append("path")
+                .data(data)
+                    .attr("d", function(d) {
+                        return line(d);
+                    })
+                    .attr("stroke-dasharray", function() { return this.getTotalLength() + " " + this.getTotalLength()})
+                   .attr("stroke-dashoffset", function() {
+                        var totalLength = this.getTotalLength();
+                        return totalLength;
+                    })
+					//.attr("stroke-dasharray", "5,5")
+					.attr("stroke",col)
+                    .transition().
+					delay(del)
+                        .duration(dTime)
+                        .ease("linear")
+                        .attr("stroke-dashoffset", 0)
+					//	.attr("stroke-dasharray", "5,5")
+					;
+        };
+		 
+		// Scar
+		if (checkScar.checked == true){
+		draw(0, 0, 1, -3, 0,"#b15928"); //scene 1 
+		draw(1, -3, 1, -3, dTime,"#b15928"); //scene 2
+		draw(1, -3, 1, -3, 2*dTime, "#b15928"); //scene 3
+		draw(1, -3, 3, -0.5, 3*dTime, "#b15928"); //scene 4
+		draw(3, -0.5, 3, -0.5, 4*dTime, "#b15928"); //scene 5
+		draw(3, -0.5, 3, -0.5, 5*dTime, "#b15928"); //scene 6
+		draw(3, -0.5, 3, -0.5, 6*dTime, "#b15928"); //scene 7
+		draw(3, -0.5, 3, -0.5, 7*dTime, "#b15928"); //scene 8
+		draw(3, -0.5, -2, 3.25, 8*dTime, "#b15928"); //scene 9
+		draw(-2, 3.25, -0.5, 3.125, 9*dTime, "#b15928"); //scene 10
+		draw(-0.5, 3.125, -2.75, -1.4375, 10*dTime, "#b15928"); //scene 11
+		draw(-2.75, -1.4375, -2.75, -1.4375, 11*dTime, "#b15928"); //scene 12
+		draw(-2.75, -1.4375, -2.75, -1.4375, 12*dTime, "#b15928"); //scene 13
+		draw(-2.75, -1.4375, -1.875, -0.2188, 13*dTime, "#b15928"); //scene 14
+		draw(-1.875, -0.2188, -1.875, -0.2188, 14*dTime, "#b15928") //scene 15
+		draw(-1.875, -0.2188, -1.875, -0.2188, 15*dTime, "#b15928"); //scene 16
+		draw(-1.875, -0.2188, -1.875, -0.2188, 16*dTime, "#b15928"); //scene 17
+		draw(-1.875, -0.2188, -1.875, -0.2188, 17*dTime, "#b15928"); //scene 18
+		draw(-1.875, -0.2188, -1.875, -0.2188, 18*dTime, "#b15928"); //scene 19
+		draw(-1.875, -0.2188, -1.875, -0.2188, 19*dTime, "#b15928"); //scene 20
+		draw(-1.875, -0.2188, -1.875, -0.2188, 20*dTime, "#b15928"); //scene 21
+		draw(-1.875, -0.2188, -1.875, -0.2188, 21*dTime, "#b15928"); //scene 22
+		draw(-1.875, -0.2188, -3.8, 2.3906, 22*dTime, "#b15928"); //scene 23
+		}
+		//Zazu
+		if (checkZazu.checked == true){
+		draw(0, 0, -3, 2, 0, "#a6cee3"); //scene 1 
+		draw(-3, 2, -3, 2, dTime, "#a6cee3"); //scene 2
+		draw(-3, 2, 2, 1.5, 2*dTime, "#a6cee3"); //scene 3
+		draw(2, 1.5, 2, 1.5, 3*dTime, "#a6cee3"); //scene 4
+		draw(2, 1.5,2, 1.5, 4*dTime, "#a6cee3"); //scene 5
+		draw(2, 1.5, 1.5, 1.5, 5*dTime, "#a6cee3"); //scene 6
+		draw(1.5, 1.5, 0.25, 1.25, 6*dTime, "#a6cee3"); //scene 7
+		draw(0.25, 1.25, 1.125, 0.125, 7*dTime, "#a6cee3"); //scene 8
+		draw(1.125, 0.125, 1.125, 0.125, 8*dTime, "#a6cee3"); //scene 9
+		draw(1.125, 0.125, 0.0625, 0.125, 9*dTime, "#a6cee3"); //scene 10
+		draw(0.0625, 0.125, 0.0625, 0.125, 10*dTime, "#a6cee3"); //scene 11
+		draw(0.0625, 0.125, 0.0625, 0.125, 11*dTime, "#a6cee3"); //scene 12
+		draw(0.0625, 0.125, 0.0625, 0.125, 12*dTime, "#a6cee3"); //scene 13
+		draw(0.0625, 0.125, -0.9688, -0.9375, 13*dTime, "#a6cee3"); //scene 14
+		draw(-0.9688, -0.9375, -0.9688, -0.9375, 14*dTime, "#a6cee3") //scene 15
+		draw(-0.9688, -0.9375, -0.9688, -0.9375, 15*dTime, "#a6cee3"); //scene 16
+		draw(-0.9688, -0.9375, -0.9688, -0.9375, 16*dTime, "#a6cee3"); //scene 17
+		draw(-0.9688, -0.9375, -0.9688, -0.9375, 17*dTime, "#a6cee3"); //scene 18
+		draw(-0.9688, -0.9375, -0.9688, -0.9375, 18*dTime, "#a6cee3"); //scene 19
+		draw(-0.9688, -0.9375, -0.9688, -0.9375, 19*dTime, "#a6cee3"); //scene 20
+		draw(-0.9688, -0.9375, -0.9688, -0.9375, 20*dTime, "#a6cee3"); //scene 21
+		draw(-0.9688, -0.9375, -0.9688, -0.9375, 21*dTime, "#a6cee3"); //scene 22
+		draw(-0.9688, -0.9375, -0.9688, -0.9375, 22*dTime, "#a6cee3"); //scene 23
+		}
+		//Mufasa
+		if (checkMufasa.checked == true){
+		draw(0, 0, -3.8, -3.8, 0, "#ff7f00"); //scene 1 
+		draw(-3.8, -3.8, -3.8, -3.8, dTime, "#ff7f00"); //scene 2
+		draw(-3.8, -3.8, 0, 0.5, 2*dTime, "#ff7f00"); //scene 3
+		draw(0, 0.5, 0, 0.5, 3*dTime, "#ff7f00"); //scene 4
+		draw(0, 0.5, 0, 0.5, 4*dTime, "#ff7f00"); //scene 5
+		draw(0, 0.5, 0, 0.5, 5*dTime, "#ff7f00"); //scene 6
+		draw(0, 0.5, 0, 0.5, 6*dTime, "#ff7f00"); //scene 7
+		draw(0, 0.5, -0.5, 1.75, 7*dTime, "#ff7f00"); //scene 8
+		draw(-0.5, 1.75, -0.5, 1.75, 8*dTime, "#ff7f00"); //scene 9
+		draw(-0.5, 1.75, -0.75, 1.75, 9*dTime, "#ff7f00"); //scene 10
+		draw(-0.75, 1.75, -0.75, 1.75, 10*dTime, "#ff7f00"); //scene 11
+		draw(-0.75, 1.75, -0.75, 1.75, 11*dTime, "#ff7f00"); //scene 12
+		draw(-0.75, 1.75, -0.75, 1.75, 12*dTime, "#ff7f00"); //scene 13
+		draw(-0.75, 1.75, -0.75, 1.75, 13*dTime, "#ff7f00"); //scene 14
+		draw(-0.75, 1.75, -0.75, 1.75, 14*dTime, "#ff7f00") //scene 15
+		draw(-0.75, 1.75, -0.75, 1.75, 15*dTime, "#ff7f00"); //scene 16
+		draw(-0.75, 1.75, -0.75, 1.75, 16*dTime, "#ff7f00"); //scene 17
+		draw(-0.75, 1.75, -0.75, 1.75, 17*dTime, "#ff7f00"); //scene 18
+		draw(-0.75, 1.75, -1.375, -0.125, 18*dTime, "#ff7f00"); //scene 19
+		draw(-1.375, -0.125, -1.375, -0.125, 19*dTime, "#ff7f00"); //scene 20
+		draw(-1.375, -0.125, -1.375, -0.125, 20*dTime, "#ff7f00"); //scene 21
+		draw(-1.375, -0.125, -1.375, -0.125, 21*dTime, "#ff7f00"); //scene 22
+		draw(-1.375, -0.125, -1.375, -0.125, 22*dTime, "#ff7f00"); //scene 23
+		}
+ 		//Rafiki
+		if (checkRafiki.checked == true){
+		draw(0, 0, 0, 0, 0, "#1f78b4"); //scene 1 
+		draw(0, 0, 0.5, 0.5, dTime, "#1f78b4"); //scene 2
+		draw(0.5, 0.5, 0.5, 0.5, 2*dTime, "#1f78b4"); //scene 3
+		draw(0.5, 0.5, 0.5, 0.5, 3*dTime, "#1f78b4"); //scene 4
+		draw(0.5, 0.5, 0.5, 0.5, 4*dTime, "#1f78b4"); //scene 5
+		draw(0.5, 0.5, 0.5, 0.5, 5*dTime, "#1f78b4"); //scene 6
+		draw(0.5, 0.5, 0.5, 0.5, 6*dTime, "#1f78b4"); //scene 7
+		draw(0.5, 0.5, 0.5, 0.5, 7*dTime, "#1f78b4"); //scene 8
+		draw(0.5, 0.5, 0.5, 0.5, 8*dTime, "#1f78b4"); //scene 9
+		draw(0.5, 0.5, 0.5, 0.5, 9*dTime, "#1f78b4"); //scene 10
+		draw(0.5, 0.5, 0.5, 0.5, 10*dTime, "#1f78b4"); //scene 11
+		draw(0.5, 0.5, 0.5, 0.5, 11*dTime, "#1f78b4"); //scene 12
+		draw(0.5, 0.5, 0.5, 0.5, 12*dTime, "#1f78b4"); //scene 13
+		draw(0.5, 0.5, 0.5, 0.5, 13*dTime, "#1f78b4"); //scene 14
+		draw(0.5, 0.5, 0.5, 0.5, 14*dTime, "#1f78b4") //scene 15
+		draw(0.5, 0.5, 1.25, 1.25, 15*dTime, "#1f78b4"); //scene 16
+		draw(1.25, 1.25, 1.25, 1.25, 16*dTime, "#1f78b4"); //scene 17
+		draw(1.25, 1.25,1.25, 1.25, 17*dTime, "#1f78b4"); //scene 18
+		draw(1.25, 1.25, 2.125, 2.125, 18*dTime, "#1f78b4"); //scene 19
+		draw(2.125, 2.125, 2.125, 2.125, 19*dTime, "#1f78b4"); //scene 20
+		draw(2.125, 2.125, 2.125, 2.125, 20*dTime, "#1f78b4"); //scene 21
+		draw(2.125, 2.125, 2.125, 2.125, 21*dTime, "#1f78b4"); //scene 22
+		draw(2.125, 2.125, 2.125, 2.125, 22*dTime, "#1f78b4"); //scene 23
+		}
+		//Simba
+		if (checkSimba.checked == true){
+		draw(0, 0, 0, 0, 0, "#e31a1c"); //scene 1 
+		draw(0, 0, 0, 0, dTime, "#e31a1c"); //scene 2
+		draw(0, 0, 0, 0.5, 2*dTime, "#e31a1c"); //scene 3
+		draw(0, 0.5, -1.5, -1.25, 3*dTime, "#e31a1c"); //scene 4
+		draw(-1.5, -1.25, -0.25, -0.125, 4*dTime, "#e31a1c"); //scene 5
+		draw(-0.25, -0.125, 0.875, -0.5625, 5*dTime, "#e31a1c"); //scene 6
+		draw(0.875, -0.5625, 0.875, -0.5625, 6*dTime, "#e31a1c"); //scene 7
+		draw(0.875, -0.5625, -0.5625, -0.5625, 7*dTime, "#e31a1c"); //scene 8
+		draw(-0.5625, -0.5625, -0.5625, -0.5625, 8*dTime, "#e31a1c"); //scene 9
+		draw(-0.5625, -0.5625, -1.7812, -1.2812, 9*dTime, "#e31a1c"); //scene 10
+		draw(-1.7812, -1.2812, -1.7812, -1.2812, 10*dTime, "#e31a1c"); //scene 11
+		draw(-1.7812, -1.2812, -1.7812, -1.2812, 11*dTime, "#e31a1c"); //scene 12
+		draw(-1.7812, -1.2812, -1.7812, -1.1406, 12*dTime, "#e31a1c"); //scene 13
+		draw(-1.7812, -1.1406, -1.7812, -1.1406, 13*dTime, "#e31a1c"); //scene 14
+		draw(-1.7812, -1.1406, -0.3906, -0.0703, 14*dTime, "#e31a1c") //scene 15
+		draw(-0.3906, -0.0703, -0.3906, -0.0703, 15*dTime, "#e31a1c"); //scene 16
+		draw(-0.3906, -0.0703, 0.3047, 0.4648, 16*dTime, "#e31a1c"); //scene 17
+		draw(0.3047, 0.4648, -0.3477, 0.7324, 17*dTime, "#e31a1c"); //scene 18
+		draw(-0.3477, 0.7324, -3.8, 0.7324, 18*dTime, "#e31a1c"); //scene 19
+		draw(-3.8, 0.7324, -3.8, 0.7324, 19*dTime, "#e31a1c"); //scene 20
+		draw(-3.8, 0.7324, -1.5869, -0.1338, 20*dTime, "#e31a1c"); //scene 21
+		draw(-1.5869, -0.1338, -1.5869, -0.1338, 21*dTime, "#e31a1c"); //scene 22
+		draw(-1.5869, -0.1338, -3.8, -3.0669, 22*dTime, "#e31a1c"); //scene 23
+		}
+		//Sarabi
+		if (checkSarabi == true) {
+		draw(0, 0, 0, 0, 0, "#6a3d9a"); //scene 1 
+		draw(0, 0, 0, 0, dTime, "#6a3d9a"); //scene 2
+		draw(0, 0, 0, 0, 2*dTime, "#6a3d9a"); //scene 3
+		draw(0, 0, 0, 0, 3*dTime, "#6a3d9a"); //scene 4
+		draw(0, 0, 0, 0, 4*dTime, "#6a3d9a"); //scene 5
+		draw(0, 0, 0, 0, 5*dTime, "#6a3d9a"); //scene 6
+		draw(0, 0, 0, 0, 6*dTime, "#6a3d9a"); //scene 7
+		draw(0, 0, 0, 0, 7*dTime, "#6a3d9a"); //scene 8
+		draw(0, 0, 0, 0, 8*dTime, "#6a3d9a"); //scene 9
+		draw(0, 0, 0, 0, 9*dTime, "#6a3d9a"); //scene 10
+		draw(0, 0, 0, 0, 10*dTime, "#6a3d9a"); //scene 11
+		draw(0, 0, 0, 0, 11*dTime, "#6a3d9a"); //scene 12
+		draw(0, 0, 0, 0, 12*dTime, "#6a3d9a"); //scene 13
+		draw(0, 0, 0, 0, 13*dTime, "#6a3d9a"); //scene 14
+		draw(0, 0, 0, 0, 14*dTime, "#6a3d9a") //scene 15
+		draw(0, 0, 0, 0, 15*dTime, "#6a3d9a"); //scene 16
+		draw(0, 0, 0, 0, 16*dTime, "#6a3d9a"); //scene 17
+		draw(0, 0, 0, 0, 17*dTime, "#6a3d9a"); //scene 18
+		draw(0, 0, 0, 0, 18*dTime, "#6a3d9a"); //scene 19
+		draw(0, 0, 0, 0, 19*dTime, "#6a3d9a"); //scene 20
+		draw(0, 0, 0, 0, 20*dTime, "#6a3d9a"); //scene 21
+		draw(0, 0, 0, 0, 21*dTime, "#6a3d9a"); //scene 22
+		draw(0, 0, 0.5, 0.5, 22*dTime, "#6a3d9a"); //scene 23
+		}
+		//Nala
+		if (checkNala.checked == true){
+		draw(0, 0, 0, 0, 0, "yellow"); //scene 1 
+		draw(0, 0, 0, 0, dTime, "yellow"); //scene 2
+		draw(0, 0, 0, 0, 2*dTime, "yellow"); //scene 3
+		draw(0, 0, 0, 0, 3*dTime, "yellow"); //scene 4
+		draw(0, 0, 0.5, 0, 4*dTime, "yellow"); //scene 5
+		draw(0.5, 0, 0.5, 0, 5*dTime, "yellow"); //scene 6
+		draw(0.5, 0, -0.25, -0.5, 6*dTime, "yellow"); //scene 7
+		draw(-0.25, -0.5, -0.25, -0.5, 7*dTime, "yellow"); //scene 8
+		draw(-0.25, -0.5, -0.25, -0.5, 8*dTime, "yellow"); //scene 9
+		draw(-0.25, -0.5, -0.25, -0.5, 9*dTime, "yellow"); //scene 10
+		draw(-0.25, -0.5, -0.25, -0.5, 10*dTime, "yellow"); //scene 11
+		draw(-0.25, -0.5, -0.25, -0.5, 11*dTime, "yellow"); //scene 12
+		draw(-0.25, -0.5, -0.25, -0.5, 12*dTime, "yellow"); //scene 13
+		draw(-0.25, -0.5, -0.25, -0.5, 13*dTime, "yellow"); //scene 14
+		draw(-0.25, -0.5, -0.25, -0.5, 14*dTime, "yellow") //scene 15
+		draw(-0.25, -0.5, -0.25, -0.5, 15*dTime, "yellow"); //scene 16
+		draw(-0.25, -0.5, -0.625, 0.25, 16*dTime, "yellow"); //scene 17
+		draw(-0.625, 0.25, -0.625, -0.375, 17*dTime, "yellow"); //scene 18
+		draw(-0.625, -0.375, 2.6875, 1.8125, 18*dTime, "yellow"); //scene 19
+		draw(2.6875, 1.8125, -0.3281, -2.2969, 19*dTime, "yellow"); //scene 20
+		draw(-0.3281, -2.2969, -0.3281, -2.2969, 20*dTime, "yellow"); //scene 21
+		draw(-0.3281, -2.2969, -0.3281, -2.2969, 21*dTime, "yellow"); //scene 22
+		draw(-0.3281, -2.2969, -0.3281, -2.2969, 22*dTime, "yellow"); //scene 23
+		}
+		//Shenzi
+		if (checkShenzi.checked == true){
+		draw(0, 0, 0, 0, 0, "#b2df8a"); //scene 1 
+		draw(0, 0, 0, 0, dTime, "#b2df8a"); //scene 2
+		draw(0, 0, 0, 0, 2*dTime, "#b2df8a"); //scene 3
+		draw(0, 0, 0, 0, 3*dTime, "#b2df8a"); //scene 4
+		draw(0, 0, 0, 0, 4*dTime, "#b2df8a"); //scene 5
+		draw(0, 0, 0, 0, 5*dTime, "#b2df8a"); //scene 6
+		draw(0, 0, -2, -3, 6*dTime, "#b2df8a"); //scene 7
+		draw(-2, -3,-2, -3, 7*dTime, "#b2df8a"); //scene 8
+		draw(-2, -3, -0.5, -3, 8*dTime, "#b2df8a"); //scene 9
+		draw(-0.5, -3, -1.25, -3, 9*dTime, "#b2df8a"); //scene 10
+		draw(-1.25, -3, -1.25, -3, 10*dTime, "#b2df8a"); //scene 11
+		draw(-1.25, -3, -1.25, -3, 11*dTime, "#b2df8a"); //scene 12
+		draw(-1.25, -3, -1.25, -3, 12*dTime, "#b2df8a"); //scene 13
+		draw(-1.25, -3, -1.125, -2, 13*dTime, "#b2df8a"); //scene 14
+		draw(-1.125, -2, -1.125, -2, 14*dTime, "#b2df8a") //scene 15
+		draw(-1.125, -2, -1.125, -2, 15*dTime, "#b2df8a"); //scene 16
+		draw(-1.125, -2, -1.125, -2, 16*dTime, "#b2df8a"); //scene 17
+		draw(-1.125, -2, -1.125, -2, 17*dTime, "#b2df8a"); //scene 18
+		draw(-1.125, -2, -1.125, -2, 18*dTime, "#b2df8a"); //scene 19
+		draw(-1.125, -2, -1.125, -2, 19*dTime, "#b2df8a"); //scene 20
+		draw(-1.125, -2, -1.125, -2, 20*dTime, "#b2df8a"); //scene 21
+		draw(-1.125, -2, -1.125, -2, 21*dTime, "#b2df8a"); //scene 22
+		draw(-1.125, -2, -1.125, -1.5, 22*dTime, "#b2df8a"); //scene 23
+		}
+		//Banzai
+		if (checkBanzai.checked == true){
+		draw(0, 0, 0, 0, 0, "#cab2d6"); //scene 1 
+		draw(0, 0, 0, 0, dTime, "#cab2d6"); //scene 2
+		draw(0, 0, 0, 0, 2*dTime, "#cab2d6"); //scene 3
+		draw(0, 0, 0, 0, 3*dTime, "#cab2d6"); //scene 4
+		draw(0, 0, 0, 0, 4*dTime, "#cab2d6"); //scene 5
+		draw(0, 0, 0, 0, 5*dTime, "#cab2d6"); //scene 6
+		draw(0, 0, 0.5, -1, 6*dTime, "#cab2d6"); //scene 7
+		draw(0.5, -1, 0.5, -1, 7*dTime, "#cab2d6"); //scene 8
+		draw(0.5, -1, -1.75, -1.5, 8*dTime, "#cab2d6"); //scene 9
+		draw(-1.75, -1.5, -1.875, -2.25, 9*dTime, "#cab2d6"); //scene 10
+		draw(-1.875, -2.25, -1.875, -2.25, 10*dTime, "#cab2d6"); //scene 11
+		draw(-1.875, -2.25, -1.875, -2.25, 11*dTime, "#cab2d6"); //scene 12
+		draw(-1.875, -2.25, -1.875, -2.25, 12*dTime, "#cab2d6"); //scene 13
+		draw(-1.875, -2.25, -1.4375, -1.625, 13*dTime, "#cab2d6"); //scene 14
+		draw(-1.4375, -1.625, -1.4375, -1.625, 14*dTime, "#cab2d6") //scene 15
+		draw(-1.4375, -1.625, -1.4375, -1.625, 15*dTime, "#cab2d6"); //scene 16
+		draw(-1.4375, -1.625, -1.4375, -1.625, 16*dTime, "#cab2d6"); //scene 17
+		draw(-1.4375, -1.625, -1.4375, -1.625, 17*dTime, "#cab2d6"); //scene 18
+		draw(-1.4375, -1.625, -1.4375, -1.625, 18*dTime, "#cab2d6"); //scene 19
+		draw(-1.4375, -1.625, -1.4375, -1.625, 19*dTime, "#cab2d6"); //scene 20
+		draw(-1.4375, -1.625, -1.4375, -1.625, 20*dTime, "#cab2d6"); //scene 21
+		draw(-1.4375, -1.625, -1.4375, -1.625, 21*dTime, "#cab2d6"); //scene 22
+		draw(-1.4375, -1.625, -1.4375, -1.625, 22*dTime, "#cab2d6"); //scene 23
+		}
+		
+		//Ed
+		if (checkEd.checked == true){
+		draw(0, 0, 0, 0, 0, "#fdbf6f"); //scene 1 
+		draw(0, 0, 0, 0, dTime, "#fdbf6f"); //scene 2
+		draw(0, 0, 0, 0, 2*dTime, "#fdbf6f"); //scene 3
+		draw(0, 0, 0, 0, 3*dTime, "#fdbf6f"); //scene 4
+		draw(0, 0, 0, 0, 4*dTime, "#fdbf6f"); //scene 5
+		draw(0, 0, 0, 0, 5*dTime, "#fdbf6f"); //scene 6
+		draw(0, 0, 0.5, -0.5, 6*dTime, "#fdbf6f"); //scene 7
+		draw(0.5, -0.5, 0.5, -0.5, 7*dTime, "#fdbf6f"); //scene 8
+		draw(0.5, -0.5, 0.75, -0.5, 8*dTime, "#fdbf6f"); //scene 9
+		draw(0.75, -0.5, 0.75, -0.5, 9*dTime, "#fdbf6f"); //scene 10
+		draw(0.75, -0.5, 0.75, -0.5, 10*dTime, "#fdbf6f"); //scene 11
+		draw(0.75, -0.5, 0.75, -0.5, 11*dTime, "#fdbf6f"); //scene 12
+		draw(0.75, -0.5, 0.75, -0.5, 12*dTime, "#fdbf6f"); //scene 13
+		draw(0.75, -0.5, 0.75, -0.5, 13*dTime, "#fdbf6f"); //scene 14
+		draw(0.75, -0.5, 0.75, -0.5, 14*dTime, "#fdbf6f") //scene 15
+		draw(0.75, -0.5, 0.75, -0.5, 15*dTime, "#fdbf6f"); //scene 16
+		draw(0.75, -0.5, 0.75, -0.5, 16*dTime, "#fdbf6f"); //scene 17
+		draw(0.75, -0.5, 0.75, -0.5, 17*dTime, "#fdbf6f"); //scene 18
+		draw(0.75, -0.5, 0.75, -0.5, 18*dTime, "#fdbf6f"); //scene 19
+		draw(0.75, -0.5, 0.75, -0.5, 19*dTime, "#fdbf6f"); //scene 20
+		draw(0.75, -0.5, 0.75, -0.5, 20*dTime, "#fdbf6f"); //scene 21
+		draw(0.75, -0.5, 0.75, -0.5, 21*dTime, "#fdbf6f"); //scene 22
+		draw(0.75, -0.5, 0.75, -0.5, 22*dTime, "#fdbf6f"); //scene 23
+		}
+		//Timon
+		if (checkTimon.checked == true){
+		draw(0, 0, 0, 0, 0, "#33a02c"); //scene 1 
+		draw(0, 0, 0, 0, dTime, "#33a02c"); //scene 2
+		draw(0, 0, 0, 0, 2*dTime, "#33a02c"); //scene 3
+		draw(0, 0, 0, 0, 3*dTime, "#33a02c"); //scene 4
+		draw(0, 0, 0, 0, 4*dTime, "#33a02c"); //scene 5
+		draw(0, 0, 0, 0, 5*dTime, "#33a02c"); //scene 6
+		draw(0, 0, 0, 0, 6*dTime, "#33a02c"); //scene 7
+		draw(0, 0, 0, 0, 7*dTime, "#33a02c"); //scene 8
+		draw(0, 0, 0, 0, 8*dTime, "#33a02c"); //scene 9
+		draw(0, 0, 0, 0, 9*dTime, "#33a02c"); //scene 10
+		draw(0, 0, 0, 0, 10*dTime, "#33a02c"); //scene 11
+		draw(0, 0, 0, -2, 11*dTime, "#33a02c"); //scene 12
+		draw(0, -2, 0.5, 1, 12*dTime, "#33a02c"); //scene 13
+		draw(0.5, 1, 0.5, 1, 13*dTime, "#33a02c"); //scene 14
+		draw(0.5, 1, -0.75, 0, 14*dTime, "#33a02c") //scene 15
+		draw(-0.75, 0, -0.75, 0, 15*dTime, "#33a02c"); //scene 16
+		draw(-0.75, 0, 1.125, -2.5, 16*dTime, "#33a02c"); //scene 17
+		draw(1.125, -2.5, 1.0625, -0.75, 17*dTime, "#33a02c"); //scene 18
+		draw(1.0625, -0.75, 1.0625, -0.75, 18*dTime, "#33a02c"); //scene 19
+		draw(1.0625, -0.75, 1.0625, -0.75, 19*dTime, "#33a02c"); //scene 20
+		draw(1.0625, -0.75, 1.0625, -0.75, 20*dTime, "#33a02c"); //scene 21
+		draw(1.0625, -0.75, 1.0625, 0.125, 21*dTime, "#33a02c"); //scene 22
+		draw(1.0625, 0.125, 1.0625, 0.125, 22*dTime, "#33a02c"); //scene 23		
+		}
+		//Pumbaa
+		if (checkPumba.checked == true){
+		draw(0, 0, 0, 0, 0, "#fb9a99"); //scene 1 
+		draw(0, 0, 0, 0, dTime, "#fb9a99"); //scene 2
+		draw(0, 0, 0, 0, 2*dTime, "#fb9a99"); //scene 3
+		draw(0, 0, 0, 0, 3*dTime, "#fb9a99"); //scene 4
+		draw(0, 0, 0, 0, 4*dTime, "#fb9a99"); //scene 5
+		draw(0, 0, 0, 0, 5*dTime, "#fb9a99"); //scene 6
+		draw(0, 0, 0, 0, 6*dTime, "#fb9a99"); //scene 7
+		draw(0, 0, 0, 0, 7*dTime, "#fb9a99"); //scene 8
+		draw(0, 0, 0, 0, 8*dTime, "#fb9a99"); //scene 9
+		draw(0, 0, 0, 0, 9*dTime, "#fb9a99"); //scene 10
+		draw(0, 0, 0, 0, 10*dTime, "#fb9a99"); //scene 11
+		draw(0, 0, 1, 0.5, 11*dTime, "#fb9a99"); //scene 12
+		draw(1, 0.5, 1.5, -0.25, 12*dTime, "#fb9a99"); //scene 13
+		draw(1.5, -0.25, 1.5, -0.25, 13*dTime, "#fb9a99"); //scene 14
+		draw(1.5, -0.25, 1.5, -0.25, 14*dTime, "#fb9a99") //scene 15
+		draw(1.5, -0.25, 1.5, -0.25, 15*dTime, "#fb9a99"); //scene 16
+		draw(1.5, -0.25, 1.25, 0.375, 16*dTime, "#fb9a99"); //scene 17
+		draw(1.25, 0.375, 0.125, -0.3125, 17*dTime, "#fb9a99"); //scene 18
+		draw(0.125, -0.3125, 0.125, -0.3125, 18*dTime, "#fb9a99"); //scene 19
+		draw(0.125, -0.3125, -0.4375, -0.6562, 19*dTime, "#fb9a99"); //scene 20
+		draw(-0.4375, -0.6562, -0.4375, -0.6562, 20*dTime, "#fb9a99"); //scene 21
+		draw(-0.4375, -0.6562, -0.4375, -0.6562, 21*dTime, "#fb9a99"); //scene 22
+		draw(-0.4375, -0.6562, -0.7188, -0.8281, 22*dTime, "#fb9a99"); //scene 23
+		}
+		
+		}
+
+</script>
+
+</body></html>

@@ -1,0 +1,40 @@
+---
+title: "Praca domowa - choinka"
+author: "Iwona Żochowska"
+date: "December 28, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+```{r , warning=FALSE}
+library("rbokeh")
+set.seed(30)
+t <- seq(0, 10, length = 1000)
+f <- function(a){
+   sin(5*a*pi)*exp(-a/2.5)*sign(round(a-0.5))
+}
+
+N <- 240
+x <- runif(N,0,10)
+y <- runif(N,-0.5,0.5)
+b <- cbind(x,y)
+idx <-  abs(f(b[,1]))-abs(b[,2]) > 0 
+
+p <- figure() %>% ly_points( f(t),t, color = "green") %>% 
+  ly_points(b[idx,2],b[idx,1], color = "red", size = 20, glyph = 18 ) %>% 
+  ly_points(0,10,color="yellow",size = 40, glyph = 18) %>%
+  ly_points(-0.4,0, color = "blue", size = 45, glyph = 12) %>%
+  ly_points(0.2,0, color = "red", size = 55, glyph = 12) %>%
+  ly_points(-0.195,0, color = "orange", size = 60, glyph = 12)
+p
+
+```
+
+
+
+
