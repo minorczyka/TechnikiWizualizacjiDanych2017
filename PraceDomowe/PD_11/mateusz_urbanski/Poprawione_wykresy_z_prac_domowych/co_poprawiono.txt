@@ -1,0 +1,9 @@
+na oryginalnym wykresie linie narysowane w D3 by³ bardzo jasne przez co 
+by³y bardzo s³abo widoczne. Zastosowano bardziej ciemny kolor.
+
+Dodatkowo aby powy¿ej wykresu wyœwietli³ siê opis czego dotyczy linia trzeba by³o na 
+nia precyzyjnie najechaæ. Przy jej szerokoœci oko³o 1px by³o to nie laad wyczynem.
+Poprawiono mechanizm tak, aby zaznaczana by³a linia najbli¿sza pozycji myszki przez
+co wykres sta³ siê kilkukrotnie mniej frustruj¹cy.
+Pogrubienie linii by³o s³aba alternatyw¹ poniewa¿ niektóre linie s¹ bardzo blisko siebie
+wiêc powodowa³o to zlewanie siê linii.
