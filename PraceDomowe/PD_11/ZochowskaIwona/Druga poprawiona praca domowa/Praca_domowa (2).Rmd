@@ -1,0 +1,26 @@
+---
+title: 'Praca_domowa_11'
+author: "Iwona_Zochowska"
+date: "January 13, 2017"
+output: html_document
+---
+
+```{r a, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+source("./PD.R")
+```
+
+W pracy domowej nr. 1 Anton Lenartowich przedstawi³ nastêpuj¹cy wykres:
+```{r b, echo=FALSE, fig.width=10, warning=FALSE}
+  plot <- analiza1()
+  plot
+```
+
+Uwa¿am, ¿e wykres w tej formie utrudnia œledzenie ró¿nic pomiêdzy wspó³czynnikami dobrobytu 0-5. Wed³ug mnie zmiana zakresu osi Y sprawi, ¿e nadal bêdzie wiadomo, ¿e przy wspó³czynniku dobrobytu wiêkszym, ni¿ 5% od wszystkich zarobionych pieniêdzy bêdzie znacz¹co wiêkszy, a jednoczeœnie bêdziem mo¿na porównaæ lepiej rok 2014 z rokiem 2015 dla mniejszych wspó³czynników dobrobytu. Poprzednie oznaczenie ka¿dego s³upka przy tak w¹skim zaokrêgleniu nie pozwala³o na rzetelne porównanie s³upków - np. dwa s³upki o oznaczeniu 0.05 ró¿ni³y siê wysokoœci¹. Moja propozycja wykresu to:
+
+```{r echo=FALSE, fig.width=10, warning=FALSE}
+  plot <- analiza2()
+  plot
+```
+
+
