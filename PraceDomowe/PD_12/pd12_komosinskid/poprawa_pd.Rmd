@@ -1,0 +1,92 @@
+---
+title: "Poprawa pracy domowej"
+author: "Dariusz Komosinski"
+date: "20 stycznia 2018"
+output: html_document
+---
+
+W tej pracy domowej zająłem się poprawieniem pracy domowej PD01 wykonanej przez Annę Niżnik. Dane dotyczyły kawy w Starbucksie.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r, echo=FALSE, include=FALSE}
+library(ggplot2)
+library(dplyr)
+library(ggthemes)
+library(cowplot)
+library(plotly)
+
+setwd("D:\\MATEMATYKA\\MAGISTERKA\\SMAD\\Techniki wizualizacji danych\\PD_12\\pd12_komosinskid")
+
+drinks_expanded <- as.data.frame(read.csv("starbucks_drinkMenu_expanded.csv", header = TRUE, fileEncoding = "UTF-8", dec=".", stringsAsFactors = FALSE))
+drinks_nutrition <- as.data.frame(read.csv("starbucks-menu-nutrition-drinks.csv", header = TRUE, fileEncoding = "UTF-8"))
+
+drinks_expanded$Total.Fat..g. <- as.numeric(drinks_expanded$Total.Fat..g.)
+```
+
+## Wartości odżywcze
+
+Uważam że wykres słupkowy użyty do porównania np. zawartości tłuszczu w danym typie kawy nie został tutaj użyty najlepiej. Pokazanie jak często daną zawartość tłuszcu ma dana kawa niesie ze sobą niewiele informacji. Użytkownik wolałby raczej porównać w jakiej kawie jest najwięcej lub najmniej tłuszczu. Można by było użyć w tym celu wykresu słupkowego uprzednio licząc średnia dla danej kawy. Z racji że dana kawa może mieć różne podtypy, zdecydowałem się te dane przedstawić za pomocą boxplotu, aby uwzględnić wszystkie wartości. Na tym przedmiocie nauczyliśmy się także grafiki interaktywnej, więc nałożyłem również warstwę `ggplotly`, co uatrakcyjnia wykres.
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE,  message=FALSE}
+g1 <- ggplot(drinks_expanded, aes(x=Beverage_category, y=Total.Fat..g.)) +
+  geom_boxplot() +
+  #geom_dotplot(aes(fill=Beverage_prep), binaxis = "y", stackdir="center", dotsize = 0.5)+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))+
+  ylab("Zawartość tłuszczu [g]")
+ggplotly(g1)
+```
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE,  message=FALSE}
+g2 <- ggplot(drinks_expanded, aes(x=Beverage_category, y=Sugars..g.)) +
+  geom_boxplot() +
+  #geom_dotplot(aes(fill=Beverage_prep), binaxis = "y", stackdir="center", dotsize = 0.5)+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))+
+  ylab("Zawartość cukru [g]")
+ggplotly(g2)
+```
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE,  message=FALSE}
+`%nin%` = Negate(`%in%`)
+drinks_expanded2 <- drinks_expanded %>%
+  filter(Caffeine..mg. %nin% c("varies", "Varies"))
+drinks_expanded2$Caffeine..mg. <- as.numeric(drinks_expanded2$Caffeine..mg.)
+
+g3 <- ggplot(drinks_expanded2, aes(x=Beverage_category, y=Caffeine..mg.)) +
+  geom_boxplot() +
+  #geom_dotplot(aes(fill=Beverage_prep), binaxis = "y", stackdir="center", dotsize = 0.5)+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))+
+  ylab("Zawartość kofeiny [mg]")
+ggplotly(g3)
+```
+
+## Kalorie
+
+Na pierwszym wykresie jest moim zdaniem za dużo informacji, co niesie ze sobą chaos informacyjny. Posanowiłem usunąć zatem dane o witaminie A. Powiększyłem kropki, aby łatwiej było je odczytać, a także zastosowałem ich rysowanie w wersji "boxplotowej", co zapobiega sytuacji gdy dana wartość powtarza się kilka razy oraz dodaje nam pewną informację o rozkładzie kalorii.
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE,  message=FALSE}
+distinct_beverage_categories <- drinks_expanded %>% distinct(Beverage_category) %>% select(Beverage_category)
+drinks_expanded$Id <- distinct_beverage_categories[drinks_expanded$Beverage_category,]
+beverage_category_selected <- drinks_expanded %>% filter(Beverage_category %in% c("Classic Espresso Drinks", "Coffee", "Smoothies", "Signature Espresso Drinks", "Shaken Iced Beverages"))
+beverage_category_selected <- beverage_category_selected %>% filter(Beverage_prep %in% c("Short", "Tall", "Grande", "Venti", "2% Milk", "Soymilk"))
+beverage_category_selected <- beverage_category_selected %>% filter(Vitamin.A....DV. %in% c("0%", "10%", "15%", "20%", "25%", "30%"))
+
+g <- ggplot(beverage_category_selected, aes(x=Beverage_prep, y=Calories))+
+  geom_dotplot(aes(color=Beverage_category, fill=Beverage_category), binwidth = 20, binaxis = "y", stackdir = "center", dotsize = 1)
+g
+```
+
+Drugi wykres jest moim zdaniem bardzo dobry, gdyż pokazuje dane zgodne z intuicją - im więcej cukru, tym więcej kalorii. Zamieniłem jednak osie, gdyż zwyczajowo zmienną objaśnianą oznaczamy `y`. Ponadto widzimy wyraźną zależność liniową - zamiast izolinii lepiej jest dodać wyestymowaną prostą która opisuje nam ową zależność. Tu również dodałem warstwę interkatywną.
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE,  message=FALSE}
+g <- ggplot(drinks_expanded, aes(x = Sugars..g., y =  Calories)) + 
+  geom_point() +
+  geom_smooth(method=lm, se=FALSE) +
+  xlab("Zawartość cukru [g]")+
+  ylab("Ilość kalorii")+
+  theme_bw()
+ggplotly(g)
+```
