@@ -1,0 +1,59 @@
+---
+title: "Poprawiony wykres"
+author: "Łukasz Ławniczak"
+date: "11 stycznia 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(dplyr)
+```
+
+Wybrałem do poprawy wykres z pracy Agaty Czajkowskiej (PD 1). Oryginalna wersja dostępna pod adresem: https://rawgit.com/pbiecek/TechnikiWizualizacjiDanych2017/master/PraceDomowe/PD_01/Agata%20Czajkowska/pd1.html. 
+
+W pracy było zawartych więcej wykresów - wybrałem ostatni.
+
+## Oryginalne przedstawienie danych
+
+![](financial_dependence.png)
+
+## Wizualizacja
+
+![](oryginal.png)
+
+Problemy z tym wykresem:
+
+* nieuzasadnione wykorzystanie boxplotów
+* grupowanie po niewłaściwej zmiennej - dane są pogrupowane według zmiennej `Praca` (suma daje 100%), na wykresie pogrupowano je względem zmiennej `Typ`
+* niepotrzebne podpisy osi - z tytułu i wartości na osiach (po dodaniu % do wartości osi y) można je wywnioskować, podobnie z tytułami legend
+* Skala kolorów nie sugeruje porządku między rodzajami niezależności
+
+## Wizualizacja poprawiona
+
+```{r,echo=FALSE,warning=FALSE,fig.align='center',fig.width=7}
+financial_data <- read.csv2("financial_independence.csv") %>%
+  mutate(
+    Praca = factor(Praca, levels=Praca[c(1, 7, 13, 10, 5)]),
+    Typ = factor(Typ, levels=c("Całkowicie niezależni", "Częściowo niezależni", "Całkowicie zależni"))
+  )
+
+ggplot(financial_data,aes(x=Praca, y=Procent, fill=Typ))+
+  geom_col(position=position_stack(reverse=TRUE))+
+  geom_text(data=levels(financial_data["Praca"]), 
+            mapping=aes(label=Praca, x=Praca, y=50))+
+  coord_flip()+
+  scale_fill_brewer(type="div", palette=7, name="") +
+  scale_y_continuous(limits=c(0, 102), expand=c(0,0), name="",
+                     labels=function(brk) paste0(brk, "%")) +
+  scale_x_discrete(name="", expand=c(0,0), breaks=c()) +
+  ggtitle("Niezależność finansowa osób mieszkających z rodzicami \nw kontekście przynależności do grupy społeczno-zawodowej") +
+  theme(legend.position="bottom",
+        plot.title=element_text(hjust=0.5),
+        axis.ticks.y=element_blank(),
+        panel.grid=element_blank(),
+        panel.background=element_blank(),
+        legend.margin=margin(t=-0.5, unit="cm"))
+```
+Na wykresie widać, że zależność częściowa jest podobna w każdej z grup, nie charakteryzuje się tak dużą zmiennością jak całkowita zależność i niezależność. Najbardziej zależni od rodziców są studenci, uczniowie i osoby bezrobotne. Osoby niezależne finansowo to przede pracujący i renciści.
