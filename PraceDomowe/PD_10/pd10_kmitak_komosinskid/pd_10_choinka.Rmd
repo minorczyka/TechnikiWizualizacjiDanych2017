@@ -1,0 +1,89 @@
+---
+title: "Choinka"
+author: "Dariusz Komosinski, Kamil Kmita"
+date: "21 stycznia 2018"
+output: html_document
+---
+
+```{r setup, include=TRUE}
+library(ggiraph)
+library(ggplot2)
+
+
+## 0 liczba losowan
+
+n = 50
+
+
+## 1 ## losowanie z patyka 1
+
+xpatyk1 <- rep(0, times = n)
+ypatyk1 <- runif(n = n, min = -1, max = 1)
+
+xchoinka1 <- runif(n =n, min = -2, max = 0)
+ychoinka1 <- xchoinka1 + 1
+
+x1 <- as.vector(rbind(xpatyk1, xchoinka1))
+y1 <- as.vector(rbind(ypatyk1, ychoinka1))
+
+# df = data.frame(x1, y1)
+
+
+## 2 ## losowanie z patyka 2
+
+xpatyk2 <- rep(0, times = n)
+ypatyk2 <- runif(n = n, min = 1, max = 2.5)
+
+xchoinka2 <- runif(n =n, min = -1.5, max = 0)
+ychoinka2 <- xchoinka2 + 2
+#xchoinka2 <- xchoinka2-0.5
+
+x2 <- as.vector(rbind(xpatyk2, xchoinka2))
+y2 <- as.vector(rbind(ypatyk2, ychoinka2))
+
+df = data.frame(x=c(x1,x2), y=c(y1,y2))
+
+# ggplot(df, aes(x, y)) + geom_path()
+
+
+## 3 ## losowanie z patyka 3
+
+
+xpatyk3 <- rep(0, times = n)
+ypatyk3 <- runif(n = n, min = 2.5, max = 3.5)
+
+xchoinka3 <- runif(n =n, min = -1, max = 0)
+ychoinka3 <- xchoinka3 + 3
+#xchoinka2 <- xchoinka2-0.5
+
+x3 <- as.vector(rbind(xpatyk3, xchoinka3))
+y3 <- as.vector(rbind(ypatyk3, ychoinka3))
+
+df = data.frame(x=c(x1,x2,x3), y=c(y1,y2,y3))
+
+## 4 ## symetria
+
+df2 = df
+df2$x = -df2$x
+
+dff = rbind(df, df2)
+
+## 5 ## natezenie 
+
+
+dff$kolor <- rnorm(n=n, mean=10, sd=5)
+
+zyczenia <- c("Wesolych Swiat", "Feliz Navidad", "Frohliche Weihnachten", "Merry Christmas")
+dff$zyczenia <- sample(x = zyczenia, size = nrow(dff), replace = TRUE)
+
+## kol
+p <- ggplot(dff, aes(x, y, color = kolor)) + 
+  geom_path() + 
+  scale_colour_gradient(low = "black", high = "green") +
+  theme_bw() +
+  geom_point_interactive(aes(tooltip = zyczenia), size = 2)
+
+
+ggiraph(code = print(p))
+
+```
